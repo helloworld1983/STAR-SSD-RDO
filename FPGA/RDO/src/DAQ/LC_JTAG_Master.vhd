@@ -79,7 +79,19 @@ ARCHITECTURE LC_JTAG_Master_arch OF LC_JTAG_Master IS
 
    SIGNAL sReturn_to_idle : STD_LOGIC;
    SIGNAL sTdo_latch_flag : STD_LOGIC;
-
+	
+   SIGNAL sTCK : STD_LOGIC;
+   SIGNAL sTMS : STD_LOGIC;
+   SIGNAL sTDI : STD_LOGIC;
+   SIGNAL sTDO : STD_LOGIC;
+   -- The KEEP ATTRIBUTE prevents ISE from palcing the signals into the LUT and thus
+   -- negating the intention the pipeline the signal to ease the timing
+   ATTRIBUTE KEEP : STRING;
+   ATTRIBUTE KEEP OF sTCK : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF sTMS : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF sTDI : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF sTDO : SIGNAL IS "TRUE";
+	
 BEGIN  -- ARCHITECTURE JTAG_maser_arch
 
    sJTAG_commad <= DATA_TDI(10 DOWNTO 8);
@@ -95,8 +107,8 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
    JTAG_STATES : PROCESS (CLK40, RST) IS
    BEGIN  -- PROCESS JTAG_STATES
       IF RST = '1' THEN                 -- asynchronous reset (active high)
-			TDI <= '0';								-- Luis Ardila Nov 6 2013
-			TMS <= '0';								-- Luis Ardila Nov 6 2013
+			sTDI <= '0';								-- Luis Ardila Nov 6 2013
+			sTMS <= '0';								-- Luis Ardila Nov 6 2013
          sSrg_tdo_latch <= (OTHERS => '0');
          sState         <= IDLE;
       ELSIF rising_edge(CLK40) THEN  -- rising clock edge
@@ -134,9 +146,9 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
             WHEN WRITE_FIRST =>
                --BUSY_JTAG <= '1';
                -- update TMS and TDI
-               TDI     <= sSrg_tdi (0);
+               sTDI     <= sSrg_tdi (0);
                sSrg_tdi <= '0' & sSrg_tdi (7 DOWNTO 1);
-               TMS     <= sSrg_tms (0);
+               sTMS     <= sSrg_tms (0);
                sSrg_tms <= '0' & sSrg_tms (7 DOWNTO 1);
                sCnt_srg <= sCnt_srg - 1;
 
@@ -145,13 +157,13 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
                --BUSY_JTAG <= '1';
                IF sTCK_LH_edge = '1' THEN
                   -- read TDO
-                  sSrg_tdo <= TDO & sSrg_tdo (7 DOWNTO 1);
+                  sSrg_tdo <= sTDO & sSrg_tdo (7 DOWNTO 1);
                END IF;
                IF sTCK_HL_edge = '1' THEN
                   -- update TMS and TDI
-                  TDI     <= sSrg_tdi (0);
+                  sTDI     <= sSrg_tdi (0);
                   sSrg_tdi <= '0' & sSrg_tdi (7 DOWNTO 1);
-                  TMS     <= sSrg_tms (0);
+                  sTMS     <= sSrg_tms (0);
                   sSrg_tms <= '0' & sSrg_tms (7 DOWNTO 1);
                END IF;
                IF sTCK_HL_edge = '1' THEN
@@ -171,7 +183,7 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
                         sReturn_to_idle <= '0';
                         sCnt_srg        <= 1;
                         sSrg_tms        <= x"01";
-                        TMS            <= '1';
+                        sTMS            <= '1';
                         sState          <= SHIFT_R;
                      ELSE
                         sState <= WAIT_DONE;
@@ -232,14 +244,14 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
    TCK_GEN : PROCESS (CLK40, RST) IS
    BEGIN  -- PROCESS TCK_GEN
       IF RST = '1' THEN                 	-- asynchronous reset (active high)
-			TCK     <= '0';						-- Luis Ardila Nov 6 2013
+			sTCK     <= '0';						-- Luis Ardila Nov 6 2013
          sState_tck <= IDLE;
       ELSIF rising_edge(CLK40) THEN  -- rising clock edge
          sTCK_LH_edge <= '0';
          sTCK_HL_edge <= '0';
          CASE sState_tck IS
             WHEN IDLE =>
-               TCK     <= '0';
+               sTCK     <= '0';
                sCnt_tck <= TCK_DIVIDER;
                IF sState = IDLE OR sState = WAIT_DONE THEN
                   sState_tck <= IDLE;
@@ -247,7 +259,7 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
                   sState_tck <= TCK_LOW;
                END IF;
             WHEN TCK_LOW =>
-               TCK     <= '0';
+               sTCK     <= '0';
                sCnt_tck <= sCnt_tck - 1;
                IF sCnt_tck >= 0 THEN
                   sState_tck <= TCK_LOW;
@@ -257,7 +269,7 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
                   sState_tck   <= TCK_HIGH;
                END IF;
             WHEN TCK_HIGH =>
-               TCK     <= '1';
+               sTCK     <= '1';
                sCnt_tck <= sCnt_tck - 1;
                IF sCnt_tck >= 0 THEN
                   sState_tck <= TCK_HIGH;
@@ -270,5 +282,15 @@ BEGIN  -- ARCHITECTURE JTAG_maser_arch
          END CASE;
       END IF;
    END PROCESS TCK_GEN;
+	
+   PIPELINE_JTAG : PROCESS (CLK40) IS
+   BEGIN
+      IF rising_edge(CLK40) THEN
+         TDI  <= sTDI;
+         TMS  <= sTMS;
+         TCK  <= sTCK;
+         sTDO <= TDO;
+      END IF;		
+   END PROCESS PIPELINE_JTAG;	
 
 END ARCHITECTURE LC_JTAG_Master_arch;

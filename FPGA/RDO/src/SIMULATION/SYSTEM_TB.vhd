@@ -274,9 +274,9 @@ COMPONENT LC_SIMU_LA IS
 END COMPONENT LC_SIMU_LA;
 	
 	--GENERAL
-   signal sCLK40 : std_logic := '1';
-   signal sCLK80 : std_logic := '1';
-   signal sRST : std_logic := '0';
+   signal sCLK40 : std_logic := '0';
+   signal sCLK80 : std_logic := '0';
+   signal sRST : std_logic := '1';
 	-------CONSTANTS 
    CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"01";  --TEMPORAL
    CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0005";  -- RDO project number
@@ -594,7 +594,7 @@ mft2232h_instA : M_FT2232H
 ---------------------------------------------> USB_DECODER             
 
 
-LC : FOR i IN 0 TO 6 GENERATE
+LC : FOR i IN 0 TO 7 GENERATE
 	sLC_SERIAL(i) <= STD_LOGIC_VECTOR(TO_UNSIGNED(i,3)) & STD_LOGIC_VECTOR(TO_UNSIGNED(i,3));
 	LC_SIMU_LA_inst : LC_SIMU_LA
 	PORT MAP(
@@ -634,9 +634,14 @@ LC : FOR i IN 0 TO 6 GENERATE
    -- Stimulus process
    stim_proc: process
    begin		
+    sRST <= '1';
       -- hold reset state for 100 ns.
 		sRST <= '1';
       wait for 1000 ns;	
+		sRST <= '0';
+	  wait for 1000 ns;	
+	  sRST <= '1'; 
+	  wait for 1000 ns;	
 		sRST <= '0';
       wait for sCLK40_period*10;
 
@@ -648,10 +653,26 @@ LC : FOR i IN 0 TO 6 GENERATE
 	full : PROCESS 
   
   BEGIN 
-	WAIT FOR 1200 us;
+	WAIT FOR 9000 us;
 	WAIT FOR 300 ns;
 	sSiu_fifoRdreq <= '1';
-   WAIT;
+	WHILE 1=1 LOOP
+	WAIT FOR 300 ns;
+	sSiu_fifoRdreq <= '0';
+	WAIT FOR 300 ns;
+	sSiu_fifoRdreq <= '1';
+	WAIT FOR 300 ns;
+	sSiu_fifoRdreq <= '0';
+	WAIT FOR 300 ns;
+	sSiu_fifoRdreq <= '1';
+	WAIT FOR 300 ns;
+	sSiu_fifoRdreq <= '0';
+	WAIT FOR 1300 ns;
+	sSiu_fifoRdreq <= '1';
+	WAIT FOR 300 ns;
+	sSiu_fifoRdreq <= '1';
+	END LOOP;
+  WAIT;
   END PROCESS;
 
 END;

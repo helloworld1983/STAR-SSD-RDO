@@ -98,6 +98,7 @@ ARCHITECTURE simulation_arch OF fifo36x32k_synth IS
     SIGNAL wr_clk_i                       :   STD_LOGIC;
     SIGNAL rd_clk_i                       :   STD_LOGIC;
     SIGNAL rst	                          :   STD_LOGIC;
+    SIGNAL prog_full                      :   STD_LOGIC;
     SIGNAL wr_en                          :   STD_LOGIC;
     SIGNAL rd_en                          :   STD_LOGIC;
     SIGNAL din                            :   STD_LOGIC_VECTOR(36-1 DOWNTO 0);
@@ -253,6 +254,7 @@ ARCHITECTURE simulation_arch OF fifo36x32k_synth IS
            WR_CLK                    => wr_clk_i,
            RD_CLK                    => rd_clk_i,
            RST                       => rst,
+           PROG_FULL                 => prog_full,
            WR_EN 		     => wr_en,
            RD_EN                     => rd_en,
            DIN                       => din,

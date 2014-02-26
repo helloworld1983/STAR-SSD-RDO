@@ -91,8 +91,8 @@ tcd_proc : PROCESS
     END PROCEDURE trg_frame;
 	 
 BEGIN
-
-	 WAIT FOR 1000 ns;
+   WHILE 1=1 LOOP
+	 WAIT FOR 1500 us;
 	 WAIT UNTIL rising_edge(RS);
 	 trg_frame(x"F", x"5", x"121", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"122", RS, RSx5, TCD_DATA);
@@ -112,7 +112,7 @@ BEGIN
 	 WAIT FOR 1500 us;
 	 WAIT UNTIL rising_edge(RS);
 	 WAIT FOR TCD_RS_PERIOD*5;
---	 WAIT UNTIL Busy_Combined = '0';
+	 WAIT UNTIL Busy_Combined = '0';
 	 trg_frame(x"4", x"2", x"123", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"3", x"123", RS, RSx5, TCD_DATA);
     WAIT FOR TCD_RS_PERIOD*20;
@@ -126,6 +126,7 @@ BEGIN
 	 WAIT FOR TCD_RS_PERIOD*20;
 	 WAIT UNTIL Busy_Combined = '0';
 	 trg_frame(x"4", x"2", x"126", RS, RSx5, TCD_DATA);
+	 END LOOP;
 	 WAIT;
 END PROCESS;
 

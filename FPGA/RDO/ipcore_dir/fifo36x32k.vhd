@@ -7,14 +7,14 @@
 -- \   \   \/     Version: P.58f
 --  \   \         Application: netgen
 --  /   /         Filename: fifo36x32k.vhd
--- /___/   /\     Timestamp: Fri Feb 21 18:22:24 2014
+-- /___/   /\     Timestamp: Tue Feb 25 11:13:13 2014
 -- \   \  /  \ 
 --  \___\/\___\
 --             
--- Command	: -w -sim -ofmt vhdl C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x32k.ngc C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x32k.vhd 
--- Device	: 6vlx240tff1759-1
--- Input file	: C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x32k.ngc
--- Output file	: C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x32k.vhd
+-- Command	: -w -sim -ofmt vhdl C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x32k.ngc C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x32k.vhd 
+-- Device	: 6vlx240tff1759-2
+-- Input file	: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x32k.ngc
+-- Output file	: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x32k.vhd
 -- # of Entities	: 2
 -- Design Name	: fifo36x32k
 -- Xilinx	: C:\Xilinx\14.5\ISE_DS\ISE\
@@ -339,6 +339,7 @@ entity fifo36x32k is
     rd_en : in STD_LOGIC := 'X'; 
     full : out STD_LOGIC; 
     empty : out STD_LOGIC; 
+    prog_full : out STD_LOGIC; 
     din : in STD_LOGIC_VECTOR ( 35 downto 0 ); 
     dout : out STD_LOGIC_VECTOR ( 35 downto 0 ) 
   );
@@ -1582,8 +1583,6 @@ architecture STRUCTURE of fifo36x32k is
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_8_gbldl_inst_prim_gf36e1_inst_sngfifo36e1_WRCOUNT_0_UNCONNECTED : STD_LOGIC;
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED : STD_LOGIC;
- 
-  signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED : STD_LOGIC;
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_RDERR_UNCONNECTED : STD_LOGIC;
  
@@ -2997,8 +2996,6 @@ architecture STRUCTURE of fifo36x32k is
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED : STD_LOGIC;
  
-  signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED : STD_LOGIC;
- 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_RDERR_UNCONNECTED : STD_LOGIC;
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_WRERR_UNCONNECTED : STD_LOGIC;
@@ -4410,8 +4407,6 @@ architecture STRUCTURE of fifo36x32k is
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_7_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_WRCOUNT_0_UNCONNECTED : STD_LOGIC;
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED : STD_LOGIC;
- 
-  signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED : STD_LOGIC;
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_RDERR_UNCONNECTED : STD_LOGIC;
  
@@ -5825,8 +5820,6 @@ architecture STRUCTURE of fifo36x32k is
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED : STD_LOGIC;
  
-  signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED : STD_LOGIC;
- 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_RDERR_UNCONNECTED : STD_LOGIC;
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_WRERR_UNCONNECTED : STD_LOGIC;
@@ -7238,6 +7231,7 @@ architecture STRUCTURE of fifo36x32k is
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_7_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_WRCOUNT_0_UNCONNECTED : STD_LOGIC;
  
   signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rd_rst_i : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf : STD_LOGIC_VECTOR ( 4 downto 1 ); 
   signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_emp : STD_LOGIC_VECTOR ( 4 downto 1 ); 
   signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_ful : STD_LOGIC_VECTOR ( 4 downto 1 ); 
 begin
@@ -8934,7 +8928,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -8950,9 +8944,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
       ALMOSTEMPTY => 
 NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED
 ,
-      ALMOSTFULL => 
-NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED
-,
+      ALMOSTFULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(4),
       DBITERR => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_dbiterr_row_1_Q,
       EMPTY => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_emp_1_Q,
       FULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_ful(4),
@@ -9348,7 +9340,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_2_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -9762,7 +9754,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_3_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -10176,7 +10168,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_4_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -10590,7 +10582,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_5_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -11004,7 +10996,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_6_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -11418,7 +11410,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_gchain_gp1_7_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -11832,7 +11824,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -11848,9 +11840,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_i
       ALMOSTEMPTY => 
 NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED
 ,
-      ALMOSTFULL => 
-NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED
-,
+      ALMOSTFULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(3),
       DBITERR => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_dbiterr_row_1_Q,
       EMPTY => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_emp_1_Q,
       FULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_ful(3),
@@ -12246,7 +12236,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_2_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -12660,7 +12650,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_3_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -13074,7 +13064,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_4_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -13488,7 +13478,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_5_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -13902,7 +13892,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_6_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -14316,7 +14306,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_inst_extd_gchain_gp1_7_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -14730,7 +14720,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -14746,9 +14736,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_3_gnll_fifo_i
       ALMOSTEMPTY => 
 NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED
 ,
-      ALMOSTFULL => 
-NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED
-,
+      ALMOSTFULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(2),
       DBITERR => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_dbiterr_row_1_Q,
       EMPTY => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_emp_1_Q,
       FULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_ful(2),
@@ -15144,7 +15132,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_2_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -15558,7 +15546,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_3_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -15972,7 +15960,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_4_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -16386,7 +16374,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_5_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -16800,7 +16788,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_6_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -17214,7 +17202,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_inst_extd_gchain_gp1_7_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -17628,7 +17616,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -17644,9 +17632,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_2_gnll_fifo_i
       ALMOSTEMPTY => 
 NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTEMPTY_UNCONNECTED
 ,
-      ALMOSTFULL => 
-NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_1_gbldc_inst_prim_gf36e1_inst_sngfifo36e1_ALMOSTFULL_UNCONNECTED
-,
+      ALMOSTFULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(1),
       DBITERR => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_dbiterr_row_1_Q,
       EMPTY => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_emp_1_Q,
       FULL => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_ful(1),
@@ -18042,7 +18028,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_2_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -18456,7 +18442,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_3_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -18870,7 +18856,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_4_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -19284,7 +19270,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_5_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -19698,7 +19684,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_6_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -20112,7 +20098,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gchain_gp1_7_gbldc_inst_prim_gf36e1_inst_sngfifo36e1 : FIFO36E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"000A",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"002E",
       DATA_WIDTH => 9,
       DO_REG => 1,
       EN_ECC_READ => FALSE,
@@ -20820,6 +20806,17 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
       I0 => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_emp_7_Q,
       I1 => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_ful_8_Q,
       O => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_4_gnll_fifo_inst_extd_e_7_Q
+    );
+  U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_out21 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(4),
+      I1 => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(3),
+      I2 => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(2),
+      I3 => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_pf(1),
+      O => prog_full
     );
 
 end STRUCTURE;

@@ -3,6 +3,7 @@ _xmsgs\pn_parser.xmsgs
 fifo36x32k.asy
 fifo36x32k.gise
 fifo36x32k.ngc
+fifo36x32k.sym
 fifo36x32k.vhd
 fifo36x32k.vho
 fifo36x32k.xco
