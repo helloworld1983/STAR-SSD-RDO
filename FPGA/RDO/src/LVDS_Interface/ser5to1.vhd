@@ -7,7 +7,7 @@
 -- Author     : Thorsten
 -- Company    : LBNL
 -- Created    : 2014-01-08
--- Last update: 2014-02-03
+-- Last update: 2014-02-27
 -- Platform   : Windows, Xilinx ISE 14.5
 -- Target     : Virtex-6 (XC6VLX240T-FF1759)
 -- Standard   : VHDL'93/02
@@ -88,6 +88,13 @@ ARCHITECTURE ser5to1_arch OF ser5to1 IS
 
    SIGNAL eye_tap    : STD_LOGIC_VECTOR (5 DOWNTO 0);
    SIGNAL coarse_sel : INTEGER RANGE 0 TO 4;
+
+   -- The KEEP ATTRIBUTE prevents ISE from palcing the signals into the LUT and thus
+   -- negating the intention the pipeline the signal to ease the timing
+   ATTRIBUTE KEEP              : STRING;
+   ATTRIBUTE KEEP OF srg_shift : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF sDDR_P    : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF sDDR_N    : SIGNAL IS "TRUE";
 
 BEGIN  -- ARCHITECTURE ser5to1_arch
 

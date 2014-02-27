@@ -7,7 +7,7 @@
 -- Author     : Joachim Schambach
 -- Company    : University of Texas
 -- Created    : 2012-12-29
--- Last update: 2013-03-19
+-- Last update: 2014-02-27
 -- Platform   : Windows, Xilinx ISE 13.4
 -- Target     : Virtex-6 (XC6VLX240T-FF1759)
 -- Standard   : VHDL'93/02
@@ -22,6 +22,12 @@
 -- Date        Version  Author          Description
 -- 2012-12-29  1.0      jschamba        Created
 -- 2014-01-21  1.1      thorsten        init resync if expected AAAA is missing
+-- 2014-02-26  1.2      thorsten        added wait states due to USB comm error
+-- 2014-02-26  1.3      thorsten        changed read statemachine to ensure
+--                                      sLatchData is issued when sRxf_n is
+--                                      back high. The write FSM stared to
+--                                      early and saw the sRxf_n still low;
+--                                      aborting the write cycle
 -------------------------------------------------------------------------------
 
 LIBRARY IEEE;
@@ -76,12 +82,22 @@ ARCHITECTURE rtl OF M_FT2232H IS
 
    --
 
-   SIGNAL sClkout       : STD_LOGIC;
-   SIGNAL sSiwu         : STD_LOGIC;
-   SIGNAL sRd_n         : STD_LOGIC;    -- Read from FIFO
-   SIGNAL sWr_n         : STD_LOGIC;    -- Write to FIFO
-   SIGNAL sRxf_n        : STD_LOGIC;    -- Read Enable
-   SIGNAL sTxe_n        : STD_LOGIC;    -- Write Enable
+   SIGNAL sClkout            : STD_LOGIC;
+   SIGNAL sSiwu              : STD_LOGIC;
+   SIGNAL sRd_n              : STD_LOGIC;  -- Read from FIFO
+   SIGNAL sWr_n              : STD_LOGIC;  -- Write to FIFO
+   SIGNAL sRxf_n             : STD_LOGIC;  -- Read Enable
+   SIGNAL sTxe_n             : STD_LOGIC;  -- Write Enable
+   SIGNAL ssRxf_n            : STD_LOGIC;  -- Read Enable
+   SIGNAL ssTxe_n            : STD_LOGIC;  -- Write Enable
+   -- The KEEP ATTRIBUTE prevents ISE from palcing the signals into the LUT and thus
+   -- negating the intention the pipeline the signal to ease the timing
+   ATTRIBUTE KEEP            : STRING;
+   ATTRIBUTE KEEP OF sRxf_n  : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF sTxe_n  : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF ssRxf_n : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF ssTxe_n : SIGNAL IS "TRUE";
+
    SIGNAL sOe_n         : STD_LOGIC;    -- Output Enable
    --
    SIGNAL sCmdFifoWrClk : STD_LOGIC;
@@ -98,16 +114,21 @@ ARCHITECTURE rtl OF M_FT2232H IS
       RdStateIni0,
       RdStateIni1,
       RdStateIni1a,
+      RdStateIni1b,
       RdStateIni2,
       RdStateIni3,
       RdStateIni4,
       RdStateIni5,
       RdStateIni5a,
+      RdStateIni5b,
       RdStateIni6,
-      RdStateIni7,
+      RdStateIni7a,
+      RdStateIni7b,
+      RdStateIni8,
       RdState0,
       RdState1,
       RdState1a,
+      RdState1b,
       RdState2,
       RdState3
       );
@@ -117,6 +138,7 @@ ARCHITECTURE rtl OF M_FT2232H IS
       WrState0,
       WrState1,
       WrState2,
+      WrState2b,
       WrState3,
       WrState4
       );
@@ -140,8 +162,16 @@ BEGIN
    -- C(7) : not connected
 
    -- inputs
-   sRxf_n  <= RXF_n;
-   sTxe_n  <= TXE_n;
+   Sync : PROCESS (CLK) IS
+   BEGIN
+      IF rising_edge(CLK) THEN
+         -- register the input signals to avoid metastability
+         sRxf_n  <= ssRxf_n;
+         sTxe_n  <= ssTxe_n;
+         ssRxf_n <= RXF_n;
+         ssTxe_n <= TXE_n;
+      END IF;
+   END PROCESS Sync;
    sClkout <= CLKOUT;                   -- only in "sync FIFO" config
 
    -- outputs
@@ -217,6 +247,10 @@ BEGIN
 
             WHEN RdStateIni1a =>        -- make sure RD_N > 30ns
                sRd_n   <= '0';          -- read it
+               rdState <= RdStateIni1b;
+
+            WHEN RdStateIni1b =>        -- make sure RD_N > 30ns
+               sRd_n   <= '0';          -- read it
                rdState <= RdStateIni2;
 
             WHEN RdStateIni2 =>
@@ -256,7 +290,12 @@ BEGIN
 
             WHEN RdStateIni5a =>        -- make sure RD_N > 30ns
                sRd_n   <= '0';          -- read it
+               rdState <= RdStateIni5b;
+
+            WHEN RdStateIni5b =>        -- make sure RD_N > 30ns
+               sRd_n   <= '0';          -- read it
                rdState <= RdStateIni6;
+
 
             WHEN RdStateIni6 =>
                sRcvdData(31 DOWNTO 24) <= D_IN;  -- latch byte
@@ -265,29 +304,48 @@ BEGIN
 
                IF (sRxf_n = '0') AND (D_IN = x"aa") THEN
                   -- latch 32bit word
-                  sLatchData <= '1';
-                  byteCtr    <= 0;
-                  rdState    <= RdStateIni7;
+                  byteCtr <= 0;
+                  rdState <= RdStateIni7a;
                ELSIF sRxf_n = '0' THEN
-                  rdState <= RdStateIni7;
+                  rdState <= RdStateIni7b;
                ELSIF D_IN = x"aa" THEN
                   -- latch 32bit word
-                  sLatchData <= '1';
-                  byteCtr    <= 0;
-                  rdState    <= RdState0;
+                  byteCtr <= 0;
+                  rdState <= RdStateIni8;
                ELSE
                   rdState <= RdStateIni0;
                END IF;
 
-            WHEN RdStateIni7 =>
+            WHEN RdStateIni7a =>
                sRd_n <= '1';
                -- wait for "Read Ready" to go back high
                IF sRxf_n = '0' THEN
-                  rdState <= RdStateIni7;
+                  rdState <= RdStateIni7a;
+               ELSIF sRcvdData(31 DOWNTO 24) = x"aa" THEN
+                  sLatchData <= '1';
+                  rdState    <= RdState0;
+               ELSE
+                  sLatchData <= '1';
+                  rdState    <= RdStateIni0;
+               END IF;
+
+            WHEN RdStateIni7b =>
+               sRd_n <= '1';
+               -- wait for "Read Ready" to go back high
+               IF sRxf_n = '0' THEN
+                  rdState <= RdStateIni7b;
                ELSIF sRcvdData(31 DOWNTO 24) = x"aa" THEN
                   rdState <= RdState0;
                ELSE
                   rdState <= RdStateIni0;
+               END IF;
+
+            WHEN RdStateIni8 =>
+               IF sRxf_n = '0' THEN
+                  rdState <= RdStateIni8;
+               ELSE
+                  sLatchData <= '1';
+                  rdState    <= RdState0;
                END IF;
 
             WHEN RdState0 =>
@@ -303,23 +361,27 @@ BEGIN
 
             WHEN RdState1a =>           -- make sure RD_N > 30ns
                sRd_n   <= '0';          -- read it
+               rdState <= RdState1b;
+
+            WHEN RdState1b =>           -- make sure RD_N > 30ns
+               sRd_n   <= '0';          -- read it
                rdState <= RdState2;
 
             WHEN RdState2 =>
                sRcvdData(31 DOWNTO 24) <= D_IN;  -- latch byte
                sRcvdData(23 DOWNTO 0)  <= sRcvdData(31 DOWNTO 8);  -- shift it
                sRd_n                   <= '1';
-               IF byteCtr = 3 THEN
-                  -- latch 32bit word
-                  sLatchData <= '1';
-                  byteCtr    <= 0;
-               ELSE
-                  byteCtr <= byteCtr + 1;
-               END IF;
 
                -- If "Read Ready" still low, wait in the next state,
                -- otherwise, continue to next byte
                IF sRxf_n = '1' THEN
+                  IF byteCtr = 3 THEN
+                     -- latch 32bit word
+                     sLatchData <= '1';
+                     byteCtr    <= 0;
+                  ELSE
+                     byteCtr <= byteCtr + 1;
+                  END IF;
                   rdState <= RdState0;
                ELSE
                   rdState <= RdState3;
@@ -329,6 +391,13 @@ BEGIN
                sRd_n <= '1';
                -- wait for "Read Ready" to go back high
                IF sRxf_n = '1' THEN
+                  IF byteCtr = 3 THEN
+                     -- latch 32bit word
+                     sLatchData <= '1';
+                     byteCtr    <= 0;
+                  ELSE
+                     byteCtr <= byteCtr + 1;
+                  END IF;
                   rdState <= RdState0;
                ELSE
                   rdState <= RdState3;
@@ -346,16 +415,21 @@ BEGIN
                -- start new "Read" transaction
                sCmdFifoWrreq <= '0';
                sRdCtr        <= sRcvdData(7 DOWNTO 0);
-            ELSIF sRdCtr = x"00" THEN
+            ELSIF ((sRdCtr = x"00") AND NOT (sRcvdData(31 DOWNTO 16) = x"AAAB")) THEN
                -- "Read" transaction finished
                sRdCtr        <= sRdCtr;
                sCmdFifoWrreq <= '0';
                -- this should never happen try to find sync again
-               rdState <= RdStateIni0;
+               rdState       <= RdStateIni0;
             ELSE
                -- "Read" transaction
-               sRdCtr        <= SRdCtr - 1;
-               sCmdFifoWrreq <= '1';
+               IF sRdCtr = x"00" THEN
+                  sRdCtr        <= sRdCtr;
+                  sCmdFifoWrreq <= '0';
+               ELSE
+                  sRdCtr        <= sRdCtr - 1;
+                  sCmdFifoWrreq <= '1';                  
+               END IF;
             END IF;
          END IF;
 
@@ -410,8 +484,11 @@ BEGIN
                   wrState <= WrState0;
                ELSIF sTxe_n = '0' THEN
                   -- wait for TX Enable low
-                  wrState <= WrState3;
+                  wrState <= WrState2b;
                END IF;
+
+            WHEN WrState2b =>
+               wrState <= WrState3;
 
             WHEN WrState3 =>
                sOE_n <= '0';

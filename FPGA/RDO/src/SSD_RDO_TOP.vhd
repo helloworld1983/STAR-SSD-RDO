@@ -426,8 +426,6 @@ END COMPONENT M_FT2232H;
          );
    END COMPONENT USB_DECODER;
 
-
-
    ---------------------------------------------< Reset signals
    SIGNAL sClkRST    : STD_LOGIC;
    SIGNAL sGlobalRST : STD_LOGIC;
@@ -653,7 +651,7 @@ END COMPONENT M_FT2232H;
 
 
    CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"01";  --TEMPORAL
-   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0011";  -- RDO project number
+   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0015";  -- RDO project number
 
 -------------------------------------------------------------------------------
 -- ****************************************************************************
@@ -826,6 +824,7 @@ BEGIN
 
    -- defaults for now:
    sSiu_rst <= sGlobalRst;
+
 
 
 --  sSiu_FifoQ        <= (OTHERS => '0');

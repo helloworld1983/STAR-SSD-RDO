@@ -7,7 +7,7 @@
 -- Author     : Thorsten
 -- Company    : LBNL
 -- Created    : 2014-01-08
--- Last update: 2014-02-14
+-- Last update: 2014-02-27
 -- Platform   : Windows, Xilinx ISE 14.5
 -- Target     : Virtex-6 (XC6VLX240T-FF1759)
 -- Standard   : VHDL'93/02
@@ -66,24 +66,24 @@ END ENTITY des1to5;
 
 ARCHITECTURE des1to5_arch OF des1to5 IS
 
-   SIGNAL DDR_IN : STD_LOGIC;
-   SIGNAL DDR_P  : STD_LOGIC;
-   SIGNAL DDR_N  : STD_LOGIC;
-   SIGNAL DDR_P_d  : STD_LOGIC_VECTOR (1 DOWNTO 0);
-   SIGNAL DDR_N_d  : STD_LOGIC_VECTOR (1 DOWNTO 0);
+   SIGNAL DDR_IN  : STD_LOGIC;
+   SIGNAL DDR_P   : STD_LOGIC;
+   SIGNAL DDR_N   : STD_LOGIC;
+   SIGNAL DDR_P_d : STD_LOGIC_VECTOR (1 DOWNTO 0);
+   SIGNAL DDR_N_d : STD_LOGIC_VECTOR (1 DOWNTO 0);
 
    SIGNAL tap     : STD_LOGIC_VECTOR (5 DOWNTO 0);
    SIGNAL rst_tap : STD_LOGIC;
 
-   CONSTANT SRG_LENGTH  : INTEGER := 10;
-   SIGNAL srg_in        : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
-   SIGNAL d_at40M       : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
-   SIGNAL d_edge        : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
-   SIGNAL d_edge_old    : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
-   SIGNAL change_flag   : STD_LOGIC;
-   SIGNAL edge_flag     : STD_LOGIC;
-   SIGNAL eval_old      : STD_LOGIC;
-   SIGNAL srg_change : STD_LOGIC_VECTOR (7 DOWNTO 0);
+   CONSTANT SRG_LENGTH : INTEGER := 10;
+   SIGNAL srg_in       : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
+   SIGNAL d_at40M      : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
+   SIGNAL d_edge       : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
+   SIGNAL d_edge_old   : STD_LOGIC_VECTOR (SRG_LENGTH-1 DOWNTO 0);
+   SIGNAL change_flag  : STD_LOGIC;
+   SIGNAL edge_flag    : STD_LOGIC;
+   SIGNAL eval_old     : STD_LOGIC;
+   SIGNAL srg_change   : STD_LOGIC_VECTOR (7 DOWNTO 0);
 
    SIGNAL edge_g2b : UNSIGNED (5 DOWNTO 0);
    SIGNAL edge_b2g : UNSIGNED (5 DOWNTO 0);
@@ -91,6 +91,14 @@ ARCHITECTURE des1to5_arch OF des1to5 IS
    SIGNAL eye_tap : STD_LOGIC_VECTOR (5 DOWNTO 0);
 
    SIGNAL coarse_sel : INTEGER RANGE 0 TO 4;
+
+   -- The KEEP ATTRIBUTE prevents ISE from palcing the signals into the LUT and thus
+   -- negating the intention the pipeline the signal to ease the timing
+   ATTRIBUTE KEEP              : STRING;
+   ATTRIBUTE KEEP OF DDR_P     : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF DDR_N     : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF DDR_P_d   : SIGNAL IS "TRUE";
+   ATTRIBUTE KEEP OF DDR_N_d   : SIGNAL IS "TRUE";
 
 BEGIN  -- ARCHITECTURE des1to5_arch
 
@@ -144,14 +152,14 @@ BEGIN  -- ARCHITECTURE des1to5_arch
 
    IDDR_inst : IDDR
       GENERIC MAP (
-         DDR_CLK_EDGE => "SAME_EDGE", --"OPPOSITE_EDGE",  -- "OPPOSITE_EDGE", "SAME_EDGE"
+         DDR_CLK_EDGE => "SAME_EDGE",  --"OPPOSITE_EDGE",  -- "OPPOSITE_EDGE", "SAME_EDGE"
 -- or "SAME_EDGE_PIPELINED"
          INIT_Q1      => '0',           -- Initial value of Q1: ¡¯0¡¯ or ¡¯1¡¯
          INIT_Q2      => '0',           -- Initial value of Q2: ¡¯0¡¯ or ¡¯1¡¯
          SRTYPE       => "SYNC")        -- Set/Reset type: "SYNC" or "ASYNC"
       PORT MAP (
-         Q1 => DDR_P,          -- 1-bit output for positive edge of clock
-         Q2 => DDR_N,          -- 1-bit output for negative edge of clock
+         Q1 => DDR_P,  -- 1-bit output for positive edge of clock
+         Q2 => DDR_N,  -- 1-bit output for negative edge of clock
          C  => iCLK200,                 -- 1-bit clock input
          CE => '1',                     -- 1-bit clock enable input
          D  => DDR_IN,                  -- 1-bit DDR data input
@@ -161,11 +169,11 @@ BEGIN  -- ARCHITECTURE des1to5_arch
 
    -- deley the DDR signals to move the coarse adjustment to the middle of the
    -- range
-   DDR_COARSE_SHIFT: PROCESS (iCLK200, iRST) IS
+   DDR_COARSE_SHIFT : PROCESS (iCLK200, iRST) IS
    BEGIN  -- PROCESS DDR_COARSE_SHIFT
       IF iRST = '1' THEN                -- asynchronous reset (active high)
-         
-      ELSIF iCLK200'event AND iCLK200 = '1' THEN  -- rising clock edge
+
+      ELSIF iCLK200'EVENT AND iCLK200 = '1' THEN  -- rising clock edge
          DDR_P_d (0) <= DDR_P_d (1);
          DDR_P_d (1) <= DDR_P;
          DDR_N_d (0) <= DDR_N_d (1);

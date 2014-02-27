@@ -82,6 +82,14 @@ COMPONENT fifo36x32k
   );
 END COMPONENT;
 
+	COMPONENT debud_data_verify IS
+		PORT (
+			CLK   : IN STD_LOGIC;
+			rdreq : IN STD_LOGIC;
+			Din   : IN STD_LOGIC_VECTOR (31 DOWNTO 0)
+			);
+	END COMPONENT debud_data_verify;
+
 --CONSTANTS
 CONSTANT sHEADER_TOKEN 	: STD_LOGIC_VECTOR (35 DOWNTO 0) := x"0AAAAAAAA"; 
 CONSTANT sFIBER_TOKEN  	: STD_LOGIC_VECTOR (35 DOWNTO 0) := x"0DDDDDDDD"; 
@@ -165,6 +173,13 @@ Data_Packer_DDL_FIFO : fifo36x32k
 	 prog_full => sDDL_FIFO_FULL --using the prog full flag
   );
 --- SIU STATUS COUNTER ADDRESS 0x33
+
+	debud_data_verify_inst : debud_data_verify 
+	PORT MAP(
+			CLK   => CLK80,
+			rdreq => sDDL_FIFO_WE_IN,
+			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
+			);
 
 PROCESS (DDL_FIFO_RDCLK, RST) IS
 BEGIN
