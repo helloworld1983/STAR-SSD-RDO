@@ -71,7 +71,7 @@ ENTITY LC_Fiber IS
       RDO2LC                      : OUT STD_LOGIC_VECTOR (23 DOWNTO 0);
       LC2RDO                      : IN  STD_LOGIC_VECTOR (23 DOWNTO 0);
 		--TestConnector
-		TC									 : OUT STD_LOGIC_VECTOR (52 DOWNTO 0)
+		TC									 : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
       );
 END LC_Fiber;
 
@@ -169,7 +169,7 @@ ARCHITECTURE LC_Fiber_Arch OF LC_Fiber IS
          LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16;
          LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 			--TestConnector
-			TC									 : OUT STD_LOGIC_VECTOR (52 DOWNTO 0)
+			TC									 : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
          );
    END COMPONENT DataPipe;
 

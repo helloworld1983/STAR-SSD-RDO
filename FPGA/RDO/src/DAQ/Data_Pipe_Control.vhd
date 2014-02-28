@@ -69,7 +69,7 @@ PORT (
 		RD_SERIAL				: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
 		PAYLOAD_MEM_GT_ONE	: OUT STD_LOGIC;  -- Greater than one flag	
 		--TEST CONNECTOR
-		TC			 				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)		
+		TC			 				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)		
 		);
 END Data_Pipe_Control;
 
@@ -277,12 +277,19 @@ BEGIN
 					sPIPE_STATE <= ST_CHECK_SPACE;
 			
 				WHEN ST_CHECK_SPACE =>
-					sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sEND_ADDRESS) + 1); -- ONE empty space between readings
-					sPAYLOAD_MEM_WE <= "0";
-					IF	(((sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR))) > sMinSpace) AND ((sClock_Cnt > sMinClockCycles) OR (sFlags = sNO_DATA))) THEN    --checking minimum space available
-						sPipe_Cnt <= 0;
-						sPIPE_STATE <= ST_WT_BUSY_LOW; 
-					END IF;
+					CASE sPipe_Cnt IS 
+						WHEN 0 =>
+							sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sEND_ADDRESS) + 1); -- ONE empty space between readings
+							sPAYLOAD_MEM_WE <= "0";
+							sPipe_Cnt <= 1;
+						WHEN 1 =>
+							IF	(((sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR))) > sMinSpace) AND ((sClock_Cnt > sMinClockCycles) OR (sFlags = sNO_DATA))) THEN    --checking minimum space available
+								sPipe_Cnt <= 0;
+								sPIPE_STATE <= ST_WT_BUSY_LOW; 
+							END IF;
+						WHEN OTHERS =>
+							sPipe_Cnt <= 1;
+					END CASE;
 				
 				WHEN ST_WT_BUSY_LOW =>
 					sClock_Cnt_EN := '0';
@@ -297,21 +304,20 @@ BEGIN
 			
 			END CASE;
 			
---			IF PAYLOAD_MEM_OUT (35 DOWNTO 16) = x"15354" THEN
---				sRD_SERIAL <= PAYLOAD_MEM_OUT (15 DOWNTO 4);  --Serial number of the last event read or being read by the SIU or USB link
---			END IF;
-			
 			------------------------------------------------------------------------------------------------
-			-- Greater than one reading in the buffer signal, when this signal goes high a reading cna be issue from the memory
+			-- Greater than one reading in the buffer signal, when this signal goes high a reading can be issue from the memory
 			
 			IF ((TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(PAYLOAD_MEM_RADDR)) < 4 AND sPIPE_STATE /= ST_CHECK_SPACE) OR
 			    (TO_INTEGER(UNSIGNED(PAYLOAD_MEM_RADDR) - UNSIGNED(sPAYLOAD_MEM_WADDR) ) < 4 )) THEN 
 				sPAYLOAD_MEM_GT_ONE <= '0';
 			ELSIF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
 				sPAYLOAD_MEM_GT_ONE <= '1';
-			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND (sPIPE_STATE = ST_UPDATE_HEADER)) THEN  -- Greater than one flag
+			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
+			((sPIPE_STATE = ST_UPDATE_HEADER) OR ((sPIPE_STATE = ST_CHECK_SPACE) AND (sClock_Cnt > sMinClockCycles - 10)))) THEN  -- Greater than one flag
 				sPAYLOAD_MEM_GT_ONE <= '1';
-			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND (sPIPE_STATE /= ST_CHECK_SPACE) AND (sPIPE_STATE /= ST_IDLE)) AND (sPIPE_STATE /= ST_WT_BUSY_LOW) THEN 
+			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
+			(sPIPE_STATE /= ST_CHECK_SPACE AND sClock_Cnt < sMinClockCycles - 10 ) AND 
+			(sPIPE_STATE /= ST_IDLE)) AND (sPIPE_STATE /= ST_WT_BUSY_LOW) THEN 
 				sPAYLOAD_MEM_GT_ONE <= '0';
 			END IF;
 			
@@ -345,7 +351,8 @@ TC (9) <= sPAYLOAD_MEM_WE (0);
 TC (10) <= sPAYLOAD_MEM_GT_ONE;
 TC (11) <= sCounting(0); --bit 0
 TC (15 DOWNTO 12) <= sFlags (3 DOWNTO 0);
+TC (31 DOWNTO 16) <= sAddress;
 
-sAddress <= STD_LOGIC_VECTOR(sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR)));
+sAddress <= STD_LOGIC_VECTOR(TO_UNSIGNED(sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR)),16));
 
 END Data_Pipe_Control_arch;

@@ -57,7 +57,7 @@ ENTITY DataPipe IS
       --LC_Status REGISTERS             
       LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16;
       LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
-		TC									 : OUT STD_LOGIC_VECTOR (52 DOWNTO 0)
+		TC									 : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
       );	
 END DataPipe;
 
@@ -163,7 +163,7 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
          RD_SERIAL          : IN  STD_LOGIC_VECTOR (11 DOWNTO 0);
          PAYLOAD_MEM_GT_ONE : OUT STD_LOGIC;  -- Greater than one flag  
 			--TEST CONNECTOR
-			TC			 				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)        
+			TC			 				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)        
          );
    END COMPONENT Data_Pipe_Control;
 
@@ -230,7 +230,7 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
 	
 	--Test connector
 	SIGNAL sTC_PS	: STD_LOGIC_VECTOR (36 DOWNTO 0) := (OTHERS => '0');
-	SIGNAL sTC_PC	: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL sTC_PC	: STD_LOGIC_VECTOR (31 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
 
@@ -360,7 +360,7 @@ BEGIN
 		END IF;
 	END PROCESS;
 	
-	TC <= sTC_PS & sTC_PC;
+	TC <= sTC_PC (31 DOWNTO 16) & sTC_PS & sTC_PC (15 DOWNTO 0);
 	
 END DataPipe_arch;
 
