@@ -1,5 +1,10 @@
 INFO:sim:172 - Generating IP...
+WARNING:sim:100 - The Simulation File Type <Behavioral> is not valid for this
+   core. Overriding with File Type <structural>.
 Applying current project options...
 Finished applying current project options.
-Cancelled executing Tcl generator.
-Wrote CGP file for project 'fifo36x512_DDL'.
+Customizing IP...
+Release 14.5 - Xilinx CORE Generator IP GUI Launcher P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Cancelled Customization.
+Wrote CGP file for project 'chipscope_ila_siu'.

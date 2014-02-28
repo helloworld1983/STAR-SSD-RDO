@@ -174,12 +174,12 @@ Data_Packer_DDL_FIFO : fifo36x32k
   );
 --- SIU STATUS COUNTER ADDRESS 0x33
 
-	debud_data_verify_inst : debud_data_verify 
-	PORT MAP(
-			CLK   => CLK80,
-			rdreq => sDDL_FIFO_WE_IN,
-			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
-			);
+--	debud_data_verify_inst : debud_data_verify 
+--	PORT MAP(
+--			CLK   => CLK80,
+--			rdreq => sDDL_FIFO_WE_IN,
+--			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
+--			);
 
 PROCESS (DDL_FIFO_RDCLK, RST) IS
 BEGIN

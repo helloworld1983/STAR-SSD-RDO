@@ -137,7 +137,9 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
          --LADDER_CARD_FIBER
          RDO2LC                      : OUT STD_LOGIC_VECTOR (23 DOWNTO 0);
-         LC2RDO                      : IN  STD_LOGIC_VECTOR (23 DOWNTO 0)
+         LC2RDO                      : IN  STD_LOGIC_VECTOR (23 DOWNTO 0);
+			--TestConnector
+			TC									 : OUT STD_LOGIC_VECTOR (52 DOWNTO 0)
          );
    END COMPONENT LC_Fiber;
 
@@ -208,7 +210,23 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          );
 
    END COMPONENT Data_Packer;
+	
+component chipscope_icon_siu
+  PORT (
+    CONTROL0 : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0)
+	 );
+end component;
 
+component chipscope_ila_siu
+  PORT (
+    CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
+    CLK : IN STD_LOGIC;
+    TRIG0 : IN STD_LOGIC_VECTOR(53 DOWNTO 0)
+	 );
+end component;
+	
+signal CONTROL0 : STD_LOGIC_VECTOR(35 DOWNTO 0);
+signal TRIG0 : STD_LOGIC_VECTOR(53 DOWNTO 0);
 
    SIGNAL sTRIGGER_MODE  : TRIGGER_MODE_ARRAY_TYPE        := (OTHERS => (OTHERS => '0'));
    SIGNAL sACQUIRE       : STD_LOGIC                      := '0';
@@ -228,6 +246,11 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
    SIGNAL sRScnt_TRGword_FIFO_OUT   : STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0');
    SIGNAL sRScnt_TRGword_FIFO_EMPTY : STD_LOGIC                      := '0';
    SIGNAL sRScnt_TRGword_FIFO_RDREQ : STD_LOGIC                      := '0';
+	
+	--TEST CONNECTOR
+	TYPE TC_ARRAY_TYPE IS ARRAY (0 TO 7) OF STD_LOGIC_VECTOR (52 DOWNTO 0);
+	
+	SIGNAL sTC : TC_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
 
 BEGIN
 
@@ -276,7 +299,9 @@ BEGIN
             LC_HYBRIDS_POWER_STATUS_REG => LC_HYBRIDS_POWER_STATUS_REG (i),
             --LADDER_CARD_FIBER
             RDO2LC                      => Fiber_RDOtoLC (i),
-            LC2RDO                      => Fiber_LCtoRDO (i)
+            LC2RDO                      => Fiber_LCtoRDO (i),
+				--TestConnector
+				TC									 => sTC (i)
             );
    END GENERATE FIBERS;
 
@@ -344,6 +369,21 @@ BEGIN
          DDL_FIFO_RDREQ           => DDL_FIFO_RDREQ,
          DDL_FIFO_RDCLK           => DDL_FIFO_RDCLK
          );
+				 
+	chipscope_icon_siu_inst : chipscope_icon_siu
+  PORT map (
+    CONTROL0 => CONTROL0
+	 );
+
+chipscope_ila_siu_inst : chipscope_ila_siu
+  PORT map (
+    CONTROL => CONTROL0,
+    CLK => CLK80,
+    TRIG0 => TRIG0
+	 );
+	 
+TRIG0 (52 DOWNTO 0) <= sTC(0);
+TRIG0 (53) <= '0';
 
 END DAQ_Arch;
 

@@ -67,11 +67,22 @@ PORT (
 		PAYLOAD_MEM_OUT 		: IN 	STD_LOGIC_VECTOR (35 DOWNTO 0);
 		WR_SERIAL 				: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
 		RD_SERIAL				: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
-		PAYLOAD_MEM_GT_ONE	: OUT STD_LOGIC  -- Greater than one flag		
+		PAYLOAD_MEM_GT_ONE	: OUT STD_LOGIC;  -- Greater than one flag	
+		--TEST CONNECTOR
+		TC			 				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)		
 		);
 END Data_Pipe_Control;
 
 ARCHITECTURE Data_Pipe_Control_arch OF Data_Pipe_Control IS
+
+--CS
+SIGNAL sCounting	: STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0000"; --Counter
+SIGNAL sAddress 	: STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0000";
+
+SIGNAL sPAYLOAD_MEM_WE 		: STD_LOGIC_VECTOR (0 DOWNTO 0) := "0";
+SIGNAL sPAYLOAD_MEM_GT_ONE	: STD_LOGIC := '0';
+SIGNAL sPIPE_ST_BUSY	: STD_LOGIC := '0';
+
 
 TYPE PIPE_STATE_TYPE IS (ST_IDLE, ST_HEADER, ST_STATUS, ST_WT_DATA_READY, ST_DATA, ST_END, ST_END_MARKER, ST_UPDATE_HEADER, ST_CHECK_SPACE, ST_WT_BUSY_LOW);
 SIGNAL sPIPE_STATE    	: PIPE_STATE_TYPE := ST_IDLE;
@@ -120,10 +131,10 @@ BEGIN
 		sPIPE_STATE <= ST_IDLE;
 		ADC_offset_OUT 		<= (OTHERS => '0');			-- OFFSET Value
 		Zero_supr_trsh_OUT	<= (OTHERS => '0');			-- Threshold Value
-		PAYLOAD_MEM_WE <= "0";
+		sPAYLOAD_MEM_WE <= "0";
 		PAYLOAD_MEM_IN <= (OTHERS => '0');
 		sFlags <= (OTHERS => '0');
-		PAYLOAD_MEM_GT_ONE <= '0';
+		sPAYLOAD_MEM_GT_ONE <= '0';
 		sClock_Cnt_EN := '0';
 	ELSIF RISING_EDGE(CLK80) THEN 
 		
@@ -132,7 +143,7 @@ BEGIN
 				
 				WHEN ST_IDLE =>
 					sClock_Cnt_EN := '0';
-					PAYLOAD_MEM_WE <= "0";
+					sPAYLOAD_MEM_WE <= "0";
 					ADC_offset_OUT 		<= ADC_offset_IN;			-- OFFSET Value
 					Zero_supr_trsh_OUT	<= Zero_supr_trsh_IN;		-- Threshold Value
 					sPM_INFO_0 				<= x"00000000" & Pipe_Selector;
@@ -151,7 +162,7 @@ BEGIN
 				WHEN ST_HEADER => --writes the header information, we can add as many or as little words 
 					sPipe_Cnt <= sPipe_Cnt + 1;
 					sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1); --memory address increase
-					PAYLOAD_MEM_WE <= "1";
+					sPAYLOAD_MEM_WE <= "1";
 					CASE sPipe_Cnt IS 
 						WHEN 0 =>
 							PAYLOAD_MEM_IN <= sPM_START_MARKER;  --see end of file for more detail
@@ -167,7 +178,7 @@ BEGIN
 				WHEN ST_STATUS => -- writes the 8 words of the LC status to memory
 					sPipe_Cnt <= sPipe_Cnt + 1;
 					sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1); --memory address increase
-					PAYLOAD_MEM_WE <= "1";
+					sPAYLOAD_MEM_WE <= "1";
 					CASE sPipe_Cnt IS 
 						WHEN 0 | 1 | 2 | 3 | 4 | 5 | 6 =>
 							PAYLOAD_MEM_IN <= sLC_STATUS(sPipe_Cnt);
@@ -181,7 +192,7 @@ BEGIN
 					END CASE;
 					
 				WHEN ST_WT_DATA_READY =>	-- waits for the data from LC to be valid and starts the data writing engine.
-					PAYLOAD_MEM_WE <= "0";
+					sPAYLOAD_MEM_WE <= "0";
 					sPipe_Cnt <= sPipe_Cnt + 1;
 					IF sPipe_Cnt > 800 THEN					-- If it takes 10 us for valid data to arrive
 						sPipe_Cnt <= 0;
@@ -200,7 +211,7 @@ BEGIN
 					sPipe_Cnt <= sPipe_Cnt + 1;
 					IF sPipe_Selector = x"0" THEN	-- data pipe selector 0 for the RAW mode and 1 to the COMPRESS mode
 						PAYLOAD_MEM_IN <= PAYLOAD_MEM_IN_TTE;
-						PAYLOAD_MEM_WE (0) <= PAYLOAD_MEM_WE_TTE;
+						sPAYLOAD_MEM_WE (0) <= PAYLOAD_MEM_WE_TTE;
 						IF TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(sSTART_ADDRESS)) > sWORD_LIMIT THEN --too many strips over threshold in compress mode
 							sPipe_Cnt <= 0;
 							sFlags <= sOVERFLOW; --OVERFLOW FLAG 
@@ -212,7 +223,7 @@ BEGIN
 						END IF;
 					ELSIF sPipe_Selector = x"1" THEN
 						PAYLOAD_MEM_IN <= PAYLOAD_MEM_IN_CPS;
-						PAYLOAD_MEM_WE (0) <= PAYLOAD_MEM_WE_CPS;
+						sPAYLOAD_MEM_WE (0) <= PAYLOAD_MEM_WE_CPS;
 						IF TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(sSTART_ADDRESS)) >= sWORD_LIMIT THEN --too many strips over threshold in compress mode
 							sPipe_Cnt <= 0;
 							sFlags <= sOVERFLOW; --OVERFLOW FLAG 
@@ -244,7 +255,7 @@ BEGIN
 				WHEN ST_END_MARKER =>					
 					sPipe_Cnt <= sPipe_Cnt + 1;
 					sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1); --memory address increase
-					PAYLOAD_MEM_WE <= "1";
+					sPAYLOAD_MEM_WE <= "1";
 					CASE sPipe_Cnt IS 
 						WHEN 0 =>
 							PAYLOAD_MEM_IN <= sPM_END_MARKER; 
@@ -260,14 +271,14 @@ BEGIN
 					
 				WHEN ST_UPDATE_HEADER => --goes back to the second position and updates the number of words written into memory in this event
 					sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sSTART_ADDRESS) + 1); -- updating this memory
-					PAYLOAD_MEM_WE <= "1";
+					sPAYLOAD_MEM_WE <= "1";
 					PAYLOAD_MEM_IN <= sFlags & '0' & STD_LOGIC_VECTOR(UNSIGNED(sEND_ADDRESS)-UNSIGNED(sSTART_ADDRESS)) & sPM_INFO_0 (3 DOWNTO 0);
 					sPipe_Cnt <= 0;
 					sPIPE_STATE <= ST_CHECK_SPACE;
 			
 				WHEN ST_CHECK_SPACE =>
 					sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sEND_ADDRESS) + 1); -- ONE empty space between readings
-					PAYLOAD_MEM_WE <= "0";
+					sPAYLOAD_MEM_WE <= "0";
 					IF	(((sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR))) > sMinSpace) AND ((sClock_Cnt > sMinClockCycles) OR (sFlags = sNO_DATA))) THEN    --checking minimum space available
 						sPipe_Cnt <= 0;
 						sPIPE_STATE <= ST_WT_BUSY_LOW; 
@@ -281,7 +292,7 @@ BEGIN
 					END IF;
 					
 				WHEN OTHERS =>
-					PAYLOAD_MEM_WE <= "0";
+					sPAYLOAD_MEM_WE <= "0";
 					sPIPE_STATE <= ST_IDLE;
 			
 			END CASE;
@@ -295,13 +306,13 @@ BEGIN
 			
 			IF ((TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(PAYLOAD_MEM_RADDR)) < 4 AND sPIPE_STATE /= ST_CHECK_SPACE) OR
 			    (TO_INTEGER(UNSIGNED(PAYLOAD_MEM_RADDR) - UNSIGNED(sPAYLOAD_MEM_WADDR) ) < 4 )) THEN 
-				PAYLOAD_MEM_GT_ONE <= '0';
+				sPAYLOAD_MEM_GT_ONE <= '0';
 			ELSIF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
-				PAYLOAD_MEM_GT_ONE <= '1';
+				sPAYLOAD_MEM_GT_ONE <= '1';
 			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND (sPIPE_STATE = ST_UPDATE_HEADER)) THEN  -- Greater than one flag
-				PAYLOAD_MEM_GT_ONE <= '1';
+				sPAYLOAD_MEM_GT_ONE <= '1';
 			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND (sPIPE_STATE /= ST_CHECK_SPACE) AND (sPIPE_STATE /= ST_IDLE)) AND (sPIPE_STATE /= ST_WT_BUSY_LOW) THEN 
-				PAYLOAD_MEM_GT_ONE <= '0';
+				sPAYLOAD_MEM_GT_ONE <= '0';
 			END IF;
 			
 			IF sClock_Cnt_EN = '0' THEN				--counter to keep track of the 12288 clock cycles at 80 Mhz needed to let the LC finish the transmision
@@ -315,7 +326,26 @@ BEGIN
 END PROCESS;	
 
  
-PIPE_ST_BUSY <= '0' WHEN ((sPIPE_STATE = ST_IDLE) OR (sPIPE_STATE = ST_WT_BUSY_LOW)) ELSE '1';
+sPIPE_ST_BUSY <= '0' WHEN ((sPIPE_STATE = ST_IDLE) OR (sPIPE_STATE = ST_WT_BUSY_LOW)) ELSE '1';
+PIPE_ST_BUSY <= sPIPE_ST_BUSY;
 PAYLOAD_MEM_WADDR <= sPAYLOAD_MEM_WADDR;
+
+sCounting <= STD_LOGIC_VECTOR(TO_UNSIGNED(sClock_Cnt,16));
+
+PAYLOAD_MEM_WE <= sPAYLOAD_MEM_WE;
+PAYLOAD_MEM_GT_ONE <= sPAYLOAD_MEM_GT_ONE;
+
+TC (0) <= LC_Trigger_Busy;
+TC (1) <= DataValid;
+TC (2) <= PAYLOAD_MEM_WE_TTE;
+TC (3) <= PAYLOAD_MEM_WE_CPS;
+TC (7 DOWNTO 4) <= Pipe_Selector;
+TC (8) <= sPIPE_ST_BUSY;
+TC (9) <= sPAYLOAD_MEM_WE (0);
+TC (10) <= sPAYLOAD_MEM_GT_ONE;
+TC (11) <= sCounting(0); --bit 0
+TC (15 DOWNTO 12) <= sFlags (3 DOWNTO 0);
+
+sAddress <= STD_LOGIC_VECTOR(sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR)));
 
 END Data_Pipe_Control_arch;

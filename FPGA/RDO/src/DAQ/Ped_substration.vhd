@@ -44,7 +44,9 @@ PORT (
 		PED_MEM_DATA_OUT 	: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
 		-- Output to demux		
 		PAYLOAD_MEM_IN		: OUT STD_LOGIC_VECTOR (35 DOWNTO 0);
-		PAYLOAD_MEM_WE		: OUT STD_LOGIC
+		PAYLOAD_MEM_WE		: OUT STD_LOGIC;
+		--TEST CONNECTOR
+		TC						: OUT STD_LOGIC_VECTOR(36 DOWNTO 0)	
 		);
 END Ped_substration;
 
@@ -53,6 +55,8 @@ ARCHITECTURE Ped_substration_arch OF Ped_substration IS
 SIGNAL sCnt 				: INTEGER := 0;
 SIGNAL sDATA_MEM			: STD_LOGIC_VECTOR (9 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sStripAddress  	: STD_LOGIC_VECTOR (13 DOWNTO 0) := (OTHERS => '0');
+SIGNAL sPAYLOAD_MEM_WE		: STD_LOGIC := '0';
+
 
 BEGIN
 
@@ -75,34 +79,34 @@ BEGIN
 					sCnt <= sCnt + 1;
 					IF ZST_Polarity = '1' THEN								-- POSITIVE pulse
 						IF sDATA_PED_SUBST > Zero_supr_trsh THEN 
-							PAYLOAD_MEM_WE <= '1';
+							sPAYLOAD_MEM_WE <= '1';
 						ELSE 
-							PAYLOAD_MEM_WE <= '0';
+							sPAYLOAD_MEM_WE <= '0';
 						END IF;
 					ELSE															-- NEGATIVE pulse
 						IF sDATA_PED_SUBST < Zero_supr_trsh THEN 
-							PAYLOAD_MEM_WE <= '1';
+							sPAYLOAD_MEM_WE <= '1';
 						ELSE 
-							PAYLOAD_MEM_WE <= '0';
+							sPAYLOAD_MEM_WE <= '0';
 						END IF;
 					END IF;
 				ELSE 
-					PAYLOAD_MEM_WE <= '0';	
+					sPAYLOAD_MEM_WE <= '0';	
 				END IF;			
 			WHEN 15 =>
 				sCnt <= 0;
 			
 				IF ZST_Polarity = '1' THEN								-- POSITIVE pulse
 					IF sDATA_PED_SUBST > Zero_supr_trsh THEN 
-						PAYLOAD_MEM_WE <= '1';
+						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
-						PAYLOAD_MEM_WE <= '0';
+						sPAYLOAD_MEM_WE <= '0';
 					END IF;
 				ELSE															-- NEGATIVE pulse
 					IF sDATA_PED_SUBST < Zero_supr_trsh THEN 
-						PAYLOAD_MEM_WE <= '1';
+						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
-						PAYLOAD_MEM_WE <= '0';
+						sPAYLOAD_MEM_WE <= '0';
 					END IF;
 				END IF;
 				
@@ -112,15 +116,15 @@ BEGIN
 				
 				IF ZST_Polarity = '1' THEN								-- POSITIVE pulse
 					IF sDATA_PED_SUBST > Zero_supr_trsh THEN 
-						PAYLOAD_MEM_WE <= '1';
+						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
-						PAYLOAD_MEM_WE <= '0';
+						sPAYLOAD_MEM_WE <= '0';
 					END IF;
 				ELSE															-- NEGATIVE pulse
 					IF sDATA_PED_SUBST < Zero_supr_trsh THEN 
-						PAYLOAD_MEM_WE <= '1';
+						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
-						PAYLOAD_MEM_WE <= '0';
+						sPAYLOAD_MEM_WE <= '0';
 					END IF;
 				END IF;
 				
@@ -130,8 +134,17 @@ BEGIN
 	END IF;
 	
 END PROCESS; 
-	PAYLOAD_MEM_IN <= x"000" & sStripAddress & sDATA_MEM;  
 
+PAYLOAD_MEM_IN <= x"000" & sStripAddress & sDATA_MEM;  
+
+TC (0) 				<= DataValid;
+TC (1) 				<= ZST_Polarity;
+TC (11 DOWNTO 2) 	<= LC2RDO_1Hybrid;
+TC (25 DOWNTO 12) <= StripAddress;
+TC (35 DOWNTO 26) <= PED_MEM_DATA_OUT;
+TC (36) 				<= sPAYLOAD_MEM_WE;
+
+PAYLOAD_MEM_WE <= sPAYLOAD_MEM_WE;
 	
 END Ped_substration_arch;
 

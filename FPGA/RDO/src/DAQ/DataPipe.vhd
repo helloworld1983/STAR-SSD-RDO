@@ -56,8 +56,9 @@ ENTITY DataPipe IS
       RD_SERIAL                   : IN  STD_LOGIC_VECTOR (11 DOWNTO 0);
       --LC_Status REGISTERS             
       LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16;
-      LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
-      );
+      LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+		TC									 : OUT STD_LOGIC_VECTOR (52 DOWNTO 0)
+      );	
 END DataPipe;
 
 ARCHITECTURE DataPipe_arch OF DataPipe IS
@@ -108,7 +109,9 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
          StripAddress     : IN  STD_LOGIC_VECTOR (13 DOWNTO 0);
          PED_MEM_DATA_OUT : IN  STD_LOGIC_VECTOR (9 DOWNTO 0);
          PAYLOAD_MEM_IN   : OUT STD_LOGIC_VECTOR (35 DOWNTO 0);
-         PAYLOAD_MEM_WE   : OUT STD_LOGIC
+         PAYLOAD_MEM_WE   : OUT STD_LOGIC;
+			--TEST CONNECTOR
+			TC						: OUT STD_LOGIC_VECTOR(36 DOWNTO 0)
          );
    END COMPONENT Ped_substration;
 
@@ -158,7 +161,9 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
          PAYLOAD_MEM_OUT    : IN  STD_LOGIC_VECTOR (35 DOWNTO 0);
          WR_SERIAL          : IN  STD_LOGIC_VECTOR (11 DOWNTO 0);
          RD_SERIAL          : IN  STD_LOGIC_VECTOR (11 DOWNTO 0);
-         PAYLOAD_MEM_GT_ONE : OUT STD_LOGIC  -- Greater than one flag           
+         PAYLOAD_MEM_GT_ONE : OUT STD_LOGIC;  -- Greater than one flag  
+			--TEST CONNECTOR
+			TC			 				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)        
          );
    END COMPONENT Data_Pipe_Control;
 
@@ -222,6 +227,10 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
 
 -- 
    SIGNAL sStrip_Cnt_buff : STD_LOGIC_VECTOR (9 DOWNTO 0) := (OTHERS => '0');
+	
+	--Test connector
+	SIGNAL sTC_PS	: STD_LOGIC_VECTOR (36 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL sTC_PC	: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
 
@@ -266,7 +275,8 @@ BEGIN
          StripAddress     => sStripAddress_buff,
          PED_MEM_DATA_OUT => sPED_MEM_DATA_OUT,
          PAYLOAD_MEM_IN   => sPAYLOAD_MEM_IN_CPS,
-         PAYLOAD_MEM_WE   => sPAYLOAD_MEM_WE_CPS
+         PAYLOAD_MEM_WE   => sPAYLOAD_MEM_WE_CPS,
+			TC					  => sTC_PS
          );
 
    LC_status_data_ints : LC_status_data
@@ -306,7 +316,8 @@ BEGIN
          PAYLOAD_MEM_OUT    => sPAYLOAD_MEM_OUT,
          WR_SERIAL          => WR_SERIAL,
          RD_SERIAL          => RD_SERIAL,
-         PAYLOAD_MEM_GT_ONE => PAYLOAD_MEM_GT_ONE
+         PAYLOAD_MEM_GT_ONE => PAYLOAD_MEM_GT_ONE,
+			TC 					 => sTC_PC
          );
  
    Payload_mem_inst : mem_32k_36
@@ -321,22 +332,23 @@ BEGIN
          );
 
    PAYLOAD_MEM_OUT <= sPAYLOAD_MEM_OUT;
-   sPED_MEM_DATA_OUT <= b"00" & x"00";  --constant value for the PEDESTAL MEMORY, this needs to be updated with the memory and be sure it is syncronized with the rest of the logic
+	
+--   sPED_MEM_DATA_OUT <= b"00" & x"00";  --constant value for the PEDESTAL MEMORY, this needs to be updated with the memory and be sure it is syncronized with the rest of the logic
 
    -- the core uses std_logic_vector
    sPED_MEM_WE (0) <= iPedMemWrite.WE (TO_INTEGER (UNSIGNED (LC_ADDRESS)));
 
---   mem_12288_9_inst : mem_12288_9
---      PORT MAP (
---         clka  => iPedMemWrite.CLK,
---         wea   => sPED_MEM_WE,
---         addra => iPedMemWrite.ADDR,
---         dina  => iPedMemWrite.DATA,
---         clkb  => CLK80,
---         addrb => sStripAddress,
---         doutb => sPED_MEM_DATA_OUT (8 DOWNTO 0)
---         );
---   sPED_MEM_DATA_OUT (9) <= '0';
+   mem_12288_9_inst : mem_12288_9
+      PORT MAP (
+         clka  => iPedMemWrite.CLK,
+         wea   => sPED_MEM_WE,
+         addra => iPedMemWrite.ADDR,
+         dina  => iPedMemWrite.DATA,
+         clkb  => CLK80,
+         addrb => sStripAddress,
+         doutb => sPED_MEM_DATA_OUT (8 DOWNTO 0)
+         );
+   sPED_MEM_DATA_OUT (9) <= '0';
 
 	--one clock cycle delay to compensate for pedestal memory response. 
 	PROCESS (CLK80) IS
@@ -348,6 +360,7 @@ BEGIN
 		END IF;
 	END PROCESS;
 	
+	TC <= sTC_PS & sTC_PC;
 	
 END DataPipe_arch;
 
