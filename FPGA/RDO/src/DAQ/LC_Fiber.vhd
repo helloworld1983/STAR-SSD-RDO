@@ -284,21 +284,6 @@ BEGIN
 			TC									 => TC
          );
 
---       sJTAG_FIFO_DIN <=  x"0" & '0' & LC_ADDRESS & x"000" & sDATA_TDO;               
-
---       JTAG_FIFO_MEM : fifo36x4096
---      PORT MAP (
---         WR_CLK       => CLK40, 
---         RD_CLK       => JTAG_FIFO_RDCLK,
---         RST          => RST,
---         WR_EN        => sDATA_TDO_WE,
---         RD_EN        => JTAG_FIFO_RDREQ,
---         DIN          => sJTAG_FIFO_DIN,
---         DOUT         => JTAG_FIFO,
---         FULL         => OPEN,
---         EMPTY        => JTAG_FIFO_EMPTY
---         );
-
    PROCESS (CLK40, RST) IS              --LA JAN-08-2014
    BEGIN
       IF RST = '1' THEN

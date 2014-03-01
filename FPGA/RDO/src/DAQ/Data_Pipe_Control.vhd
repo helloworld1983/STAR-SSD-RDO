@@ -293,9 +293,10 @@ BEGIN
 				
 				WHEN ST_WT_BUSY_LOW =>
 					sClock_Cnt_EN := '0';
-					IF LC_Trigger_Busy = '0' THEN 
-						sPIPE_STATE 		<= ST_IDLE;		-- waiting for trigger busy line to go low
-						sPipe_Cnt 			<= 0;	
+					IF ((LC_Trigger_Busy = '0') AND (PAYLOAD_MEM_RADDR = STD_LOGIC_VECTOR(UNSIGNED(sSTART_ADDRESS) + 11))) THEN 
+						-- waiting for trigger busy line to go low -- and that data packer started reading fiber data
+						sPIPE_STATE 		<= ST_IDLE;		
+						sPipe_Cnt 			<= 0;				
 					END IF;
 					
 				WHEN OTHERS =>
@@ -307,19 +308,27 @@ BEGIN
 			------------------------------------------------------------------------------------------------
 			-- Greater than one reading in the buffer signal, when this signal goes high a reading can be issue from the memory
 			
-			IF ((TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(PAYLOAD_MEM_RADDR)) < 4 AND sPIPE_STATE /= ST_CHECK_SPACE) OR
-			    (TO_INTEGER(UNSIGNED(PAYLOAD_MEM_RADDR) - UNSIGNED(sPAYLOAD_MEM_WADDR) ) < 4 )) THEN 
-				sPAYLOAD_MEM_GT_ONE <= '0';
-			ELSIF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
+			IF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
 				sPAYLOAD_MEM_GT_ONE <= '1';
-			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
-			((sPIPE_STATE = ST_UPDATE_HEADER) OR ((sPIPE_STATE = ST_CHECK_SPACE) AND (sClock_Cnt > sMinClockCycles - 10)))) THEN  -- Greater than one flag
+			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND (sPIPE_STATE = ST_WT_BUSY_LOW)) THEN 
 				sPAYLOAD_MEM_GT_ONE <= '1';
-			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
-			(sPIPE_STATE /= ST_CHECK_SPACE AND sClock_Cnt < sMinClockCycles - 10 ) AND 
-			(sPIPE_STATE /= ST_IDLE)) AND (sPIPE_STATE /= ST_WT_BUSY_LOW) THEN 
+			ELSE
 				sPAYLOAD_MEM_GT_ONE <= '0';
 			END IF;
+			
+--			IF ((TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(PAYLOAD_MEM_RADDR)) < 4 AND sPIPE_STATE /= ST_CHECK_SPACE) OR
+--			    (TO_INTEGER(UNSIGNED(PAYLOAD_MEM_RADDR) - UNSIGNED(sPAYLOAD_MEM_WADDR) ) < 4 )) THEN 
+--				sPAYLOAD_MEM_GT_ONE <= '0';
+--			ELSIF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
+--				sPAYLOAD_MEM_GT_ONE <= '1';
+--			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
+--			((sPIPE_STATE = ST_UPDATE_HEADER) OR ((sPIPE_STATE = ST_CHECK_SPACE) AND (sClock_Cnt > sMinClockCycles - 10)))) THEN  -- Greater than one flag
+--				sPAYLOAD_MEM_GT_ONE <= '1';
+--			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
+--			(sPIPE_STATE /= ST_CHECK_SPACE) AND (sClock_Cnt < sMinClockCycles - 10 ) AND 
+--			(sPIPE_STATE /= ST_IDLE)) AND (sPIPE_STATE /= ST_WT_BUSY_LOW) THEN 
+--				sPAYLOAD_MEM_GT_ONE <= '0';
+--			END IF;
 			
 			IF sClock_Cnt_EN = '0' THEN				--counter to keep track of the 12288 clock cycles at 80 Mhz needed to let the LC finish the transmision
 				sClock_Cnt <= 0;

@@ -55,7 +55,7 @@ ARCHITECTURE Ped_substration_arch OF Ped_substration IS
 SIGNAL sCnt 				: INTEGER := 0;
 SIGNAL sDATA_MEM			: STD_LOGIC_VECTOR (9 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sStripAddress  	: STD_LOGIC_VECTOR (13 DOWNTO 0) := (OTHERS => '0');
-SIGNAL sPAYLOAD_MEM_WE		: STD_LOGIC := '0';
+SIGNAL sPAYLOAD_MEM_WE	: STD_LOGIC := '0';
 
 
 BEGIN
