@@ -120,7 +120,7 @@ add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Data_Packer_Inst/PAYLO
 add wave -noupdate -radix hexadecimal /system_tb/sFiber_LCtoRDO
 add wave -noupdate -radix hexadecimal /system_tb/sFiber_RDOtoLC
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {10282392569 ps} 0}
+WaveRestoreCursors {{Cursor 1} {15064517833 ps} 0}
 configure wave -namecolwidth 166
 configure wave -valuecolwidth 57
 configure wave -justifyvalue left
@@ -135,4 +135,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {10282307889 ps} {10282549679 ps}
+WaveRestoreZoom {0 ps} {30815814234 ps}

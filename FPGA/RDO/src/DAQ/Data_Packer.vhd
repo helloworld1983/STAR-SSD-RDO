@@ -362,6 +362,7 @@ BEGIN
 									sPAYLOAD_MEM_RADDR (sFIBER_Cnt) <= sEND_ADD;
 								END IF;
 								sCnt <= 5;
+								sDDL_FIFO_WE <= '0';
 								sWordCnt <= (OTHERS => '0');
 								sSEEN_END_MARKER_FLAG <= '0';
 							END IF;	
@@ -380,6 +381,7 @@ BEGIN
 						END IF;
 						IF sPAYLOAD_MEM_OUT (sFIBER_Cnt) = (x"1454E440" & '0' & STD_LOGIC_VECTOR(TO_UNSIGNED(sFIBER_Cnt,3))) THEN --CHECK FOR END MARKER 
 							sSEEN_END_MARKER_FLAG <= '1';
+							sDDL_FIFO_WE <= '0';
 						END IF;				
 					WHEN 5 => 
 						sDDL_FIFO_WE <= '0';
@@ -521,7 +523,7 @@ BEGIN
 		PAYLOAD_MEM_RADDR 		<= sPAYLOAD_MEM_RADDR_PIPE;
 		
 		-- WE DDL FIFO													--!!!Change lenght of WE_PIPE accordingly with the proper delay
-		IF (sState = ST_FIBERS) AND (sCnt = 4) THEN 
+		IF (sState = ST_FIBERS) AND (sCnt = 4) AND sSEEN_END_MARKER_FLAG = '0' THEN 
 			sDDL_FIFO_WE_PIPE(6) <= sDDL_FIFO_WE;
 			sDDL_FIFO_WE_PIPE(5) <= sDDL_FIFO_WE_PIPE(6);
 			sDDL_FIFO_WE_PIPE(4) <= sDDL_FIFO_WE_PIPE(5);
@@ -530,10 +532,9 @@ BEGIN
 			sDDL_FIFO_WE_PIPE(1) <= sDDL_FIFO_WE_PIPE(2);
 			sDDL_FIFO_WE_PIPE(0) <= sDDL_FIFO_WE_PIPE(1);
 			sDDL_FIFO_WE_IN 		<= sDDL_FIFO_WE_PIPE(0);
-		ELSIF (sState = ST_FIBERS AND sCnt = 0) OR (sState = ST_TCD_INFO AND sCnt = 0) THEN 
-			SDDL_FIFO_WE_PIPE <= (OTHERS => '0');
-		ELSE
+		ELSE 
 			sDDL_FIFO_WE_IN <= sDDL_FIFO_WE;
+			sDDL_FIFO_WE_PIPE <= (OTHERS => '0');
 		END IF;
 		
 		sDDL_FIFO_IN_DIN <= sDDL_FIFO_IN;
