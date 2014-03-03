@@ -87,6 +87,9 @@ SIGNAL sPIPE_ST_BUSY	: STD_LOGIC := '0';
 TYPE PIPE_STATE_TYPE IS (ST_IDLE, ST_HEADER, ST_STATUS, ST_WT_DATA_READY, ST_DATA, ST_END, ST_END_MARKER, ST_UPDATE_HEADER, ST_CHECK_SPACE, ST_WT_BUSY_LOW);
 SIGNAL sPIPE_STATE    	: PIPE_STATE_TYPE := ST_IDLE;
 
+TYPE GT_ONE_STATE_TYPE IS (ST_ZERO, ST_ONE);
+SIGNAL GT_ONE_STATE : GT_ONE_STATE_TYPE;
+
 -- ST_IDLE
 SIGNAL sPM_INFO_0			 	: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0'); --flags, lenght and format
 SIGNAL sPM_INFO_1				: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0'); -- offset and zero supression threshold
@@ -107,8 +110,7 @@ SIGNAL sPM_START_MARKER 	: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0'); --
 SIGNAL sPM_END_MARKER 		: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0'); --start marker
 SIGNAL sFlags					: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0'); --start marker
 
---SIGNAL sRD_SERIAL				: STD_LOGIC_VECTOR (11 DOWNTO 0) := (OTHERS => '0'); --serial number 12 bits last read but SUI or USB link
-SIGNAL sClock_Cnt				: INTEGER RANGE 0 to 12300 := 0;
+SIGNAL sClock_Cnt				: INTEGER RANGE 0 to 16000 := 0;
 
 --CONSTANTS
 CONSTANT sMEMSIZE				: INTEGER := 32767; --Payload memory size used in calculation of available space
@@ -293,8 +295,8 @@ BEGIN
 				
 				WHEN ST_WT_BUSY_LOW =>
 					sClock_Cnt_EN := '0';
-					IF ((LC_Trigger_Busy = '0') AND (PAYLOAD_MEM_RADDR = STD_LOGIC_VECTOR(UNSIGNED(sSTART_ADDRESS) + 11))) THEN 
-						-- waiting for trigger busy line to go low -- and that data packer started reading fiber data
+					IF LC_Trigger_Busy = '0' THEN 
+						-- waiting for trigger busy line to go low
 						sPIPE_STATE 		<= ST_IDLE;		
 						sPipe_Cnt 			<= 0;				
 					END IF;
@@ -304,31 +306,23 @@ BEGIN
 					sPIPE_STATE <= ST_IDLE;
 			
 			END CASE;
-			
+					
 			------------------------------------------------------------------------------------------------
 			-- Greater than one reading in the buffer signal, when this signal goes high a reading can be issue from the memory
-			
-			IF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
-				sPAYLOAD_MEM_GT_ONE <= '1';
-			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND (sPIPE_STATE = ST_WT_BUSY_LOW)) THEN 
-				sPAYLOAD_MEM_GT_ONE <= '1';
-			ELSE
-				sPAYLOAD_MEM_GT_ONE <= '0';
-			END IF;
-			
---			IF ((TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(PAYLOAD_MEM_RADDR)) < 4 AND sPIPE_STATE /= ST_CHECK_SPACE) OR
---			    (TO_INTEGER(UNSIGNED(PAYLOAD_MEM_RADDR) - UNSIGNED(sPAYLOAD_MEM_WADDR) ) < 4 )) THEN 
---				sPAYLOAD_MEM_GT_ONE <= '0';
---			ELSIF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) THEN
---				sPAYLOAD_MEM_GT_ONE <= '1';
---			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
---			((sPIPE_STATE = ST_UPDATE_HEADER) OR ((sPIPE_STATE = ST_CHECK_SPACE) AND (sClock_Cnt > sMinClockCycles - 10)))) THEN  -- Greater than one flag
---				sPAYLOAD_MEM_GT_ONE <= '1';
---			ELSIF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) AND 
---			(sPIPE_STATE /= ST_CHECK_SPACE) AND (sClock_Cnt < sMinClockCycles - 10 ) AND 
---			(sPIPE_STATE /= ST_IDLE)) AND (sPIPE_STATE /= ST_WT_BUSY_LOW) THEN 
---				sPAYLOAD_MEM_GT_ONE <= '0';
---			END IF;
+			CASE GT_ONE_STATE IS
+				WHEN ST_ZERO =>
+					sPAYLOAD_MEM_GT_ONE <= '0';
+					IF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) AND (UNSIGNED(sPAYLOAD_MEM_WADDR) > UNSIGNED(PAYLOAD_MEM_RADDR) + 7)) THEN
+						GT_ONE_STATE <= ST_ONE; --when event starts serials are equal, if we got an only header event, then check for at least 7 in lenght
+					END IF;
+				WHEN ST_ONE => 
+					sPAYLOAD_MEM_GT_ONE <= '1';
+					IF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) OR (UNSIGNED(PAYLOAD_MEM_RADDR) >= UNSIGNED(sPAYLOAD_MEM_WADDR) - 7) THEN
+						GT_ONE_STATE <= ST_ZERO; --go to 0 when reading address is reaching writing address, this indicates no more events in memory
+					END IF;					
+				WHEN OTHERS =>
+					GT_ONE_STATE <= ST_ZERO;
+			END CASE;
 			
 			IF sClock_Cnt_EN = '0' THEN				--counter to keep track of the 12288 clock cycles at 80 Mhz needed to let the LC finish the transmision
 				sClock_Cnt <= 0;
@@ -336,7 +330,6 @@ BEGIN
 				sClock_Cnt <= sClock_Cnt + 1;
 			END IF;
 		
-	
 	END IF;
 END PROCESS;	
 

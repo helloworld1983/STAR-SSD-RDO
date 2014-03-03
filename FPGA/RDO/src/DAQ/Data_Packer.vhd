@@ -110,14 +110,14 @@ SIGNAL sDDL_FIFO_EMPTY 	: STD_LOGIC := '0';
 TYPE state_type IS (ST_IDLE, ST_GET_TCD_INFO, ST_WT_GT_ONE, ST_HEADER, ST_FIBERS, ST_TCD_INFO, ST_TRAILER);
 SIGNAL sState     	: state_type;
 SIGNAL sCnt 			: INTEGER := 0;
-SIGNAL sCnt_return	: INTEGER := 0;
 SIGNAL sFIBER_Cnt		: INTEGER := 0;
 SIGNAL sBUSY_WT 		: INTEGER := 0;
-SIGNAL s1ms_No_Trigger : INTEGER RANGE 0 to 900000 := 0;
-SIGNAL sTCD_ONLY_FLAG : STD_LOGIC := '0';
-SIGNAL sWordCnt 		: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
-SIGNAL sCountDownWord : STD_LOGIC := '0';
-
+SIGNAL s1ms_No_Trigger 			: INTEGER RANGE 0 to 900000 := 0;
+SIGNAL sTCD_ONLY_FLAG 			: STD_LOGIC := '0';
+SIGNAL sWordCnt 					: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
+SIGNAL sSEEN_END_MARKER_FLAG 	: STD_LOGIC := '0';
+SIGNAL sSTART_ADD					: STD_LOGIC_VECTOR (14 DOWNTO 0) := (OTHERS => '0');
+SIGNAL sEND_ADD					: STD_LOGIC_VECTOR (14 DOWNTO 0) := (OTHERS => '0');
 
 --TCD INFO
 SIGNAL sRD_SERIAL 		: STD_LOGIC_VECTOR (11 DOWNTO 0) := (OTHERS => '0');
@@ -133,11 +133,6 @@ SIGNAL sTCD_TRG_RCVD_REG 					: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0'
 SIGNAL sSIU_PACKET_CNT_REG 				: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sStatus_Counters_RST_REG 			: STD_LOGIC := '0';
 SIGNAL sStatus_Counters_RST_REG_buff 	: STD_LOGIC := '0';
--- The KEEP ATTRIBUTE prevents ISE from palcing the signals into the LUT and thus
--- negating the intention the pipeline the signal to ease the timing
-ATTRIBUTE KEEP 											: STRING;
-ATTRIBUTE KEEP OF sStatus_Counters_RST_REG 		: SIGNAL IS "TRUE";
-ATTRIBUTE KEEP OF sStatus_Counters_RST_REG_buff : SIGNAL IS "TRUE";
 
 --
 SIGNAL sID_VERSIONS 		: STD_LOGIC_VECTOR (35 DOWNTO 0) := x"000000000";
@@ -155,6 +150,18 @@ SIGNAL sPAYLOAD_MEM_OUT_PIPE_1 	: PAYLOAD_MEM_OUT_ARRAY_TYPE := (OTHERS => (OTHE
 SIGNAL sPAYLOAD_MEM_OUT_PIPE_0 	: PAYLOAD_MEM_OUT_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));   --35 downto 0 (36 bits)
 SIGNAL sPAYLOAD_MEM_OUT				: PAYLOAD_MEM_OUT_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
 
+-- The KEEP ATTRIBUTE prevents ISE from palcing the signals into the LUT and thus
+-- negating the intention the pipeline the signal to ease the timing
+ATTRIBUTE KEEP 											: STRING;
+ATTRIBUTE KEEP OF sStatus_Counters_RST_REG 		: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sStatus_Counters_RST_REG_buff : SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sPAYLOAD_MEM_RADDR_PIPE 		: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sDDL_FIFO_WE_PIPE 				: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sPAYLOAD_MEM_OUT_PIPE_1 		: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sPAYLOAD_MEM_OUT_PIPE_0 		: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sPAYLOAD_MEM_OUT 					: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sDDL_FIFO_WE 						: SIGNAL IS "TRUE";
+ATTRIBUTE KEEP OF sDDL_FIFO_IN 						: SIGNAL IS "TRUE";
 
 
 BEGIN
@@ -204,6 +211,7 @@ END PROCESS;
 
 --DATA PACKER STATE MACHINE
 PROCESS (CLK80, RST) IS
+VARIABLE sCountDownWord 			: STD_LOGIC := '0';
 BEGIN
 	IF RST = '1' THEN 
 		sPAYLOAD_MEM_RADDR <= (OTHERS => (OTHERS => '0'));
@@ -316,9 +324,11 @@ BEGIN
 				CASE sCnt IS 
 					WHEN 0 => -- initial address increment to point where the start marker should be
 						sPAYLOAD_MEM_RADDR (sFIBER_Cnt) <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_RADDR (sFIBER_Cnt)) + 1); --memory address increase
+						sSTART_ADD <= sPAYLOAD_MEM_RADDR (sFIBER_Cnt);
 						sCnt <= 1;
 						sDDL_FIFO_WE <= '0';
-						sCountDownWord <= '0';
+						sCountDownWord := '0';
+						sSEEN_END_MARKER_FLAG <= '0';
 					WHEN 1 => -- check for the start marker
 						--ADD TIME BASE ESCAPE error in writing the header and not pressent ++++++++++++++ -- MISSING
 						IF sPAYLOAD_MEM_OUT_PIPE_0 (sFIBER_Cnt) = x"15354" & sRD_SERIAL & '0' & STD_LOGIC_VECTOR(TO_UNSIGNED(sFIBER_Cnt,3)) AND PAYLOAD_MEM_GT_ONE (sFIBER_Cnt) = '1' THEN
@@ -335,32 +345,42 @@ BEGIN
 						sCnt <= 4;
 					WHEN 4 => 
 						sDDL_FIFO_IN <= sPAYLOAD_MEM_OUT (sFIBER_Cnt); -- WRITING TO DDL FIFO
-						
-						IF sDDL_FIFO_FULL = '0' THEN 
-							IF (sDDL_FIFO_WE_IN = '1' AND sDDL_FIFO_WE_PIPE(0) = '1' AND sCountDownWord = '0') THEN
-								sWordCnt <= sDDL_FIFO_IN_DIN (19 DOWNTO 4); 			--saving the fiber lenght
-								sCountDownWord <= '1'; --flag to allow the count down 
-							ELSIF sCountDownWord = '1' THEN
-								sWordCnt <= STD_LOGIC_VECTOR(UNSIGNED(sWordCnt) - 1);
-							END IF;
+						IF sDDL_FIFO_FULL = '0' THEN 					
 							--Incrementing memory address
 							IF ((sCountDownWord = '0') OR (sCountDownWord = '1' AND TO_INTEGER(UNSIGNED(sWordCnt)) > 9)) THEN --9 is the pipeline lenth
 								sPAYLOAD_MEM_RADDR (sFIBER_Cnt) <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_RADDR (sFIBER_Cnt)) + 1);
-								sDDL_FIFO_WE <= '1';								
-							ELSE 
-								sDDL_FIFO_WE <= '0';
-							END IF;
-							
-						ELSE 
-							sDDL_FIFO_WE <= '0';
-						END IF;
-						
-						IF sPAYLOAD_MEM_OUT (sFIBER_Cnt) = (x"1454E440" & '0' & STD_LOGIC_VECTOR(TO_UNSIGNED(sFIBER_Cnt,3))) THEN --CHECK FOR END MARKER 
+								IF (UNSIGNED(sWordCnt) > 2  OR UNSIGNED(sWordCnt) < 1) THEN
+									sWordCnt <= STD_LOGIC_VECTOR(UNSIGNED(sWordCnt) - 1); --decresing counter 
+								END IF;
+								IF (sCountDownWord = '0') OR (TO_INTEGER(UNSIGNED(sWordCnt)) > 11) THEN
+									sDDL_FIFO_WE <= '1';								
+								ELSE 
+									sDDL_FIFO_WE <= '0';
+								END IF;
+							ELSIF ((TO_INTEGER(UNSIGNED(sWordCnt)) <= 9) AND (sSEEN_END_MARKER_FLAG = '1')) THEN
+								IF (sPAYLOAD_MEM_RADDR (sFIBER_Cnt) /= sEND_ADD) THEN --This should never happen, and should be consider as a flag to daq
+									sPAYLOAD_MEM_RADDR (sFIBER_Cnt) <= sEND_ADD;
+								END IF;
 								sCnt <= 5;
-								sDDL_FIFO_WE <= '0';
 								sWordCnt <= (OTHERS => '0');
+								sSEEN_END_MARKER_FLAG <= '0';
+							END IF;	
+							IF (sDDL_FIFO_WE_IN = '1' AND sDDL_FIFO_WE_PIPE(0) = '1' AND sCountDownWord = '0') THEN 
+								sWordCnt <= STD_LOGIC_VECTOR(UNSIGNED(sWordCnt) + UNSIGNED(sDDL_FIFO_IN_DIN (18 DOWNTO 4)) + 9);   --saving the fiber lenght
+								sEND_ADD <= STD_LOGIC_VECTOR(UNSIGNED(sSTART_ADD) + UNSIGNED(sDDL_FIFO_IN_DIN (18 DOWNTO 4)) + 2); --blank space and pipe header
+								sCountDownWord := '1'; 										--flag to allow the count down 
+							END IF;
+						ELSE
+							sDDL_FIFO_WE <= '0';
+							IF (sDDL_FIFO_WE_IN = '1' AND sDDL_FIFO_WE_PIPE(0) = '1' AND sCountDownWord = '0') THEN 
+								sWordCnt <= STD_LOGIC_VECTOR(UNSIGNED(sWordCnt) + UNSIGNED(sDDL_FIFO_IN_DIN (18 DOWNTO 4)) + 10);   --saving the fiber lenght
+								sEND_ADD <= STD_LOGIC_VECTOR(UNSIGNED(sSTART_ADD) + UNSIGNED(sDDL_FIFO_IN_DIN (18 DOWNTO 4)) + 2); --blank space and pipe header
+								sCountDownWord := '1'; 										--flag to allow the count down 
+							END IF;
 						END IF;
-						
+						IF sPAYLOAD_MEM_OUT (sFIBER_Cnt) = (x"1454E440" & '0' & STD_LOGIC_VECTOR(TO_UNSIGNED(sFIBER_Cnt,3))) THEN --CHECK FOR END MARKER 
+							sSEEN_END_MARKER_FLAG <= '1';
+						END IF;				
 					WHEN 5 => 
 						sDDL_FIFO_WE <= '0';
 						IF sFIBER_Cnt = 7 THEN -- all fibers done
@@ -379,12 +399,10 @@ BEGIN
 				END CASE;
 							
 			WHEN ST_TCD_INFO =>
-			
 				IF sCnt /= 5 THEN
 					sTCD_FIFO_Q 		<= TCD_FIFO_Q;  --SIGNALS TO BUFFER INPUT IN CASE OF BUSY DLL FIFO
 					sTCD_FIFO_Q_buff 	<= sTCD_FIFO_Q; --IF BUSY THEN GOES TO STATE 5, 6 and then back to 2(normal)
 				END IF;
-				
 				CASE sCnt IS 
 					WHEN 0 => --check if TCD_FIFO is empty so only the start marker and end marker are written
 						sDDL_FIFO_WE <= '0';
@@ -441,74 +459,44 @@ BEGIN
 					WHEN 4 => -- end change state
 						sDDL_FIFO_WE <= '0';
 						sTCD_EMPTY_FLAG <= '0';
-						sState <= ST_TRAILER;
-						sCnt <= 0;
-						
-					WHEN 5 => -- wait for fifo not full
+						IF sDDL_FIFO_FULL = '0' THEN --CHECKING FULL FLAG FOR TRAILER
+							sState <= ST_TRAILER;
+							sCnt <= 0;
+						END IF;
+					
+					WHEN 5 => 
 						IF sDDL_FIFO_FULL = '0' THEN
 							sBUSY_WT <= sBUSY_WT + 1;
-							IF sBUSY_WT > 5 THEN
+							IF sBUSY_WT > 12 THEN
 								sDDL_FIFO_IN 		<= x"0000" & sTCD_FIFO_Q_buff; 
 								sDDL_FIFO_WE 	<= '1';
-								sCnt <= 6;	
+								sCnt <= 2;	
 								sBUSY_WT <= 0;
 							END IF;
-						END IF; 
-					
-					WHEN 6 =>
-						sDDL_FIFO_IN 		<= x"0000" & sTCD_FIFO_Q; 
-						sDDL_FIFO_WE 	<= '1';
-						sTCD_TRG_RCVD_REG <= STD_LOGIC_VECTOR(UNSIGNED(sTCD_TRG_RCVD_REG) + 1); --Increment Counter of triggers receiced
-						sCnt <= 2;
-						IF TCD_FIFO_EMPTY = '0' THEN --if empty after getting one value
-							sTCD_FIFO_RDREQ <= '1';
-						ELSE 
-							sTCD_FIFO_RDREQ <= '0';
-						END IF;	
+						END IF;
 					
 					WHEN OTHERS =>
-						NULL;
+						sDDL_FIFO_WE <= '0';
+						sTCD_EMPTY_FLAG <= '0';
+						IF sDDL_FIFO_FULL = '0' THEN 
+							sState <= ST_TRAILER;
+							sCnt <= 0;
+						END IF;
 				END CASE;
 			
 			WHEN ST_TRAILER =>
+				sDDL_FIFO_WE 	<= '1';
+				sCnt <= sCnt + 1;
 				CASE sCnt IS 
 					WHEN 0 => --write first data
-						IF sDDL_FIFO_FULL = '0' THEN
-							sDDL_FIFO_IN <= sRESERVED;
-							sDDL_FIFO_WE 	<= '1';
-							sCnt <= 1;
-						END IF;
+						sDDL_FIFO_IN <= sRESERVED;
 					WHEN 1 => --check if prev data was written and write following
-						IF sDDL_FIFO_FULL = '0' THEN
-							sDDL_FIFO_IN <= sEND_TOKEN; 
-							sDDL_FIFO_WE 	<= '1';
-							sCnt <= 2;
-						ELSE -- fifo was full and has to re-write previous value
-							sDDL_FIFO_WE 	<= '0';
-							sCnt_return <= 0; --return to 0
-							sCnt <= 3;
-						END IF;
-					
-					WHEN 2 => --check if prev data was written and go to IDLE
-						sDDL_FIFO_WE 	<= '0';
-						IF sDDL_FIFO_FULL = '0' THEN
-							sState <= ST_IDLE;
-							sCnt <= 0;
-							sCnt_return <= 0;
-						ELSE 
-							sCnt_return <= 1; --return to 1
-							sCnt <= 3;
-						END IF;
-
-					WHEN 3 => --waiting for not full
-						sDDL_FIFO_WE 	<= '0';
-						IF sDDL_FIFO_FULL = '0' THEN
-							sCnt <= sCnt_return;
-						END IF;
-						
-					WHEN OTHERS =>
-						sCnt <= 0;
+						sDDL_FIFO_IN <= sEND_TOKEN; 	
 						sState <= ST_IDLE;
+						sCnt <= 0;
+					WHEN OTHERS =>
+						sState <= ST_IDLE;
+						sCnt <= 0;
 				END CASE;
 					
 			WHEN OTHERS => 

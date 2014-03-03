@@ -594,7 +594,7 @@ mft2232h_instA : M_FT2232H
 ---------------------------------------------> USB_DECODER             
 
 
-LC : FOR i IN 0 TO 7 GENERATE
+LC : FOR i IN 0 TO 6 GENERATE
 	sLC_SERIAL(i) <= STD_LOGIC_VECTOR(TO_UNSIGNED(i,3)) & STD_LOGIC_VECTOR(TO_UNSIGNED(i,3));
 	LC_SIMU_LA_inst : LC_SIMU_LA
 	PORT MAP(
