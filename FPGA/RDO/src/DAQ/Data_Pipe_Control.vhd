@@ -230,6 +230,7 @@ BEGIN
 							sPipe_Cnt <= 0;
 							sFlags <= sOVERFLOW; --OVERFLOW FLAG 
 							sPIPE_STATE <= ST_END_MARKER;
+							sPAYLOAD_MEM_WE <= "0";
 						ELSE
 							IF PAYLOAD_MEM_WE_CPS = '1' THEN
 								sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1); --memory address increase
@@ -285,7 +286,7 @@ BEGIN
 							sPAYLOAD_MEM_WE <= "0";
 							sPipe_Cnt <= 1;
 						WHEN 1 =>
-							IF	(((sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR))) > sMinSpace) AND ((sClock_Cnt > sMinClockCycles) OR (sFlags = sNO_DATA))) THEN    --checking minimum space available
+							IF	(((sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR) + 1)) > sMinSpace) AND ((sClock_Cnt > sMinClockCycles) OR (sFlags = sNO_DATA))) THEN    --checking minimum space available
 								sPipe_Cnt <= 0;
 								sPIPE_STATE <= ST_WT_BUSY_LOW; 
 							END IF;
@@ -312,7 +313,8 @@ BEGIN
 			CASE GT_ONE_STATE IS
 				WHEN ST_ZERO =>
 					sPAYLOAD_MEM_GT_ONE <= '0';
-					IF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 0) AND (UNSIGNED(sPAYLOAD_MEM_WADDR) > UNSIGNED(PAYLOAD_MEM_RADDR) + 7)) THEN
+					IF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 1) OR 
+						((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 1) AND (UNSIGNED(sPAYLOAD_MEM_WADDR) > (UNSIGNED(PAYLOAD_MEM_RADDR) + 7)))) THEN
 						GT_ONE_STATE <= ST_ONE; --when event starts serials are equal, if we got an only header event, then check for at least 7 in lenght
 					END IF;
 				WHEN ST_ONE => 
@@ -327,7 +329,9 @@ BEGIN
 			IF sClock_Cnt_EN = '0' THEN				--counter to keep track of the 12288 clock cycles at 80 Mhz needed to let the LC finish the transmision
 				sClock_Cnt <= 0;
 			ELSIF sClock_Cnt_EN = '1' THEN			-- Enable signal is 0 when idle and starts counting on state ST_DATA
-				sClock_Cnt <= sClock_Cnt + 1;
+				IF sClock_Cnt < 14000 THEN
+					sClock_Cnt <= sClock_Cnt + 1;
+				END IF;
 			END IF;
 		
 	END IF;
@@ -355,6 +359,6 @@ TC (11) <= sCounting(0); --bit 0
 TC (15 DOWNTO 12) <= sFlags (3 DOWNTO 0);
 TC (31 DOWNTO 16) <= sAddress;
 
-sAddress <= STD_LOGIC_VECTOR(TO_UNSIGNED(sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR)),16));
+sAddress <= STD_LOGIC_VECTOR(TO_UNSIGNED(sMEMSIZE - TO_INTEGER(UNSIGNED(sEND_ADDRESS) - UNSIGNED(PAYLOAD_MEM_RADDR) + 1), 16));
 
 END Data_Pipe_Control_arch;
