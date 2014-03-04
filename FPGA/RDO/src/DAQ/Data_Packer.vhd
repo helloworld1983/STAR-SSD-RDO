@@ -237,7 +237,7 @@ BEGIN
 					sCnt 			<= 0;
 					s1ms_No_Trigger 	<= 0;
 					
-				ELSIF s1ms_No_Trigger > 80000 AND TCD_FIFO_EMPTY = '0' THEN   
+				ELSIF s1ms_No_Trigger > 80000 THEN   
 				--1 ms has passed and no trigger has come yet, buffers are empty then do TCD info only
 					sState 				<= ST_HEADER;
 					sCnt 					<= 0;
@@ -245,13 +245,10 @@ BEGIN
 					s1ms_No_Trigger 	<= 0;
 					sTRGWORD <= sTCD_ONLY_EVT;  --x"022200000"; token to denote that we have an event that is only TCD info
 					sRS_CTR <= (OTHERS => '0');
-					
-				ELSIF s1ms_No_Trigger > 80000 THEN 
-					s1ms_No_Trigger <= 80002;
-					
-				ELSIF TCD_FIFO_EMPTY = '0' THEN
+				END IF;
+						
+				IF TCD_FIFO_EMPTY = '0' AND RScnt_TRGword_FIFO_EMPTY = '1' AND s1ms_No_Trigger < 80002 THEN
 					s1ms_No_Trigger <= s1ms_No_Trigger + 1;
-				
 				END IF;
 				
 			WHEN ST_GET_TCD_INFO =>
