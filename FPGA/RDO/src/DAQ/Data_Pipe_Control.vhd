@@ -213,19 +213,19 @@ BEGIN
 					sPipe_Cnt <= sPipe_Cnt + 1;
 					IF sPipe_Selector = x"0" THEN	-- data pipe selector 0 for the RAW mode and 1 to the COMPRESS mode
 						PAYLOAD_MEM_IN <= PAYLOAD_MEM_IN_TTE;
-						sPAYLOAD_MEM_WE (0) <= PAYLOAD_MEM_WE_TTE;
 						IF TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(sSTART_ADDRESS)) > sWORD_LIMIT THEN --too many strips over threshold in compress mode
 							sPipe_Cnt <= 0;
 							sFlags <= sOVERFLOW; --OVERFLOW FLAG 
 							sPIPE_STATE <= ST_END_MARKER;
+							sPAYLOAD_MEM_WE <= "0";
 						ELSE
 							IF PAYLOAD_MEM_WE_TTE = '1' THEN 
 								sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1);  --memory address increase
+								sPAYLOAD_MEM_WE <= "1";
 							END IF;
 						END IF;
 					ELSIF sPipe_Selector = x"1" THEN
 						PAYLOAD_MEM_IN <= PAYLOAD_MEM_IN_CPS;
-						sPAYLOAD_MEM_WE (0) <= PAYLOAD_MEM_WE_CPS;
 						IF TO_INTEGER(UNSIGNED(sPAYLOAD_MEM_WADDR) - UNSIGNED(sSTART_ADDRESS)) >= sWORD_LIMIT THEN --too many strips over threshold in compress mode
 							sPipe_Cnt <= 0;
 							sFlags <= sOVERFLOW; --OVERFLOW FLAG 
@@ -234,6 +234,7 @@ BEGIN
 						ELSE
 							IF PAYLOAD_MEM_WE_CPS = '1' THEN
 								sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1); --memory address increase
+								sPAYLOAD_MEM_WE <= "1";
 							END IF;
 						END IF;
 					ELSE 
