@@ -7,14 +7,14 @@
 -- \   \   \/     Version: P.58f
 --  \   \         Application: netgen
 --  /   /         Filename: fifo20x512.vhd
--- /___/   /\     Timestamp: Fri Feb 21 18:13:05 2014
+-- /___/   /\     Timestamp: Thu Mar 06 12:27:20 2014
 -- \   \  /  \ 
 --  \___\/\___\
 --             
--- Command	: -w -sim -ofmt vhdl C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo20x512.ngc C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo20x512.vhd 
+-- Command	: -w -sim -ofmt vhdl C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo20x512.ngc C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo20x512.vhd 
 -- Device	: 6vlx240tff1759-2
--- Input file	: C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo20x512.ngc
--- Output file	: C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo20x512.vhd
+-- Input file	: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo20x512.ngc
+-- Output file	: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo20x512.vhd
 -- # of Entities	: 2
 -- Design Name	: fifo20x512
 -- Xilinx	: C:\Xilinx\14.5\ISE_DS\ISE\

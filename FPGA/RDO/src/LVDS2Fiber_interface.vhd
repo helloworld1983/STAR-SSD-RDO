@@ -42,7 +42,6 @@ ENTITY LVDS2Fiber_interface IS
       iLinkCtrl       : IN  FIBER8_CTRL;
       oL2Fversion     : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
       oL2Flocked      : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
-      iLVDS_CNT_EN    : IN  STD_LOGIC;
       -- fiber links
       iFiber_RDOtoLC  : IN  FIBER_ARRAY_TYPE;
       oFiber_LCtoRDO  : OUT FIBER_ARRAY_TYPE;

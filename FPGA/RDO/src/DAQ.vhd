@@ -29,11 +29,13 @@ ENTITY DAQ IS
    PORT (
       CLK40                       : IN  STD_LOGIC;
       CLK80                       : IN  STD_LOGIC;
+		CLK200 							 : IN  STD_LOGIC;
       RST                         : IN  STD_LOGIC;
       --GENERAL
       BoardID                     : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
       Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
       FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
+		DATA_BUFF_RST				 	 : IN STD_LOGIC;
       --LC_Registers 
       LC_RST                      : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
       --CONFIG
@@ -147,6 +149,7 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
       PORT (
          CLK40                    : IN  STD_LOGIC;
          CLK80                    : IN  STD_LOGIC;
+			CLK200					: IN  STD_LOGIC;
          RST                      : IN  STD_LOGIC;
          --to fibers
          BUSY_8_FIBERS            : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);  --each bit is the busy line of the pipe of each fiber
@@ -164,6 +167,7 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          RHIC_STROBE_MSB_REG      : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
          N_HOLDS_REG              : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
          N_TESTS_REG              : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+			DATA_BUFF_RST				 : IN STD_LOGIC;
          -- TCD signals
          RS                       : IN  STD_LOGIC;  -- TCD RHIC strobe
          RSx5                     : IN  STD_LOGIC;  -- TCD data clock
@@ -309,6 +313,7 @@ BEGIN
       PORT MAP(
          CLK40                    => CLK40,
          CLK80                    => CLK80,
+			CLK200						 => CLK200,
          RST                      => RST,
          --to fibers              
          BUSY_8_FIBERS            => sBUSY_8_FIBERS,
@@ -326,6 +331,7 @@ BEGIN
          RHIC_STROBE_MSB_REG      => RHIC_STROBE_MSB_REG,
          N_HOLDS_REG              => N_HOLDS_REG,
          N_TESTS_REG              => N_TESTS_REG,
+			DATA_BUFF_RST				 => DATA_BUFF_RST,
          -- TCD signals             
          RS                       => RS,
          RSx5                     => RSx5,

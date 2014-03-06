@@ -28,6 +28,7 @@ ENTITY Trigger_Admin IS
 PORT (
 		CLK40						: IN  STD_LOGIC;
 		CLK80						: IN  STD_LOGIC;
+		CLK200					: IN  STD_LOGIC;
 		RST						: IN  STD_LOGIC;
 		--to fibers
 		BUSY_8_FIBERS			: IN  STD_LOGIC_VECTOR (7 DOWNTO 0); --each bit is the busy line of the pipe of each fiber
@@ -45,6 +46,7 @@ PORT (
 		RHIC_STROBE_MSB_REG 		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 		N_HOLDS_REG 				: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 		N_TESTS_REG 				: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+		DATA_BUFF_RST				: IN STD_LOGIC;
 		-- TCD signals
 		RS         						: IN  std_logic;         -- TCD RHIC strobe
 		RSx5       						: IN  std_logic;         -- TCD data clock
@@ -61,9 +63,10 @@ END Trigger_Admin;
 
 ARCHITECTURE Trigger_Admin_arch OF Trigger_Admin IS
 
-COMPONENT tcd_interface IS
-  PORT (
-    CLK        : IN  std_logic;         -- 80 MHz clock  NOTE THE CHANGE IN CLK SOUCE from 50 to 80 MHz - this clock is use to get the data out of the fifo
+COMPONENT tcd_interface IS	 
+	 PORT (
+    CLK50      : IN  std_logic;         -- 80 MHz clock  NOTE THE CHANGE IN CLK SOURCE from 50 to 80 MHz - this clock is use to get the data out of the fifo
+    CLK200     : IN  std_logic;         -- 200 MHz clock
     RST        : IN  std_logic;         -- Async. reset
     -- TCD signals
     RS         : IN  std_logic;         -- TCD RHIC strobe
@@ -76,10 +79,10 @@ COMPONENT tcd_interface IS
     MASTER_RST : OUT std_logic;         -- indicates master reset command
     FIFO_Q     : OUT std_logic_vector (19 DOWNTO 0);  -- Triggerwords for inclusion in data
     FIFO_EMPTY : OUT std_logic;         -- Triggerwords FIFO emtpy
+    FIFO_RST   : IN  std_logic;         -- Reset TCD FIFO
     FIFO_RDREQ : IN  std_logic;         -- Read Request for Triggerwords FIFO
     EVT_TRG    : OUT std_logic   -- this signal indicates an event to read
     );
-
 END COMPONENT tcd_interface;
 
 COMPONENT TriggerControl_SerialCounter IS
@@ -171,18 +174,21 @@ BEGIN
 
 tcd_interface_inst : tcd_interface  
   PORT MAP(
-    CLK         => CLK80,  -- 80 MHz clock  NOTE THE CHANGE IN CLK SOUCE from 50 to 80 MHz - this clock is use to get the data out of the fifo
-    RST         => RST,
+    CLK50       => CLK80,  -- 80 MHz clock  NOTE THE CHANGE IN CLK SOUCE from 50 to 80 MHz - this clock is use to get the data out of the fifo
+    CLK200		 => CLK200,
+	 RST         => RST,
 	 -- TCD signals
     RS          => RS,        
     RSx5        => RSx5,      
-    TCD_DATA    => TCD_DATA,  
+    TCD_DATA    => TCD_DATA, 
+	 -- Interface signals	 
     WORKING     => sWORKING_TCD, 		
     RS_CTR      => sRS_CTR,    
     TRGWORD     => sTRGWORD,   
-    MASTER_RST  => sMASTER_RST_TCD,    --DONT KNOW
+    MASTER_RST  => sMASTER_RST_TCD,    --DONT KNOW WHAT TO DO WITH THIS SIGNAL
     FIFO_Q      => TCD_FIFO_Q,    
     FIFO_EMPTY  => TCD_FIFO_EMPTY,
+	 FIFO_RST    => DATA_BUFF_RST,        	-- Reset TCD FIFO
     FIFO_RDREQ  => TCD_FIFO_RDREQ,
     EVT_TRG     => sEVT_TRG_TCD 
     );

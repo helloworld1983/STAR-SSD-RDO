@@ -1,8 +1,10 @@
 # Output products list for <fifo20x512>
+_xmsgs\ngcbuild.xmsgs
 _xmsgs\pn_parser.xmsgs
 fifo20x512.asy
 fifo20x512.gise
 fifo20x512.ngc
+fifo20x512.sym
 fifo20x512.vhd
 fifo20x512.vho
 fifo20x512.xco

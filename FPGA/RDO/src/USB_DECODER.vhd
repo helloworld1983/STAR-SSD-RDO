@@ -86,7 +86,7 @@ ENTITY USB_DECODER IS
       Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
       FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
       CalLVDS                     : OUT STD_LOGIC;
-      LVDS_CNT_EN                 : OUT STD_LOGIC;
+		DATA_BUFF_RST					 : OUT STD_LOGIC;
 -- pedestal memory write port
       oPedMemWrite                : OUT PED_MEM_WRITE
       );
@@ -146,7 +146,6 @@ ARCHITECTURE USB_DECODER_Arch OF USB_DECODER IS
 
    --LVDS re-calibration
    SIGNAL sCalLVDS     : STD_LOGIC := '0';
-   SIGNAL sLVDS_CNT_EN : STD_LOGIC := '0';
 
 BEGIN
 
@@ -409,16 +408,7 @@ BEGIN
                      ELSE  --WRITE                                                                      
                         sCalLVDS <= CMD_FIFO_Q (0);
                      END IF;
-
-                                        --||| LVDS COUNTER ENABLE
-                  WHEN x"041" =>        -- LVDS COUNTER ENABLE        
-                     IF READ1_WRITE0 = '1' THEN  --READ
-                        sDecoder_FIFO_EN               <= '1';
-                        sDecoder_FIFO_IN (15 DOWNTO 0) <= x"000" & b"000" & sLVDS_CNT_EN;
-                     ELSE  --WRITE                                                                      
-                        sLVDS_CNT_EN <= CMD_FIFO_Q (0);
-                     END IF;
-
+							
                                         --||| DAQ
                   WHEN x"080" =>        -- FIBER ENABLE       
                      IF READ1_WRITE0 = '1' THEN                     --READ
@@ -474,7 +464,7 @@ BEGIN
                      IF READ1_WRITE0 = '1' THEN  --READ         
                         NULL;                    -- WRITE ONLY REGISTER
                      ELSE                        --WRITE
-                        NULL;                    -- TEMPORAL
+                        DATA_BUFF_RST  	<= CMD_FIFO_Q (0);
                      END IF;
 
                   WHEN x"087" =>        -- SIU BUFFER STATUS  
@@ -666,7 +656,6 @@ BEGIN
    Pipe_Selector                   <= sPipe_Selector;
    Forced_Triggers_Reg             <= sForced_Triggers_Reg;
    CalLVDS                         <= sCalLVDS;
-   LVDS_CNT_EN                     <= sLVDS_CNT_EN;
    sDecoder_FIFO_IN (31 DOWNTO 16) <= CMD_FIFO_Q(31 DOWNTO 16);
 
 

@@ -114,10 +114,8 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity tcd_interface
 -- Compiling architecture impl of tcd_interface
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_status_data.vhd {2 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_status_data.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_status_data.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_status_data.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
-** Warning: (vcom-7) Failed to open lock file "C:\Luis\Dropbox\SSD\svn\ssd\FPGA\RDO\modelsim\work/_lock" in create mode.
-Permission denied. (errno = EACCES)
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -213,16 +211,8 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity Ped_substration
 -- Compiling architecture Ped_substration_arch of Ped_substration
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd {0 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
-Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
-** Warning: (vcom-6) -- Waiting for lock by "leardila-perez@LEAPEREZ-S85, pid = 2488". Lockfile is "C:\Luis\Dropbox\SSD\svn\ssd\FPGA\RDO\modelsim\work/_lock".
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity debud_data_verify
--- Compiling architecture debud_data_verify_arch of debud_data_verify
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -233,11 +223,8 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package SSD_pkg
 -- Compiling entity Data_Pipe_Control
 -- Compiling architecture Data_Pipe_Control_arch of Data_Pipe_Control
-** Error: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd(224): Target type ieee.std_logic_1164.STD_ULOGIC in signal assignment is different from expression type.
-** Error: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd(237): Target type ieee.std_logic_1164.STD_ULOGIC in signal assignment is different from expression type.
-** Error: C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd(365): VHDL Compiler exiting
 
-} {21.0 24.0} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Packer.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Packer.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Packer.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Packer.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
