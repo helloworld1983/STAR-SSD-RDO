@@ -107,7 +107,7 @@ SIGNAL sDDL_FIFO_FULL 	: STD_LOGIC := '0';
 SIGNAL sDDL_FIFO_EMPTY 	: STD_LOGIC := '0';
 
 --STATE MACHINE
-TYPE state_type IS (ST_IDLE, ST_GET_TCD_INFO, ST_WT_GT_ONE, ST_HEADER, ST_FIBERS, ST_TCD_INFO, ST_TRAILER);
+TYPE state_type IS (ST_IDLE, ST_GET_TCD_INFO, ST_HEADER, ST_FIBERS, ST_TCD_INFO, ST_TRAILER);
 SIGNAL sState     	: state_type;
 SIGNAL sCnt 			: INTEGER := 0;
 SIGNAL sFIBER_Cnt		: INTEGER := 0;
@@ -201,8 +201,8 @@ BEGIN
 		
 		IF sStatus_Counters_RST_REG_buff = '1' THEN
 			sSIU_PACKET_CNT_REG <= (OTHERS => '0');
-		ELSIF DDL_FIFO_RDREQ = '1' AND sDDL_FIFO_EMPTY = '0' THEN 
-			sSIU_PACKET_CNT_REG <= STD_LOGIC_VECTOR(UNSIGNED(sSIU_PACKET_CNT_REG) + 1); --increment status counter
+		--ELSIF DDL_FIFO_RDREQ = '1' AND sDDL_FIFO_EMPTY = '0' THEN 
+		--	sSIU_PACKET_CNT_REG <= STD_LOGIC_VECTOR(UNSIGNED(sSIU_PACKET_CNT_REG) + 1); --increment status counter
 		END IF;
 		
 	END IF;
@@ -232,7 +232,7 @@ BEGIN
 				sTCD_EMPTY_FLAG <= '0';
 				sTCD_ONLY_FLAG 	<= '0';
 				
-				IF RScnt_TRGword_FIFO_EMPTY = '0' THEN 
+				IF ((RScnt_TRGword_FIFO_EMPTY = '0') AND (PAYLOAD_MEM_GT_ONE = x"FF")) THEN 
 					sState 		<= ST_GET_TCD_INFO;
 					sCnt 			<= 0;
 					s1ms_No_Trigger 	<= 0;
@@ -252,7 +252,9 @@ BEGIN
 				END IF;
 				
 			WHEN ST_GET_TCD_INFO =>
-				sCnt <= sCnt + 1;
+				IF sCnt < 5 THEN
+					sCnt <= sCnt + 1;
+				END IF;
 				CASE sCnt IS 
 					WHEN 0 | 1 =>
 						RScnt_TRGword_FIFO_RDREQ <= '1';
@@ -263,19 +265,12 @@ BEGIN
 						sTRGWORD <= RScnt_TRGword_FIFO_OUT; --x"0111" & sTRGWORD; for FORCED and x"0000" & sTRGWORD; for TCD
 					WHEN 4 => 
 						sRS_CTR <= RScnt_TRGword_FIFO_OUT(31 DOWNTO 0); --x"0" & sRS_CTR;
-						sCnt <= 0;
-						sState <= ST_WT_GT_ONE;
 					WHEN OTHERS =>
-						sCnt <= 0;
-						sState <= ST_WT_GT_ONE;
+						IF sDDL_FIFO_FULL = '0' THEN
+							sCnt <= 0;
+							sState <= ST_HEADER;
+						END IF;
 				END CASE;
-				
-			WHEN ST_WT_GT_ONE => -- waiting for greater than one 
-				RScnt_TRGword_FIFO_RDREQ <= '0';
-				IF PAYLOAD_MEM_GT_ONE = x"FF" and sDDL_FIFO_FULL = '0' THEN -- Checking if FIFO is full before going to header
-					sCnt <= 0;
-					sState <= ST_HEADER;
-				END IF;
 				
 			WHEN ST_HEADER => --writes the header information Header is 10 words long, less than the prog full flag of total-30.
 							
@@ -328,7 +323,7 @@ BEGIN
 						sSEEN_END_MARKER_FLAG <= '0';
 					WHEN 1 => -- check for the start marker
 						--ADD TIME BASE ESCAPE error in writing the header and not pressent ++++++++++++++ -- MISSING
-						IF sPAYLOAD_MEM_OUT_PIPE_0 (sFIBER_Cnt) = x"15354" & sRD_SERIAL & '0' & STD_LOGIC_VECTOR(TO_UNSIGNED(sFIBER_Cnt,3)) AND PAYLOAD_MEM_GT_ONE (sFIBER_Cnt) = '1' THEN
+						IF sPAYLOAD_MEM_OUT_PIPE_0 (sFIBER_Cnt) = x"15354" & sRD_SERIAL & '0' & STD_LOGIC_VECTOR(TO_UNSIGNED(sFIBER_Cnt,3)) THEN
 							sCnt <= 2;
 						END IF;
 					WHEN 2 => -- write the fiber token (DDDDDDDD)

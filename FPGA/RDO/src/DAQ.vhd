@@ -215,13 +215,13 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
 
    END COMPONENT Data_Packer;
 	
-component chipscope_icon_siu
+component chipscope_icon_daq
   PORT (
     CONTROL0 : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0)
 	 );
 end component;
 
-component chipscope_ila_siu
+component chipscope_ila_daq
   PORT (
     CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
     CLK : IN STD_LOGIC;
@@ -376,12 +376,12 @@ BEGIN
          DDL_FIFO_RDCLK           => DDL_FIFO_RDCLK
          );
 				 
-	chipscope_icon_siu_inst : chipscope_icon_siu
+chipscope_icon_daq_inst : chipscope_icon_daq
   PORT map (
     CONTROL0 => CONTROL0
 	 );
 
-chipscope_ila_siu_inst : chipscope_ila_siu
+chipscope_ila_daq_inst : chipscope_ila_daq
   PORT map (
     CONTROL => CONTROL0,
     CLK => CLK80,

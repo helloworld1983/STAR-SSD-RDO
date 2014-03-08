@@ -137,9 +137,9 @@ ARCHITECTURE USB_DECODER_Arch OF USB_DECODER IS
 	SIGNAL LC_FPGA_STATUS		 : STD_LOGIC_VECTOR (7 DOWNTO 0)  := (OTHERS => '0');
 
    -- signals for single-port RAM
-   SIGNAL sPedMemWrite      : PED_MEM_WRITE;
+   SIGNAL sPedMemWrite      : PED_MEM_WRITE := ('0', (OTHERS => '0'), (OTHERS => '0'), (OTHERS => '0'));
    SIGNAL sPedMemSelect     : STD_LOGIC_VECTOR (2 DOWNTO 0) := (OTHERS => '0');
-   SIGNAL sPedMemWE         : STD_LOGIC;
+   SIGNAL sPedMemWE         : STD_LOGIC := '0';
    SIGNAL sPedMemAddrCnt    : UNSIGNED (13 DOWNTO 0)        := (OTHERS => '0');
    SIGNAL sPedMemAddrTemp   : STD_LOGIC_VECTOR (13 DOWNTO 0);
    SIGNAL sPedMemAddrUpdate : STD_LOGIC                     := '0';
@@ -196,7 +196,8 @@ BEGIN
          --LC_Trigger_Handler
          sTEST2HOLD_DELAY        <= (OTHERS => '0');
          CMD_FIFO_RDREQ          <= '0';
-
+			DATA_BUFF_RST				<= '0';
+			
       ELSIF rising_edge(CLK40) THEN     -- rising clock edge
          -- defaults:
          CMD_FIFO_RDREQ    <= '0';

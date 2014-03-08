@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.5
-# Date: Fri Feb 21 23:24:07 2014
+# Date: Thu Mar 06 23:17:42 2014
 #
 ##############################################################
 #
@@ -47,10 +47,10 @@ CSET axi_slave_type=Memory_Slave
 CSET axi_type=AXI4_Full
 CSET byte_size=9
 CSET coe_file=no_coe_file_loaded
-CSET collision_warnings=ALL
+CSET collision_warnings=NONE
 CSET component_name=mem_12288_9
-CSET disable_collision_warnings=false
-CSET disable_out_of_range_warnings=false
+CSET disable_collision_warnings=true
+CSET disable_out_of_range_warnings=true
 CSET ecc=false
 CSET ecctype=No_ECC
 CSET enable_32bit_address=false
@@ -105,4 +105,4 @@ CSET write_width_b=9
 MISC pkg_timestamp=2012-11-19T16:22:25Z
 # END Extra information
 GENERATE
-# CRC: 900dc600
+# CRC: f23f802b

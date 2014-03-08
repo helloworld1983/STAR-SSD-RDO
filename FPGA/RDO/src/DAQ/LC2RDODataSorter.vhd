@@ -95,6 +95,7 @@ PORT MAP(
 				END IF;
 			
 			ELSE
+			
 			LC2RDO_Hybrids <= (OTHERS => (OTHERS => '0'));
 			sCnt <= 0;
 			sStrip_Cnt <= "1111111111";

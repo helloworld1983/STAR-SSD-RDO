@@ -1,13 +1,91 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_trgwrd
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_reset
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_reg4
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_reg3
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_reg20
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_reg2
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_reg1
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_mstr_rst
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_mstage2
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_mstage1
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_lstage2
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_lstage1
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_clear
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/s_L0like
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sTrg_buf
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sTrg
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sTCD_DATA
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sRSx5_buf
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sRSx5
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sRS_buf
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sRSCtr
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sRS
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sFifoWrEn
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/sFifoRst
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/rsState
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/WORKING
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/TRGWORD
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/TCD_DATA
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/RSx5
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/RS_CTR
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/RST
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/RS
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/MASTER_RST
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/FIFO_RST
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/FIFO_RDREQ
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/FIFO_Q
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/FIFO_EMPTY
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/EVT_TRG
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/CLK50
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/tcd_interface_inst/CLK200
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sWR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sUSB_EVT_TRG
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sTRIGGER_MODE
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sTRGWORD
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sTC_Cnt
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sTCD_EN_TRGMODES_Reg
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sTCD_DELAY_Cnt
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sState
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sRS_CTR
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sMinACQ_Time
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sForced_Triggers_Reg
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sBUSY_COMBINED
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/WR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/WORKING
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/TRIGGER_MODE
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/TRGWORD
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/TCD_EN_TRGMODES_Reg
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/TCD_DELAY_Reg
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/RScnt_TRGword_WE
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/RScnt_TRGword_FULL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/RScnt_TRGword_FIFO
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/RS_CTR
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/RST
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/MASTER_RST
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/Forced_Triggers_Reg
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/EVT_TRG
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/CLK40
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/BUSY_COMBINED
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/BUSY_8_FIBERS
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/ACQUIRE
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPIPE_STATE
-add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/RD_SERIAL
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPipe_Cnt
-add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/WR_SERIAL
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPIPE_STATE
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPipe_Cnt
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/RD_SERIAL
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/WR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sWR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/RD_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/WR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/WR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/RD_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sWR_SERIAL
+add wave -noupdate /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/GT_ONE_STATE
+add wave -noupdate /system_tb/DAQ_ints/Data_Packer_Inst/sState
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/WR_SERIAL
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Trigger_Admin_inst/TriggerControl_SerialCounter_inst/sWR_SERIAL
 add wave -noupdate -radix hexadecimal /system_tb/mft2232h_instA/sCmdFifoD
 add wave -noupdate -radix hexadecimal /system_tb/mft2232h_instA/FIFO_RDREQ
 add wave -noupdate -radix hexadecimal /system_tb/mft2232h_instA/FIFO_RDCLK
@@ -88,6 +166,35 @@ add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/Data
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_IN_TTE
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_IN_CPS
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_IN
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/sCnt
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/Strip_Cnt
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/StripAddress
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/LC2RDO_Hybrids
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/LC2RDO_1Hybrid
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/DataValid_Out
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/DataValid_In
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Demux16Pos_inst/CLK80
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/sPAYLOAD_MEM_WE
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/sDATA_MEM
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/sStripAddress
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/Zero_supr_trsh
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/ZST_Polarity
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/TC
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/StripAddress
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/PED_MEM_DATA_OUT
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/PAYLOAD_MEM_WE
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/PAYLOAD_MEM_IN
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/LC2RDO_1Hybrid
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/DataValid
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/CLK80
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Ped_substration_inst/ADC_offset
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/wea
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/doutb
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/dina
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/clkb
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/clka
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/addrb
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/mem_12288_9_inst/addra
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(6)/LC_Inst/DataPipe_inst/Ped_substration_inst/sStripAddress
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(6)/LC_Inst/DataPipe_inst/Ped_substration_inst/sPAYLOAD_MEM_WE
 add wave -noupdate /system_tb/DAQ_ints/FIBERS(6)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPIPE_STATE
@@ -148,7 +255,7 @@ add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/Data
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sCounting
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPipe_Cnt
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sPIPE_STATE
-add wave -noupdate -radix unsigned /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sAddress
+add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sAddress
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/sFlags
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_WADDR
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_WE_TTE
@@ -157,8 +264,6 @@ add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/Data
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_IN_TTE
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_IN_CPS
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(7)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_IN
-add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/WR_SERIAL
-add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/RD_SERIAL
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/FIBERS(0)/LC_Inst/DataPipe_inst/Data_Pipe_Control_inst/PAYLOAD_MEM_GT_ONE
 add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_GT_ONE
 add wave -noupdate -radix hexadecimal -childformat {{/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(0) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(1) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(2) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(3) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(4) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(5) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(6) -radix hexadecimal} {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(7) -radix hexadecimal}} -subitemconfig {/system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(0) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(1) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(2) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(3) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(4) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(5) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(6) {-height 15 -radix hexadecimal} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR(7) {-height 15 -radix hexadecimal}} /system_tb/DAQ_ints/Data_Packer_Inst/PAYLOAD_MEM_RADDR
@@ -222,7 +327,7 @@ add wave -noupdate -radix hexadecimal /system_tb/DAQ_ints/Data_Packer_Inst/PAYLO
 add wave -noupdate -radix hexadecimal /system_tb/sFiber_LCtoRDO
 add wave -noupdate -radix hexadecimal -childformat {{/system_tb/sFiber_RDOtoLC(0) -radix hexadecimal -childformat {{/system_tb/sFiber_RDOtoLC(0)(23) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(22) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(21) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(20) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(19) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(18) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(17) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(16) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(15) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(14) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(13) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(12) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(11) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(10) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(9) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(8) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(7) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(6) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(5) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(4) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(3) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(2) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(1) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(0) -radix hexadecimal}}} {/system_tb/sFiber_RDOtoLC(1) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(2) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(3) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(4) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(5) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(6) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(7) -radix hexadecimal}} -expand -subitemconfig {/system_tb/sFiber_RDOtoLC(0) {-height 15 -radix hexadecimal -childformat {{/system_tb/sFiber_RDOtoLC(0)(23) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(22) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(21) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(20) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(19) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(18) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(17) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(16) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(15) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(14) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(13) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(12) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(11) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(10) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(9) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(8) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(7) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(6) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(5) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(4) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(3) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(2) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(1) -radix hexadecimal} {/system_tb/sFiber_RDOtoLC(0)(0) -radix hexadecimal}}} /system_tb/sFiber_RDOtoLC(0)(23) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(22) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(21) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(20) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(19) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(18) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(17) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(16) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(15) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(14) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(13) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(12) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(11) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(10) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(9) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(8) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(7) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(6) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(5) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(4) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(3) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(2) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(1) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(0)(0) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(1) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(2) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(3) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(4) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(5) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(6) {-height 15 -radix hexadecimal} /system_tb/sFiber_RDOtoLC(7) {-height 15 -radix hexadecimal}} /system_tb/sFiber_RDOtoLC
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {19999931133 ps} 0}
+WaveRestoreCursors {{Cursor 1} {7112272876 ps} 0}
 configure wave -namecolwidth 166
 configure wave -valuecolwidth 78
 configure wave -justifyvalue left
@@ -237,4 +342,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {19999891047 ps} {20000005735 ps}
+WaveRestoreZoom {4959016516 ps} {9265583684 ps}

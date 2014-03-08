@@ -42,7 +42,7 @@ END TCD_SIMU;
 ARCHITECTURE TCD_SIMU_arch OF TCD_SIMU IS
 
 	signal RS : std_logic := '0';
-   signal RSx5 : std_logic := '0';
+   signal RSx5 : std_logic := '1';
    signal TCD_DATA : std_logic_vector(3 downto 0) := (others => '0');
 	CONSTANT TCD_RS_PERIOD    : time := 106 ns;   -- ~9.4 MHz RHICstrobe
    CONSTANT TCD_RS5_PERIOD   : time := 21.2 ns;  -- 5 x RHICstrobe frequency
@@ -95,19 +95,19 @@ BEGIN
 	 WAIT FOR 1500 us;
 	 WAIT UNTIL rising_edge(RS);
 	 trg_frame(x"F", x"5", x"121", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"122", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"122", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"123", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"124", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"124", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"125", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"126", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"126", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"127", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"128", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"128", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"129", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"12A", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12A", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"12B", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"12C", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12C", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"12D", RS, RSx5, TCD_DATA);
-	 trg_frame(x"F", x"5", x"12E", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12E", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"5", x"12F", RS, RSx5, TCD_DATA);
 	 WAIT FOR 1500 us;
 	 WAIT UNTIL rising_edge(RS);
@@ -116,18 +116,23 @@ BEGIN
 	 WAIT UNTIL rising_edge(RS);
 	 WAIT FOR TCD_RS_PERIOD*5;
 	 trg_frame(x"4", x"2", x"123", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12E", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"3", x"123", RS, RSx5, TCD_DATA);
     WAIT FOR TCD_RS_PERIOD*20;
 	 WAIT UNTIL Busy_Combined = '0';
 	 trg_frame(x"4", x"2", x"124", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12E", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"3", x"124", RS, RSx5, TCD_DATA);
 	 WAIT FOR TCD_RS_PERIOD*20;
 	 WAIT UNTIL Busy_Combined = '0';
 	 trg_frame(x"4", x"2", x"125", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12E", RS, RSx5, TCD_DATA);
 	 trg_frame(x"F", x"3", x"125", RS, RSx5, TCD_DATA);
 	 WAIT FOR TCD_RS_PERIOD*20;
 	 WAIT UNTIL Busy_Combined = '0';
 	 trg_frame(x"4", x"2", x"126", RS, RSx5, TCD_DATA);
+	 trg_frame(x"0", x"5", x"12E", RS, RSx5, TCD_DATA);
+	 trg_frame(x"F", x"3", x"125", RS, RSx5, TCD_DATA);
 	
 END PROCESS;
 

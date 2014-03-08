@@ -1,7 +1,6 @@
 # Output products list for <mem_12288_9>
 _xmsgs\pn_parser.xmsgs
 mem_12288_9.asy
-mem_12288_9.blc
 mem_12288_9.gise
 mem_12288_9.ngc
 mem_12288_9.vhd

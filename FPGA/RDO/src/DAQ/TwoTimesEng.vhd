@@ -181,13 +181,13 @@ BEGIN
 				sTTE_STATE <= ST_IDLE;
 		END CASE;
 		
-	IF (sTTE_STATE = ST_WRITE OR sTTE_STATE = ST_END) THEN		-- memory write enable
-		PAYLOAD_MEM_WE <= '1';
-	ELSE 
-		PAYLOAD_MEM_WE <= '0';
-	END IF;
-	
-	PAYLOAD_MEM_IN <= x"0" & b"00" & sOffsetOut_EXT (sNum2) & sOffsetOut_EXT (sNum1) & sOffsetOut_EXT (sNum0);	-- memory data
+		IF (sTTE_STATE = ST_WRITE OR sTTE_STATE = ST_END) THEN		-- memory write enable
+			PAYLOAD_MEM_WE <= '1';
+		ELSE 
+			PAYLOAD_MEM_WE <= '0';
+		END IF;
+		
+		PAYLOAD_MEM_IN <= x"0" & b"00" & sOffsetOut_EXT (sNum2) & sOffsetOut_EXT (sNum1) & sOffsetOut_EXT (sNum0);	-- memory data
 	
 	END IF;
 	

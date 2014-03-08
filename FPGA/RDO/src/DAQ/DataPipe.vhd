@@ -212,7 +212,7 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
    SIGNAL sStripAddress       : STD_LOGIC_VECTOR (13 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL sStripAddress_buff       : STD_LOGIC_VECTOR (13 DOWNTO 0) := (OTHERS => '0');
    SIGNAL sPED_MEM_DATA_OUT   : STD_LOGIC_VECTOR (9 DOWNTO 0)  := (OTHERS => '0');  -- Pedestal memory output
-   SIGNAL sPED_MEM_WE         : STD_LOGIC_VECTOR (0 DOWNTO 0);
+   SIGNAL sPED_MEM_WE         : STD_LOGIC_VECTOR (0 DOWNTO 0) := "0";
    SIGNAL sPAYLOAD_MEM_IN_CPS : STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0');  -- Compress
    SIGNAL sPAYLOAD_MEM_WE_CPS : STD_LOGIC                      := '0';
 

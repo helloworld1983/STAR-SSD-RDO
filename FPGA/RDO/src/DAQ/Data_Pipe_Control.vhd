@@ -109,6 +109,7 @@ SIGNAL sPipe_Cnt 				: INTEGER := 0;
 SIGNAL sPM_START_MARKER 	: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0'); --start marker
 SIGNAL sPM_END_MARKER 		: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0'); --start marker
 SIGNAL sFlags					: STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0'); --start marker
+SIGNAL sWR_SERIAL 			: STD_LOGIC_VECTOR (11 DOWNTO 0) := (OTHERS => '0');
 
 SIGNAL sClock_Cnt				: INTEGER RANGE 0 to 16000 := 0;
 
@@ -138,6 +139,7 @@ BEGIN
 		sFlags <= (OTHERS => '0');
 		sPAYLOAD_MEM_GT_ONE <= '0';
 		sClock_Cnt_EN := '0';
+		sWR_SERIAL <= (OTHERS => '0');
 	ELSIF RISING_EDGE(CLK80) THEN 
 		
 			CASE sPIPE_STATE IS
@@ -222,6 +224,8 @@ BEGIN
 							IF PAYLOAD_MEM_WE_TTE = '1' THEN 
 								sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1);  --memory address increase
 								sPAYLOAD_MEM_WE <= "1";
+							ELSE 
+								sPAYLOAD_MEM_WE <= "0";
 							END IF;
 						END IF;
 					ELSIF sPipe_Selector = x"1" THEN
@@ -235,6 +239,8 @@ BEGIN
 							IF PAYLOAD_MEM_WE_CPS = '1' THEN
 								sPAYLOAD_MEM_WADDR <= STD_LOGIC_VECTOR(UNSIGNED(sPAYLOAD_MEM_WADDR) + 1); --memory address increase
 								sPAYLOAD_MEM_WE <= "1";
+							ELSE 
+								sPAYLOAD_MEM_WE <= "0";
 							END IF;
 						END IF;
 					ELSE 
@@ -300,7 +306,8 @@ BEGIN
 					IF LC_Trigger_Busy = '0' THEN 
 						-- waiting for trigger busy line to go low
 						sPIPE_STATE 		<= ST_IDLE;		
-						sPipe_Cnt 			<= 0;				
+						sPipe_Cnt 			<= 0;
+						sWR_SERIAL <= WR_SERIAL;  --once the event is finish update the signal of the sWR_SERIAL to determine if we have greater than one
 					END IF;
 					
 				WHEN OTHERS =>
@@ -314,13 +321,12 @@ BEGIN
 			CASE GT_ONE_STATE IS
 				WHEN ST_ZERO =>
 					sPAYLOAD_MEM_GT_ONE <= '0';
-					IF ((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) > 1) OR 
-						((TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 1) AND (UNSIGNED(sPAYLOAD_MEM_WADDR) > (UNSIGNED(PAYLOAD_MEM_RADDR) + 7)))) THEN
+					IF (TO_INTEGER(SIGNED(sWR_SERIAL) - SIGNED(RD_SERIAL)) > 0) THEN
 						GT_ONE_STATE <= ST_ONE; --when event starts serials are equal, if we got an only header event, then check for at least 7 in lenght
 					END IF;
 				WHEN ST_ONE => 
 					sPAYLOAD_MEM_GT_ONE <= '1';
-					IF (TO_INTEGER(UNSIGNED(WR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) OR (UNSIGNED(PAYLOAD_MEM_RADDR) >= UNSIGNED(sPAYLOAD_MEM_WADDR) - 7) THEN
+					IF (TO_INTEGER(UNSIGNED(sWR_SERIAL) - UNSIGNED(RD_SERIAL)) = 0) THEN
 						GT_ONE_STATE <= ST_ZERO; --go to 0 when reading address is reaching writing address, this indicates no more events in memory
 					END IF;					
 				WHEN OTHERS =>

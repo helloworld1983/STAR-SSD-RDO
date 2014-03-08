@@ -1,4 +1,4 @@
--- $Id$
+-- $Id: ddl_top.vhd 428 2013-10-29 21:15:53Z jschamba $
 -------------------------------------------------------------------------------
 -- Title      : DDL top level design
 -- Project    : HFT PXL
@@ -7,7 +7,7 @@
 -- Author     : Joachim Schambach
 -- Company    : University of Texas at Austin
 -- Created    : 2012-02-16
--- Last update: 2013-10-29
+-- Last update: 2014-03-04
 -- Platform   : Windows, Xilinx ISE 13.4
 -- Target     : Virtex-6 (XC6VLX240T-FF1759)
 -- Standard   : VHDL'93/02
@@ -44,7 +44,7 @@ ENTITY ddl IS
     SIU_T          : OUT std_logic;     -- BiDir signal direction
     -- control signals
     FEE_RESET      : OUT std_logic;
-    EVT_RD_ENABLE  : OUT std_logic;		--Clear buffers and lower bussy when 0
+    EVT_RD_ENABLE  : OUT std_logic;
     -- From FPGA to PC
     FIFO_Q         : IN  std_logic_vector(35 DOWNTO 0);  -- interface fifo data output port
     FIFO_EMPTY     : IN  std_logic;     -- interface fifo "emtpy" signal
@@ -93,10 +93,9 @@ ARCHITECTURE a OF ddl IS
   TYPE outputState_type IS (
     OS_IDLE,
     OS_WAITOUT,
-    OS_TXDATA_PRE,
     OS_TXDATA,
-    OS_TXEMPTY_PRE,
     OS_TXEMPTY,
+    OS_TXGETDATA,
     OS_TXLF,
     OS_TXEODB,
     OS_TXINGAP,
@@ -110,21 +109,24 @@ ARCHITECTURE a OF ddl IS
     FB_RESET
     );
 
-  SIGNAL output_present : outputState_type;
-  SIGNAL input_present  : inputState_type;
-  SIGNAL feebus_present : feebusState_type;
-  SIGNAL s_areset       : std_logic;
-  SIGNAL sCmdFifoD      : std_logic_vector (35 DOWNTO 0);
-  SIGNAL sCmdFifoWrreq  : std_logic;
-  SIGNAL sCmdFifoFull   : std_logic;
-  SIGNAL dout_val       : std_logic;
-  SIGNAL event_read     : boolean;
-  SIGNAL sDataEnd       : std_logic;
-  SIGNAL sFifoRdreq     : std_logic;
-  SIGNAL gap_timer      : integer RANGE 0 TO 15;
+  SIGNAL outputState   : outputState_type;
+  SIGNAL inputState    : inputState_type;
+  SIGNAL feebusState   : feebusState_type;
+  SIGNAL s_areset      : std_logic;
+  SIGNAL sCmdFifoD     : std_logic_vector (35 DOWNTO 0);
+  SIGNAL sCmdFifoWrreq : std_logic;
+  SIGNAL sCmdFifoFull  : std_logic;
+  SIGNAL dout_val      : std_logic;
+  SIGNAL event_read    : boolean;
+  SIGNAL sDataEnd      : std_logic;
+  SIGNAL sFifoRdreq    : std_logic;
+  SIGNAL gap_timer     : integer RANGE 0 TO 15;
+  SIGNAL fidir_d1      : std_logic := '0';
+  SIGNAL fidir_d2      : std_logic := '0';
+  SIGNAL sFiBen_n      : std_logic := '0';
 
   -- signals to delay inputs and outputs
-  SIGNAL sDataIn    : std_logic_vector(33 DOWNTO 0);
+  SIGNAL sDataIn    : std_logic_vector(31 DOWNTO 0);
   SIGNAL sDataReq   : std_logic;
   SIGNAL sFifoEmpty : std_logic;
   SIGNAL sFiD1      : std_logic_vector(31 DOWNTO 0);
@@ -160,17 +162,16 @@ BEGIN
   -- The SIU can initiate a FEE reset by activating fiBEN_n and THEN
   -- switching FIDIR from '1' to '0'
   PROCESS (FICLK)
-    VARIABLE fidir_d1 : std_logic := '0';
-    VARIABLE fidir_d2 : std_logic := '0';
   BEGIN
     IF rising_edge(FICLK) THEN
-      IF ((fidir_d2 = '1') AND (fidir_d1 = '0') AND (FIBEN_n = '0')) THEN
+      fidir_d2 <= fidir_d1;
+      fidir_d1 <= FIDIR;
+      sFiBen_n <= FIBEN_n;
+      IF ((fidir_d2 = '1') AND (fidir_d1 = '0') AND (sFiBen_n = '0')) THEN
         s_areset <= '1';
       ELSE
         s_areset <= RESET;
       END IF;
-      fidir_d2 := fidir_d1;
-      fidir_d1 := FIDIR;
     END IF;
   END PROCESS;
 
@@ -184,9 +185,9 @@ BEGIN
 
   BEGIN
     IF s_areset = '1' THEN              -- asynchronous reset (active high)
-      input_present  <= IS_IDLE;
-      feebus_present <= FB_INPUT;
-      output_present <= OS_IDLE;
+      inputState  <= IS_IDLE;
+      feebusState <= FB_INPUT;
+      outputState <= OS_IDLE;
 
       b_rxdat       := false;
       b_rxcmd       := false;
@@ -199,30 +200,20 @@ BEGIN
 
       gap_timer <= 0;
 
-      FOD                  <= (OTHERS => '0');
-      FOTEN_n              <= '1';
-      FOCTRL_n             <= '1';
-      sFifoRdreq           <= '0';
-      sDataIn(32 DOWNTO 0) <= (OTHERS => '0');
-      sDataIn(33)          <= '1';
+      FOD        <= (OTHERS => '0');
+      FOTEN_n    <= '1';
+      FOCTRL_n   <= '1';
+      sFifoRdreq <= '0';
+      sDataIn    <= (OTHERS => '0');
 
       sFiD1    <= (OTHERS => '0');
       sFiD2    <= (OTHERS => '0');
       sFiTEN_n <= '1';
 
     ELSIF rising_edge(FICLK) THEN       -- rising clock edge
-      IF sDataReq = '1' THEN
-        sDataIn(32 DOWNTO 0) <= FIFO_Q(32 DOWNTO 0);
-        sDataIn(33)          <= sFifoEmpty OR NOT sDataReq;
-      ELSIF FIFO_EMPTY = '1' THEN
-        sDataIn(32 DOWNTO 0) <= (OTHERS => '0');
-        sDataIn(33)          <= '1';
-      ELSE
-        sDataIn <= sDataIn;
-      END IF;
 
-      -- delay a little
-      sDataReq   <= sFifoRdreq;
+      sDataIn <= FIFO_Q(31 DOWNTO 0);
+
       sFifoEmpty <= FIFO_EMPTY;
 
       -- delay inputs for Block Write
@@ -233,35 +224,35 @@ BEGIN
       -------------------------------------------------------------------------
       -- INPUT State Machine
       -------------------------------------------------------------------------
-      CASE input_present IS
+      CASE inputState IS
         WHEN IS_IDLE =>
           IF (b_rxcmd) THEN
-            input_present <= IS_EVAL;
+            inputState <= IS_EVAL;
           ELSE
-            input_present <= IS_IDLE;
+            inputState <= IS_IDLE;
           END IF;
 
         WHEN IS_EVAL =>
           IF (command_code = CMD_STBWR) THEN
-            input_present <= IS_STBWR;
+            inputState <= IS_STBWR;
           ELSIF (command_code = CMD_RDYRX) THEN
-            input_present <= IS_EVDATA;
+            inputState <= IS_EVDATA;
           ELSE
-            input_present <= IS_IDLE;
+            inputState <= IS_IDLE;
           END IF;
 
         WHEN IS_STBWR =>
           IF (b_rxcmd) THEN
-            input_present <= IS_IDLE;
+            inputState <= IS_IDLE;
           ELSE
-            input_present <= IS_STBWR;
+            inputState <= IS_STBWR;
           END IF;
 
         WHEN IS_EVDATA =>
-          IF (b_rxcmd OR feebus_present = FB_RESET) THEN
-            input_present <= IS_IDLE;
+          IF (b_rxcmd OR feebusState = FB_RESET) THEN
+            inputState <= IS_IDLE;
           ELSE
-            input_present <= IS_EVDATA;
+            inputState <= IS_EVDATA;
           END IF;
 
       END CASE;
@@ -276,14 +267,14 @@ BEGIN
       END IF;
 
       -- Block Write
-      IF (input_present = IS_STBWR) THEN
+      IF (inputState = IS_STBWR) THEN
         sCmdFifoWrreq <= NOT sFiTEN_n;
       ELSE
         sCmdFifoWrreq <= '0';
       END IF;
 
       -- event read
-      IF (input_present = IS_EVDATA) THEN
+      IF (inputState = IS_EVDATA) THEN
         EVT_RD_ENABLE <= '1';
         event_read    <= true;
       ELSE
@@ -295,17 +286,17 @@ BEGIN
       -------------------------------------------------------------------------
       -- OUTPUT State Machine
       -------------------------------------------------------------------------
-      CASE output_present IS
+      CASE outputState IS
         WHEN OS_IDLE =>
           FOD        <= (OTHERS => '0');
           FOTEN_n    <= '1';
           FOCTRL_n   <= '1';
           sFifoRdreq <= '0';
 
-          IF (feebus_present = FB_FLOAT) THEN
-            output_present <= OS_WAITOUT;
+          IF (feebusState = FB_FLOAT) THEN
+            outputState <= OS_WAITOUT;
           ELSE
-            output_present <= OS_IDLE;
+            outputState <= OS_IDLE;
           END IF;
 
         WHEN OS_WAITOUT =>
@@ -314,94 +305,92 @@ BEGIN
           FOCTRL_n   <= '1';
           sFifoRdreq <= '0';
 
-          IF (feebus_present = FB_OUTPUT) THEN
+          IF (feebusState = FB_OUTPUT) THEN
             IF event_read THEN
-              gap_timer      <= 0;
-              output_present <= OS_TXINGAP;
+              gap_timer   <= 0;
+              outputState <= OS_TXEMPTY;
             ELSE
-              output_present <= OS_WAITIN;
+              outputState <= OS_WAITIN;
             END IF;
-          ELSIF (feebus_present = FB_INPUT) THEN
-            output_present <= OS_IDLE;
+          ELSIF (feebusState = FB_INPUT) THEN
+            outputState <= OS_IDLE;
           ELSE
-            output_present <= OS_WAITOUT;
+            outputState <= OS_WAITOUT;
           END IF;
-
-        WHEN OS_TXEMPTY_PRE =>
-          FOD      <= sDataIn(31 DOWNTO 0);
-          FOTEN_n  <= sDataIn(33);
-          foCTRL_N <= '1';
-
-          output_present <= OS_TXEMPTY;
 
         WHEN OS_TXEMPTY =>
           FOD      <= (OTHERS => '0');
           FOTEN_n  <= '1';
           FOCTRL_n <= '1';
 
-          IF (feebus_present = FB_FLOAT OR feebus_present = FB_RESET) THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_WAITIN;
+          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+            sFifoRdreq  <= '0';
+            outputState <= OS_WAITIN;
           ELSIF (FIFO_EMPTY = '1') THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_TXEMPTY;
+            sFifoRdreq  <= '0';
+            outputState <= OS_TXEMPTY;
           ELSE
-            sFifoRdreq     <= '1';
-            output_present <= OS_TXDATA_PRE;
+            sFifoRdreq  <= '1';
+            outputState <= OS_TXGETDATA;
           END IF;
 
-        WHEN OS_TXDATA_PRE =>
-          output_present <= OS_TXDATA;
+        WHEN OS_TXGETDATA =>
+          sFifoRdreq  <= '1';
+          outputState <= OS_TXDATA;
           
         WHEN OS_TXDATA =>
-          FOD      <= sDataIn(31 DOWNTO 0);
-          FOTEN_n  <= sDataIn(33);
+          FOD      <= FIFO_Q(31 DOWNTO 0);
+          FOTEN_n  <= sFifoEmpty;
           foCTRL_N <= '1';
 
-          IF (feebus_present = FB_FLOAT OR feebus_present = FB_RESET) THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_WAITIN;
+          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+            sFifoRdreq  <= '0';
+            outputState <= OS_WAITIN;
           ELSIF FILF_n = '0' THEN
-            output_present <= OS_TXLF;
-          ELSIF (FIFO_Q(32) = '1') AND (sDataIn(32) = '0') THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_TXDATA;
-          ELSIF (sDataIn(32) = '1') THEN
-            sFifoRdreq     <= '0';
-            gap_timer      <= 0;
-            output_present <= OS_TXEODB;
+            FOTEN_n     <= '1';
+            outputState <= OS_TXLF;
+          ELSIF FIFO_Q(32) = '1' THEN
+            sFifoRdreq  <= '0';
+            gap_timer   <= 0;
+            outputState <= OS_TXEODB;
           ELSIF FIFO_EMPTY = '1' THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_TXEMPTY_PRE;
+            sFifoRdreq  <= '0';
+            outputState <= OS_TXEMPTY;
           ELSE
-            sFifoRdreq     <= '1';
-            output_present <= OS_TXDATA;
+            sFifoRdreq  <= '1';
+            outputState <= OS_TXDATA;
           END IF;
 
         WHEN OS_TXLF =>
-          FOD      <= (OTHERS => '0');
-          FOTEN_n  <= '1';
-          FOCTRL_n <= '1';
+          FOD        <= (OTHERS => '0');
+          FOTEN_n    <= '1';
+          FOCTRL_n   <= '1';
+          sFifoRdreq <= (NOT FIFO_EMPTY) AND FILF_n;
 
-          IF (feebus_present = FB_FLOAT OR feebus_present = FB_RESET) THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_WAITIN;
+          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+            sFifoRdreq  <= '0';
+            outputState <= OS_WAITIN;
           ELSIF (FILF_n = '0') THEN
-            sFifoRdreq     <= '0';
-            output_present <= OS_TXLF;
+            sFifoRdreq  <= '0';
+            outputState <= OS_TXLF;
           ELSE
-            sFifoRdreq     <= '1';
-            output_present <= OS_TXDATA_PRE;
+            -- re-transmit previous data word
+            FOD         <= sDataIn;
+            -- make sure FOTEN_n is asserted at least once
+            -- if FIFO is empty at this point
+            -- otherwise, FOTEN_n is asserted in OS_TXDATA
+            FOTEN_n     <= NOT FIFO_EMPTY;
+            outputState <= OS_TXDATA;
           END IF;
 
         WHEN OS_TXEODB =>
-          IF (feebus_present = FB_FLOAT OR feebus_present = FB_RESET) THEN
+          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
             FOD        <= (OTHERS => '0');
             FOTEN_n    <= '1';
             FOCTRL_n   <= '1';
             sFifoRdreq <= '0';
 
-            output_present <= OS_WAITIN;
+            outputState <= OS_WAITIN;
           ELSIF (gap_timer = 1) THEN
             gap_timer  <= 0;
             FOD        <= x"000000" & FESTW_EODB;
@@ -409,7 +398,7 @@ BEGIN
             foCTRL_N   <= '0';
             sFifoRdreq <= '0';
 
-            output_present <= OS_TXINGAP;
+            outputState <= OS_TXINGAP;
           ELSE
             FOD        <= (OTHERS => '0');
             FOTEN_n    <= '1';
@@ -417,7 +406,7 @@ BEGIN
             sFifoRdreq <= '0';
             gap_timer  <= gap_timer + 1;
 
-            output_present <= OS_TXEODB;
+            outputState <= OS_TXEODB;
           END IF;
 
         WHEN OS_TXINGAP =>
@@ -426,13 +415,15 @@ BEGIN
           FOCTRL_n   <= '1';
           sFifoRdreq <= '0';
 
-          IF (feebus_present = FB_FLOAT OR feebus_present = FB_RESET) THEN
-            output_present <= OS_WAITIN;
-          ELSIF (gap_timer = 15) THEN
-            output_present <= OS_TXEMPTY;
+          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+            outputState <= OS_WAITIN;
+          ELSIF (gap_timer = 15) AND ((FIFO_EMPTY = '1') OR (FIFO_Q(32) = '1')) THEN
+            outputState <= OS_TXEMPTY;
+          ELSIF gap_timer = 15 THEN
+            outputState <= OS_TXGETDATA;
           ELSE
-            gap_timer      <= gap_timer + 1;
-            output_present <= OS_TXINGAP;
+            gap_timer   <= gap_timer + 1;
+            outputState <= OS_TXINGAP;
           END IF;
 
         WHEN OS_WAITIN =>
@@ -441,10 +432,10 @@ BEGIN
           FOCTRL_n   <= '1';
           sFifoRdreq <= '0';
 
-          IF (feebus_present = FB_INPUT) THEN
-            output_present <= OS_IDLE;
+          IF (feebusState = FB_INPUT) THEN
+            outputState <= OS_IDLE;
           ELSE
-            output_present <= OS_WAITIN;
+            outputState <= OS_WAITIN;
           END IF;
       END CASE;
 
@@ -452,36 +443,36 @@ BEGIN
       -------------------------------------------------------------------------
       -- FEEBUS State Machine
       -------------------------------------------------------------------------
-      CASE feebus_present IS
+      CASE feebusState IS
         WHEN FB_INPUT =>
           IF (fiBEN_N = '1') THEN
-            feebus_present <= FB_FLOAT;
+            feebusState <= FB_FLOAT;
           ELSE
-            feebus_present <= FB_INPUT;
+            feebusState <= FB_INPUT;
           END IF;
 
         WHEN FB_FLOAT =>
           IF (fiBEN_N = '0') THEN
             IF (fiDIR = '0') THEN
-              feebus_present <= FB_INPUT;
+              feebusState <= FB_INPUT;
             ELSE
-              feebus_present <= FB_OUTPUT;
+              feebusState <= FB_OUTPUT;
             END IF;
           ELSE
-            feebus_present <= FB_FLOAT;
+            feebusState <= FB_FLOAT;
           END IF;
 
         WHEN FB_OUTPUT =>
           IF (fiBEN_N = '1') THEN
-            feebus_present <= FB_FLOAT;
+            feebusState <= FB_FLOAT;
           ELSIF (fiDIR = '0') THEN
-            feebus_present <= FB_RESET;
+            feebusState <= FB_RESET;
           ELSE
-            feebus_present <= FB_OUTPUT;
+            feebusState <= FB_OUTPUT;
           END IF;
 
         WHEN FB_RESET =>
-          feebus_present <= FB_INPUT;
+          feebusState <= FB_INPUT;
 
       END CASE;
 

@@ -68,31 +68,30 @@ ARCHITECTURE impl OF tcd_interface IS
   TYPE rsState_type IS (R_INIT, R1, R2, R3, R4, R5, R6);
   SIGNAL rsState : rsState_type;
 
-  SIGNAL s_reg1     : std_logic_vector (3 DOWNTO 0);
-  SIGNAL s_reg2     : std_logic_vector (3 DOWNTO 0);
-  SIGNAL s_reg3     : std_logic_vector (3 DOWNTO 0);
-  SIGNAL s_reg4     : std_logic_vector (3 DOWNTO 0);
-  SIGNAL s_reg20    : std_logic_vector (19 DOWNTO 0);
-  SIGNAL s_trgwrd   : std_logic_vector (19 DOWNTO 0);
-  SIGNAL sTrg       : std_logic;
-  SIGNAL sTrg_buf   : std_logic;
-  SIGNAL s_lstage1  : std_logic;
-  SIGNAL s_lstage2  : std_logic;
-  SIGNAL s_mstage1  : std_logic;
-  SIGNAL s_mstage2  : std_logic;
-  SIGNAL s_L0like   : std_logic;
-  SIGNAL s_reset    : std_logic;
-  SIGNAL s_clear    : std_logic;
-  SIGNAL s_mstr_rst : std_logic;
-  SIGNAL sFifoWrEn  : std_logic;
-  SIGNAL sFifoRst   : std_logic;
-  SIGNAL sRSCtrRst  : std_logic;
-  SIGNAL sRSCtr     : unsigned (31 DOWNTO 0);
-  SIGNAL sRS        : std_logic;
-  SIGNAL sRS_buf    : std_logic;
-  SIGNAL sRSx5      : std_logic;
-  SIGNAL sRSx5_buf  : std_logic;
-  SIGNAL sTCD_DATA  : std_logic_vector(3 DOWNTO 0);
+  SIGNAL s_reg1     : std_logic_vector (3 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL s_reg2     : std_logic_vector (3 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL s_reg3     : std_logic_vector (3 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL s_reg4     : std_logic_vector (3 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL s_reg20    : std_logic_vector (19 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL s_trgwrd   : std_logic_vector (19 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL sTrg       : std_logic := '0';
+  SIGNAL sTrg_buf   : std_logic := '0';
+  SIGNAL s_lstage1  : std_logic := '0';
+  SIGNAL s_lstage2  : std_logic := '0';
+  SIGNAL s_mstage1  : std_logic := '0';
+  SIGNAL s_mstage2  : std_logic := '0';
+  SIGNAL s_L0like   : std_logic := '0';
+  SIGNAL s_reset    : std_logic := '0';
+  SIGNAL s_clear    : std_logic := '0';
+  SIGNAL s_mstr_rst : std_logic := '0';
+  SIGNAL sFifoWrEn  : std_logic := '0';
+  SIGNAL sFifoRst   : std_logic := '0';
+  SIGNAL sRSCtr     : unsigned (31 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL sRS        : std_logic := '0';
+  SIGNAL sRS_buf    : std_logic := '0';
+  SIGNAL sRSx5      : std_logic := '0';
+  SIGNAL sRSx5_buf  : std_logic := '0';
+  SIGNAL sTCD_DATA  : std_logic_vector(3 DOWNTO 0) := (OTHERS => '0');
 
   
 BEGIN  -- ARCHITECTURE
@@ -290,14 +289,14 @@ BEGIN  -- ARCHITECTURE
       END CASE;
 
       -- Trigger command "2" (Master Reset)
-      IF s_reg20(19 DOWNTO 16) = x"2" THEN
+      IF s_trgwrd(19 DOWNTO 16) = x"2" THEN
         s_mstr_rst <= '1';
       ELSE
         s_mstr_rst <= '0';
       END IF;
 
       -- Trigger command "1" (Clear)
-      IF s_reg20(19 DOWNTO 16) = x"1" THEN
+      IF s_trgwrd(19 DOWNTO 16) = x"1" THEN
         s_clear <= '1';
       ELSE
         s_clear <= '0';

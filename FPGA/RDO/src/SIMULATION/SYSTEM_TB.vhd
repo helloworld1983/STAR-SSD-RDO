@@ -73,11 +73,13 @@ ARCHITECTURE SYSTEM_TB_ARCH OF SYSTEM_TB IS
       PORT (
          CLK40                       : IN  STD_LOGIC;
          CLK80                       : IN  STD_LOGIC;
+         CLK200 							              : IN  STD_LOGIC;
          RST                         : IN  STD_LOGIC;
          --GENERAL
          BoardID                     : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
          Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
          FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
+         DATA_BUFF_RST				 	         : IN STD_LOGIC;
          --LC_Registers 
          LC_RST                      : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
          --CONFIG
@@ -193,7 +195,7 @@ ARCHITECTURE SYSTEM_TB_ARCH OF SYSTEM_TB IS
          Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
          FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
          CalLVDS                     : OUT STD_LOGIC;
-         LVDS_CNT_EN                 : OUT STD_LOGIC;  -- MrAT external counter control
+         DATA_BUFF_RST					         : OUT STD_LOGIC;
          -- pedestal memory write port
          oPedMemWrite                : OUT PED_MEM_WRITE
          );
@@ -274,8 +276,9 @@ COMPONENT LC_SIMU_LA IS
 END COMPONENT LC_SIMU_LA;
 	
 	--GENERAL
-   signal sCLK40 : std_logic := '0';
-   signal sCLK80 : std_logic := '0';
+   signal sCLK40 : std_logic := '1';
+   signal sCLK80 : std_logic := '1';
+   signal sCLK200 : std_logic := '1';
    signal sRST : std_logic := '1';
 	-------CONSTANTS 
    CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"01";  --TEMPORAL
@@ -360,7 +363,7 @@ END COMPONENT LC_SIMU_LA;
    SIGNAL sLC_HYBRIDS_POWER_STATUS_REG : FIBER_ARRAY_TYPE_16   := (OTHERS => x"0000");
 	SIGNAL sFiber_RDOtoLC : FIBER_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
    SIGNAL sFiber_LCtoRDO : FIBER_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
-	SIGNAL sLVDS_CNT_EN           : STD_LOGIC        := '0';
+	SIGNAL sDATA_BUFF_RST  	: STD_LOGIC := '0';
    ---------------------------------------------> DAQ signals
 	
 	   -- pedestal memory write
@@ -369,7 +372,8 @@ END COMPONENT LC_SIMU_LA;
  -- Clock period definitions
    constant sCLK40_period : time := 25 ns;
    constant sCLK80_period : time := 12.5 ns;
-	constant sSiu_fifoRdClk_period : time := 20 ns;
+   constant sCLK200_period : time := 5 ns;
+	 constant sSiu_fifoRdClk_period : time := 20 ns;
 	
 	--OTHERS
 	SIGNAL sCalLVDS : STD_LOGIC := '0';
@@ -466,11 +470,13 @@ mft2232h_instA : M_FT2232H
    DAQ_ints : DAQ PORT MAP(
       CLK40                       => sCLK40,
       CLK80                       => sCLK80,
+      CLK200							               => sCLK200,
       RST                         => sRST,
       --GENERAL
       BoardID                     => sBoardID,
       Data_FormatV                => sData_FormatV,
       FPGA_BuildN                 => sFPGA_BuildN,
+      DATA_BUFF_RST					          => sDATA_BUFF_RST,
       ---
       LC_RST                      => sLC_RST,
       CONFIG_CMD_IN               => sCONFIG_CMD_IN,
@@ -587,7 +593,7 @@ mft2232h_instA : M_FT2232H
          Data_FormatV                => sData_FormatV,
          FPGA_BuildN                 => sFPGA_BuildN,
          CalLVDS                     => sCalLVDS,
-         LVDS_CNT_EN                 => sLVDS_CNT_EN,
+         DATA_BUFF_RST               => sDATA_BUFF_RST,
          -- pedestal memory write port
          oPedMemWrite                => sPedMemWrite
          );
@@ -627,6 +633,7 @@ LC : FOR i IN 0 TO 6 GENERATE
    -- Clock process definitions
 	sCLK40 <= NOT sCLK40 AFTER sCLK40_period/2;
 	sCLK80 <= NOT sCLK80 AFTER sCLK80_period/2;
+	sCLK200 <= NOT sCLK200 AFTER sCLK200_period/2;
 	sSiu_fifoRdClk <= NOT sSiu_fifoRdClk AFTER sSiu_fifoRdClk_period/2;
 	
  

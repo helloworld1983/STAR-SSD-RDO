@@ -99,16 +99,17 @@ BEGIN
 					sTC_Cnt <= 0;
 					RScnt_TRGword_WE <= '0';
 					ACQUIRE <= '0';
-					RScnt_TRGword_FIFO <= x"000000" & sWR_SERIAL;
 					sForced_Triggers_Reg <= Forced_Triggers_Reg;
 					CASE sTCD_EN_TRGMODES_Reg (15 DOWNTO 8) IS 
 						WHEN x"00" => 								-- USB_Trigger Only
 							IF sUSB_EVT_TRG = '1' THEN 
 								sState <= ST_FCD_TRG_RCVD;
+								sWR_SERIAL <= STD_LOGIC_VECTOR(UNSIGNED(sWR_SERIAL) + 1); --updates the serial number of the writing procedure 
 							END IF;
 						WHEN OTHERS => 							--Any other combination is TCD trigger
 							IF EVT_TRG = '1' AND WORKING = '1' THEN --and SiuEvt_RD_EN = '1' THEN --SiuEvt_RD_EN is a signal comming from the ddl link 0 means clear buffers and not included in run
 								sState <= ST_TRG_RCVD;
+								sWR_SERIAL <= STD_LOGIC_VECTOR(UNSIGNED(sWR_SERIAL) + 1); --updates the serial number of the writing procedure 
 							END IF;
 					END CASE;
 					
@@ -197,7 +198,6 @@ BEGIN
 					IF (sTC_Cnt > sMinACQ_Time AND sBUSY_COMBINED = '0' AND sUSB_EVT_TRG = '0' AND EVT_TRG = '0') THEN
 						sState <= ST_IDLE;
 						sTC_Cnt <= 0;
-						sWR_SERIAL <= STD_LOGIC_VECTOR(UNSIGNED(sWR_SERIAL) + 1); --updates the serial number of the writing procedure  
 					END IF;
 					
 				WHEN OTHERS =>

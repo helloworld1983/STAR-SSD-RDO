@@ -65,9 +65,16 @@ BEGIN
 				sCnt <= sCnt + 1;
 		
 		END CASE;
+		
 		DataValid_Out <= DataValid_In;
 		LC2RDO_1Hybrid <= LC2RDO_Hybrids(sCnt);
-		StripAddress <= Strip_Cnt & STD_LOGIC_VECTOR(TO_UNSIGNED(sCnt,4));
+		
+		IF UNSIGNED(Strip_Cnt) > 767 THEN
+			StripAddress <= b"10" & x"FF" & STD_LOGIC_VECTOR(TO_UNSIGNED(sCnt,4));
+		ELSE
+			StripAddress <= Strip_Cnt & STD_LOGIC_VECTOR(TO_UNSIGNED(sCnt,4));
+		END IF;
+		
 	END IF;
 
 END PROCESS;
