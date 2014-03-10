@@ -181,13 +181,6 @@ Data_Packer_DDL_FIFO : fifo36x32k
   );
 --- SIU STATUS COUNTER ADDRESS 0x33
 
---	debud_data_verify_inst : debud_data_verify 
---	PORT MAP(
---			CLK   => CLK80,
---			rdreq => sDDL_FIFO_WE_IN,
---			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
---			);
-
 PROCESS (DDL_FIFO_RDCLK, RST) IS
 BEGIN
 	IF RST = '1' THEN 
@@ -547,6 +540,14 @@ TCD_FIFO_RDREQ <= sTCD_FIFO_RDREQ AND NOT TCD_FIFO_EMPTY; -- avoid droping one T
 TCD_TRG_RCVD_REG <= sTCD_TRG_RCVD_REG;
 SIU_PACKET_CNT_REG <= sSIU_PACKET_CNT_REG;
 DDL_FIFO_EMPTY <= sDDL_FIFO_EMPTY;
+
+
+--	debud_data_verify_inst : debud_data_verify 
+--	PORT MAP(
+--			CLK   => CLK80,
+--			rdreq => sDDL_FIFO_WE_IN,
+--			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
+--			);
 
 END Data_Packer_arch;
 
