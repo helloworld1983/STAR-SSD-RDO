@@ -1,0 +1,18 @@
+# Output products list for <chipscope_ila_daq>
+_xmsgs\pn_parser.xmsgs
+chipscope_ila_daq.asy
+chipscope_ila_daq.cdc
+chipscope_ila_daq.constraints\chipscope_ila_daq.ucf
+chipscope_ila_daq.constraints\chipscope_ila_daq.xdc
+chipscope_ila_daq.gise
+chipscope_ila_daq.ncf
+chipscope_ila_daq.ngc
+chipscope_ila_daq.ucf
+chipscope_ila_daq.vhd
+chipscope_ila_daq.vho
+chipscope_ila_daq.xco
+chipscope_ila_daq.xdc
+chipscope_ila_daq.xise
+chipscope_ila_daq_flist.txt
+chipscope_ila_daq_readme.txt
+chipscope_ila_daq_xmdf.tcl

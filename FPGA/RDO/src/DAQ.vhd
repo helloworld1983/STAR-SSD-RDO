@@ -376,19 +376,19 @@ BEGIN
          DDL_FIFO_RDCLK           => DDL_FIFO_RDCLK
          );
 				 
-chipscope_icon_daq_inst : chipscope_icon_daq
-  PORT map (
-    CONTROL0 => CONTROL0
-	 );
-
-chipscope_ila_daq_inst : chipscope_ila_daq
-  PORT map (
-    CONTROL => CONTROL0,
-    CLK => CLK80,
-    TRIG0 => TRIG0
-	 );
-	 
-TRIG0 (68 DOWNTO 0) <= sTC(0);
+--chipscope_icon_daq_inst : chipscope_icon_daq
+--  PORT map (
+--    CONTROL0 => CONTROL0
+--	 );
+--
+--chipscope_ila_daq_inst : chipscope_ila_daq
+--  PORT map (
+--    CONTROL => CONTROL0,
+--    CLK => CLK80,
+--    TRIG0 => TRIG0
+--	 );
+--	 
+--TRIG0 (68 DOWNTO 0) <= sTC(0);
 
 END DAQ_Arch;
 
