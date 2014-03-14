@@ -1,0 +1,2 @@
+setMode -bs
+exit
