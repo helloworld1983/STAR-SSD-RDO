@@ -123,6 +123,7 @@ SIGNAL sEND_ADD					: STD_LOGIC_VECTOR (14 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sRD_SERIAL 		: STD_LOGIC_VECTOR (11 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sTRGWORD			: STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sRS_CTR 			: STD_LOGIC_VECTOR (31 DOWNTO 0) := (OTHERS => '0');
+SIGNAL sRS_CTR_PRV 			: STD_LOGIC_VECTOR (31 DOWNTO 0) := (OTHERS => '0');
 SIGNAL sTCD_FIFO_RDREQ	: STD_LOGIC := '0';
 SIGNAL sTCD_EMPTY_FLAG  : STD_LOGIC := '0';
 SIGNAL sTCD_FIFO_Q 		: std_logic_vector (19 DOWNTO 0) := (OTHERS => '0');
@@ -258,6 +259,7 @@ BEGIN
 						sTRGWORD <= RScnt_TRGword_FIFO_OUT; --x"0111" & sTRGWORD; for FORCED and x"0000" & sTRGWORD; for TCD
 					WHEN 4 => 
 						sRS_CTR <= RScnt_TRGword_FIFO_OUT(31 DOWNTO 0); --x"0" & sRS_CTR;
+						sRS_CTR_PRV <= sRS_CTR;
 					WHEN OTHERS =>
 						IF sDDL_FIFO_FULL = '0' THEN
 							sCnt <= 0;
@@ -281,7 +283,7 @@ BEGIN
 					WHEN 3 => 
 						sDDL_FIFO_IN <= sID_VERSIONS; 
 					WHEN 4 => 
-						sDDL_FIFO_IN <= sRESERVED; 
+						sDDL_FIFO_IN <= x"0" & sRS_CTR_PRV; --Previous RHIC strobe counter for Delta T
 					WHEN 5 => 
 						sDDL_FIFO_IN <= sRESERVED; 
 					WHEN 6 => 

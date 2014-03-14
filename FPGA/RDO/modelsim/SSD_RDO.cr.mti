@@ -117,23 +117,6 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity M_FT2232H
 -- Compiling architecture rtl of M_FT2232H
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_ila_daq.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_ila_daq.vhd
-Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity chipscope_ila_daq
--- Compiling architecture chipscope_ila_daq_a of chipscope_ila_daq
-
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/tcd_interface.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/tcd_interface.vhd
-Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity tcd_interface
--- Compiling architecture impl of tcd_interface
-
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_status_data.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_status_data.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
@@ -147,31 +130,22 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity LC_status_data
 -- Compiling architecture LC_status_data_arch of LC_status_data
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/TriggerControl_SerialCounter.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/TriggerControl_SerialCounter.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/tcd_interface.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/tcd_interface.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package utilities
--- Loading package SSD_pkg
--- Compiling entity TriggerControl_SerialCounter
--- Compiling architecture TriggerControl_SerialCounter_arch of TriggerControl_SerialCounter
+-- Compiling entity tcd_interface
+-- Compiling architecture impl of tcd_interface
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Trigger_Admin.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Trigger_Admin.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_ila_daq.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_ila_daq.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package utilities
--- Loading package SSD_pkg
--- Compiling entity Trigger_Admin
--- Compiling architecture Trigger_Admin_arch of Trigger_Admin
+-- Compiling entity chipscope_ila_daq
+-- Compiling architecture chipscope_ila_daq_a of chipscope_ila_daq
 
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Demux16Pos.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Demux16Pos.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
@@ -186,22 +160,41 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity Demux16Pos
 -- Compiling architecture Demux16Pos_arch of Demux16Pos
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_icon_daq.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_icon_daq.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Trigger_Admin.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Trigger_Admin.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity chipscope_icon_daq
--- Compiling architecture chipscope_icon_daq_a of chipscope_icon_daq
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package utilities
+-- Loading package SSD_pkg
+-- Compiling entity Trigger_Admin
+-- Compiling architecture Trigger_Admin_arch of Trigger_Admin
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Ped_substration.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Ped_substration.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/TriggerControl_SerialCounter.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/TriggerControl_SerialCounter.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity Ped_substration
--- Compiling architecture Ped_substration_arch of Ped_substration
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package utilities
+-- Loading package SSD_pkg
+-- Compiling entity TriggerControl_SerialCounter
+-- Compiling architecture TriggerControl_SerialCounter_arch of TriggerControl_SerialCounter
+
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SSD_pkg.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SSD_pkg.vhd
+Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package SSD_pkg
+-- Compiling package body SSD_pkg
+-- Loading package SSD_pkg
 
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_Fiber.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_Fiber.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
@@ -216,35 +209,22 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity LC_Fiber
 -- Compiling architecture LC_Fiber_Arch of LC_Fiber
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SSD_pkg.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SSD_pkg.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Ped_substration.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Ped_substration.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling package SSD_pkg
--- Compiling package body SSD_pkg
--- Loading package SSD_pkg
+-- Compiling entity Ped_substration
+-- Compiling architecture Ped_substration_arch of Ped_substration
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/LC_SIMU_LA.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/LC_SIMU_LA.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_icon_daq.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/chipscope_icon_daq.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package std_logic_textio
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity LC_SIMU_LA
--- Compiling architecture LC_SIMU_LA_Arch of LC_SIMU_LA
-
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_Trigger_Handler.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_Trigger_Handler.vhd
-Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity LC_Trigger_Handler
--- Compiling architecture LC_Trigger_Handler_Arch of LC_Trigger_Handler
+-- Compiling entity chipscope_icon_daq
+-- Compiling architecture chipscope_icon_daq_a of chipscope_icon_daq
 
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Data_Pipe_Control.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
@@ -258,6 +238,26 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package SSD_pkg
 -- Compiling entity Data_Pipe_Control
 -- Compiling architecture Data_Pipe_Control_arch of Data_Pipe_Control
+
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_Trigger_Handler.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_Trigger_Handler.vhd
+Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity LC_Trigger_Handler
+-- Compiling architecture LC_Trigger_Handler_Arch of LC_Trigger_Handler
+
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/LC_SIMU_LA.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/LC_SIMU_LA.vhd
+Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity LC_SIMU_LA
+-- Compiling architecture LC_SIMU_LA_Arch of LC_SIMU_LA
 
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/utilities_pkg.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/utilities_pkg.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
@@ -285,18 +285,14 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity SYSTEM_TB
 -- Compiling architecture SYSTEM_TB_ARCH of SYSTEM_TB
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/USB_DECODER.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/USB_DECODER.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Status_Counters_TA.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Status_Counters_TA.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package utilities
--- Loading package SSD_pkg
--- Compiling entity USB_DECODER
--- Compiling architecture USB_DECODER_Arch of USB_DECODER
+-- Compiling entity Status_Counters_TA
+-- Compiling architecture Status_Counters_TA_arch of Status_Counters_TA
 
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/fifo36x512_TCD.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/fifo36x512_TCD.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
@@ -312,14 +308,26 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity fifo36x512_TCD
 -- Compiling architecture STRUCTURE of fifo36x512_TCD
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Status_Counters_TA.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Status_Counters_TA.vhd
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/USB_DECODER.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/USB_DECODER.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity Status_Counters_TA
--- Compiling architecture Status_Counters_TA_arch of Status_Counters_TA
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package utilities
+-- Loading package SSD_pkg
+-- Compiling entity USB_DECODER
+-- Compiling architecture USB_DECODER_Arch of USB_DECODER
+
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_FPGA_Configuration.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_FPGA_Configuration.vhd
+Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity LC_FPGA_Configuration
+-- Compiling architecture LC_FPGA_Configuration_Arch of LC_FPGA_Configuration
 
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/fifo36x512_DDL.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/fifo36x512_DDL.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
@@ -335,25 +343,6 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Compiling entity fifo36x512_DDL
 -- Compiling architecture STRUCTURE of fifo36x512_DDL
 
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_FPGA_Configuration.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/LC_FPGA_Configuration.vhd
-Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity LC_FPGA_Configuration
--- Compiling architecture LC_FPGA_Configuration_Arch of LC_FPGA_Configuration
-
-} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/MFT2232_SIMU.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/MFT2232_SIMU.vhd
-Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_textio
--- Loading package NUMERIC_STD
--- Loading package VCOMPONENTS
--- Compiling entity MFT2232_SIMU
--- Compiling architecture MFT2232_SIMU_Arch of MFT2232_SIMU
-
 } {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Descrambler.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/DAQ/Descrambler.vhd
 Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package STANDARD
@@ -366,5 +355,16 @@ Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
 -- Loading package SSD_pkg
 -- Compiling entity Descrambler
 -- Compiling architecture Descrambler_arch of Descrambler
+
+} {} {}} C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/MFT2232_SIMU.vhd {1 {vcom -work work -2002 -explicit -vopt C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/src/SIMULATION/MFT2232_SIMU.vhd
+Model Technology ModelSim SE vcom 10.0c Compiler 2011.07 Jul 21 2011
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package VCOMPONENTS
+-- Compiling entity MFT2232_SIMU
+-- Compiling architecture MFT2232_SIMU_Arch of MFT2232_SIMU
 
 } {} {}}

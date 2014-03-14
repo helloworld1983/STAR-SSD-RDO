@@ -652,8 +652,8 @@ END COMPONENT M_FT2232H;
 -------CONSTANTS 
 
 
-   CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"01";  --TEMPORAL
-   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0032";  -- RDO project number
+   CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"02";  -- DATA FORMAT TO DAQ VERSION
+   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0033";  -- RDO project number
 
 -------------------------------------------------------------------------------
 -- ****************************************************************************
