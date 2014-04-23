@@ -8,29 +8,25 @@
 <msg type="info" file="sim" num="172" delta="old" >Generating IP...
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;mem_12288_9&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;fifo36x512_DDL&apos; already exists in the project. Output products for this core may be overwritten.</arg>
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;mem_12288_9&apos; already exists in the project. Output products for this core may be overwritten.</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">A core named &apos;fifo36x512_DDL&apos; already exists in the project. Output products for this core may be overwritten.</arg>
 </msg>
 
-<msg type="info" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Pre-processing HDL files for &apos;mem_12288_9&apos;...</arg>
+<msg type="info" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Pre-processing HDL files for &apos;fifo36x512_DDL&apos;...</arg>
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Overwriting existing file C:/Luis/Dropbox/SSD/svn/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/mem_12288_9/doc/blk_mem_gen_v7_3_vinfo.html with file from view xilinx_documentation</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">BlackBox generator run option &apos;-ifmt&apos; found multiple times. Only the first occurence is considered.</arg>
+</msg>
+
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Overwriting existing file C:/work/SSD/code/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL/doc/fifo_generator_v9_3_vinfo.html with file from view xilinx_documentation</arg>
 </msg>
 
 <msg type="info" file="sim" num="949" delta="old" >Finished generation of ASY schematic symbol.
 </msg>
 
-<msg type="error" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">TclTasksC:project_006: Exception detected while executing [project set].</arg>
-</msg>
-
-<msg type="error" file="sim" num="0" delta="new" >Failed executing Tcl generator.
-</msg>
-
-<msg type="error" file="sim" num="0" delta="new" >Failed to generate &apos;mem_12288_9&apos;.  Failed executing Tcl generator.
-
+<msg type="info" file="sim" num="948" delta="old" >Finished FLIST file generation.
 </msg>
 
 </messages>

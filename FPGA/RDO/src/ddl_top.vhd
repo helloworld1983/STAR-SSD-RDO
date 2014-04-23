@@ -1,4 +1,4 @@
--- $Id: ddl_top.vhd 428 2013-10-29 21:15:53Z jschamba $
+-- $Id: ddl_top.vhd 660 2014-04-04 15:20:00Z jschamba $
 -------------------------------------------------------------------------------
 -- Title      : DDL top level design
 -- Project    : HFT PXL
@@ -7,7 +7,7 @@
 -- Author     : Joachim Schambach
 -- Company    : University of Texas at Austin
 -- Created    : 2012-02-16
--- Last update: 2014-03-04
+-- Last update: 2014-04-04
 -- Platform   : Windows, Xilinx ISE 13.4
 -- Target     : Virtex-6 (XC6VLX240T-FF1759)
 -- Standard   : VHDL'93/02
@@ -69,7 +69,7 @@ ARCHITECTURE a OF ddl IS
   CONSTANT FESTW      : std_logic_vector := "01000100";  -- 0x44
   CONSTANT FESTW_EODB : std_logic_vector := "01100100";  -- 0x64
 
-  COMPONENT fifo36x512_DDL
+  COMPONENT fifo36x512
     PORT (
       rst    : IN  std_logic;
       wr_clk : IN  std_logic;
@@ -145,7 +145,7 @@ BEGIN
   -- cmd FIFO
   FOBSY_n   <= NOT sCmdFifoFull;
   sCmdFifoD <= x"0" & sFiD2;
-  cmd_fifo : fifo36x512_DDL
+  cmd_fifo : fifo36x512
     PORT MAP (
       rst    => RESET,
       wr_clk => FICLK,
@@ -324,36 +324,46 @@ BEGIN
           FOCTRL_n <= '1';
 
           IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+            -- no longer in OUTPUT mode
             sFifoRdreq  <= '0';
             outputState <= OS_WAITIN;
-          ELSIF (FIFO_EMPTY = '1') THEN
+          ELSIF (FIFO_EMPTY = '1') OR (FILF_n = '0') THEN
+            -- wait while FIFO is empty, but also make sure
+            -- LinkFull is not asserted
             sFifoRdreq  <= '0';
             outputState <= OS_TXEMPTY;
           ELSE
+            -- data to transmit
             sFifoRdreq  <= '1';
             outputState <= OS_TXGETDATA;
           END IF;
 
         WHEN OS_TXGETDATA =>
+          -- extra state to get correct FIFO output
           sFifoRdreq  <= '1';
           outputState <= OS_TXDATA;
           
         WHEN OS_TXDATA =>
+          -- transmitting data....
           FOD      <= FIFO_Q(31 DOWNTO 0);
           FOTEN_n  <= sFifoEmpty;
           foCTRL_N <= '1';
 
           IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+            -- no longer in OUTPUT mode
             sFifoRdreq  <= '0';
             outputState <= OS_WAITIN;
           ELSIF FILF_n = '0' THEN
+            -- Link Full asserted
             FOTEN_n     <= '1';
             outputState <= OS_TXLF;
           ELSIF FIFO_Q(32) = '1' THEN
+            -- end of event
             sFifoRdreq  <= '0';
             gap_timer   <= 0;
             outputState <= OS_TXEODB;
           ELSIF FIFO_EMPTY = '1' THEN
+            -- FIFO empty
             sFifoRdreq  <= '0';
             outputState <= OS_TXEMPTY;
           ELSE
@@ -362,15 +372,18 @@ BEGIN
           END IF;
 
         WHEN OS_TXLF =>
+          -- Link Full asserted, wait until de-asserted
           FOD        <= (OTHERS => '0');
           FOTEN_n    <= '1';
           FOCTRL_n   <= '1';
           sFifoRdreq <= (NOT FIFO_EMPTY) AND FILF_n;
 
-          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+          IF ((feebusState = FB_FLOAT) OR (feebusState = FB_RESET)) THEN
+            -- no longer in OUTPUT mode
             sFifoRdreq  <= '0';
             outputState <= OS_WAITIN;
           ELSIF (FILF_n = '0') THEN
+            -- Link Full asserted, wait...
             sFifoRdreq  <= '0';
             outputState <= OS_TXLF;
           ELSE
@@ -384,7 +397,9 @@ BEGIN
           END IF;
 
         WHEN OS_TXEODB =>
-          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+          -- send correct EODB control word
+          IF ((feebusState = FB_FLOAT) OR (feebusState = FB_RESET)) THEN
+            -- no longer in OUTPUT mode
             FOD        <= (OTHERS => '0');
             FOTEN_n    <= '1';
             FOCTRL_n   <= '1';
@@ -392,6 +407,7 @@ BEGIN
 
             outputState <= OS_WAITIN;
           ELSIF (gap_timer = 1) THEN
+            -- send EODB
             gap_timer  <= 0;
             FOD        <= x"000000" & FESTW_EODB;
             FOTEN_n    <= '0';
@@ -410,16 +426,25 @@ BEGIN
           END IF;
 
         WHEN OS_TXINGAP =>
+          -- wait 15 more clock ticks between events
           FOD        <= (OTHERS => '0');
           FOTEN_n    <= '1';
           FOCTRL_n   <= '1';
           sFifoRdreq <= '0';
 
-          IF (feebusState = FB_FLOAT OR feebusState = FB_RESET) THEN
+          IF ((feebusState = FB_FLOAT) OR (feebusState = FB_RESET)) THEN
+            -- no longer in OUTPUT mode
             outputState <= OS_WAITIN;
+          ELSIF (gap_timer = 15) AND (FILF_n = '0') THEN
+            -- don't continue while Link Full is asserted
+            outputState <= OS_TXINGAP;
           ELSIF (gap_timer = 15) AND ((FIFO_EMPTY = '1') OR (FIFO_Q(32) = '1')) THEN
+            -- if FIFO empty or content is still the last word of an event
+            -- goto TXEMPTY
             outputState <= OS_TXEMPTY;
           ELSIF gap_timer = 15 THEN
+            -- otherwise, goto GETDATA, since the next word is already on FIFO
+            -- output
             outputState <= OS_TXGETDATA;
           ELSE
             gap_timer   <= gap_timer + 1;

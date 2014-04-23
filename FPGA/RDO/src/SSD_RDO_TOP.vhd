@@ -6,7 +6,7 @@
 -- Author     : Thorsten Stezelberger & Luis Ardila based on PXL_RDO_Top by Joachim Schambach (jschamba@physics.utexas.edu)
 -- Company    : Lawrence Berkeley National Laboratory
 -- Created    : 2012-02-16
--- Last update: 2014-Mar-06
+-- Last update: 2014-04-18
 -- Platform   : Windows, Xilinx ISE 13.4
 -- Target     : Virtex-6 (XC6VLX240T-FF1759)
 -- Standard   : VHDL'93/02
@@ -20,8 +20,8 @@
 -- 2012-02-16  1.0      jschamba        Created
 -- 2013-08-22  2.0      Luis Ardila     SSD version
 -- 2013-09-17  2.1      Luis Ardila     Quick Hack for using L2F board with ODD1_EVEN0 signal "Sept17"
--- 2014-02-21	3.0		Luis Ardila		 Clean version without Pedestal Memory
--- 2014-03-06	3.1		Luis Ardila		 Ped mem included, new TCD included (over sample at 200MHz)
+-- 2014-02-21   3.0             Luis Ardila              Clean version without Pedestal Memory
+-- 2014-03-06   3.1             Luis Ardila              Ped mem included, new TCD included (over sample at 200MHz)
 -------------------------------------------------------------------------------
 
 LIBRARY IEEE;
@@ -268,46 +268,46 @@ ARCHITECTURE SSD_RDO_TOP_Arch OF SSD_RDO_TOP IS
 
    SIGNAL sLVDSsync : STD_LOGIC_VECTOR (7 DOWNTO 0);
 
- COMPONENT M_FT2232H IS
-  PORT (
-    CLK            : IN  std_logic;     -- 50MHz clock input
-    RESET          : IN  std_logic;     -- Active high reset
-    -- FT2232H signals
-    D_in           : IN  std_logic_vector(7 DOWNTO 0);   -- FIFO Data bus in
-    D_out          : OUT std_logic_vector(7 DOWNTO 0);   -- FIFO Data bus out
-    D_T            : OUT std_logic;     -- FIFO Data bus enable
-    -- "C" Port
-    RXF_n          : IN  std_logic;     -- Read enable
-    TXE_n          : IN  std_logic;     -- Write enable
-    RD_n           : OUT std_logic;     -- Read from USB FIFO
-    WR_n           : OUT std_logic;     -- Write to USB FIFO
-    SIWU           : OUT std_logic;     -- Send Immediate/Wake Up
-    CLKOUT         : IN  std_logic;     -- Sync USB FIFO clock
-    OE_n           : OUT std_logic;     -- Output enable (for sync FIFO)
-    -- From FPGA to PC
-    FIFO_Q         : IN  std_logic_vector(35 DOWNTO 0);  -- interface fifo data output port
-    FIFO_EMPTY     : IN  std_logic;     -- interface fifo "emtpy" signal
-    FIFO_RDREQ     : OUT std_logic;     -- interface fifo read request
-    FIFO_RDCLK     : OUT std_logic;     -- interface fifo read clock
-    -- From PC to FPGA
-    CMD_FIFO_Q     : OUT std_logic_vector(35 DOWNTO 0);  -- interface command fifo data out port
-    CMD_FIFO_EMPTY : OUT std_logic;  -- interface command fifo "emtpy" signal
-    CMD_FIFO_RDREQ : IN  std_logic      -- interface command fifo read request
-    );
-END COMPONENT M_FT2232H;
+   COMPONENT M_FT2232H IS
+      PORT (
+         CLK            : IN  STD_LOGIC;  -- 50MHz clock input
+         RESET          : IN  STD_LOGIC;  -- Active high reset
+         -- FT2232H signals
+         D_in           : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);  -- FIFO Data bus in
+         D_out          : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);  -- FIFO Data bus out
+         D_T            : OUT STD_LOGIC;  -- FIFO Data bus enable
+         -- "C" Port
+         RXF_n          : IN  STD_LOGIC;  -- Read enable
+         TXE_n          : IN  STD_LOGIC;  -- Write enable
+         RD_n           : OUT STD_LOGIC;  -- Read from USB FIFO
+         WR_n           : OUT STD_LOGIC;  -- Write to USB FIFO
+         SIWU           : OUT STD_LOGIC;  -- Send Immediate/Wake Up
+         CLKOUT         : IN  STD_LOGIC;  -- Sync USB FIFO clock
+         OE_n           : OUT STD_LOGIC;  -- Output enable (for sync FIFO)
+         -- From FPGA to PC
+         FIFO_Q         : IN  STD_LOGIC_VECTOR(35 DOWNTO 0);  -- interface fifo data output port
+         FIFO_EMPTY     : IN  STD_LOGIC;  -- interface fifo "emtpy" signal
+         FIFO_RDREQ     : OUT STD_LOGIC;  -- interface fifo read request
+         FIFO_RDCLK     : OUT STD_LOGIC;  -- interface fifo read clock
+         -- From PC to FPGA
+         CMD_FIFO_Q     : OUT STD_LOGIC_VECTOR(35 DOWNTO 0);  -- interface command fifo data out port
+         CMD_FIFO_EMPTY : OUT STD_LOGIC;  -- interface command fifo "emtpy" signal
+         CMD_FIFO_RDREQ : IN  STD_LOGIC  -- interface command fifo read request
+         );
+   END COMPONENT M_FT2232H;
 
    COMPONENT DAQ
       PORT (
          CLK40                       : IN  STD_LOGIC;
          CLK80                       : IN  STD_LOGIC;
-			CLK200 							 : IN  STD_LOGIC;
+         CLK200                      : IN  STD_LOGIC;
          RST                         : IN  STD_LOGIC;
          --GENERAL
          BoardID                     : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
          Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
          FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
-			DATA_BUFF_RST				 	 : IN STD_LOGIC;
-         --LC_Registers 	
+         DATA_BUFF_RST               : IN  STD_LOGIC;
+         --LC_Registers         
          LC_RST                      : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
          --CONFIG
          CONFIG_CMD_IN               : IN  FIBER_ARRAY_TYPE_16;
@@ -347,6 +347,7 @@ END COMPONENT M_FT2232H;
          --LC STATUS
          LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16_8;
          LC_HYBRIDS_POWER_STATUS_REG : OUT FIBER_ARRAY_TYPE_16;
+         LC_FPGA_STATUS              : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
          --TCD INTERFASE
          RS                          : IN  STD_LOGIC;  -- TCD RHIC strobe
          RSx5                        : IN  STD_LOGIC;  -- TCD data clock
@@ -378,7 +379,7 @@ END COMPONENT M_FT2232H;
          FIFO_EMPTY                  : OUT STD_LOGIC;  -- interface fifo "emtpy" signal
          FIFO_RDREQ                  : IN  STD_LOGIC;  -- interface fifo read request
          FIFO_RDCLK                  : IN  STD_LOGIC;  -- interface fifo read clock
---LC_INTERFACES
+         --LC_INTERFACES
          --LC_Registers 
          LC_RST                      : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
          --CONFIG
@@ -417,12 +418,13 @@ END COMPONENT M_FT2232H;
          --LC STATUS
          LC_STATUS_REG               : IN  FIBER_ARRAY_TYPE_16_8;
          LC_HYBRIDS_POWER_STATUS_REG : IN  FIBER_ARRAY_TYPE_16;
---GENERAL
+         LC_FPGA_STATUS              : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
+         --GENERAL
          BoardID                     : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
          Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
          FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
          CalLVDS                     : OUT STD_LOGIC;
-         DATA_BUFF_RST					 : OUT STD_LOGIC;
+         DATA_BUFF_RST               : OUT STD_LOGIC;
 -- pedestal memory write port
          oPedMemWrite                : OUT PED_MEM_WRITE
          );
@@ -491,9 +493,10 @@ END COMPONENT M_FT2232H;
 
    SIGNAL sLC_STATUS_REG               : FIBER_ARRAY_TYPE_16_8 := (OTHERS => (OTHERS => x"0000"));
    SIGNAL sLC_HYBRIDS_POWER_STATUS_REG : FIBER_ARRAY_TYPE_16   := (OTHERS => x"0000");
-	SIGNAL sFiber_RDOtoLC : FIBER_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
-   SIGNAL sFiber_LCtoRDO : FIBER_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
-	SIGNAL sDATA_BUFF_RST  	: STD_LOGIC := '0';
+   SIGNAL sLC_FPGA_STATUS              : STD_LOGIC_VECTOR (7 DOWNTO 0);
+   SIGNAL sFiber_RDOtoLC               : FIBER_ARRAY_TYPE      := (OTHERS => (OTHERS => '0'));
+   SIGNAL sFiber_LCtoRDO               : FIBER_ARRAY_TYPE      := (OTHERS => (OTHERS => '0'));
+   SIGNAL sDATA_BUFF_RST               : STD_LOGIC             := '0';
    ---------------------------------------------> DAQ signals
 
    ---------------------------------------------< SIU signals
@@ -653,7 +656,7 @@ END COMPONENT M_FT2232H;
 
 
    CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"02";  -- DATA FORMAT TO DAQ VERSION
-   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0033";  -- RDO project number
+   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0036";  -- RDO project number
 
 -------------------------------------------------------------------------------
 -- ****************************************************************************
@@ -724,31 +727,31 @@ BEGIN
    MFTA_WR_n <= sMFTA_WR_n;
    MFTA_SIWU <= sMFTA_SIWU;
 
-	mft2232h_instA : M_FT2232H
+   mft2232h_instA : M_FT2232H
       PORT MAP (
          CLK            => sClk40,
          RESET          => sMFTA_rst,
-			-- FT2232H sign
-         D_in           => sMFTA_D_in,							-- FIFO Data bus in
-         D_out          => sMFTA_D_out,                   -- FIFO Data bus out
-         D_T            => sMFTA_D_T,                        -- FIFO Data bus enable
-			-- "C" Port       -- "C" Port                   
-         RXF_n          => MFTA_RXF_n,                   
-         TXE_n          => MFTA_TXE_n,                   
-         RD_n           => sMFTA_RD_n,                       -- Read from USB FIFO
-         WR_n           => sMFTA_WR_n,                       -- Write to USB FIFO
-         SIWU           => sMFTA_SIWU,                       -- Send Immediate/Wake Up
-         CLKOUT         => MFTA_CLKOUT,                  -- Sync USB FIFO clock
-         OE_n           => MFTA_OE_n,                        -- Output enable (for sync FIFO)
-			-- From FPGA to PC                              
-         FIFO_Q         => sMFTA_FifoQ,                    -- interface fifo data output port
+         -- FT2232H sign
+         D_in           => sMFTA_D_in,  -- FIFO Data bus in
+         D_out          => sMFTA_D_out,     -- FIFO Data bus out
+         D_T            => sMFTA_D_T,   -- FIFO Data bus enable
+         -- "C" Port       -- "C" Port                   
+         RXF_n          => MFTA_RXF_n,
+         TXE_n          => MFTA_TXE_n,
+         RD_n           => sMFTA_RD_n,  -- Read from USB FIFO
+         WR_n           => sMFTA_WR_n,  -- Write to USB FIFO
+         SIWU           => sMFTA_SIWU,  -- Send Immediate/Wake Up
+         CLKOUT         => MFTA_CLKOUT,     -- Sync USB FIFO clock
+         OE_n           => MFTA_OE_n,   -- Output enable (for sync FIFO)
+         -- From FPGA to PC                              
+         FIFO_Q         => sMFTA_FifoQ,     -- interface fifo data output port
          FIFO_EMPTY     => sMFTA_FifoEmpty,  --'0';          -- interface fifo "emtpy" signal
-         FIFO_RDREQ     => sMFTA_FifoRdreq,                  -- interface fifo read request
-         FIFO_RDCLK     => sMFTA_FifoRdClk,                  -- interface fifo read clock
-			-- From PC to FPGA                              
-         CMD_FIFO_Q     => sMFTA_CmdFifoQ,                 -- interface command fifo data out port
-         CMD_FIFO_EMPTY => sMFTA_CmdFifoEmpty,            -- interface command fifo "emtpy" signal
-         CMD_FIFO_RDREQ => sMFTA_CmdFifoRdreq               -- interface command fifo read request
+         FIFO_RDREQ     => sMFTA_FifoRdreq,  -- interface fifo read request
+         FIFO_RDCLK     => sMFTA_FifoRdClk,  -- interface fifo read clock
+         -- From PC to FPGA                              
+         CMD_FIFO_Q     => sMFTA_CmdFifoQ,  -- interface command fifo data out port
+         CMD_FIFO_EMPTY => sMFTA_CmdFifoEmpty,  -- interface command fifo "emtpy" signal
+         CMD_FIFO_RDREQ => sMFTA_CmdFifoRdreq  -- interface command fifo read request
          );
 
 
@@ -851,13 +854,13 @@ BEGIN
    DAQ_ints : DAQ PORT MAP(
       CLK40                       => sCLK40,
       CLK80                       => sCLK80,
-		CLK200							 => sCLK200,
+      CLK200                      => sCLK200,
       RST                         => sGlobalRst,
       --GENERAL
       BoardID                     => sBoardID,
       Data_FormatV                => sData_FormatV,
       FPGA_BuildN                 => sFPGA_BuildN,
-		DATA_BUFF_RST					 => sDATA_BUFF_RST,
+      DATA_BUFF_RST               => sDATA_BUFF_RST,
       ---
       LC_RST                      => sLC_RST,
       CONFIG_CMD_IN               => sCONFIG_CMD_IN,
@@ -896,6 +899,7 @@ BEGIN
       --LC STATUS
       LC_STATUS_REG               => sLC_STATUS_REG,
       LC_HYBRIDS_POWER_STATUS_REG => sLC_HYBRIDS_POWER_STATUS_REG,
+      LC_FPGA_STATUS              => sLC_FPGA_STATUS,
       --TCD INTERFASE
       RS                          => TCD_RS,
       RSx5                        => TCD_5xRS,
@@ -911,8 +915,8 @@ BEGIN
       -- test connector
       TC                          => OPEN
       );
-		
-		 TCD_BUSY_BAR <= sBUSY_COMBINED;
+
+   TCD_BUSY_BAR <= sBUSY_COMBINED;
 ---------------------------------------------> DAQ
 
 ---------------------------------------------< USB_DECODER
@@ -969,6 +973,7 @@ BEGIN
          --LC STATUS
          LC_STATUS_REG               => sLC_STATUS_REG,
          LC_HYBRIDS_POWER_STATUS_REG => sLC_HYBRIDS_POWER_STATUS_REG,
+         LC_FPGA_STATUS              => sLC_FPGA_STATUS,
          --GENERAL
          BoardID                     => sBoardID,
          Data_FormatV                => sData_FormatV,

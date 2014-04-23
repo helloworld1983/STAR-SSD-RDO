@@ -1,7 +1,9 @@
 # Output products list for <fifo36x512_DDL>
+_xmsgs\pn_parser.xmsgs
 fifo36x512_DDL.asy
 fifo36x512_DDL.gise
 fifo36x512_DDL.ngc
+fifo36x512_DDL.sym
 fifo36x512_DDL.vhd
 fifo36x512_DDL.vho
 fifo36x512_DDL.xco

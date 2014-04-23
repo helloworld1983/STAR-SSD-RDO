@@ -87,7 +87,7 @@ PACKAGE SSD_pkg IS
    TYPE PED_MEM_WRITE IS
    RECORD
       CLK  : STD_LOGIC;                      -- memory write clock
-      DATA : STD_LOGIC_VECTOR (8 DOWNTO 0);
+      DATA : STD_LOGIC_VECTOR (9 DOWNTO 0);
       ADDR : STD_LOGIC_VECTOR (13 DOWNTO 0);
       WE   : STD_LOGIC_VECTOR (7 DOWNTO 0);  -- one bit per channel
    END RECORD PED_MEM_WRITE;

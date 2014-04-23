@@ -69,8 +69,9 @@ BEGIN
 
 		sStripAddress <= StripAddress;
 		
-		sDATA_PED_SUBST := STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) + UNSIGNED(ADC_offset) - UNSIGNED(PED_MEM_DATA_OUT));   
-		sDATA_MEM <= STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) + UNSIGNED(ADC_offset) - UNSIGNED(PED_MEM_DATA_OUT));			 
+		--sDATA_PED_SUBST := STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) + UNSIGNED(ADC_offset) - UNSIGNED(PED_MEM_DATA_OUT));   
+		sDATA_PED_SUBST := STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) - UNSIGNED(PED_MEM_DATA_OUT));   
+		sDATA_MEM <= STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) - UNSIGNED(PED_MEM_DATA_OUT));			 
 		
 		CASE sCnt IS
 		
@@ -78,13 +79,13 @@ BEGIN
 				IF DataValid = '1' THEN 
 					sCnt <= sCnt + 1;
 					IF ZST_Polarity = '1' THEN								-- POSITIVE pulse
-						IF sDATA_PED_SUBST > Zero_supr_trsh THEN 
+						IF sDATA_PED_SUBST > Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN 
 							sPAYLOAD_MEM_WE <= '1';
 						ELSE 
 							sPAYLOAD_MEM_WE <= '0';
 						END IF;
 					ELSE															-- NEGATIVE pulse
-						IF sDATA_PED_SUBST < Zero_supr_trsh THEN 
+						IF sDATA_PED_SUBST < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN 
 							sPAYLOAD_MEM_WE <= '1';
 						ELSE 
 							sPAYLOAD_MEM_WE <= '0';
@@ -97,13 +98,13 @@ BEGIN
 				sCnt <= 0;
 			
 				IF ZST_Polarity = '1' THEN								-- POSITIVE pulse
-					IF sDATA_PED_SUBST > Zero_supr_trsh THEN 
+					IF sDATA_PED_SUBST > Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN 
 						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
 						sPAYLOAD_MEM_WE <= '0';
 					END IF;
 				ELSE															-- NEGATIVE pulse
-					IF sDATA_PED_SUBST < Zero_supr_trsh THEN 
+					IF sDATA_PED_SUBST < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN 
 						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
 						sPAYLOAD_MEM_WE <= '0';
@@ -115,13 +116,13 @@ BEGIN
 				sCnt <= sCnt + 1;
 				
 				IF ZST_Polarity = '1' THEN								-- POSITIVE pulse
-					IF sDATA_PED_SUBST > Zero_supr_trsh THEN 
+					IF sDATA_PED_SUBST > Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN 
 						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
 						sPAYLOAD_MEM_WE <= '0';
 					END IF;
 				ELSE															-- NEGATIVE pulse
-					IF sDATA_PED_SUBST < Zero_supr_trsh THEN 
+					IF sDATA_PED_SUBST < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN 
 						sPAYLOAD_MEM_WE <= '1';
 					ELSE 
 						sPAYLOAD_MEM_WE <= '0';

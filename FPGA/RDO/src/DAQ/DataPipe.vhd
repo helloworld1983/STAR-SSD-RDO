@@ -172,10 +172,10 @@ ARCHITECTURE DataPipe_arch OF DataPipe IS
          clka  : IN  STD_LOGIC;
          wea   : IN  STD_LOGIC_VECTOR(0 DOWNTO 0);
          addra : IN  STD_LOGIC_VECTOR(13 DOWNTO 0);
-         dina  : IN  STD_LOGIC_VECTOR(8 DOWNTO 0);
+         dina  : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);
          clkb  : IN  STD_LOGIC;
          addrb : IN  STD_LOGIC_VECTOR(13 DOWNTO 0);
-         doutb : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
+         doutb : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
          );
    END COMPONENT mem_12288_9;
 
@@ -346,9 +346,9 @@ BEGIN
          dina  => iPedMemWrite.DATA,
          clkb  => CLK80,
          addrb => sStripAddress,
-         doutb => sPED_MEM_DATA_OUT (8 DOWNTO 0)
+         doutb => sPED_MEM_DATA_OUT (9 DOWNTO 0)
          );
-   sPED_MEM_DATA_OUT (9) <= '0';
+   --sPED_MEM_DATA_OUT (9) <= '0';
 
 	--one clock cycle delay to compensate for pedestal memory response. 
 	PROCESS (CLK80) IS

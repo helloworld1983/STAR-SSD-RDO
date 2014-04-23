@@ -29,13 +29,13 @@ ENTITY DAQ IS
    PORT (
       CLK40                       : IN  STD_LOGIC;
       CLK80                       : IN  STD_LOGIC;
-		CLK200 							 : IN  STD_LOGIC;
+      CLK200                      : IN  STD_LOGIC;
       RST                         : IN  STD_LOGIC;
       --GENERAL
       BoardID                     : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
       Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
       FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
-		DATA_BUFF_RST				 	 : IN STD_LOGIC;
+      DATA_BUFF_RST               : IN  STD_LOGIC;
       --LC_Registers 
       LC_RST                      : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
       --CONFIG
@@ -76,6 +76,7 @@ ENTITY DAQ IS
       --LC STATUS
       LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16_8;
       LC_HYBRIDS_POWER_STATUS_REG : OUT FIBER_ARRAY_TYPE_16;
+      LC_FPGA_STATUS              : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
       --TCD INTERFASE
       RS                          : IN  STD_LOGIC;  -- TCD RHIC strobe
       RSx5                        : IN  STD_LOGIC;  -- TCD data clock
@@ -137,11 +138,12 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          --LC_Status
          LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16;
          LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+         LC_FPGA_STATUS              : OUT STD_LOGIC;
          --LADDER_CARD_FIBER
          RDO2LC                      : OUT STD_LOGIC_VECTOR (23 DOWNTO 0);
          LC2RDO                      : IN  STD_LOGIC_VECTOR (23 DOWNTO 0);
-			--TestConnector
-			TC									 : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
+         --TestConnector
+         TC                          : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
          );
    END COMPONENT LC_Fiber;
 
@@ -149,7 +151,7 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
       PORT (
          CLK40                    : IN  STD_LOGIC;
          CLK80                    : IN  STD_LOGIC;
-			CLK200					: IN  STD_LOGIC;
+         CLK200                   : IN  STD_LOGIC;
          RST                      : IN  STD_LOGIC;
          --to fibers
          BUSY_8_FIBERS            : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);  --each bit is the busy line of the pipe of each fiber
@@ -167,7 +169,7 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          RHIC_STROBE_MSB_REG      : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
          N_HOLDS_REG              : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
          N_TESTS_REG              : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
-			DATA_BUFF_RST				 : IN STD_LOGIC;
+         DATA_BUFF_RST            : IN  STD_LOGIC;
          -- TCD signals
          RS                       : IN  STD_LOGIC;  -- TCD RHIC strobe
          RSx5                     : IN  STD_LOGIC;  -- TCD data clock
@@ -214,23 +216,23 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          );
 
    END COMPONENT Data_Packer;
-	
-component chipscope_icon_daq
-  PORT (
-    CONTROL0 : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0)
-	 );
-end component;
 
-component chipscope_ila_daq
-  PORT (
-    CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
-    CLK : IN STD_LOGIC;
-    TRIG0 : IN STD_LOGIC_VECTOR(68 DOWNTO 0)
-	 );
-end component;
-	
-signal CONTROL0 : STD_LOGIC_VECTOR(35 DOWNTO 0);
-signal TRIG0 : STD_LOGIC_VECTOR(68 DOWNTO 0);
+   COMPONENT chipscope_icon_daq
+      PORT (
+         CONTROL0 : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0)
+         );
+   END COMPONENT;
+
+   COMPONENT chipscope_ila_daq
+      PORT (
+         CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
+         CLK     : IN    STD_LOGIC;
+         TRIG0   : IN    STD_LOGIC_VECTOR(68 DOWNTO 0)
+         );
+   END COMPONENT;
+
+   SIGNAL CONTROL0 : STD_LOGIC_VECTOR(35 DOWNTO 0);
+   SIGNAL TRIG0    : STD_LOGIC_VECTOR(68 DOWNTO 0);
 
    SIGNAL sTRIGGER_MODE  : TRIGGER_MODE_ARRAY_TYPE        := (OTHERS => (OTHERS => '0'));
    SIGNAL sACQUIRE       : STD_LOGIC                      := '0';
@@ -250,11 +252,11 @@ signal TRIG0 : STD_LOGIC_VECTOR(68 DOWNTO 0);
    SIGNAL sRScnt_TRGword_FIFO_OUT   : STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0');
    SIGNAL sRScnt_TRGword_FIFO_EMPTY : STD_LOGIC                      := '0';
    SIGNAL sRScnt_TRGword_FIFO_RDREQ : STD_LOGIC                      := '0';
-	
-	--TEST CONNECTOR
-	TYPE TC_ARRAY_TYPE IS ARRAY (0 TO 7) OF STD_LOGIC_VECTOR (68 DOWNTO 0);
-	
-	SIGNAL sTC : TC_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
+
+   --TEST CONNECTOR
+   TYPE TC_ARRAY_TYPE IS ARRAY (0 TO 7) OF STD_LOGIC_VECTOR (68 DOWNTO 0);
+
+   SIGNAL sTC : TC_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
 
 BEGIN
 
@@ -301,11 +303,12 @@ BEGIN
             --LC_Status                                                         
             LC_STATUS_REG               => LC_STATUS_REG (i),
             LC_HYBRIDS_POWER_STATUS_REG => LC_HYBRIDS_POWER_STATUS_REG (i),
+            LC_FPGA_STATUS              => LC_FPGA_STATUS (i),
             --LADDER_CARD_FIBER
             RDO2LC                      => Fiber_RDOtoLC (i),
             LC2RDO                      => Fiber_LCtoRDO (i),
-				--TestConnector
-				TC									 => sTC (i)
+            --TestConnector
+            TC                          => sTC (i)
             );
    END GENERATE FIBERS;
 
@@ -313,7 +316,7 @@ BEGIN
       PORT MAP(
          CLK40                    => CLK40,
          CLK80                    => CLK80,
-			CLK200						 => CLK200,
+         CLK200                   => CLK200,
          RST                      => RST,
          --to fibers              
          BUSY_8_FIBERS            => sBUSY_8_FIBERS,
@@ -331,7 +334,7 @@ BEGIN
          RHIC_STROBE_MSB_REG      => RHIC_STROBE_MSB_REG,
          N_HOLDS_REG              => N_HOLDS_REG,
          N_TESTS_REG              => N_TESTS_REG,
-			DATA_BUFF_RST				 => DATA_BUFF_RST,
+         DATA_BUFF_RST            => DATA_BUFF_RST,
          -- TCD signals             
          RS                       => RS,
          RSx5                     => RSx5,
@@ -375,19 +378,19 @@ BEGIN
          DDL_FIFO_RDREQ           => DDL_FIFO_RDREQ,
          DDL_FIFO_RDCLK           => DDL_FIFO_RDCLK
          );
-				 
+
 --chipscope_icon_daq_inst : chipscope_icon_daq
 --  PORT map (
 --    CONTROL0 => CONTROL0
---	 );
+--       );
 --
 --chipscope_ila_daq_inst : chipscope_ila_daq
 --  PORT map (
 --    CONTROL => CONTROL0,
 --    CLK => CLK80,
 --    TRIG0 => TRIG0
---	 );
---	 
+--       );
+--       
 --TRIG0 (68 DOWNTO 0) <= sTC(0);
 
 END DAQ_Arch;

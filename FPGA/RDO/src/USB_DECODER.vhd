@@ -32,7 +32,7 @@ ENTITY USB_DECODER IS
    PORT (
       CLK40                       : IN  STD_LOGIC;
       RST                         : IN  STD_LOGIC;
---FTDI INTERFACE
+      --FTDI INTERFACE
       -- CMD FIFO
       CMD_FIFO_Q                  : IN  STD_LOGIC_VECTOR(35 DOWNTO 0);
       CMD_FIFO_EMPTY              : IN  STD_LOGIC;
@@ -42,7 +42,7 @@ ENTITY USB_DECODER IS
       FIFO_EMPTY                  : OUT STD_LOGIC;  -- interface fifo "emtpy" signal
       FIFO_RDREQ                  : IN  STD_LOGIC;  -- interface fifo read request
       FIFO_RDCLK                  : IN  STD_LOGIC;  -- interface fifo read clock
---LC_INTERFACES
+      --LC_INTERFACES
       --LC_Registers 
       LC_RST                      : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
       --CONFIG
@@ -81,13 +81,14 @@ ENTITY USB_DECODER IS
       --LC STATUS
       LC_STATUS_REG               : IN  FIBER_ARRAY_TYPE_16_8;
       LC_HYBRIDS_POWER_STATUS_REG : IN  FIBER_ARRAY_TYPE_16;
---GENERAL
+      LC_FPGA_STATUS              : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
+      --GENERAL
       BoardID                     : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
       Data_FormatV                : IN  STD_LOGIC_VECTOR (7 DOWNTO 0);
       FPGA_BuildN                 : IN  STD_LOGIC_VECTOR (15 DOWNTO 0);
       CalLVDS                     : OUT STD_LOGIC;
-		DATA_BUFF_RST					 : OUT STD_LOGIC;
--- pedestal memory write port
+      DATA_BUFF_RST               : OUT STD_LOGIC;
+      -- pedestal memory write port
       oPedMemWrite                : OUT PED_MEM_WRITE
       );
 END USB_DECODER;
@@ -134,18 +135,18 @@ ARCHITECTURE USB_DECODER_Arch OF USB_DECODER IS
    SIGNAL sTCD_DELAY_Reg       : STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
    SIGNAL sTCD_EN_TRGMODES_Reg : STD_LOGIC_VECTOR (15 DOWNTO 0) := (OTHERS => '0');
    SIGNAL sPipe_Selector       : STD_LOGIC_VECTOR (3 DOWNTO 0)  := (OTHERS => '0');
-	SIGNAL LC_FPGA_STATUS		 : STD_LOGIC_VECTOR (7 DOWNTO 0)  := (OTHERS => '0');
+   --SIGNAL LC_FPGA_STATUS       : STD_LOGIC_VECTOR (7 DOWNTO 0)  := (OTHERS => '0');
 
    -- signals for single-port RAM
-   SIGNAL sPedMemWrite      : PED_MEM_WRITE := ('0', (OTHERS => '0'), (OTHERS => '0'), (OTHERS => '0'));
-   SIGNAL sPedMemSelect     : STD_LOGIC_VECTOR (2 DOWNTO 0) := (OTHERS => '0');
-   SIGNAL sPedMemWE         : STD_LOGIC := '0';
-   SIGNAL sPedMemAddrCnt    : UNSIGNED (13 DOWNTO 0)        := (OTHERS => '0');
+   SIGNAL sPedMemWrite      : PED_MEM_WRITE                 := ('0', (OTHERS => '0'), (OTHERS => '0'), (OTHERS => '0'));
+   SIGNAL sPedMemSelect     : STD_LOGIC_VECTOR (2 DOWNTO 0) := (OTHERS       => '0');
+   SIGNAL sPedMemWE         : STD_LOGIC                     := '0';
+   SIGNAL sPedMemAddrCnt    : UNSIGNED (13 DOWNTO 0)        := (OTHERS       => '0');
    SIGNAL sPedMemAddrTemp   : STD_LOGIC_VECTOR (13 DOWNTO 0);
    SIGNAL sPedMemAddrUpdate : STD_LOGIC                     := '0';
 
    --LVDS re-calibration
-   SIGNAL sCalLVDS     : STD_LOGIC := '0';
+   SIGNAL sCalLVDS : STD_LOGIC := '0';
 
 BEGIN
 
@@ -196,8 +197,8 @@ BEGIN
          --LC_Trigger_Handler
          sTEST2HOLD_DELAY        <= (OTHERS => '0');
          CMD_FIFO_RDREQ          <= '0';
-			DATA_BUFF_RST				<= '0';
-			
+         DATA_BUFF_RST           <= '0';
+
       ELSIF rising_edge(CLK40) THEN     -- rising clock edge
          -- defaults:
          CMD_FIFO_RDREQ    <= '0';
@@ -284,7 +285,7 @@ BEGIN
                   WHEN x"011" =>        -- LC FPGA STATUS
                      IF READ1_WRITE0 = '1' THEN  --READ         
                         sDecoder_FIFO_EN               <= '1';
-								sDecoder_FIFO_IN (15 DOWNTO 0) <= x"00" & LC_FPGA_STATUS;  --TEMPORAL see end of document
+                        sDecoder_FIFO_IN (15 DOWNTO 0) <= x"00" & LC_FPGA_STATUS;  --TEMPORAL see end of document
                      ELSE               --WRITE
                         NULL;           -- READ ONLY REGISTER
                      END IF;
@@ -297,33 +298,33 @@ BEGIN
                      END IF;
 
                                         --||| PEDESTAL PATTERN 
-                  WHEN x"020" =>        															-- select fiber channel
-                     IF READ1_WRITE0 = '1' THEN                     --READ
+                  WHEN x"020" =>        -- select fiber channel
+                     IF READ1_WRITE0 = '1' THEN  --READ
                         sDecoder_FIFO_EN               <= '1';
                         sDecoder_FIFO_IN (15 DOWNTO 0) <= x"000" & b"0" & sPedMemSelect;
                      ELSE  --WRITE                                                                      
                         sPedMemSelect <= CMD_FIFO_Q (2 DOWNTO 0);
                      END IF;
-							
-                  WHEN x"021" =>        																-- select write address
-                     IF READ1_WRITE0 = '1' THEN                     --READ
+
+                  WHEN x"021" =>                 -- select write address
+                     IF READ1_WRITE0 = '1' THEN  --READ
                         sDecoder_FIFO_EN               <= '1';
                         -- read back the current write address
                         sDecoder_FIFO_IN (15 DOWNTO 0) <= b"00" & STD_LOGIC_VECTOR (sPedMemAddrCnt);
-                     ELSE               --WRITE
+                     ELSE                        --WRITE
                         sPedMemAddrUpdate <= '1';
                         sPedMemAddrTemp   <= CMD_FIFO_Q (13 DOWNTO 0);
                      END IF;
-							
+
                   WHEN x"022" =>        -- write the data
-                     IF READ1_WRITE0 = '1' THEN                     --READ
-                        NULL;				--write only register
+                     IF READ1_WRITE0 = '1' THEN  --READ
+                        NULL;           --write only register
                      ELSE  --WRITE                                                                      
                         sPedMemWE                                               <= '1';
                         sPedMemWrite.WE (TO_INTEGER (UNSIGNED (sPedMemSelect))) <= '1';
-                        sPedMemWrite.DATA                                       <= CMD_FIFO_Q (8 DOWNTO 0);
+                        sPedMemWrite.DATA                                       <= CMD_FIFO_Q (9 DOWNTO 0);
                      END IF;
-							
+
                   WHEN x"023" =>
                      IF READ1_WRITE0 = '1' THEN                     --READ
                         sDecoder_FIFO_EN               <= '1';
@@ -331,7 +332,7 @@ BEGIN
                      ELSE  --WRITE                                                                      
                         NULL;           -- TEMPORAL READ AND WRITE REG 
                      END IF;
-							
+
                   WHEN x"024" =>
                      IF READ1_WRITE0 = '1' THEN                     --READ
                         sDecoder_FIFO_EN               <= '1';
@@ -409,7 +410,7 @@ BEGIN
                      ELSE  --WRITE                                                                      
                         sCalLVDS <= CMD_FIFO_Q (0);
                      END IF;
-							
+
                                         --||| DAQ
                   WHEN x"080" =>        -- FIBER ENABLE       
                      IF READ1_WRITE0 = '1' THEN                     --READ
@@ -465,7 +466,7 @@ BEGIN
                      IF READ1_WRITE0 = '1' THEN  --READ         
                         NULL;                    -- WRITE ONLY REGISTER
                      ELSE                        --WRITE
-                        DATA_BUFF_RST  	<= CMD_FIFO_Q (0);
+                        DATA_BUFF_RST <= CMD_FIFO_Q (0);
                      END IF;
 
                   WHEN x"087" =>        -- SIU BUFFER STATUS  
@@ -668,15 +669,15 @@ BEGIN
    BEGIN  -- PROCESS PED_MEM_ADDR_ADVANCE
       IF RST = '1' THEN                 -- asynchronous reset (active high)
          sPedMemAddrCnt <= (OTHERS => '0');
-      ELSIF CLK40'EVENT AND CLK40 = '1' THEN  -- rising clock edge
+      ELSIF CLK40'EVENT AND CLK40 = '1' THEN      -- rising clock edge
          -- due to the one clock cycle delay of sPedMemWE, the counter
          -- incrememts after the write of the data to memory
          IF sPedMemAddrUpdate = '1' THEN
-            IF UNSIGNED(sPedMemAddrTemp) > 12287 THEN 
-					sPedMemAddrCnt <= b"10" & x"FFF"; --12287
-				ELSE
-					sPedMemAddrCnt <= UNSIGNED (sPedMemAddrTemp);
-				END IF;
+            IF UNSIGNED(sPedMemAddrTemp) > 12287 THEN
+               sPedMemAddrCnt <= b"10" & x"FFF";  --12287
+            ELSE
+               sPedMemAddrCnt <= UNSIGNED (sPedMemAddrTemp);
+            END IF;
          ELSIF sPedMemWE = '1' THEN
             IF sPedMemAddrCnt = 12287 THEN
                -- wrap around at the end of teh memory range
@@ -687,14 +688,14 @@ BEGIN
          END IF;
       END IF;
    END PROCESS PED_MEM_ADDR_ADVANCE;
-	
-	LC_STATUS : FOR num IN 0 TO 7 GENERATE   --TEMPORAL
-	LC_FPGA_STATUS (num) <= '1' WHEN CONFIG_STATUS_OUT (num) = x"0110" ELSE '0';  
-	END GENERATE LC_STATUS;
-	-- this signal was suposed to be a check of the constant status information 
-	--sent by the LC_FPGA, it is wired temporary to the Configured status Register 
-	-- of the LC that serves the same function.
-	
+
+--      LC_STATUS : FOR num IN 0 TO 7 GENERATE   --TEMPORAL
+--      LC_FPGA_STATUS (num) <= '1' WHEN CONFIG_STATUS_OUT (num) = x"0110" ELSE '0';  
+--      END GENERATE LC_STATUS;
+   -- this signal was suposed to be a check of the constant status information 
+   --sent by the LC_FPGA, it is wired temporary to the Configured status Register 
+   -- of the LC that serves the same function.
+
 
 
 END USB_DECODER_Arch;

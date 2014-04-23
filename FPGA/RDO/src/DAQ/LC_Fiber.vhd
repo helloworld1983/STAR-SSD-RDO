@@ -67,11 +67,12 @@ ENTITY LC_Fiber IS
       --LC_Status
       LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16;
       LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
+      LC_FPGA_STATUS              : OUT STD_LOGIC;
       --LADDER_CARD_FIBER
       RDO2LC                      : OUT STD_LOGIC_VECTOR (23 DOWNTO 0);
       LC2RDO                      : IN  STD_LOGIC_VECTOR (23 DOWNTO 0);
-		--TestConnector
-		TC									 : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
+      --TestConnector
+      TC                          : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
       );
 END LC_Fiber;
 
@@ -168,8 +169,8 @@ ARCHITECTURE LC_Fiber_Arch OF LC_Fiber IS
          --LC_Status REGISTERS          
          LC_STATUS_REG               : OUT FIBER_ARRAY_TYPE_16;
          LC_HYBRIDS_POWER_STATUS_REG : OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
-			--TestConnector
-			TC									 : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
+         --TestConnector
+         TC                          : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
          );
    END COMPONENT DataPipe;
 
@@ -186,6 +187,19 @@ ARCHITECTURE LC_Fiber_Arch OF LC_Fiber IS
          EMPTY  : OUT STD_LOGIC
          );
    END COMPONENT fifo36x4096;
+
+   COMPONENT LC_FPGA_health
+      PORT (
+         CLK40          : IN  STD_LOGIC;
+         RST            : IN  STD_LOGIC;
+         -- from LC
+         LC2RDO         : IN  STD_LOGIC_VECTOR (23 DOWNTO 0);
+         -- status out
+         LC_FPGA_STATUS : OUT STD_LOGIC;
+         -- test connector
+         TC             : OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
+         );
+   END COMPONENT LC_FPGA_health;
 
    SIGNAL sPAYLOAD_FIFO_DIN : STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0');
    SIGNAL sJTAG_FIFO_DIN    : STD_LOGIC_VECTOR (35 DOWNTO 0) := (OTHERS => '0');
@@ -280,8 +294,8 @@ BEGIN
          RD_SERIAL                   => RD_SERIAL,
          LC_STATUS_REG               => LC_STATUS_REG,
          LC_HYBRIDS_POWER_STATUS_REG => LC_HYBRIDS_POWER_STATUS_REG,
-			--TestConnector
-			TC									 => TC
+         --TestConnector
+         TC                          => TC
          );
 
    PROCESS (CLK40, RST) IS              --LA JAN-08-2014
@@ -303,5 +317,18 @@ BEGIN
    RDO2LC (9 DOWNTO 7)   <= LC_ADDRESS;
    RDO2LC (1)            <= LC_RST;
    RDO2LC (19 DOWNTO 11) <= (OTHERS => '0');
+
+
+   LC_FPGA_health_inst : LC_FPGA_health
+      PORT MAP (
+         CLK40          => CLK40,
+         RST            => RST,
+         -- from LC
+         LC2RDO         => LC2RDO,
+         -- status out
+         LC_FPGA_STATUS => LC_FPGA_STATUS,
+         -- test connector
+         TC             => OPEN
+         );
 
 END LC_Fiber_Arch;

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.5
-# Date: Fri Feb 21 22:59:24 2014
+# Date: Fri Apr 18 20:24:22 2014
 #
 ##############################################################
 #
@@ -111,14 +111,14 @@ CSET fifo_implementation_wach=Common_Clock_Block_RAM
 CSET fifo_implementation_wdch=Common_Clock_Block_RAM
 CSET fifo_implementation_wrch=Common_Clock_Block_RAM
 CSET full_flags_reset_value=0
-CSET full_threshold_assert_value=507
+CSET full_threshold_assert_value=504
 CSET full_threshold_assert_value_axis=1023
 CSET full_threshold_assert_value_rach=1023
 CSET full_threshold_assert_value_rdch=1023
 CSET full_threshold_assert_value_wach=1023
 CSET full_threshold_assert_value_wdch=1023
 CSET full_threshold_assert_value_wrch=1023
-CSET full_threshold_negate_value=506
+CSET full_threshold_negate_value=503
 CSET id_width=4
 CSET inject_dbit_error=false
 CSET inject_dbit_error_axis=false
@@ -166,7 +166,7 @@ CSET programmable_full_type_wdch=No_Programmable_Full_Threshold
 CSET programmable_full_type_wrch=No_Programmable_Full_Threshold
 CSET rach_type=FIFO
 CSET rdch_type=FIFO
-CSET read_clock_frequency=40
+CSET read_clock_frequency=80
 CSET read_data_count=false
 CSET read_data_count_width=9
 CSET register_slice_mode_axis=Fully_Registered
@@ -210,4 +210,4 @@ CSET wuser_width=1
 MISC pkg_timestamp=2012-11-19T12:39:56Z
 # END Extra information
 GENERATE
-# CRC: fc59594c
+# CRC: d1a6c4de

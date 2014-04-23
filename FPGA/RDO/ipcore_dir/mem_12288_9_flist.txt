@@ -3,6 +3,7 @@ _xmsgs\pn_parser.xmsgs
 mem_12288_9.asy
 mem_12288_9.gise
 mem_12288_9.ngc
+mem_12288_9.sym
 mem_12288_9.vhd
 mem_12288_9.vho
 mem_12288_9.xco

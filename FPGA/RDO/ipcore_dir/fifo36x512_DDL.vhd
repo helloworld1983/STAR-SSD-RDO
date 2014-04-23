@@ -7,14 +7,14 @@
 -- \   \   \/     Version: P.58f
 --  \   \         Application: netgen
 --  /   /         Filename: fifo36x512_DDL.vhd
--- /___/   /\     Timestamp: Fri Feb 21 18:00:42 2014
+-- /___/   /\     Timestamp: Fri Apr 18 13:25:53 2014
 -- \   \  /  \ 
 --  \___\/\___\
 --             
--- Command	: -w -sim -ofmt vhdl C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.ngc C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.vhd 
+-- Command	: -w -sim -ofmt vhdl C:/work/SSD/code/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.ngc C:/work/SSD/code/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.vhd 
 -- Device	: 6vlx240tff1759-2
--- Input file	: C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.ngc
--- Output file	: C:/Luis/Dropbox/SSD/RDO-VHDL/SSD-RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.vhd
+-- Input file	: C:/work/SSD/code/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.ngc
+-- Output file	: C:/work/SSD/code/ssd/FPGA/RDO/ipcore_dir/tmp/_cg/fifo36x512_DDL.vhd
 -- # of Entities	: 2
 -- Design Name	: fifo36x512_DDL
 -- Xilinx	: C:\Xilinx\14.5\ISE_DS\ISE\
@@ -62,11 +62,11 @@ architecture STRUCTURE of reset_builtin is
   signal power_on_wr_rst : STD_LOGIC_VECTOR ( 5 downto 0 ); 
   signal rd_rst_fb : STD_LOGIC_VECTOR ( 4 downto 0 ); 
   signal power_on_rd_rst : STD_LOGIC_VECTOR ( 5 downto 0 ); 
+  signal NlwRenamedSignal_WR_RST_I : STD_LOGIC_VECTOR ( 0 downto 0 ); 
   signal NlwRenamedSig_OI_n0019 : STD_LOGIC_VECTOR ( 5 downto 5 ); 
-  signal NlwRenamedSignal_RD_RST_I : STD_LOGIC_VECTOR ( 0 downto 0 ); 
 begin
-  RD_RST_I(1) <= NlwRenamedSignal_RD_RST_I(0);
-  RD_RST_I(0) <= NlwRenamedSignal_RD_RST_I(0);
+  WR_RST_I(1) <= NlwRenamedSignal_WR_RST_I(0);
+  WR_RST_I(0) <= NlwRenamedSignal_WR_RST_I(0);
   INT_RST_I(1) <= NlwRenamedSig_OI_n0019(5);
   INT_RST_I(0) <= NlwRenamedSig_OI_n0019(5);
   XST_GND : GND
@@ -291,14 +291,14 @@ begin
       PRE => RST,
       Q => rd_rst_reg_15
     );
-  RD_RST_I_1_1 : LUT2
+  WR_RST_I_1_1 : LUT2
     generic map(
       INIT => X"E"
     )
     port map (
-      I0 => rd_rst_reg_15,
-      I1 => power_on_rd_rst(0),
-      O => NlwRenamedSignal_RD_RST_I(0)
+      I0 => wr_rst_reg_3,
+      I1 => power_on_wr_rst(0),
+      O => NlwRenamedSignal_WR_RST_I(0)
     );
   Mmux_wr_rst_reg_GND_25_o_MUX_1_o11 : LUT2
     generic map(
@@ -361,8 +361,8 @@ architecture STRUCTURE of fifo36x512_DDL is
   signal NlwRenamedSig_OI_empty : STD_LOGIC; 
   signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gonep_inst_prim_rden_tmp : STD_LOGIC; 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_WR_RST_I_1_UNCONNECTED : STD_LOGIC; 
-  signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_WR_RST_I_0_UNCONNECTED : STD_LOGIC; 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_RD_RST_I_1_UNCONNECTED : STD_LOGIC; 
+  signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_RD_RST_I_0_UNCONNECTED : STD_LOGIC; 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_INT_RST_I_1_UNCONNECTED : STD_LOGIC; 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_INT_RST_I_0_UNCONNECTED : STD_LOGIC; 
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gonep_inst_prim_gf18e1_inst_sngfifo18e1_ALMOSTEMPTY_UNCONNECTED : STD_LOGIC;
@@ -421,7 +421,7 @@ architecture STRUCTURE of fifo36x512_DDL is
  
   signal NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gonep_inst_prim_gf18e1_inst_sngfifo18e1_WRCOUNT_0_UNCONNECTED : STD_LOGIC;
  
-  signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rd_rst_i : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_wr_rst_i : STD_LOGIC_VECTOR ( 0 downto 0 ); 
 begin
   empty <= NlwRenamedSig_OI_empty;
   XST_GND : GND
@@ -436,16 +436,16 @@ begin
       INT_CLK => N1,
       RST => rst,
       WR_RST_I(1) => NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_WR_RST_I_1_UNCONNECTED,
-      WR_RST_I(0) => NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_WR_RST_I_0_UNCONNECTED,
+      WR_RST_I(0) => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_wr_rst_i(0),
       RD_RST_I(1) => NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_RD_RST_I_1_UNCONNECTED,
-      RD_RST_I(0) => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rd_rst_i(0),
+      RD_RST_I(0) => NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_RD_RST_I_0_UNCONNECTED,
       INT_RST_I(1) => NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_INT_RST_I_1_UNCONNECTED,
       INT_RST_I(0) => NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rstbt_INT_RST_I_0_UNCONNECTED
     );
   U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gonep_inst_prim_gf18e1_inst_sngfifo18e1 : FIFO18E1
     generic map(
       ALMOST_EMPTY_OFFSET => X"0005",
-      ALMOST_FULL_OFFSET => X"0006",
+      ALMOST_FULL_OFFSET => X"0009",
       DATA_WIDTH => 36,
       DO_REG => 1,
       EN_SYN => FALSE,
@@ -469,7 +469,7 @@ NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_i
       RDERR => 
 NLW_U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_v6_fifo_fblk_gextw_1_gnll_fifo_inst_extd_gonep_inst_prim_gf18e1_inst_sngfifo18e1_RDERR_UNCONNECTED,
       REGCE => N1,
-      RST => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_rd_rst_i(0),
+      RST => U0_xst_fifo_generator_gconvfifo_rf_gbiv5_bi_wr_rst_i(0),
       RSTREG => N1,
       WRCLK => wr_clk,
       WREN => wr_en,
