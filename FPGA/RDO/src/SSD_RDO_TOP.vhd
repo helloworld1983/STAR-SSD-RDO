@@ -656,7 +656,7 @@ ARCHITECTURE SSD_RDO_TOP_Arch OF SSD_RDO_TOP IS
 
 
    CONSTANT sData_FormatV : STD_LOGIC_VECTOR (7 DOWNTO 0)  := x"02";  -- DATA FORMAT TO DAQ VERSION
-   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0036";  -- RDO project number
+   CONSTANT sFPGA_BuildN  : STD_LOGIC_VECTOR (15 DOWNTO 0) := x"0037";  -- RDO project number
 
 -------------------------------------------------------------------------------
 -- ****************************************************************************
