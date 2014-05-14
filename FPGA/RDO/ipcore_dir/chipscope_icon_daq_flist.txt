@@ -5,6 +5,7 @@ chipscope_icon_daq.constraints\chipscope_icon_daq.ucf
 chipscope_icon_daq.constraints\chipscope_icon_daq.xdc
 chipscope_icon_daq.gise
 chipscope_icon_daq.ngc
+chipscope_icon_daq.sym
 chipscope_icon_daq.ucf
 chipscope_icon_daq.vhd
 chipscope_icon_daq.vho

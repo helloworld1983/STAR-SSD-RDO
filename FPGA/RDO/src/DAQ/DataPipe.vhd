@@ -360,7 +360,14 @@ BEGIN
 		END IF;
 	END PROCESS;
 	
-	TC <= sTC_PC (31 DOWNTO 16) & sTC_PS & sTC_PC (15 DOWNTO 0);
+	TC (9 downto 0) <= iPedMemWrite.DATA;
+	TC (14 downto 10) <= iPedMemWrite.ADDR(4 downto 0);
+	TC (15) <= sPED_MEM_WE (0);
+	TC (25 downto 16) <= sPED_MEM_DATA_OUT (9 downto 0);
+	TC (31 downto 26) <= sStripAddress(5 downto 0);
+	TC (63 downto 32) <= sTC_PS(31 downto 0);
+	
+	--TC <= sTC_PC (31 DOWNTO 16) & sTC_PS & sTC_PC (15 DOWNTO 0);
 	
 END DataPipe_arch;
 

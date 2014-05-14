@@ -63,8 +63,8 @@ BEGIN
 
    PROCESS (CLK80) IS
 
-      VARIABLE sDATA_PED_SUBST_P : STD_LOGIC_VECTOR (9 DOWNTO 0) := (OTHERS => '0');
-      VARIABLE sDATA_PED_SUBST_N : STD_LOGIC_VECTOR (9 DOWNTO 0) := (OTHERS => '0');
+      VARIABLE sDATA_PED_SUBST_P : UNSIGNED (9 DOWNTO 0) := (OTHERS => '0');
+      VARIABLE sDATA_PED_SUBST_N : UNSIGNED (9 DOWNTO 0) := (OTHERS => '0');
 
    BEGIN
       IF RISING_EDGE(CLK80) THEN
@@ -72,8 +72,8 @@ BEGIN
          sStripAddress <= StripAddress;
 
          --sDATA_PED_SUBST := STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) + UNSIGNED(ADC_offset) - UNSIGNED(PED_MEM_DATA_OUT));   
-         sDATA_PED_SUBST_P := STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) - UNSIGNED(PED_MEM_DATA_OUT));
-         sDATA_PED_SUBST_N := STD_LOGIC_VECTOR(UNSIGNED(PED_MEM_DATA_OUT) - UNSIGNED(LC2RDO_1Hybrid));
+         sDATA_PED_SUBST_P := (UNSIGNED(LC2RDO_1Hybrid) - UNSIGNED(PED_MEM_DATA_OUT));
+         sDATA_PED_SUBST_N := (UNSIGNED(PED_MEM_DATA_OUT) - UNSIGNED(LC2RDO_1Hybrid));
          IF ZST_Polarity = '1' THEN     -- positive pulse
             sDATA_MEM <= STD_LOGIC_VECTOR(UNSIGNED(LC2RDO_1Hybrid) - UNSIGNED(PED_MEM_DATA_OUT));
          ELSE                           -- negative pulse
@@ -86,13 +86,13 @@ BEGIN
                IF DataValid = '1' THEN
                   sCnt <= sCnt + 1;
                   IF ZST_Polarity = '1' THEN  -- POSITIVE pulse
-                     IF sDATA_PED_SUBST_P < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN
+                     IF (sDATA_PED_SUBST_P < UNSIGNED(Zero_supr_trsh)) AND (PED_MEM_DATA_OUT /= "1111111111") THEN
                         sPAYLOAD_MEM_WE <= '1';
                      ELSE
                         sPAYLOAD_MEM_WE <= '0';
                      END IF;
                   ELSE                        -- NEGATIVE pulse
-                     IF sDATA_PED_SUBST_N < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN
+                     IF (sDATA_PED_SUBST_N < UNSIGNED(Zero_supr_trsh)) AND (PED_MEM_DATA_OUT /= "1111111111") THEN
                         sPAYLOAD_MEM_WE <= '1';
                      ELSE
                         sPAYLOAD_MEM_WE <= '0';
@@ -105,13 +105,13 @@ BEGIN
                sCnt <= 0;
 
                IF ZST_Polarity = '1' THEN  -- POSITIVE pulse
-                  IF sDATA_PED_SUBST_P < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN
+                  IF (sDATA_PED_SUBST_P < UNSIGNED(Zero_supr_trsh)) AND (PED_MEM_DATA_OUT /= "1111111111") THEN
                      sPAYLOAD_MEM_WE <= '1';
                   ELSE
                      sPAYLOAD_MEM_WE <= '0';
                   END IF;
                ELSE                        -- NEGATIVE pulse
-                  IF sDATA_PED_SUBST_N < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN
+                  IF (sDATA_PED_SUBST_N < UNSIGNED(Zero_supr_trsh)) AND (PED_MEM_DATA_OUT /= "1111111111") THEN
                      sPAYLOAD_MEM_WE <= '1';
                   ELSE
                      sPAYLOAD_MEM_WE <= '0';
@@ -123,13 +123,13 @@ BEGIN
                sCnt <= sCnt + 1;
 
                IF ZST_Polarity = '1' THEN  -- POSITIVE pulse
-                  IF sDATA_PED_SUBST_P < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN
+                  IF (sDATA_PED_SUBST_P < UNSIGNED(Zero_supr_trsh)) AND (PED_MEM_DATA_OUT /= "1111111111") THEN
                      sPAYLOAD_MEM_WE <= '1';
                   ELSE
                      sPAYLOAD_MEM_WE <= '0';
                   END IF;
                ELSE                        -- NEGATIVE pulse
-                  IF sDATA_PED_SUBST_N < Zero_supr_trsh AND PED_MEM_DATA_OUT /= "1111111111" THEN
+                  IF (sDATA_PED_SUBST_N < UNSIGNED(Zero_supr_trsh)) AND (PED_MEM_DATA_OUT /= "1111111111") THEN
                      sPAYLOAD_MEM_WE <= '1';
                   ELSE
                      sPAYLOAD_MEM_WE <= '0';
@@ -145,12 +145,18 @@ BEGIN
 
    PAYLOAD_MEM_IN <= x"000" & sStripAddress & sDATA_MEM;
 
-   TC (0)            <= DataValid;
-   TC (1)            <= ZST_Polarity;
-   TC (11 DOWNTO 2)  <= LC2RDO_1Hybrid;
-   TC (25 DOWNTO 12) <= StripAddress;
-   TC (35 DOWNTO 26) <= PED_MEM_DATA_OUT;
-   TC (36)           <= sPAYLOAD_MEM_WE;
+--   TC (0)            <= DataValid;
+--   TC (1)            <= ZST_Polarity;
+--   TC (11 DOWNTO 2)  <= LC2RDO_1Hybrid;
+--   TC (25 DOWNTO 12) <= StripAddress;
+--   TC (35 DOWNTO 26) <= PED_MEM_DATA_OUT;
+--   TC (36)           <= sPAYLOAD_MEM_WE;
+	
+	TC (9 DOWNTO 0)  <= LC2RDO_1Hybrid;
+	TC (19 DOWNTO 10) <= PED_MEM_DATA_OUT;
+	TC (29 DOWNTO 20) <= sDATA_MEM;
+	TC (30) <= sPAYLOAD_MEM_WE;
+	TC (31) <= '0';
 
    PAYLOAD_MEM_WE <= sPAYLOAD_MEM_WE;
 

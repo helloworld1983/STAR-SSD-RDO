@@ -390,8 +390,8 @@ BEGIN
 --    CLK => CLK80,
 --    TRIG0 => TRIG0
 --       );
---       
---TRIG0 (68 DOWNTO 0) <= sTC(0);
+       
+TRIG0 (68 DOWNTO 0) <= sTC(3);
 
 END DAQ_Arch;
 

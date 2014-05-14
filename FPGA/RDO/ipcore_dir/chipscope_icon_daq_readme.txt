@@ -1,5 +1,5 @@
 The following files were generated for 'chipscope_icon_daq' in directory
-C:\Luis\Dropbox\SSD\svn\ssd\FPGA\RDO\ipcore_dir\
+C:\work\SSD\code\ssd\FPGA\RDO\ipcore_dir\
 
 XCO file generator:
    Generate an XCO file for compatibility with legacy flows.
@@ -22,6 +22,11 @@ IP Symbol Generator:
    Generate an IP symbol based on the current project options'.
 
    * chipscope_icon_daq.asy
+
+SYM file generator:
+   Generate a SYM file for compatibility with legacy flows
+
+   * chipscope_icon_daq.sym
 
 Generate ISE subproject:
    Create an ISE subproject for use when including this core in ISE designs
