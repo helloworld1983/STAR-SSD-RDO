@@ -143,7 +143,7 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
          RDO2LC                      : OUT STD_LOGIC_VECTOR (23 DOWNTO 0);
          LC2RDO                      : IN  STD_LOGIC_VECTOR (23 DOWNTO 0);
          --TestConnector
-         TC                          : OUT STD_LOGIC_VECTOR (68 DOWNTO 0)
+         TC                          : OUT STD_LOGIC_VECTOR (63 DOWNTO 0)
          );
    END COMPONENT LC_Fiber;
 
@@ -227,12 +227,12 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
       PORT (
          CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
          CLK     : IN    STD_LOGIC;
-         TRIG0   : IN    STD_LOGIC_VECTOR(68 DOWNTO 0)
+         TRIG0   : IN    STD_LOGIC_VECTOR(63 DOWNTO 0)
          );
    END COMPONENT;
 
    SIGNAL CONTROL0 : STD_LOGIC_VECTOR(35 DOWNTO 0);
-   SIGNAL TRIG0    : STD_LOGIC_VECTOR(68 DOWNTO 0);
+   SIGNAL TRIG0    : STD_LOGIC_VECTOR(63 DOWNTO 0);
 
    SIGNAL sTRIGGER_MODE  : TRIGGER_MODE_ARRAY_TYPE        := (OTHERS => (OTHERS => '0'));
    SIGNAL sACQUIRE       : STD_LOGIC                      := '0';
@@ -254,7 +254,7 @@ ARCHITECTURE DAQ_Arch OF DAQ IS
    SIGNAL sRScnt_TRGword_FIFO_RDREQ : STD_LOGIC                      := '0';
 
    --TEST CONNECTOR
-   TYPE TC_ARRAY_TYPE IS ARRAY (0 TO 7) OF STD_LOGIC_VECTOR (68 DOWNTO 0);
+   TYPE TC_ARRAY_TYPE IS ARRAY (0 TO 7) OF STD_LOGIC_VECTOR (63 DOWNTO 0);
 
    SIGNAL sTC : TC_ARRAY_TYPE := (OTHERS => (OTHERS => '0'));
 
@@ -379,19 +379,19 @@ BEGIN
          DDL_FIFO_RDCLK           => DDL_FIFO_RDCLK
          );
 
---chipscope_icon_daq_inst : chipscope_icon_daq
---  PORT map (
---    CONTROL0 => CONTROL0
---       );
---
---chipscope_ila_daq_inst : chipscope_ila_daq
---  PORT map (
---    CONTROL => CONTROL0,
---    CLK => CLK80,
---    TRIG0 => TRIG0
---       );
+chipscope_icon_daq_inst : chipscope_icon_daq
+  PORT map (
+    CONTROL0 => CONTROL0
+       );
+
+chipscope_ila_daq_inst : chipscope_ila_daq
+  PORT map (
+    CONTROL => CONTROL0,
+    CLK => CLK80,
+    TRIG0 => TRIG0
+       );
        
-TRIG0 (68 DOWNTO 0) <= sTC(3);
+TRIG0 (63 DOWNTO 0) <= sTC(3);
 
 END DAQ_Arch;
 

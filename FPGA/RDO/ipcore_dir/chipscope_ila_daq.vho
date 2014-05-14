@@ -8,7 +8,7 @@
 -- \   \   \/     Version    : 14.5
 --  \   \         Application: Xilinx CORE Generator
 --  /   /         Filename   : chipscope_ila_daq.vho
--- /___/   /\     Timestamp  : Wed May 14 07:19:50 Pacific Daylight Time 2014
+-- /___/   /\     Timestamp  : Wed May 14 10:58:06 Pacific Daylight Time 2014
 -- \   \  /  \
 --  \___\/\___\
 --
@@ -22,7 +22,7 @@ component chipscope_ila_daq
   PORT (
     CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
     CLK : IN STD_LOGIC;
-    TRIG0 : IN STD_LOGIC_VECTOR(68 DOWNTO 0));
+    TRIG0 : IN STD_LOGIC_VECTOR(63 DOWNTO 0));
 
 end component;
 

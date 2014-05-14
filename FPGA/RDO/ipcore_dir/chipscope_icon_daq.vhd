@@ -8,7 +8,7 @@
 -- \   \   \/     Version    : 14.5
 --  \   \         Application: XILINX CORE Generator
 --  /   /         Filename   : chipscope_icon_daq.vhd
--- /___/   /\     Timestamp  : Wed May 14 09:02:20 Pacific Daylight Time 2014
+-- /___/   /\     Timestamp  : Wed May 14 10:50:40 Pacific Daylight Time 2014
 -- \   \  /  \
 --  \___\/\___\
 --

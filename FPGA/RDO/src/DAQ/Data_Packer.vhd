@@ -544,12 +544,12 @@ SIU_PACKET_CNT_REG <= sSIU_PACKET_CNT_REG;
 DDL_FIFO_EMPTY <= sDDL_FIFO_EMPTY;
 
 
-	debud_data_verify_inst : debud_data_verify 
-	PORT MAP(
-			CLK   => CLK80,
-			rdreq => sDDL_FIFO_WE_IN,
-			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
-			);
+--	debud_data_verify_inst : debud_data_verify 
+--	PORT MAP(
+--			CLK   => CLK80,
+--			rdreq => sDDL_FIFO_WE_IN,
+--			Din   => sDDL_FIFO_IN_DIN(31 DOWNTO 0)
+--			);
 
 END Data_Packer_arch;
 
