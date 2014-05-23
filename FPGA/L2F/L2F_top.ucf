@@ -1,0 +1,4 @@
+
+#Created by Constraints Editor (xc6slx100-fgg676-3) - 2014/01/15
+NET "L3_START_N" TNM_NET = L3_START_N;
+TIMESPEC TS_L3_START_N = PERIOD "L3_START_N" 40 MHz HIGH 50%;
