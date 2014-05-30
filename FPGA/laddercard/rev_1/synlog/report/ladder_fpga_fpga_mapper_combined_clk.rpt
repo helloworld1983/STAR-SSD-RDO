@@ -2,20 +2,19 @@
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-7 non-gated/non-generated clock tree(s) driving 1014 clock pin(s) of sequential element(s)
+6 non-gated/non-generated clock tree(s) driving 961 clock pin(s) of sequential element(s)
 1 gated/generated clock tree(s) driving 20 clock pin(s) of sequential element(s)
-626 instances converted, 20 sequential instances remain driven by gated/generated clocks
+606 instances converted, 20 sequential instances remain driven by gated/generated clocks
 
 ========================================================================= Non-Gated/Non-Generated Clocks =========================================================================
 Clock Tree ID     Driving Element                                                     Drive Element Type                             Fanout     Sample Instance                   
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0002       ladder_fpga_sc_tck_in                                               cycloneiii_io_ibuf                             662        COMP_ladder_fpga_SC_BYPASS_REG.ff1
+@K:CKID0002       ladder_fpga_sc_tck_in                                               cycloneiii_io_ibuf                             666        COMP_ladder_fpga_SC_BYPASS_REG.ff1
 @K:CKID0003       holdin_echelle_in                                                   cycloneiii_io_ibuf                             12         ladder_fpga_nbr_hold[10]          
 @K:CKID0004       testin_echelle_in                                                   cycloneiii_io_ibuf                             12         ladder_fpga_nbr_test[10]          
-@K:CKID0005       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     125        acquire_state_illegalpipe2        
-@K:CKID0006       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     103        ladder_fpga_nbr_rclk_echelle[10]  
-@K:CKID0007       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     98         level_shifter_dac_sck_en          
-@K:CKID0008       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     2          usb_read_n_in                     
+@K:CKID0005       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     121        ladder_fpga_nbr_rclk_echelle[10]  
+@K:CKID0006       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     102        level_shifter_dac_sck_en          
+@K:CKID0007       comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component     altpll_work_ladder_fpga_ladder_fpga_arch_1     48         ladder_fpga_fifo21_empty_pipe     
 ==================================================================================================================================================================================
 ======================================================================================================== Gated/Generated Clocks =========================================================================================================
 Clock Tree ID     Driving Element                                 Drive Element Type     Fanout     Sample Instance                                                   Explanation                                                        

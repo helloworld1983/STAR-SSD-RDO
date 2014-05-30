@@ -2,20 +2,20 @@
 Design view:work.ladder_fpga(ladder_fpga_arch)
 Selecting part EP3C16F484C6
 
-Total combinational functions 1178 
+Total combinational functions 791 of 15408 ( 5%)
 Logic element usage by number of inputs
-		  4 input functions 	 570
-		  3 input functions 	 261
-		  <=2 input functions 	 347
+		  4 input functions 	 347
+		  3 input functions 	 221
+		  <=2 input functions 	 223
 Logic elements by mode
-		  normal mode            1078
-		  arithmetic mode        100
-Total registers 1006 of 16490 ( 6%)
-I/O pins 293 of 161 (48%), total I/O based on largest package of this part.
+		  normal mode            708
+		  arithmetic mode        83
+Total registers 979 of 16490 ( 5%)
+I/O pins 293 of 161 (182%), total I/O based on largest package of this part.
 
 Number of I/O registers
-			Output DDRs   :0
-
+			Input DDRs    :0
+			Output DDRs   :2
 
 DSP Blocks:     0  (0 nine-bit DSP elements).
 DSP Utilization: 0.00% of available 56 blocks (112 nine-bit).

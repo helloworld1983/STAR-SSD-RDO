@@ -1,71 +1,53 @@
 @N|Running in 64-bit mode
 @N|Running in 64-bit mode
-@N: CD720 :"C:\Synopsys\fpga_F201109SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N: CD720 :"C:\FPGAtools\Synopsys\fpga_H2013031\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\shiftreg.vhd":42:7:42:14|Top entity is set to shiftreg.
 @N|Running in 64-bit mode
-@N: CD720 :"C:\Synopsys\fpga_F201109SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":136:7:136:17|Synthesizing work.ladder_fpga.ladder_fpga_arch 
-@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":232:30:232:31|Using onehot encoding for type state_event_controller (st_ev_ctrl_wait4hold="100000")
-@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":236:31:236:32|Using onehot encoding for type state_level_shifter_dac (st_lev_shft_pre_cs="1000000")
-@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":240:26:240:27|Using onehot encoding for type acquire_state_type (acq_idle="10000000000000000000")
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo8x256_cycloneIII.vhd":42:7:42:36|Synthesizing work.mega_func_fifo8x256_cycloneiii.syn 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo21x32_cycloneIII.vhd":42:7:42:36|Synthesizing work.mega_func_fifo21x32_cycloneiii.syn 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":7:7:7:24|Synthesizing work.mesure_temperature.structurel 
-@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":21:19:21:20|Using onehot encoding for type state_type (rst_max6575="1000000000000")
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":42:7:42:14|Synthesizing work.shiftreg.syn 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\gestion_hybrides_v4.vhd":37:7:37:25|Synthesizing work.gestion_hybrides_v4.gestion_hybrides_v4_arch 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\memoire_tokenout_echelle.vhd":22:7:22:30|Synthesizing work.memoire_tokenout_echelle.bascule_16_rs_asynchrone 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\signaux_hybrides.vhd":54:7:54:22|Synthesizing work.signaux_hybrides.signaux_hybrides_arch 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\memoire_latchup_general.vhd":21:7:21:29|Synthesizing work.memoire_latchup_general.a 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\memoire_latchup.vhd":39:7:39:21|Synthesizing work.memoire_latchup.pilotage_alim 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\filtre_latchup.vhd":42:7:42:20|Synthesizing work.filtre_latchup.ignore_courant_de_demarrage 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_cell.vhd":26:7:26:13|Synthesizing work.dr_cell.behavioral 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_avec_pulse.vhd":25:7:25:26|Synthesizing work.dr_x_bits_avec_pulse.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_cell_avec_pulse.vhd":23:7:23:24|Synthesizing work.dr_cell_avec_pulse.behavioral 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mux_2_1.vhd":16:7:16:13|Synthesizing work.mux_2_1.behavioral 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mux_tdo.vhd":31:7:31:13|Synthesizing work.mux_tdo.behavioral 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ir_5_bits.vhd":27:7:27:15|Synthesizing work.ir_5_bits.structural 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ir_cell.vhd":24:7:24:13|Synthesizing work.ir_cell.behavioral 
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":38:7:38:17|Synthesizing work.tap_control.a 
-@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":61:13:61:14|Using onehot encoding for type state (test_logic_reset="1000000000000000")
-@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_pll_40MHz_switchover_cycloneIII.vhd":42:7:42:47|Synthesizing work.mega_func_pll_40mhz_switchover_cycloneiii.syn 
-@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":75:4:75:5|Trying to extract state machine for register etat_present
-@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Trying to extract state machine for register state
-@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":2213:2:2213:3|Trying to extract state machine for register ladder_fpga_level_shifter_dac_state
-@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1579:2:1579:3|Trying to extract state machine for register ladder_fpga_event_controller_state
-@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Trying to extract state machine for register acquire_state
-@N: CG364 :"C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_mf.v":2494:7:2494:12|Synthesizing module altpll
-@N: CG364 :"C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_lpm.v":314:7:314:18|Synthesizing module lpm_shiftreg
-@N: CG364 :"C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_mf.v":913:7:913:12|Synthesizing module dcfifo
-@N: CG364 :"C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_mf.v":913:7:913:12|Synthesizing module dcfifo
-@N: CG364 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\C__altera_10_0_quartus_eda_fv_lib_verilog\cycloneiii_crcblock.v":14:8:14:26|Synthesizing module cycloneiii_crcblock
+@N: CD720 :"C:\FPGAtools\Synopsys\fpga_H2013031\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":136:7:136:17|Top entity is set to ladder_fpga.
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":136:7:136:17|Synthesizing work.ladder_fpga.ladder_fpga_arch 
+@N: CD231 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":232:30:232:31|Using onehot encoding for type state_event_controller (st_ev_ctrl_wait4hold="100000")
+@N: CD231 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":236:31:236:32|Using onehot encoding for type state_level_shifter_dac (st_lev_shft_pre_cs="1000000")
+@N: CD231 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":240:26:240:27|Using onehot encoding for type acquire_state_type (acq_idle="10000000000000000000")
+@N: CD231 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":653:25:653:26|Using onehot encoding for type state_readout_type (wait4hold="1000000")
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\ddr_out.vhd":42:7:42:13|Synthesizing work.ddr_out.syn 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mega_func_fifo21x32_cycloneIII.vhd":42:7:42:36|Synthesizing work.mega_func_fifo21x32_cycloneiii.syn 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mesure_temperature.vhd":7:7:7:24|Synthesizing work.mesure_temperature.structurel 
+@N: CD231 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mesure_temperature.vhd":21:19:21:20|Using onehot encoding for type state_type (rst_max6575="1000000000000")
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\gestion_hybrides_v4.vhd":37:7:37:25|Synthesizing work.gestion_hybrides_v4.gestion_hybrides_v4_arch 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\memoire_tokenout_echelle.vhd":22:7:22:30|Synthesizing work.memoire_tokenout_echelle.bascule_16_rs_asynchrone 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\signaux_hybrides.vhd":54:7:54:22|Synthesizing work.signaux_hybrides.signaux_hybrides_arch 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\memoire_latchup_general.vhd":21:7:21:29|Synthesizing work.memoire_latchup_general.a 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\memoire_latchup.vhd":39:7:39:21|Synthesizing work.memoire_latchup.pilotage_alim 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\filtre_latchup.vhd":42:7:42:20|Synthesizing work.filtre_latchup.ignore_courant_de_demarrage 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_cell.vhd":26:7:26:13|Synthesizing work.dr_cell.behavioral 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits_avec_pulse.vhd":25:7:25:26|Synthesizing work.dr_x_bits_avec_pulse.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_cell_avec_pulse.vhd":23:7:23:24|Synthesizing work.dr_cell_avec_pulse.behavioral 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mux_2_1.vhd":16:7:16:13|Synthesizing work.mux_2_1.behavioral 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mux_tdo.vhd":31:7:31:13|Synthesizing work.mux_tdo.behavioral 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ir_5_bits.vhd":27:7:27:15|Synthesizing work.ir_5_bits.structural 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ir_cell.vhd":24:7:24:13|Synthesizing work.ir_cell.behavioral 
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\tap_control.vhd":38:7:38:17|Synthesizing work.tap_control.a 
+@N: CD231 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\tap_control.vhd":61:13:61:14|Using onehot encoding for type state (test_logic_reset="1000000000000000")
+@N: CD630 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mega_func_pll_40MHz_switchover_cycloneIII.vhd":42:7:42:47|Synthesizing work.mega_func_pll_40mhz_switchover_cycloneiii.syn 
+@N: CL201 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\tap_control.vhd":75:4:75:5|Trying to extract state machine for register etat_present
+@N: CL201 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mesure_temperature.vhd":53:6:53:7|Trying to extract state machine for register state
+@N: CL201 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":2149:2:2149:3|Trying to extract state machine for register ladder_fpga_level_shifter_dac_state
+@N: CL201 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":1453:3:1453:4|Trying to extract state machine for register state_readout
+@N: CL201 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":1389:2:1389:3|Trying to extract state machine for register ladder_fpga_event_controller_state
+@N: CG364 :"C:\FPGAtools\Synopsys\fpga_H2013031\lib\altera\quartus_II101\altera_mf.v":2494:7:2494:12|Synthesizing module altpll
+@N: CG364 :"C:\FPGAtools\Synopsys\fpga_H2013031\lib\altera\quartus_II101\altera_mf.v":913:7:913:12|Synthesizing module dcfifo
+@N: CG364 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\C__altera_10_0_quartus_eda_fv_lib_verilog\cycloneiii_crcblock.v":14:8:14:26|Synthesizing module cycloneiii_crcblock
 @N|Running in 64-bit mode
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_pll_40MHz_switchover_cycloneIII.vhd":182:1:182:16|Number of passed parameters/generics from instance altpll_component does not match cell altpll_Z1_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":78:1:78:22|Number of passed parameters/generics from instance LPM_SHIFTREG_component does not match cell lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo21x32_cycloneIII.vhd":99:1:99:16|Number of passed parameters/generics from instance dcfifo_component does not match cell dcfifo_Z3_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo8x256_cycloneIII.vhd":99:1:99:16|Number of passed parameters/generics from instance dcfifo_component does not match cell dcfifo_Z4_layer1 
-@N: NF117 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo8x256_cycloneIII.vhd":99:1:99:16|Number of passed parameters/generics from instance dcfifo_component does not match cell dcfifo_Z4_layer1 
+@N: NF117 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mega_func_pll_40MHz_switchover_cycloneIII.vhd":182:1:182:16|Number of passed parameters/generics from instance altpll_component does not match cell altpll_Z1_layer1 
+@N: NF117 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\mega_func_fifo21x32_cycloneIII.vhd":99:1:99:16|Number of passed parameters/generics from instance dcfifo_component does not match cell dcfifo_Z2_layer1 
 

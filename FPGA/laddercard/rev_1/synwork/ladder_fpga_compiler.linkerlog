@@ -298,49 +298,11 @@
 			 		Generic/Parameter vco_range_detector_low_bits
 			 		Generic/Parameter width_phasecounterselect
 
-	Link Summary for source view lpm.lpm_shiftreg_work_ladder_fpga_ladder_fpga_arch_0.syn_black_box of instance LPM_SHIFTREG_component :
-	============================
-		Target view link candidate 1: work.lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1.verilog
-		==========================
-			 	The following Generics/Parameters in the Target view work.lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1.verilog do NOT exist in the Source View lpm.lpm_shiftreg_work_ladder_fpga_ladder_fpga_arch_0.syn_black_box
-			 	====================================================
-			 		Generic/Parameter lpm_avalue
-			 		Generic/Parameter lpm_svalue
-			 		Generic/Parameter lpm_pvalue
-			 		Generic/Parameter lpm_hint
-
-	Link Summary for source view altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box of instance dcfifo_component :
-	============================
-		Target view link candidate 1: work.dcfifo_Z4_layer1.verilog
-		==========================
-			 	The following Generics/Parameters in the Target view work.dcfifo_Z4_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box
-			 	====================================================
-			 		Generic/Parameter add_ram_output_register
-			 		Generic/Parameter add_usedw_msb_bit
-			 		Generic/Parameter clocks_are_synchronized
-			 		Generic/Parameter delay_rdusedw
-			 		Generic/Parameter delay_wrusedw
-			 		Generic/Parameter lpm_hint
-			 Generic/Parameter Value Mismatch between View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box and View work.dcfifo_Z4_layer1.verilog
-			 	Details:
-			 	========
-			 	Generic/Parameter lpm_widthu has value 5 in View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box and value 8 in View work.dcfifo_Z4_layer1.verilog
-		Target view link candidate 2: work.dcfifo_Z3_layer1.verilog
-		==========================
-			 	The following Generics/Parameters in the Target view work.dcfifo_Z3_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box
-			 	====================================================
-			 		Generic/Parameter add_ram_output_register
-			 		Generic/Parameter add_usedw_msb_bit
-			 		Generic/Parameter clocks_are_synchronized
-			 		Generic/Parameter delay_rdusedw
-			 		Generic/Parameter delay_wrusedw
-			 		Generic/Parameter lpm_hint
-
 	Link Summary for source view altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box of instance dcfifo_component :
 	============================
-		Target view link candidate 1: work.dcfifo_Z4_layer1.verilog
+		Target view link candidate 1: work.dcfifo_Z2_layer1.verilog
 		==========================
-			 	The following Generics/Parameters in the Target view work.dcfifo_Z4_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box
+			 	The following Generics/Parameters in the Target view work.dcfifo_Z2_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box
 			 	====================================================
 			 		Generic/Parameter add_ram_output_register
 			 		Generic/Parameter add_usedw_msb_bit
@@ -348,18 +310,4 @@
 			 		Generic/Parameter delay_rdusedw
 			 		Generic/Parameter delay_wrusedw
 			 		Generic/Parameter lpm_hint
-		Target view link candidate 2: work.dcfifo_Z3_layer1.verilog
-		==========================
-			 	The following Generics/Parameters in the Target view work.dcfifo_Z3_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box
-			 	====================================================
-			 		Generic/Parameter add_ram_output_register
-			 		Generic/Parameter add_usedw_msb_bit
-			 		Generic/Parameter clocks_are_synchronized
-			 		Generic/Parameter delay_rdusedw
-			 		Generic/Parameter delay_wrusedw
-			 		Generic/Parameter lpm_hint
-			 Generic/Parameter Value Mismatch between View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box and View work.dcfifo_Z3_layer1.verilog
-			 	Details:
-			 	========
-			 	Generic/Parameter lpm_widthu has value 8 in View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box and value 5 in View work.dcfifo_Z3_layer1.verilog
 

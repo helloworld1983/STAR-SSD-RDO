@@ -31,8 +31,18 @@ define_clock [get_cells {COMP_ladder_fpga_SC_TAP_CONTROL.updateIR}] -name {updat
 #1011 define_clock {ladder_fpga_sc_updateDR} -name {updateDR} -freq {10} -clockgroup {default_clkgroup_0}
 define_clock {ladder_fpga_sc_updateDR}  -name {updateDR}  -freq {10}  -clockgroup {default_clkgroup_0}  
 
-#1067 define_io_standard -default_output -delay_type {output} {LVCMOS_25}
-define_io_standard -default_output -delay_type { output } syn_pad_type { LVCMOS_25 }
+#1019 define_output_delay {adc_cs_n[7:0]} -improve {0.00} -route {0.00} -ref {ladder_fpga_clock80MHz:f} -disable
+#1020 define_input_delay {data_serial[15:0]} -improve {0.00} -route {0.00} -ref {ladder_fpga_clock80MHz:f} -disable
+#1066 define_io_standard -default_input -delay_type {input} {LVCMOS_33}
+define_io_standard -default_input -delay_type { input } syn_pad_type { LVCMOS_33 }
+
+
+#1067 define_io_standard -default_output -delay_type {output} {LVCMOS_33}
+define_io_standard -default_output -delay_type { output } syn_pad_type { LVCMOS_33 }
+
+
+#1073 define_io_standard {adc_cs_n[7:0]} -delay_type {output} {LVCMOS_33}
+define_io_standard { adc_cs_n[7:0] } -delay_type { output } syn_pad_type { LVCMOS_33 }
 
 
 #1120 define_false_path -from {p:reset_n} -to {all_registers}
@@ -917,38 +927,37 @@ define_attribute  {b:latchup_hybride[14]} {altera_chip_pin_lc}  {@Y21}
 #1418 define_attribute {b:sc_trstb_hybride[2]} {altera_chip_pin_lc} {@D19}
 define_attribute  {b:sc_trstb_hybride[2]} {altera_chip_pin_lc}  {@D19}  
 
-#1419 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c0} -name {mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock} -ref_rise {0.000000} -ref_fall {12.500000} -uncertainty {0.000000} -period {25.000000} -clockgroup {default_clkgroup_3} -r . . . 
-#1420 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c1} -name {mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock} -ref_rise {0.000000} -ref_fall {6.250000} -uncertainty {0.000000} -period {12.500000} -clockgroup {default_clkgroup_3} -ri . . . 
-#1421 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c2} -name {mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock} -ref_rise {0.000000} -ref_fall {125.000000} -uncertainty {0.000000} -period {250.000000} -clockgroup {default_clkgroup_3}  . . . 
-#1422 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c3} -name {mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {default_clkgroup_3} . . . 
-#1423 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.clkbad0} -name {mega_func_pll_40MHz_switchover_cycloneIII|clkbad0_derived_clock} -ref_rise {0.000000} -ref_fall {12.500000} -uncertainty {0.000000} -period {25.000000} -clockgroup {default_clkg . . . 
-#1424 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.clkbad1} -name {mega_func_pll_40MHz_switchover_cycloneIII|clkbad1_derived_clock} -ref_rise {0.000000} -ref_fall {6.250000} -uncertainty {0.000000} -period {12.500000} -clockgroup {default_clkgr . . . 
-#1425 define_clock {p:holdin_echelle} -name {ladder_fpga|holdin_echelle} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_0} -rise {0.000000} -fall {500.000000}
-#1426 define_clock {p:testin_echelle} -name {ladder_fpga|testin_echelle} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_1} -rise {0.000000} -fall {500.000000}
-#1427 define_clock {n:tst_tokenin_echelle} -name {ladder_fpga|tst_tokenin_echelle_derived_clock} -ref_rise {0.000000} -ref_fall {12.500000} -uncertainty {0.000000} -period {25.000000} -clockgroup {default_clkgroup_3} -rise {0.000000} -fall {12.500000}
-#1428 define_multicycle_path -setup -from {c:ladder_fpga|tst_tokenin_echelle_derived_clock} -to {c:ladder_fpga|tst_tokenin_echelle_derived_clock} {2}
-#1429 define_multicycle_path -hold -from {c:ladder_fpga|tst_tokenin_echelle_derived_clock} -to {c:ladder_fpga|tst_tokenin_echelle_derived_clock} {1} -disable
-#1430 define_clock {n:ladder_fpga_abort} -name {ladder_fpga|ladder_fpga_abort_derived_clock} -ref_rise {0.000000} -ref_fall {6.250000} -uncertainty {0.000000} -period {12.500000} -clockgroup {default_clkgroup_3} -rise {0.000000} -fall {6.250000}
-#1431 define_multicycle_path -setup -from {c:ladder_fpga|ladder_fpga_abort_derived_clock} -to {c:ladder_fpga|ladder_fpga_abort_derived_clock} {2}
-#1432 define_multicycle_path -hold -from {c:ladder_fpga|ladder_fpga_abort_derived_clock} -to {c:ladder_fpga|ladder_fpga_abort_derived_clock} {1} -disable
-#1433 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x01} -name {tap_control|sc_updateDR_0x01_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
-#1434 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x01_derived_clock} -to {c:tap_control|sc_updateDR_0x01_derived_clock} {2}
-#1435 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x01_derived_clock} -to {c:tap_control|sc_updateDR_0x01_derived_clock} {1} -disable
-#1436 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x03} -name {tap_control|sc_updateDR_0x03_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
-#1437 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x03_derived_clock} -to {c:tap_control|sc_updateDR_0x03_derived_clock} {2}
-#1438 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x03_derived_clock} -to {c:tap_control|sc_updateDR_0x03_derived_clock} {1} -disable
-#1439 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x04} -name {tap_control|sc_updateDR_0x04_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
-#1440 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x04_derived_clock} -to {c:tap_control|sc_updateDR_0x04_derived_clock} {2}
-#1441 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x04_derived_clock} -to {c:tap_control|sc_updateDR_0x04_derived_clock} {1} -disable
-#1442 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x08} -name {tap_control|sc_updateDR_0x08_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
-#1443 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x08_derived_clock} -to {c:tap_control|sc_updateDR_0x08_derived_clock} {2}
-#1444 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x08_derived_clock} -to {c:tap_control|sc_updateDR_0x08_derived_clock} {1} -disable
-#1445 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x09} -name {tap_control|sc_updateDR_0x09_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
-#1446 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x09_derived_clock} -to {c:tap_control|sc_updateDR_0x09_derived_clock} {2}
-#1447 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x09_derived_clock} -to {c:tap_control|sc_updateDR_0x09_derived_clock} {1} -disable
-#1448 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x0b} -name {tap_control|sc_updateDR_0x0b_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
-#1449 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x0b_derived_clock} -to {c:tap_control|sc_updateDR_0x0b_derived_clock} {2}
-#1450 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x0b_derived_clock} -to {c:tap_control|sc_updateDR_0x0b_derived_clock} {1} -disable
-#1451 define_clock {n:level_shifter_dac_load} -name {ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -ri . . . 
-#1452 define_multicycle_path -setup -from {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -to {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} {2}
-#1453 define_multicycle_path -hold -from {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -to {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} {1} -disable
+#1419 define_output_delay {adc_cs_n[7:0]} -improve {0.00} -route {0.00} -ref {ladder_fpga_clock80MHz:f} {0}
+define_output_delay [get_ports {adc_cs_n[*]}] -improve {0.00}  -route {0.00}  -ref {ladder_fpga_clock80MHz:f}  {0}  
+
+#1420 define_input_delay {data_serial[15:0]} -improve {0.00} -route {0.00} -ref {ladder_fpga_clock80MHz:f} {0}
+define_input_delay [get_ports {data_serial[*]}] -improve {0.00}  -route {0.00}  -ref {ladder_fpga_clock80MHz:f}  {0}  
+
+#1421 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c0} -name {mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock} -ref_rise {0.000000} -ref_fall {12.500000} -uncertainty {0.000000} -period {25.000000} -clockgroup {default_clkgroup_3} -r . . . 
+#1422 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c1} -name {mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock} -ref_rise {0.000000} -ref_fall {6.250000} -uncertainty {0.000000} -period {12.500000} -clockgroup {default_clkgroup_3} -ri . . . 
+#1423 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.c2} -name {mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock} -ref_rise {0.000000} -ref_fall {125.000000} -uncertainty {0.000000} -period {250.000000} -clockgroup {default_clkgroup_3}  . . . 
+#1424 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.clkbad0} -name {mega_func_pll_40MHz_switchover_cycloneIII|clkbad0_derived_clock} -ref_rise {0.000000} -ref_fall {12.500000} -uncertainty {0.000000} -period {25.000000} -clockgroup {default_clkg . . . 
+#1425 define_clock {n:comp_mega_func_pll_40MHz_switchover_cycloneIII.clkbad1} -name {mega_func_pll_40MHz_switchover_cycloneIII|clkbad1_derived_clock} -ref_rise {0.000000} -ref_fall {6.250000} -uncertainty {0.000000} -period {12.500000} -clockgroup {default_clkgr . . . 
+#1426 define_clock {p:holdin_echelle} -name {ladder_fpga|holdin_echelle} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_0} -rise {0.000000} -fall {500.000000}
+#1427 define_clock {p:testin_echelle} -name {ladder_fpga|testin_echelle} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_1} -rise {0.000000} -fall {500.000000}
+#1428 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x01} -name {tap_control|sc_updateDR_0x01_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
+#1429 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x01_derived_clock} -to {c:tap_control|sc_updateDR_0x01_derived_clock} {2}
+#1430 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x01_derived_clock} -to {c:tap_control|sc_updateDR_0x01_derived_clock} {1} -disable
+#1431 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x03} -name {tap_control|sc_updateDR_0x03_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
+#1432 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x03_derived_clock} -to {c:tap_control|sc_updateDR_0x03_derived_clock} {2}
+#1433 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x03_derived_clock} -to {c:tap_control|sc_updateDR_0x03_derived_clock} {1} -disable
+#1434 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x04} -name {tap_control|sc_updateDR_0x04_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
+#1435 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x04_derived_clock} -to {c:tap_control|sc_updateDR_0x04_derived_clock} {2}
+#1436 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x04_derived_clock} -to {c:tap_control|sc_updateDR_0x04_derived_clock} {1} -disable
+#1437 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x08} -name {tap_control|sc_updateDR_0x08_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
+#1438 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x08_derived_clock} -to {c:tap_control|sc_updateDR_0x08_derived_clock} {2}
+#1439 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x08_derived_clock} -to {c:tap_control|sc_updateDR_0x08_derived_clock} {1} -disable
+#1440 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x09} -name {tap_control|sc_updateDR_0x09_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
+#1441 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x09_derived_clock} -to {c:tap_control|sc_updateDR_0x09_derived_clock} {2}
+#1442 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x09_derived_clock} -to {c:tap_control|sc_updateDR_0x09_derived_clock} {1} -disable
+#1443 define_clock {n:COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x0b} -name {tap_control|sc_updateDR_0x0b_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -rise {0.000000} - . . . 
+#1444 define_multicycle_path -setup -from {c:tap_control|sc_updateDR_0x0b_derived_clock} -to {c:tap_control|sc_updateDR_0x0b_derived_clock} {2}
+#1445 define_multicycle_path -hold -from {c:tap_control|sc_updateDR_0x0b_derived_clock} -to {c:tap_control|sc_updateDR_0x0b_derived_clock} {1} -disable
+#1446 define_clock {n:level_shifter_dac_load} -name {ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -ref_rise {0.000000} -ref_fall {50.000000} -uncertainty {0.000000} -period {100.000000} -clockgroup {default_clkgroup_0} -ri . . . 
+#1447 define_multicycle_path -setup -from {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -to {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} {2}
+#1448 define_multicycle_path -hold -from {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -to {c:ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} {1} -disable

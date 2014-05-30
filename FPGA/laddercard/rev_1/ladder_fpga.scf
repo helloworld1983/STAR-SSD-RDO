@@ -1,4 +1,4 @@
-# Written by Synplify Pro version mapsbt, Build 785R. Synopsys Run ID: sid1368744434 
+# Written by Synplify Pro version maprc, Build 1512R. Synopsys Run ID: sid1401372671 
 # Top Level Design Parameters 
 
 # Clocks 
@@ -6,13 +6,17 @@ create_clock -period 25.000 -waveform {0.000 12.500} -name {clock40mhz_fpga} [ge
 create_clock -period 25.000 -waveform {0.000 12.500} -name {clock40mhz_xtal} [get_ports {clock40mhz_xtal}] 
 create_clock -period 100.000 -waveform {0.000 50.000} -name {sc_tck} [get_ports {ladder_fpga_sc_tck}] 
 create_clock -period 100.000 -waveform {0.000 50.000} -name {temperature} [get_ports {temperature}] 
-create_clock -period 25.000 -waveform {0.000 12.500} -name {switchover} [get_cells {comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component}] 
+create_clock -period 25.000 -waveform {0.000 12.500} -name {switchover} 
 create_clock -period 100.000 -waveform {0.000 50.000} -name {updateIR} [get_registers {COMP_ladder_fpga_SC_TAP_CONTROL|updateIR}] 
 create_clock -period 1000.000 -waveform {0.000 500.000} -name {ladder_fpga|holdin_echelle} [get_ports {holdin_echelle}] 
 create_clock -period 1000.000 -waveform {0.000 500.000} -name {ladder_fpga|testin_echelle} [get_ports {testin_echelle}] 
-create_clock -period 100.000 -waveform {0.000 50.000} -name {ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} [get_pins {COMP_LADDER_FPGA_SC_CONFIG|a_6_d_e|data_out_Z|q}] 
 
 # Virtual Clocks 
+create_clock -period 12.500 -waveform {0.000 6.250} -name {ladder_fpga_clock80MHz}
+create_clock -period 100.000 -waveform {0.000 50.000} -name {clockIR}
+create_clock -period 100.000 -waveform {0.000 50.000} -name {clockDR}
+create_clock -period 100.000 -waveform {0.000 50.000} -name {updateDR}
+create_clock -period 250.000 -waveform {0.000 125.000} -name {tempclk4M}
 
 # Generated Clocks 
 derive_pll_clocks
@@ -46,15 +50,7 @@ if {[get_collection_info -size [get_clocks {comp_mega_func_pll_40MHz_switchover_
     set default_clkgroup_3___4 {0}
     post_message -type warning "Warning:  Could not identify clock: comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|*clk[2]"
 }
-if {[get_collection_info -size [get_clocks {comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|*clk[3]}]] == 1} {
-    set default_clkgroup_3___5 [get_clock_info -name [get_clocks {comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|*clk[3]}]]
-} else {
-    set default_clkgroup_3___5 {0}
-    post_message -type warning "Warning:  Could not identify clock: comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|*clk[3]"
-}
-create_generated_clock -name {tap_control|sc_updateDR_0x09_derived_clock} -divide_by 1 -source [get_pins {COMP_ladder_fpga_SC_TAP_CONTROL|sc_updateDR_0x09_Z|clk}] [get_pins {COMP_ladder_fpga_SC_TAP_CONTROL|sc_updateDR_0x09_Z|q}] 
-create_generated_clock -name {dr_cell_a_10_d_e_0|scan_out_derived_clock} -divide_by 1 -source [get_pins {COMP_ladder_fpga_SC_ETAT_REG|a_10_d_e|scan_out_Z|clk}] [get_pins {COMP_ladder_fpga_SC_ETAT_REG|a_10_d_e|scan_out_Z|q}] 
-create_generated_clock -name {dr_cell_a_9_d_e_0|scan_out_derived_clock} -divide_by 1 -source [get_pins {COMP_ladder_fpga_SC_ETAT_REG|a_9_d_e|scan_out_Z|clk}] [get_pins {COMP_ladder_fpga_SC_ETAT_REG|a_9_d_e|scan_out_Z|q}] 
+create_generated_clock -name {ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock} -divide_by 1 -source [get_pins {COMP_LADDER_FPGA_SC_CONFIG|a_6_d_e|data_out_Z|clk}] [get_pins {COMP_LADDER_FPGA_SC_CONFIG|a_6_d_e|data_out_Z|q}] 
 
 # Paths Between Clocks 
 
@@ -69,8 +65,10 @@ create_generated_clock -name {dr_cell_a_9_d_e_0|scan_out_derived_clock} -divide_
 # Driving Cell Constraints 
 
 # Input Delay Constraints 
+set_input_delay -max 0.000 -clock [get_clocks {ladder_fpga_clock80MHz}] -clock_fall -add_delay [get_ports {data_serial[0] data_serial[1] data_serial[2] data_serial[3] data_serial[4] data_serial[5] data_serial[6] data_serial[7] data_serial[8] data_serial[9] data_serial[10] data_serial[11] data_serial[12] data_serial[13] data_serial[14] data_serial[15] }] 
 
 # Output Delay Constraints 
+set_output_delay -max 0.000 -clock [get_clocks {ladder_fpga_clock80MHz}] -clock_fall -add_delay [get_ports {adc_cs_n[0] adc_cs_n[1] adc_cs_n[2] adc_cs_n[3] adc_cs_n[4] adc_cs_n[5] adc_cs_n[6] adc_cs_n[7] }] 
 
 # Wire Loads 
 
@@ -84,7 +82,6 @@ create_generated_clock -name {dr_cell_a_9_d_e_0|scan_out_derived_clock} -divide_
 set Inferred_clkgroup_1 [list ladder_fpga|testin_echelle]
 set Inferred_clkgroup_0 [list ladder_fpga|holdin_echelle]
 set default_clkgroup_3 [list clock40mhz_fpga \
-                               $default_clkgroup_3___5 \
                                $default_clkgroup_3___4 \
                                $default_clkgroup_3___3 \
                                $default_clkgroup_3___2 \
@@ -92,13 +89,15 @@ set default_clkgroup_3 [list clock40mhz_fpga \
                                $default_clkgroup_3___0]
 set default_clkgroup_4 [list clock40mhz_xtal]
 set default_clkgroup_0 [list sc_tck \
-                               tap_control|sc_updateDR_0x09_derived_clock \
                                updateIR \
-                               dr_cell_a_9_d_e_0|scan_out_derived_clock \
-                               dr_cell_a_10_d_e_0|scan_out_derived_clock \
-                               ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock]
-set default_clkgroup_1 [list temperature]
-set default_clkgroup_2 [list switchover]
+                               ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock \
+                               clockIR \
+                               clockDR \
+                               updateDR]
+set default_clkgroup_1 [list temperature \
+                               tempclk4M]
+set default_clkgroup_2 [list switchover \
+                               ladder_fpga_clock80MHz]
 set_clock_groups -asynchronous -group $Inferred_clkgroup_1 -group $Inferred_clkgroup_0 -group $default_clkgroup_3 -group $default_clkgroup_4 -group $default_clkgroup_0 -group $default_clkgroup_1 -group $default_clkgroup_2
 
 # syn_mode Attributes 

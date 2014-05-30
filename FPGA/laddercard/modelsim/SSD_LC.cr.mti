@@ -1,0 +1,538 @@
+C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/modelsim/LC_tb.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/modelsim/LC_tb.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity LC_tb
+-- Compiling architecture LC_tb_arch of LC_tb
+
+} {} {}} C:/FPGAtools/Synopsys/fpga_H2013031/lib/vhdl_sim/synplify.vhd {1 {vcom -work work -2002 -explicit -vopt C:/FPGAtools/Synopsys/fpga_H2013031/lib/vhdl_sim/synplify.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity prim_counter
+-- Compiling architecture beh of prim_counter
+-- Compiling entity prim_dff
+-- Compiling architecture beh of prim_dff
+-- Compiling entity prim_sdff
+-- Compiling architecture beh of prim_sdff
+-- Compiling entity prim_latch
+-- Compiling architecture beh of prim_latch
+-- Compiling entity ZeroOhm1
+-- Compiling architecture ZeroOhm1_a of ZeroOhm1
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity prim_ramd
+-- Compiling architecture beh of prim_ramd
+-- Compiling package components
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/tap_control.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/tap_control.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity tap_control
+-- Compiling architecture a of tap_control
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mesure_temperature.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mesure_temperature.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mesure_temperature
+-- Compiling architecture structurel of mesure_temperature
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_fifo21x32_cycloneIII.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_fifo21x32_cycloneIII.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mega_func_fifo21x32_cycloneIII
+-- Compiling architecture SYN of mega_func_fifo21x32_cycloneiii
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_tokenout_echelle.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_tokenout_echelle.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity memoire_tokenOut_echelle
+-- Compiling architecture bascule_16_RS_asynchrone of memoire_tokenOut_echelle
+
+} {} {}} C:/FPGAtools/Synopsys/fpga_H2013031/lib/vhd/synattr.vhd {1 {vcom -work work -2002 -explicit -vopt C:/FPGAtools/Synopsys/fpga_H2013031/lib/vhd/synattr.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package attributes
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/signaux_hybrides.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/signaux_hybrides.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity signaux_hybrides
+-- Compiling architecture signaux_hybrides_arch of signaux_hybrides
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ir_5_bits.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ir_5_bits.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity ir_5_bits
+-- Compiling architecture structural of ir_5_bits
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/header_star_ssdU.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/header_star_ssdU.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling package header_star_ssdU
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/identificateur_8bits.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/identificateur_8bits.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity identificateur_8bits
+-- Compiling architecture structural of identificateur_8bits
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits_init.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits_init.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity dr_x_bits_init
+-- Compiling architecture structural of dr_x_bits_init
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/shiftreg_syn.v {1 {vlog -work work -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/shiftreg_syn.v
+Model Technology ModelSim SE-64 vlog 10.2a Compiler 2013.03 Mar 15 2013
+-- Compiling module shiftreg_shift_reg
+-- Compiling module shiftreg
+
+Top level modules:
+	shiftreg
+
+} {} {}} C:/FPGAtools/Synopsys/fpga_H2013031/lib/vhd/attributes.vhd {1 {vcom -work work -2002 -explicit -vopt C:/FPGAtools/Synopsys/fpga_H2013031/lib/vhd/attributes.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Compiling package ATTRIBUTES
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_pll_40MHz_switchover_cycloneIII.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_pll_40MHz_switchover_cycloneIII.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mega_func_pll_40MHz_switchover_cycloneIII
+-- Compiling architecture SYN of mega_func_pll_40mhz_switchover_cycloneiii
+
+} {} {}} C:/FPGAtools/altera/12.1/quartus/eda/sim_lib/altera_mf_components.vhd {1 {vcom -work work -2002 -explicit -vopt C:/FPGAtools/altera/12.1/quartus/eda/sim_lib/altera_mf_components.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package altera_mf_components
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_latchup_general.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_latchup_general.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity memoire_latchup_general
+-- Compiling architecture a of memoire_latchup_general
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_cell_avec_pulse.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_cell_avec_pulse.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dr_cell_avec_pulse
+-- Compiling architecture behavioral of dr_cell_avec_pulse
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/shiftreg.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/shiftreg.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity shiftreg
+-- Compiling architecture SYN of shiftreg
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_cell.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_cell.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity dr_cell
+-- Compiling architecture behavioral of dr_cell
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/comptage_temperature.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/comptage_temperature.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity comptage_temperature
+-- Compiling architecture un_MAX6575H of comptage_temperature
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/br_cell_1clk.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/br_cell_1clk.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity br_cell_1clk
+-- Compiling architecture behavioral of br_cell_1clk
+
+} {} {}} C:/FPGAtools/altera/12.1/quartus/eda/sim_lib/altera_mf.vhd {1 {vcom -work work -2002 -explicit -vopt C:/FPGAtools/altera/12.1/quartus/eda/sim_lib/altera_mf.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity LCELL
+-- Compiling architecture BEHAVIOR of LCELL
+-- Compiling package ALTERA_COMMON_CONVERSION
+-- Compiling package body ALTERA_COMMON_CONVERSION
+-- Loading package ALTERA_COMMON_CONVERSION
+-- Compiling package ALTERA_MF_HINT_EVALUATION
+-- Compiling package body ALTERA_MF_HINT_EVALUATION
+-- Loading package ALTERA_MF_HINT_EVALUATION
+-- Compiling package ALTERA_DEVICE_FAMILIES
+-- Compiling package body ALTERA_DEVICE_FAMILIES
+-- Loading package ALTERA_DEVICE_FAMILIES
+-- Compiling package MF_pllpack
+-- Compiling package body MF_pllpack
+-- Loading package MF_pllpack
+-- Compiling entity DFFP
+-- Compiling architecture behave of DFFP
+-- Compiling entity pll_iobuf
+-- Compiling architecture BEHAVIOR of pll_iobuf
+-- Compiling entity MF_m_cntr
+-- Compiling architecture behave of MF_m_cntr
+-- Compiling entity MF_n_cntr
+-- Compiling architecture behave of MF_n_cntr
+-- Compiling entity stx_scale_cntr
+-- Compiling architecture behave of stx_scale_cntr
+-- Compiling entity MF_pll_reg
+-- Compiling architecture behave of MF_pll_reg
+-- Loading package MF_pllpack
+-- Loading entity MF_m_cntr
+-- Loading entity MF_n_cntr
+-- Loading entity stx_scale_cntr
+-- Loading entity DFFP
+-- Loading entity MF_pll_reg
+-- Compiling entity MF_stratix_pll
+-- Compiling architecture vital_pll of MF_stratix_pll
+-- Compiling entity arm_m_cntr
+-- Compiling architecture behave of arm_m_cntr
+-- Compiling entity arm_n_cntr
+-- Compiling architecture behave of arm_n_cntr
+-- Compiling entity arm_scale_cntr
+-- Compiling architecture behave of arm_scale_cntr
+-- Loading entity arm_m_cntr
+-- Loading entity arm_n_cntr
+-- Loading entity arm_scale_cntr
+-- Compiling entity MF_stratixii_pll
+-- Compiling architecture vital_pll of MF_stratixii_pll
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MF_ttn_mn_cntr
+-- Compiling architecture behave of MF_ttn_mn_cntr
+-- Compiling entity MF_ttn_scale_cntr
+-- Compiling architecture behave of MF_ttn_scale_cntr
+-- Loading entity MF_ttn_mn_cntr
+-- Loading entity MF_ttn_scale_cntr
+-- Compiling entity MF_stratixiii_pll
+-- Compiling architecture vital_pll of MF_stratixiii_pll
+-- Compiling entity MF_cda_mn_cntr
+-- Compiling architecture behave of MF_cda_mn_cntr
+-- Compiling entity MF_cda_scale_cntr
+-- Compiling architecture behave of MF_cda_scale_cntr
+-- Loading entity MF_cda_mn_cntr
+-- Loading entity MF_cda_scale_cntr
+-- Compiling entity MF_cycloneiii_pll
+-- Compiling architecture vital_pll of MF_cycloneiii_pll
+-- Compiling entity MF_stingray_mn_cntr
+-- Compiling architecture behave of MF_stingray_mn_cntr
+-- Compiling entity MF_stingray_post_divider
+-- Compiling architecture behave of MF_stingray_post_divider
+-- Compiling entity MF_stingray_scale_cntr
+-- Compiling architecture behave of MF_stingray_scale_cntr
+-- Loading entity MF_stingray_mn_cntr
+-- Loading entity MF_stingray_scale_cntr
+-- Compiling entity MF_cycloneiiigl_pll
+-- Compiling architecture vital_pll of MF_cycloneiiigl_pll
+-- Loading package ALTERA_DEVICE_FAMILIES
+-- Loading entity MF_stratix_pll
+-- Loading entity MF_stratixii_pll
+-- Loading entity MF_stratixiii_pll
+-- Loading entity MF_cycloneiii_pll
+-- Loading entity MF_cycloneiiigl_pll
+-- Loading entity pll_iobuf
+-- Compiling entity altpll
+-- Compiling architecture behavior of altpll
+-- Compiling entity altaccumulate
+-- Compiling architecture behaviour of altaccumulate
+-- Compiling entity altmult_accum
+-- Compiling architecture behaviour of altmult_accum
+-- Compiling entity altmult_add
+-- Compiling architecture behaviour of altmult_add
+-- Loading package ALTERA_COMMON_CONVERSION
+-- Compiling entity altfp_mult
+-- Compiling architecture behavior of altfp_mult
+-- Compiling entity altsqrt
+-- Compiling architecture behavior of altsqrt
+-- Compiling entity altclklock
+-- Compiling architecture behavior of altclklock
+-- Compiling entity altddio_in
+-- Compiling architecture behave of altddio_in
+-- Compiling entity altddio_out
+-- Compiling architecture behave of altddio_out
+-- Loading entity altddio_in
+-- Loading entity altddio_out
+-- Compiling entity altddio_bidir
+-- Compiling architecture struct of altddio_bidir
+-- Compiling entity stratixii_lvds_rx
+-- Compiling architecture behavior of stratixii_lvds_rx
+-- Compiling entity flexible_lvds_rx
+-- Compiling architecture behavior of flexible_lvds_rx
+-- Compiling entity stratixiii_lvds_rx_dpa
+-- Compiling architecture behavior of stratixiii_lvds_rx_dpa
+-- Compiling entity stratixv_local_clk_divider
+-- Compiling architecture behavior of stratixv_local_clk_divider
+-- Loading entity stratixiii_lvds_rx_dpa
+-- Loading entity stratixv_local_clk_divider
+-- Compiling entity stratixiii_lvds_rx_channel
+-- Compiling architecture behavior of stratixiii_lvds_rx_channel
+-- Loading entity stratixiii_lvds_rx_channel
+-- Compiling entity stratixiii_lvds_rx
+-- Compiling architecture behavior of stratixiii_lvds_rx
+-- Loading entity stratixii_lvds_rx
+-- Loading entity flexible_lvds_rx
+-- Loading entity stratixiii_lvds_rx
+-- Compiling entity altlvds_rx
+-- Compiling architecture behavior of altlvds_rx
+-- Compiling entity stratix_tx_outclk
+-- Compiling architecture behavior of stratix_tx_outclk
+-- Compiling entity stratixii_tx_outclk
+-- Compiling architecture behavior of stratixii_tx_outclk
+-- Compiling entity flexible_lvds_tx
+-- Compiling architecture behavior of flexible_lvds_tx
+-- Loading entity stratix_tx_outclk
+-- Loading entity stratixii_tx_outclk
+-- Loading entity flexible_lvds_tx
+-- Compiling entity altlvds_tx
+-- Compiling architecture behavior of altlvds_tx
+-- Compiling entity altdpram
+-- Compiling architecture behavior of altdpram
+-- Compiling entity altsyncram
+-- Compiling architecture translated of altsyncram
+-- Loading entity altsyncram
+-- Loading package ALTERA_MF_HINT_EVALUATION
+-- Compiling entity alt3pram
+-- Compiling architecture behavior of alt3pram
+-- Loading package altera_mf_components
+-- Compiling entity parallel_add
+-- Compiling architecture behaviour of parallel_add
+-- Compiling entity SCFIFO
+-- Compiling architecture behavior of SCFIFO
+-- Compiling entity DCFIFO_DFFPIPE
+-- Compiling architecture behavior of DCFIFO_DFFPIPE
+-- Compiling entity DCFIFO_FEFIFO
+-- Compiling architecture behavior of DCFIFO_FEFIFO
+-- Loading entity DCFIFO_FEFIFO
+-- Loading entity DCFIFO_DFFPIPE
+-- Compiling entity DCFIFO_ASYNC
+-- Compiling architecture behavior of DCFIFO_ASYNC
+-- Compiling entity DCFIFO_SYNC
+-- Compiling architecture behavior of DCFIFO_SYNC
+-- Compiling entity DCFIFO_LOW_LATENCY
+-- Compiling architecture behavior of DCFIFO_LOW_LATENCY
+-- Loading entity DCFIFO_ASYNC
+-- Loading entity DCFIFO_SYNC
+-- Loading entity DCFIFO_LOW_LATENCY
+-- Compiling entity DCFIFO_MIXED_WIDTHS
+-- Compiling architecture behavior of DCFIFO_MIXED_WIDTHS
+-- Loading entity DCFIFO_MIXED_WIDTHS
+-- Compiling entity DCFIFO
+-- Compiling architecture behavior of DCFIFO
+-- Compiling entity altshift_taps
+-- Compiling architecture behavioural of altshift_taps
+-- Compiling entity A_GRAYCOUNTER
+-- Compiling architecture behavior of A_GRAYCOUNTER
+-- Compiling entity altsquare
+-- Compiling architecture altsquare_syn of altsquare
+-- Compiling entity altera_std_synchronizer
+-- Compiling architecture behavioral of altera_std_synchronizer
+-- Compiling entity altera_std_synchronizer_bundle
+-- Compiling architecture behavioral of altera_std_synchronizer_bundle
+-- Compiling entity alt_cal
+-- Compiling architecture RTL of alt_cal
+-- Compiling entity alt_cal_mm
+-- Compiling architecture RTL of alt_cal_mm
+-- Compiling entity alt_cal_c3gxb
+-- Compiling architecture RTL of alt_cal_c3gxb
+-- Compiling entity alt_cal_sv
+-- Compiling architecture RTL of alt_cal_sv
+-- Compiling entity alt_cal_av
+-- Compiling architecture RTL of alt_cal_av
+-- Compiling package alt_aeq_s4_func
+-- Compiling package body alt_aeq_s4_func
+-- Loading package alt_aeq_s4_func
+-- Loading package alt_aeq_s4_func
+-- Compiling entity alt_aeq_s4
+-- Compiling architecture trans of alt_aeq_s4
+-- Compiling package alt_eyemon_func
+-- Compiling package body alt_eyemon_func
+-- Loading package alt_eyemon_func
+-- Loading package alt_eyemon_func
+-- Compiling entity alt_eyemon
+-- Compiling architecture trans of alt_eyemon
+-- Compiling package alt_dfe_func
+-- Compiling package body alt_dfe_func
+-- Loading package alt_dfe_func
+-- Loading package alt_dfe_func
+-- Compiling entity alt_dfe
+-- Compiling architecture trans of alt_dfe
+-- Compiling package SLD_NODE
+-- Compiling package body SLD_NODE
+-- Loading package SLD_NODE
+-- Loading package SLD_NODE
+-- Compiling entity signal_gen
+-- Compiling architecture simModel of signal_gen
+-- Compiling entity jtag_tap_controller
+-- Compiling architecture FSM of jtag_tap_controller
+-- Compiling entity dummy_hub
+-- Compiling architecture behavior of dummy_hub
+-- Loading entity signal_gen
+-- Loading entity jtag_tap_controller
+-- Loading entity dummy_hub
+-- Compiling entity sld_virtual_jtag
+-- Compiling architecture structural of sld_virtual_jtag
+-- Compiling entity sld_signaltap
+-- Compiling architecture sim_sld_signaltap of sld_signaltap
+-- Compiling entity altstratixii_oct
+-- Compiling architecture sim_altstratixii_oct of altstratixii_oct
+-- Compiling entity altparallel_flash_loader
+-- Compiling architecture sim_altparallel_flash_loader of altparallel_flash_loader
+-- Compiling entity altserial_flash_loader
+-- Compiling architecture sim_altserial_flash_loader of altserial_flash_loader
+-- Compiling entity sld_virtual_jtag_basic
+-- Compiling architecture sim_sld_virtual_jtag_basic of sld_virtual_jtag_basic
+-- Compiling entity altsource_probe
+-- Compiling architecture sim_altsource_probe of altsource_probe
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_latchup.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_latchup.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity memoire_latchup
+-- Compiling architecture pilotage_alim of memoire_latchup
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/filtre_latchup.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/filtre_latchup.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity filtre_latchup
+-- Compiling architecture ignore_courant_de_demarrage of filtre_latchup
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity dr_x_bits
+-- Compiling architecture structural of dr_x_bits
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mux_tdo.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mux_tdo.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity mux_tdo
+-- Compiling architecture behavioral of mux_tdo
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ir_cell.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ir_cell.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity ir_cell
+-- Compiling architecture behavioral of ir_cell
+
+} {} {}} C:/FPGAtools/Synopsys/fpga_H2013031/lib/altera/quartus_II120/altera_lpm.vhd {1 {vcom -work lpm -2002 -explicit -vopt C:/FPGAtools/Synopsys/fpga_H2013031/lib/altera/quartus_II120/altera_lpm.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package attributes
+-- Compiling package LPM_COMPONENTS
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mux_2_1.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mux_2_1.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity mux_2_1
+-- Compiling architecture behavioral of mux_2_1
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/gestion_hybrides_v4.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/gestion_hybrides_v4.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity gestion_hybrides_v4
+-- Compiling architecture gestion_hybrides_v4_arch of gestion_hybrides_v4
+
+} {} {}} C:/FPGAtools/altera/12.1/quartus/libraries/vhdl/lpm/lpm_pack.vhd {1 {vcom -work lpm -2002 -explicit -vopt C:/FPGAtools/altera/12.1/quartus/libraries/vhdl/lpm/lpm_pack.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package LPM_COMPONENTS
+-- Compiling package body LPM_COMPONENTS
+-- Loading package LPM_COMPONENTS
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_fifo8x256_cycloneIII.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_fifo8x256_cycloneIII.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mega_func_fifo8x256_cycloneIII
+-- Compiling architecture SYN of mega_func_fifo8x256_cycloneiii
+
+} {} {}} C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits_avec_pulse.vhd {1 {vcom -work work -2002 -explicit -vopt C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits_avec_pulse.vhd
+Model Technology ModelSim SE-64 vcom 10.2a Compiler 2013.03 Mar 15 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dr_x_bits_avec_pulse
+-- Compiling architecture structural of dr_x_bits_avec_pulse
+
+} {} {}}

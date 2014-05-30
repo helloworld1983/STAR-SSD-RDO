@@ -2,8 +2,7 @@ CKID0001:@|S:COMP_LADDER_FPGA_SC_CONFIG.a.6.d.e.data_out@|E:proc_ladder_fpga_lev
 CKID0002:@|S:ladder_fpga_sc_tck_in@|E:COMP_ladder_fpga_SC_BYPASS_REG.ff1@|F:@syn_sample_clock_path1==CKID0002@|M:ClockId0002
 CKID0003:@|S:holdin_echelle_in@|E:ladder_fpga_nbr_hold[10]@|F:@syn_sample_clock_path==CKID0003@|M:ClockId0003
 CKID0004:@|S:testin_echelle_in@|E:ladder_fpga_nbr_test[10]@|F:@syn_sample_clock_path==CKID0004@|M:ClockId0004
-CKID0005:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:acquire_state_illegalpipe2@|F:@syn_sample_clock_path==CKID0005@|M:ClockId0005
-CKID0006:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:ladder_fpga_nbr_rclk_echelle[10]@|F:@syn_sample_clock_path1==CKID0006@|M:ClockId0006
-CKID0007:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:level_shifter_dac_sck_en@|F:@syn_sample_clock_path2==CKID0007@|M:ClockId0007
-CKID0008:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:usb_read_n_in@|F:@syn_sample_clock_path3==CKID0008@|M:ClockId0008
+CKID0005:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:ladder_fpga_nbr_rclk_echelle[10]@|F:@syn_sample_clock_path==CKID0005@|M:ClockId0005
+CKID0006:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:level_shifter_dac_sck_en@|F:@syn_sample_clock_path1==CKID0006@|M:ClockId0006
+CKID0007:@|S:comp_mega_func_pll_40MHz_switchover_cycloneIII.altpll_component@|E:ladder_fpga_fifo21_empty_pipe@|F:@syn_sample_clock_path2==CKID0007@|M:ClockId0007
 conv_instances:@|F:@syn_gc_converted==1@|M:instances

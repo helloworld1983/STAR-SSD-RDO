@@ -1,7 +1,7 @@
 # Synopsys, Inc. constraint file
-# D:/renard/star_upgrade/ladder_fpga/rev_1/pin_assign.sdc
-# Written on Thu Apr 05 14:45:51 2012
-# by Synplify Pro, F-2011.09-SP1  Scope Editor
+# C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/rev_1/pin_assign.sdc
+# Written on Tue May 13 09:01:38 2014
+# by Synplify Pro, H-2013.03-1  Scope Editor
 
 #
 # Collections

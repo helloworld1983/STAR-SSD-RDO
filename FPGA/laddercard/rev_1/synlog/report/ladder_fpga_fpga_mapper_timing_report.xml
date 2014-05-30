@@ -5,7 +5,7 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 *******************************************************************************************-->
 <report_table display_priority="2" name="Timing Summary">
 <report_link name="Detailed report">
-<data>D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\synlog\ladder_fpga_fpga_mapper.srr</data>
+<data>C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\synlog\ladder_fpga_fpga_mapper.srr</data>
 <title>##### START OF TIMING REPORT #####[</title>
 </report_link>
 <row>
@@ -47,7 +47,7 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 <row>
 <data>ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock</data>
 <data>10.0 MHz</data>
-<data>387.6 MHz</data>
+<data>441.3 MHz</data>
 <data>NA</data>
 </row>
 <row>
@@ -65,32 +65,26 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 <row>
 <data>mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock</data>
 <data>40.0 MHz</data>
-<data>130.9 MHz</data>
-<data>4.340</data>
+<data>161.9 MHz</data>
+<data>11.427</data>
 </row>
 <row>
 <data>mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock</data>
 <data>80.0 MHz</data>
-<data>149.4 MHz</data>
-<data>2.903</data>
+<data>164.4 MHz</data>
+<data>3.209</data>
 </row>
 <row>
 <data>mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock</data>
 <data>4.0 MHz</data>
-<data>32.4 MHz</data>
-<data>10.959</data>
-</row>
-<row>
-<data>mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock</data>
-<data>1.0 MHz</data>
-<data>723.5 MHz</data>
-<data>998.618</data>
+<data>34.7 MHz</data>
+<data>11.060</data>
 </row>
 <row>
 <data>sc_tck</data>
 <data>10.0 MHz</data>
-<data>132.6 MHz</data>
-<data>46.230</data>
+<data>148.0 MHz</data>
+<data>46.622</data>
 </row>
 <row>
 <data>switchover</data>
@@ -125,7 +119,7 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 <row>
 <data>System</data>
 <data>1.0 MHz</data>
-<data>1.0 MHz</data>
-<data>22.190</data>
+<data>3968.3 MHz</data>
+<data>999.748</data>
 </row>
 </report_table>

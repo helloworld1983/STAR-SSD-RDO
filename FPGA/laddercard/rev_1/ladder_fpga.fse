@@ -1,136 +1,116 @@
 
-fsm_encoding {341204212045} onehot
+fsm_encoding {391453314534} onehot
 
-fsm_state_encoding {341204212045} acq_idle {0000000000000001}
+fsm_state_encoding {391453314534} wait4hold {000001}
 
-fsm_state_encoding {341204212045} acq_cmd_0 {0000000000000010}
+fsm_state_encoding {391453314534} wait4token {000010}
 
-fsm_state_encoding {341204212045} acq_wt_cmd {0000000000000100}
+fsm_state_encoding {391453314534} acq_adc {000100}
 
-fsm_state_encoding {341204212045} acq_command_0 {0000000000001000}
+fsm_state_encoding {391453314534} flush_token {001000}
 
-fsm_state_encoding {341204212045} acq_command_1 {0000000000010000}
+fsm_state_encoding {391453314534} gen_token {010000}
 
-fsm_state_encoding {341204212045} acq_hold {0000000000100000}
+fsm_state_encoding {391453314534} wait4end {100000}
 
-fsm_state_encoding {341204212045} acq_token {0000000001000000}
+fsm_registers {391453314534} {state_readout[0]}  {state_readout[1]}  {state_readout[2]}  {state_readout[3]}  {state_readout[4]}  {state_readout[5]} 
 
-fsm_state_encoding {341204212045} acq_convert {0000000010000000}
+fsm_encoding {392149221493} onehot
 
-fsm_state_encoding {341204212045} acq_send_preamble {0000000100000000}
+fsm_state_encoding {392149221493} st_lev_shft_pre_cs {0000001}
 
-fsm_state_encoding {341204212045} acq_send_adcs_0 {0000001000000000}
+fsm_state_encoding {392149221493} st_lev_shft_load_a {0000010}
 
-fsm_state_encoding {341204212045} acq_send_adcs_1 {0000010000000000}
+fsm_state_encoding {392149221493} st_lev_shft_pulse_cs_h {0000100}
 
-fsm_state_encoding {341204212045} acq_send_adcs_2 {0000100000000000}
+fsm_state_encoding {392149221493} st_lev_shft_pulse_cs_l {0001000}
 
-fsm_state_encoding {341204212045} acq_send_adcs {0001000000000000}
+fsm_state_encoding {392149221493} st_lev_shft_load_b {0010000}
 
-fsm_state_encoding {341204212045} acq_loop_fifo21 {0010000000000000}
+fsm_state_encoding {392149221493} st_lev_shft_end {0100000}
 
-fsm_state_encoding {341204212045} acq_read_fifo {0100000000000000}
+fsm_state_encoding {392149221493} st_lev_shft_wait {1000000}
 
-fsm_state_encoding {341204212045} acq_wt_fifo {1000000000000000}
+fsm_registers {392149221493} {ladder_fpga_level_shifter_dac_state[0]}  {ladder_fpga_level_shifter_dac_state[1]}  {ladder_fpga_level_shifter_dac_state[2]}  {ladder_fpga_level_shifter_dac_state[3]}  {ladder_fpga_level_shifter_dac_state[4]}  {ladder_fpga_level_shifter_dac_state[5]}  {ladder_fpga_level_shifter_dac_state[6]} 
 
-fsm_registers {341204212045} {acquire_state[0]}  {acquire_state[1]}  {acquire_state[2]}  {acquire_state[3]}  {acquire_state[4]}  {acquire_state[5]}  {acquire_state[6]}  {acquire_state[7]}  {acquire_state[8]}  {acquire_state[9]}  {acquire_state[10]}  {acquire_state[11]}  {acquire_state[12]}  {acquire_state[13]}  {acquire_state[14]}  {acquire_state[15]} 
+fsm_encoding {391389213895} onehot
 
-fsm_encoding {341579215794} onehot
+fsm_state_encoding {391389213895} st_ev_ctrl_wait4hold {000001}
 
-fsm_state_encoding {341579215794} st_ev_ctrl_wait4hold {000001}
+fsm_state_encoding {391389213895} st_ev_ctrl_wait4token {000010}
 
-fsm_state_encoding {341579215794} st_ev_ctrl_wait4token {000010}
+fsm_state_encoding {391389213895} st_ev_ctrl_tokenin_pulse {000100}
 
-fsm_state_encoding {341579215794} st_ev_ctrl_tokenin_pulse {000100}
+fsm_state_encoding {391389213895} st_ev_ctrl_acquisition {001000}
 
-fsm_state_encoding {341579215794} st_ev_ctrl_acquisition {001000}
+fsm_state_encoding {391389213895} st_ev_ctrl_event_end {010000}
 
-fsm_state_encoding {341579215794} st_ev_ctrl_event_end {010000}
+fsm_state_encoding {391389213895} st_ev_ctrl_abort {100000}
 
-fsm_state_encoding {341579215794} st_ev_ctrl_abort {100000}
+fsm_registers {391389213895} {ladder_fpga_event_controller_state[0]}  {ladder_fpga_event_controller_state[1]}  {ladder_fpga_event_controller_state[2]}  {ladder_fpga_event_controller_state[3]}  {ladder_fpga_event_controller_state[4]}  {ladder_fpga_event_controller_state[5]} 
 
-fsm_registers {341579215794} {ladder_fpga_event_controller_state[0]}  {ladder_fpga_event_controller_state[1]}  {ladder_fpga_event_controller_state[2]}  {ladder_fpga_event_controller_state[3]}  {ladder_fpga_event_controller_state[4]}  {ladder_fpga_event_controller_state[5]} 
+fsm_encoding {22754751} original
 
-fsm_encoding {342213222133} onehot
+fsm_state_encoding {22754751} test_logic_reset {0000000000000001}
 
-fsm_state_encoding {342213222133} st_lev_shft_pre_cs {0000001}
+fsm_state_encoding {22754751} run_test_idle {0000000000000010}
 
-fsm_state_encoding {342213222133} st_lev_shft_load_a {0000010}
+fsm_state_encoding {22754751} select_dr_scan {0000000000000100}
 
-fsm_state_encoding {342213222133} st_lev_shft_pulse_cs_h {0000100}
+fsm_state_encoding {22754751} capture_dr {0000000000001000}
 
-fsm_state_encoding {342213222133} st_lev_shft_pulse_cs_l {0001000}
+fsm_state_encoding {22754751} shift_dr {0000000000010000}
 
-fsm_state_encoding {342213222133} st_lev_shft_load_b {0010000}
+fsm_state_encoding {22754751} exit1_dr {0000000000100000}
 
-fsm_state_encoding {342213222133} st_lev_shft_end {0100000}
+fsm_state_encoding {22754751} pause_dr {0000000001000000}
 
-fsm_state_encoding {342213222133} st_lev_shft_wait {1000000}
+fsm_state_encoding {22754751} exit2_dr {0000000010000000}
 
-fsm_registers {342213222133} {ladder_fpga_level_shifter_dac_state[0]}  {ladder_fpga_level_shifter_dac_state[1]}  {ladder_fpga_level_shifter_dac_state[2]}  {ladder_fpga_level_shifter_dac_state[3]}  {ladder_fpga_level_shifter_dac_state[4]}  {ladder_fpga_level_shifter_dac_state[5]}  {ladder_fpga_level_shifter_dac_state[6]} 
+fsm_state_encoding {22754751} update_dr {0000000100000000}
 
-fsm_encoding {20754751} original
+fsm_state_encoding {22754751} select_ir_scan {0000001000000000}
 
-fsm_state_encoding {20754751} test_logic_reset {0000000000000001}
+fsm_state_encoding {22754751} capture_ir {0000010000000000}
 
-fsm_state_encoding {20754751} run_test_idle {0000000000000010}
+fsm_state_encoding {22754751} shift_ir {0000100000000000}
 
-fsm_state_encoding {20754751} select_dr_scan {0000000000000100}
+fsm_state_encoding {22754751} exit1_ir {0001000000000000}
 
-fsm_state_encoding {20754751} capture_dr {0000000000001000}
+fsm_state_encoding {22754751} pause_ir {0010000000000000}
 
-fsm_state_encoding {20754751} shift_dr {0000000000010000}
+fsm_state_encoding {22754751} exit2_ir {0100000000000000}
 
-fsm_state_encoding {20754751} exit1_dr {0000000000100000}
+fsm_state_encoding {22754751} update_ir {1000000000000000}
 
-fsm_state_encoding {20754751} pause_dr {0000000001000000}
+fsm_registers {22754751} {etat_present[15]}  {etat_present[14]}  {etat_present[13]}  {etat_present[12]}  {etat_present[11]}  {etat_present[10]}  {etat_present[9]}  {etat_present[8]}  {etat_present[7]}  {etat_present[6]}  {etat_present[5]}  {etat_present[4]}  {etat_present[3]}  {etat_present[2]}  {etat_present[1]}  {etat_present[0]} 
 
-fsm_state_encoding {20754751} exit2_dr {0000000010000000}
+fsm_encoding {15536532} onehot
 
-fsm_state_encoding {20754751} update_dr {0000000100000000}
+fsm_state_encoding {15536532} rst_max6575 {0000000000001}
 
-fsm_state_encoding {20754751} select_ir_scan {0000001000000000}
+fsm_state_encoding {15536532} setup {0000000000010}
 
-fsm_state_encoding {20754751} capture_ir {0000010000000000}
+fsm_state_encoding {15536532} start_pulse {0000000000100}
 
-fsm_state_encoding {20754751} shift_ir {0000100000000000}
+fsm_state_encoding {15536532} start_pulse_sync_wt {0000000001000}
 
-fsm_state_encoding {20754751} exit1_ir {0001000000000000}
+fsm_state_encoding {15536532} wt_low_t0 {0000000010000}
 
-fsm_state_encoding {20754751} pause_ir {0010000000000000}
+fsm_state_encoding {15536532} wt_high_t0 {0000000100000}
 
-fsm_state_encoding {20754751} exit2_ir {0100000000000000}
+fsm_state_encoding {15536532} wt_low_t1 {0000001000000}
 
-fsm_state_encoding {20754751} update_ir {1000000000000000}
+fsm_state_encoding {15536532} wt_high_t1 {0000010000000}
 
-fsm_registers {20754751} {etat_present[15]}  {etat_present[14]}  {etat_present[13]}  {etat_present[12]}  {etat_present[11]}  {etat_present[10]}  {etat_present[9]}  {etat_present[8]}  {etat_present[7]}  {etat_present[6]}  {etat_present[5]}  {etat_present[4]}  {etat_present[3]}  {etat_present[2]}  {etat_present[1]}  {etat_present[0]} 
+fsm_state_encoding {15536532} wt_low_t2 {0000100000000}
 
-fsm_encoding {8506502} onehot
+fsm_state_encoding {15536532} wt_high_t2 {0001000000000}
 
-fsm_state_encoding {8506502} rst_max6575 {0000000000001}
+fsm_state_encoding {15536532} wt_low_t3 {0010000000000}
 
-fsm_state_encoding {8506502} setup {0000000000010}
+fsm_state_encoding {15536532} wt_high_t3 {0100000000000}
 
-fsm_state_encoding {8506502} start_pulse {0000000000100}
+fsm_state_encoding {15536532} wt_cnt {1000000000000}
 
-fsm_state_encoding {8506502} start_pulse_sync_wt {0000000001000}
-
-fsm_state_encoding {8506502} wt_low_t0 {0000000010000}
-
-fsm_state_encoding {8506502} wt_high_t0 {0000000100000}
-
-fsm_state_encoding {8506502} wt_low_t1 {0000001000000}
-
-fsm_state_encoding {8506502} wt_high_t1 {0000010000000}
-
-fsm_state_encoding {8506502} wt_low_t2 {0000100000000}
-
-fsm_state_encoding {8506502} wt_high_t2 {0001000000000}
-
-fsm_state_encoding {8506502} wt_low_t3 {0010000000000}
-
-fsm_state_encoding {8506502} wt_high_t3 {0100000000000}
-
-fsm_state_encoding {8506502} wt_cnt {1000000000000}
-
-fsm_registers {8506502} {state[0]}  {state[1]}  {state[2]}  {state[3]}  {state[4]}  {state[5]}  {state[6]}  {state[7]}  {state[8]}  {state[9]}  {state[10]}  {state[11]}  {state[12]} 
+fsm_registers {15536532} {state[0]}  {state[1]}  {state[2]}  {state[3]}  {state[4]}  {state[5]}  {state[6]}  {state[7]}  {state[8]}  {state[9]}  {state[10]}  {state[11]}  {state[12]} 

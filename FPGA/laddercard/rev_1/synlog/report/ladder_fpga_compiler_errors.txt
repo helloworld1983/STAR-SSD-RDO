@@ -1,4 +1,4 @@
-@E: CD242 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1882:112:1882:115|Expecting ;
+@E: CD255 :"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.vhd":1330:101:1330:101|No identifier "ladder_fpga_event_controller_state" in scope
 @E|Parse errors encountered - exiting
 @E::VHDL compiler failed
 

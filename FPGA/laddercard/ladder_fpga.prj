@@ -1,8 +1,9 @@
 #--  Synopsys, Inc.
 #--  Version H-2013.03-1 
-#--  Project file U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.prj
+#--  Project file C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.prj
 
 #project files
+add_file -vhdl -lib work "./rev_1/ddr_out.vhd"
 add_file -vhdl -lib work "./header_star_ssdU.vhd"
 add_file -vhdl -lib work "./br_cell_1clk.vhd"
 add_file -vhdl -lib work "./dr_cell.vhd"

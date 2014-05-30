@@ -1,42 +1,43 @@
 #--  Synopsys, Inc.
-#--  Version F-2011.09-SP1 
-#--  Project file D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\scratchproject.prs
+#--  Version H-2013.03-1 
+#--  Project file C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\scratchproject.prs
 
 #project files
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/header_star_ssdU.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/br_cell_1clk.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/dr_cell.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/mesure_temperature.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/comptage_temperature.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/dr_cell_avec_pulse.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/mega_func_pll_40MHz_switchover_cycloneIII.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/ir_5_bits.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/ir_cell.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/mux_2_1.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/mux_tdo.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/tap_control.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/dr_x_bits.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/dr_x_bits_init.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/dr_x_bits_avec_pulse.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/identificateur_8bits.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/filtre_latchup.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/memoire_latchup.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/memoire_latchup_general.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/memoire_tokenout_echelle.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/signaux_hybrides.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/gestion_hybrides_v4.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/mega_func_fifo8x256_cycloneIII.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/mega_func_fifo21x32_cycloneIII.vhd"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/date_stamp.vhd"
-add_file -verilog "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/C__altera_10_0_quartus_eda_fv_lib_verilog/cycloneiii_crcblock.v"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/ladder_fpga.vhd"
-add_file -constraint "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/ladder_fpga.sdc"
-add_file -vhdl -lib work "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/shiftreg.vhd"
-add_file -constraint "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/rev_1/pin_assign.sdc"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/rev_1/ddr_out.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/header_star_ssdU.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/br_cell_1clk.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_cell.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mesure_temperature.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/comptage_temperature.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_cell_avec_pulse.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_pll_40MHz_switchover_cycloneIII.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ir_5_bits.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ir_cell.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mux_2_1.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mux_tdo.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/tap_control.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits_init.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/dr_x_bits_avec_pulse.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/identificateur_8bits.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/filtre_latchup.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_latchup.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_latchup_general.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/memoire_tokenout_echelle.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/signaux_hybrides.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/gestion_hybrides_v4.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_fifo8x256_cycloneIII.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/mega_func_fifo21x32_cycloneIII.vhd"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/date_stamp.vhd"
+add_file -verilog "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/C__altera_10_0_quartus_eda_fv_lib_verilog/cycloneiii_crcblock.v"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.vhd"
+add_file -constraint "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.sdc"
+add_file -vhdl -lib work "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/shiftreg.vhd"
+add_file -constraint "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/rev_1/pin_assign.sdc"
 
 
 #implementation: "rev_1"
-impl -add D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1 -type fpga
+impl -add C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1 -type fpga
 
 #
 #implementation attributes
@@ -45,7 +46,7 @@ set_option -vlog_std v2001
 set_option -num_critical_paths 10
 set_option -num_startend_points 10
 set_option -project_relative_includes 1
-set_option -include_path {D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/}
+set_option -include_path {C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/}
 set_option -include_path {./extra_input/;./extra_input/}
 
 #pr_1 attributes
@@ -64,6 +65,9 @@ set_option -part_companion ""
 set_option -use_fsm_explorer 1
 set_option -top_module "ladder_fpga"
 
+# altera_options
+set_option -RWCheckOnRam 1
+
 # mapper_options
 set_option -frequency auto
 set_option -write_verilog 0
@@ -79,14 +83,8 @@ set_option -pipe 0
 set_option -update_models_cp 0
 set_option -retiming 0
 set_option -no_sequential_opt 0
-set_option -fixgatedclocks 3
-set_option -fixgeneratedclocks 3
+set_option -fix_gated_and_generated_clocks 1
 set_option -quartus_version 10.1
-
-# NFilter
-set_option -popfeed 0
-set_option -constprop 0
-set_option -createhierarchy 0
 
 # sequential_optimization_options
 set_option -symbolic_fsm_compiler 1
@@ -95,12 +93,9 @@ set_option -symbolic_fsm_compiler 1
 set_option -compiler_compatible 0
 set_option -resource_sharing 0
 
-#VIF options
-set_option -write_vif 1
-
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "D:/renard/star_upgrade/doc_www/ts/ladder_fpga_v0d_20130514_ts/ladder_fpga_v0d/rev_1/ladder_fpga.vqm"
+project -result_file "C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/rev_1/ladder_fpga.vqm"
 impl -active "rev_1"

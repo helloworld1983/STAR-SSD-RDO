@@ -1,7 +1,7 @@
 # Synopsys, Inc. constraint file
-# C:/SSD upgrade/ladder code v09/ladder_fpga.sdc
-# Written on Thu Jun 16 15:40:45 2011
-# by Synplify Pro, E-2011.03 Scope Editor
+# C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.sdc
+# Written on Tue May 13 09:01:38 2014
+# by Synplify Pro, H-2013.03-1  Scope Editor
 
 #
 # Collections
@@ -30,14 +30,14 @@ define_clock -disable   {}  -clockgroup default_clkgroup_5
 #
 # Inputs/Outputs
 #
-define_input_delay -disable      -default -improve 0.00 -route 0.00
+define_input_delay -disable      -default  0.00 -improve 0.00 -route 0.00
 define_output_delay -disable     -default -improve 0.00 -route 0.00
 define_input_delay -disable      {reset_n} -improve 0.00 -route 0.00
 define_input_delay -disable      {card_ser_num[5:0]} -improve 0.00 -route 0.00
 define_output_delay -disable     {roboclock_horloge40_phase[3:0]} -improve 0.00 -route 0.00
 define_output_delay -disable     {roboclock_adc_phase[7:0]} -improve 0.00 -route 0.00
-define_output_delay -disable     {adc_cs_n[7:0]} -improve 0.00 -route 0.00
-define_input_delay -disable      {data_serial[15:0]} -improve 0.00 -route 0.00
+define_output_delay              {adc_cs_n[7:0]} -improve 0.00 -route 0.00 -ref {ladder_fpga_clock80MHz:f}
+define_input_delay               {data_serial[15:0]} -improve 0.00 -route 0.00 -ref {ladder_fpga_clock80MHz:f}
 define_output_delay -disable     {addr_mux_h_neg} -improve 0.00 -route 0.00
 define_output_delay -disable     {addr_mux_l_neg} -improve 0.00 -route 0.00
 define_output_delay -disable     {pilotage_magnd_hybride[15:0]} -improve 0.00 -route 0.00
@@ -99,14 +99,14 @@ define_output_delay -disable     {usb_write} -improve 0.00 -route 0.00
 #
 # I/O Standards
 #
-define_io_standard -disable      -default_input -delay_type input
-define_io_standard               -default_output -delay_type output syn_pad_type {LVCMOS_25}
+define_io_standard               -default_input -delay_type input syn_pad_type {LVCMOS_33}
+define_io_standard               -default_output -delay_type output syn_pad_type {LVCMOS_33}
 define_io_standard -disable      -default_bidir -delay_type bidir
 define_io_standard -disable      {reset_n} -delay_type input
 define_io_standard -disable      {card_ser_num[5:0]} -delay_type input
 define_io_standard -disable      {roboclock_horloge40_phase[3:0]} -delay_type output
 define_io_standard -disable      {roboclock_adc_phase[7:0]} -delay_type output
-define_io_standard -disable      {adc_cs_n[7:0]} -delay_type output syn_pad_type {LVCMOS_25}
+define_io_standard               {adc_cs_n[7:0]} -delay_type output syn_pad_type {LVCMOS_33}
 define_io_standard -disable      {data_serial[15:0]} -delay_type input syn_pad_type {LVCMOS_25}
 define_io_standard -disable      {addr_mux_h_neg} -delay_type output
 define_io_standard -disable      {addr_mux_l_neg} -delay_type output

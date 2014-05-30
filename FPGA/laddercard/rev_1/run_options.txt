@@ -1,8 +1,9 @@
 #--  Synopsys, Inc.
-#--  Version F-2011.09-SP1 
-#--  Project file D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\run_options.txt
+#--  Version H-2013.03-1 
+#--  Project file C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\run_options.txt
 
 #project files
+add_file -vhdl -lib work "./rev_1/ddr_out.vhd"
 add_file -vhdl -lib work "./header_star_ssdU.vhd"
 add_file -vhdl -lib work "./br_cell_1clk.vhd"
 add_file -vhdl -lib work "./dr_cell.vhd"
@@ -63,6 +64,9 @@ set_option -part_companion ""
 set_option -use_fsm_explorer 1
 set_option -top_module "ladder_fpga"
 
+# altera_options
+set_option -RWCheckOnRam 1
+
 # mapper_options
 set_option -frequency auto
 set_option -write_verilog 0
@@ -78,14 +82,8 @@ set_option -pipe 0
 set_option -update_models_cp 0
 set_option -retiming 0
 set_option -no_sequential_opt 0
-set_option -fixgatedclocks 3
-set_option -fixgeneratedclocks 3
+set_option -fix_gated_and_generated_clocks 1
 set_option -quartus_version 10.1
-
-# NFilter
-set_option -popfeed 0
-set_option -constprop 0
-set_option -createhierarchy 0
 
 # sequential_optimization_options
 set_option -symbolic_fsm_compiler 1
@@ -93,9 +91,6 @@ set_option -symbolic_fsm_compiler 1
 # Compiler Options
 set_option -compiler_compatible 0
 set_option -resource_sharing 0
-
-#VIF options
-set_option -write_vif 1
 
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1

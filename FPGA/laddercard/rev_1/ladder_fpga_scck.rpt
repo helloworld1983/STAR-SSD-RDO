@@ -1,22 +1,30 @@
-# Synospys Constraint Checker(syntax only), version mapsbt, Build 785R, built Nov 16 2011
-# Copyright (C) 1994-2011, Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+# Synospys Constraint Checker(syntax only), version maprc, Build 1512R, built Mar 13 2013
+# Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
 
-# Written on Fri May 17 00:47:13 2013
+# Written on Thu May 29 07:11:09 2014
 
 
 ##### DESIGN INFO #######################################################
 
 Top View:                "ladder_fpga"
-Constraint File(s):      "D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga_fsm.sdc"
-                         "D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\pin_assign.sdc"
-                         "D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.sdc"
+Constraint File(s):      "C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\ladder_fpga_fsm.sdc"
+                         "C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\pin_assign.sdc"
+                         "C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\ladder_fpga.sdc"
 
 #Run constraint checker to find more issues with constraints.
 #########################################################################
 
 
 
-No issues found in constraint syntax.
+Constraints with issues
+***********************
+
+define_input_delay { data_serial[15:0] } -improve { 0.00 } -route { 0.00 } -ref { ladder_fpga_clock80MHz:f }
+	@E:"C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.sdc":40:0:40:0|param { value } must be defined
+	@N:"C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.sdc":40:0:40:0|Setting default value to "0".
+define_output_delay { adc_cs_n[7:0] } -improve { 0.00 } -route { 0.00 } -ref { ladder_fpga_clock80MHz:f }
+	@E:"C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.sdc":39:0:39:0|param { value } must be defined
+	@N:"C:/work/SSD/laddercard/fpga/ladder_fpga_v0e/ladder_fpga.sdc":39:0:39:0|Setting default value to "0".
 
 
 
@@ -41,15 +49,10 @@ updateDR                                                            10.0 MHz    
 mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock          40.0 MHz      25.000        derived (from clock40mhz_fpga)     default_clkgroup_3 
 mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock          80.0 MHz      12.500        derived (from clock40mhz_fpga)     default_clkgroup_3 
 mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock          4.0 MHz       250.000       derived (from clock40mhz_fpga)     default_clkgroup_3 
-mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock          1.0 MHz       1000.000      derived (from clock40mhz_fpga)     default_clkgroup_3 
 mega_func_pll_40MHz_switchover_cycloneIII|clkbad0_derived_clock     40.0 MHz      25.000        derived (from clock40mhz_fpga)     default_clkgroup_3 
 mega_func_pll_40MHz_switchover_cycloneIII|clkbad1_derived_clock     80.0 MHz      12.500        derived (from clock40mhz_fpga)     default_clkgroup_3 
 ladder_fpga|holdin_echelle                                          1.0 MHz       1000.000      inferred                           Inferred_clkgroup_0
 ladder_fpga|testin_echelle                                          1.0 MHz       1000.000      inferred                           Inferred_clkgroup_1
-dr_cell_a_10_d_e_0|scan_out_derived_clock                           10.0 MHz      100.000       derived (from clockDR)             default_clkgroup_0 
-dr_cell_a_9_d_e_0|scan_out_derived_clock                            10.0 MHz      100.000       derived (from clockDR)             default_clkgroup_0 
-ladder_fpga|tst_tokenin_echelle_derived_clock                       40.0 MHz      25.000        derived (from clock40mhz_fpga)     default_clkgroup_3 
-ladder_fpga|ladder_fpga_abort_derived_clock                         80.0 MHz      12.500        derived (from clock40mhz_fpga)     default_clkgroup_3 
 tap_control|sc_updateDR_0x01_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
 tap_control|sc_updateDR_0x03_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
 tap_control|sc_updateDR_0x04_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 

@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri May 17 00:49:20 2013
-Quartus II 64-Bit Version : 12.1 Build 243 01/31/2013 SP 1 SJ Full Version
+Analysis & Synthesis Status : Successful - Thu May 29 07:12:02 2014
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
 Revision Name : ladder_fpga
 Top-level Entity Name : ladder_fpga
 Family : Cyclone III
-Total logic elements : 2,303
-    Total combinational functions : 1,511
-    Dedicated logic registers : 1,383
-Total registers : 1383
+Total logic elements : 1,560
+    Total combinational functions : 836
+    Dedicated logic registers : 1,029
+Total registers : 1031
 Total pins : 293
 Total virtual pins : 0
-Total memory bits : 4,512
+Total memory bits : 672
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 1

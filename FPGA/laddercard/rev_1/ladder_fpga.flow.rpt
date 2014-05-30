@@ -1,6 +1,6 @@
 Flow report for ladder_fpga
-Fri May 17 00:54:18 2013
-Quartus II 64-Bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
+Thu May 29 07:13:43 2014
+Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
 ---------------------
@@ -20,7 +20,7 @@ Quartus II 64-Bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Versi
 +-------------------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                                    ;
 +---------------------------------------+---------------------------------------+
-; EDA Netlist Writer Status             ; Successful - Fri May 17 00:54:17 2013 ;
+; EDA Netlist Writer Status             ; Successful - Thu May 29 07:13:42 2014 ;
 ; Revision Name                         ; ladder_fpga                           ;
 ; Top-level Entity Name                 ; ladder_fpga                           ;
 ; Family                                ; Cyclone III                           ;
@@ -49,26 +49,26 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------------+
-; Flow Summary                                                                        ;
-+------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Fri May 17 00:54:17 2013          ;
-; Quartus II 64-Bit Version          ; 12.1 Build 243 01/31/2013 SP 1 SJ Full Version ;
-; Revision Name                      ; ladder_fpga                                    ;
-; Top-level Entity Name              ; ladder_fpga                                    ;
-; Family                             ; Cyclone III                                    ;
-; Device                             ; EP3C16F484C6                                   ;
-; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 2,222 / 15,408 ( 14 % )                        ;
-;     Total combinational functions  ; 1,532 / 15,408 ( 10 % )                        ;
-;     Dedicated logic registers      ; 1,383 / 15,408 ( 9 % )                         ;
-; Total registers                    ; 1383                                           ;
-; Total pins                         ; 293 / 347 ( 84 % )                             ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 4,512 / 516,096 ( < 1 % )                      ;
-; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                                ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                                 ;
-+------------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++------------------------------------+------------------------------------------+
+; Flow Status                        ; Successful - Thu May 29 07:13:42 2014    ;
+; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name                      ; ladder_fpga                              ;
+; Top-level Entity Name              ; ladder_fpga                              ;
+; Family                             ; Cyclone III                              ;
+; Device                             ; EP3C16F484C6                             ;
+; Timing Models                      ; Final                                    ;
+; Total logic elements               ; 1,480 / 15,408 ( 10 % )                  ;
+;     Total combinational functions  ; 857 / 15,408 ( 6 % )                     ;
+;     Dedicated logic registers      ; 1,014 / 15,408 ( 7 % )                   ;
+; Total registers                    ; 1031                                     ;
+; Total pins                         ; 293 / 347 ( 84 % )                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 672 / 516,096 ( < 1 % )                  ;
+; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                          ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                           ;
++------------------------------------+------------------------------------------+
 
 
 +-----------------------------------------+
@@ -76,72 +76,71 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/17/2013 00:49:11 ;
+; Start date & time ; 05/29/2014 07:11:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ladder_fpga         ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                               ;
-+---------------------------------------------------+------------------------------------------------------+---------------+-----------------+-----------------------------------+
-; Assignment Name                                   ; Value                                                ; Default Value ; Entity Name     ; Section Id                        ;
-+---------------------------------------------------+------------------------------------------------------+---------------+-----------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                             ; 158232343200.136874454201772                         ; --            ; --              ; --                                ;
-; ECO_OPTIMIZE_TIMING                               ; On                                                   ; Off           ; --              ; --                                ;
-; ECO_REGENERATE_REPORT                             ; On                                                   ; Off           ; --              ; --                                ;
-; EDA_BOARD_DESIGN_SIGNAL_INTEGRITY_TOOL            ; IBIS (Signal Integrity)                              ; <None>        ; --              ; --                                ;
-; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL                   ; SYNPLIFY                                             ; <None>        ; --              ; --                                ;
-; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL                   ; Synplify Pro                                         ; <None>        ; ladder_fpga.vqm ; --                                ;
-; EDA_GENERATE_GATE_LEVEL_SIMULATION_COMMAND_SCRIPT ; On                                                   ; --            ; --              ; eda_simulation                    ;
-; EDA_IBIS_MODEL_SELECTOR                           ; On                                                   ; --            ; --              ; eda_board_design_signal_integrity ;
-; EDA_INPUT_DATA_FORMAT                             ; Vqm                                                  ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
-; EDA_INPUT_GND_NAME                                ; Gnd                                                  ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
-; EDA_INPUT_VCC_NAME                                ; Vcc                                                  ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
-; EDA_LMF_FILE                                      ; synplcty.lmf                                         ; --            ; --              ; eda_design_synthesis              ;
-; EDA_LMF_FILE                                      ; synplcty.lmf                                         ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
-; EDA_OUTPUT_DATA_FORMAT                            ; Vhdl                                                 ; --            ; --              ; eda_simulation                    ;
-; EDA_OUTPUT_DATA_FORMAT                            ; None                                                 ; --            ; --              ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT                            ; Ibis                                                 ; --            ; --              ; eda_board_design_signal_integrity ;
-; EDA_RESYNTHESIS_TOOL                              ; SYNPLIFY PREMIER                                     ; <None>        ; --              ; --                                ;
-; EDA_RUN_TOOL_AUTOMATICALLY                        ; Off                                                  ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
-; EDA_SHOW_LMF_MAPPING_MESSAGES                     ; Off                                                  ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
-; EDA_SIMULATION_TOOL                               ; ModelSim-Altera (VHDL)                               ; <None>        ; --              ; --                                ;
-; ENABLE_CLOCK_LATENCY                              ; On                                                   ; Off           ; --              ; --                                ;
-; FITTER_EFFORT                                     ; Standard Fit                                         ; Auto Fit      ; --              ; --                                ;
-; FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS                ; On                                                   ; Off           ; --              ; --                                ;
-; FMAX_REQUIREMENT                                  ; 80 MHz                                               ; --            ; --              ; --                                ;
-; MAX_CORE_JUNCTION_TEMP                            ; 85                                                   ; --            ; --              ; --                                ;
-; MIN_CORE_JUNCTION_TEMP                            ; 0                                                    ; --            ; --              ; --                                ;
-; MISC_FILE                                         ; C:/SSD upgrade/ladder code v09/rev_1/ladder_fpga.dpf ; --            ; --              ; --                                ;
-; NUMBER_OF_SOURCES_PER_DESTINATION_TO_REPORT       ; 1000                                                 ; 10            ; --              ; --                                ;
-; NUM_PARALLEL_PROCESSORS                           ; All                                                  ; 1             ; --              ; --                                ;
-; OPTIMIZE_SSN                                      ; Normal compilation                                   ; Off           ; --              ; --                                ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS                    ; Half Signal Swing                                    ; --            ; --              ; --                                ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS                    ; Half Signal Swing                                    ; --            ; --              ; --                                ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS                   ; Half Vccio                                           ; --            ; --              ; --                                ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS                   ; Half Vccio                                           ; --            ; --              ; --                                ;
-; PARTITION_COLOR                                   ; 2147039                                              ; --            ; --              ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL               ; PLACEMENT_AND_ROUTING                                ; --            ; --              ; Top                               ;
-; PARTITION_NETLIST_TYPE                            ; SOURCE                                               ; --            ; --              ; Top                               ;
-; PLACEMENT_EFFORT_MULTIPLIER                       ; 4.0                                                  ; 1.0           ; --              ; --                                ;
-; POWER_BOARD_THERMAL_MODEL                         ; None (CONSERVATIVE)                                  ; --            ; --              ; --                                ;
-; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE                ; 25%                                                  ; 12.5%         ; --              ; --                                ;
-; POWER_INPUT_FILE_NAME                             ; ladder_fpga.vcd                                      ; --            ; --              ; ladder_fpga.vcd                   ;
-; POWER_PRESET_COOLING_SOLUTION                     ; No Heat Sink With 200 Lfpm Airflow                   ; --            ; --              ; --                                ;
-; POWER_REPORT_POWER_DISSIPATION                    ; On                                                   ; Off           ; --              ; --                                ;
-; POWER_REPORT_SIGNAL_ACTIVITY                      ; On                                                   ; Off           ; --              ; --                                ;
-; REMOVE_DUPLICATE_LOGIC                            ; Off                                                  ; On            ; --              ; --                                ;
-; REMOVE_DUPLICATE_REGISTERS                        ; Off                                                  ; On            ; --              ; --                                ;
-; ROUTER_EFFORT_MULTIPLIER                          ; 4.0                                                  ; 1.0           ; --              ; --                                ;
-; ROUTER_REGISTER_DUPLICATION                       ; On                                                   ; Auto          ; --              ; --                                ;
-; ROUTER_TIMING_OPTIMIZATION_LEVEL                  ; MAXIMUM                                              ; Normal        ; --              ; --                                ;
-; ROUTING_BACK_ANNOTATION_MODE                      ; Normal                                               ; --            ; --              ; --                                ;
-; SAFE_STATE_MACHINE                                ; On                                                   ; Off           ; --              ; --                                ;
-; SYNTH_PROTECT_SDC_CONSTRAINT                      ; On                                                   ; Off           ; --              ; --                                ;
-; TAO_FILE                                          ; myresults.tao                                        ; --            ; --              ; --                                ;
-; TIMEQUEST_DO_REPORT_TIMING                        ; On                                                   ; Off           ; --              ; --                                ;
-+---------------------------------------------------+------------------------------------------------------+---------------+-----------------+-----------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                             ;
++---------------------------------------------------+------------------------------------+---------------+-----------------+-----------------------------------+
+; Assignment Name                                   ; Value                              ; Default Value ; Entity Name     ; Section Id                        ;
++---------------------------------------------------+------------------------------------+---------------+-----------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                             ; 264414487865654.140137271018200    ; --            ; --              ; --                                ;
+; ECO_OPTIMIZE_TIMING                               ; On                                 ; Off           ; --              ; --                                ;
+; ECO_REGENERATE_REPORT                             ; On                                 ; Off           ; --              ; --                                ;
+; EDA_BOARD_DESIGN_SIGNAL_INTEGRITY_TOOL            ; IBIS (Signal Integrity)            ; <None>        ; --              ; --                                ;
+; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL                   ; SYNPLIFY                           ; <None>        ; --              ; --                                ;
+; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL                   ; Synplify Pro                       ; <None>        ; ladder_fpga.vqm ; --                                ;
+; EDA_GENERATE_GATE_LEVEL_SIMULATION_COMMAND_SCRIPT ; On                                 ; --            ; --              ; eda_simulation                    ;
+; EDA_IBIS_MODEL_SELECTOR                           ; On                                 ; --            ; --              ; eda_board_design_signal_integrity ;
+; EDA_INPUT_DATA_FORMAT                             ; Vqm                                ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
+; EDA_INPUT_GND_NAME                                ; Gnd                                ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
+; EDA_INPUT_VCC_NAME                                ; Vcc                                ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
+; EDA_LMF_FILE                                      ; synplcty.lmf                       ; --            ; --              ; eda_design_synthesis              ;
+; EDA_LMF_FILE                                      ; synplcty.lmf                       ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
+; EDA_OUTPUT_DATA_FORMAT                            ; Vhdl                               ; --            ; --              ; eda_simulation                    ;
+; EDA_OUTPUT_DATA_FORMAT                            ; None                               ; --            ; --              ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT                            ; Ibis                               ; --            ; --              ; eda_board_design_signal_integrity ;
+; EDA_RESYNTHESIS_TOOL                              ; SYNPLIFY PREMIER                   ; <None>        ; --              ; --                                ;
+; EDA_RUN_TOOL_AUTOMATICALLY                        ; Off                                ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
+; EDA_SHOW_LMF_MAPPING_MESSAGES                     ; Off                                ; --            ; ladder_fpga.vqm ; eda_design_synthesis              ;
+; EDA_SIMULATION_TOOL                               ; ModelSim-Altera (VHDL)             ; <None>        ; --              ; --                                ;
+; ENABLE_CLOCK_LATENCY                              ; On                                 ; Off           ; --              ; --                                ;
+; FITTER_EFFORT                                     ; Standard Fit                       ; Auto Fit      ; --              ; --                                ;
+; FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS                ; On                                 ; Off           ; --              ; --                                ;
+; FMAX_REQUIREMENT                                  ; 80 MHz                             ; --            ; --              ; --                                ;
+; MAX_CORE_JUNCTION_TEMP                            ; 85                                 ; --            ; --              ; --                                ;
+; MIN_CORE_JUNCTION_TEMP                            ; 0                                  ; --            ; --              ; --                                ;
+; NUMBER_OF_SOURCES_PER_DESTINATION_TO_REPORT       ; 1000                               ; 10            ; --              ; --                                ;
+; NUM_PARALLEL_PROCESSORS                           ; All                                ; 1             ; --              ; --                                ;
+; OPTIMIZE_SSN                                      ; Normal compilation                 ; Off           ; --              ; --                                ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS                    ; Half Signal Swing                  ; --            ; --              ; --                                ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS                    ; Half Signal Swing                  ; --            ; --              ; --                                ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS                   ; Half Vccio                         ; --            ; --              ; --                                ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS                   ; Half Vccio                         ; --            ; --              ; --                                ;
+; PARTITION_COLOR                                   ; 2147039                            ; --            ; --              ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL               ; PLACEMENT_AND_ROUTING              ; --            ; --              ; Top                               ;
+; PARTITION_NETLIST_TYPE                            ; SOURCE                             ; --            ; --              ; Top                               ;
+; PLACEMENT_EFFORT_MULTIPLIER                       ; 4.0                                ; 1.0           ; --              ; --                                ;
+; POWER_BOARD_THERMAL_MODEL                         ; None (CONSERVATIVE)                ; --            ; --              ; --                                ;
+; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE                ; 25%                                ; 12.5%         ; --              ; --                                ;
+; POWER_INPUT_FILE_NAME                             ; ladder_fpga.vcd                    ; --            ; --              ; ladder_fpga.vcd                   ;
+; POWER_PRESET_COOLING_SOLUTION                     ; No Heat Sink With 200 Lfpm Airflow ; --            ; --              ; --                                ;
+; POWER_REPORT_POWER_DISSIPATION                    ; On                                 ; Off           ; --              ; --                                ;
+; POWER_REPORT_SIGNAL_ACTIVITY                      ; On                                 ; Off           ; --              ; --                                ;
+; REMOVE_DUPLICATE_LOGIC                            ; Off                                ; On            ; --              ; --                                ;
+; REMOVE_DUPLICATE_REGISTERS                        ; Off                                ; On            ; --              ; --                                ;
+; ROUTER_EFFORT_MULTIPLIER                          ; 4.0                                ; 1.0           ; --              ; --                                ;
+; ROUTER_REGISTER_DUPLICATION                       ; On                                 ; Auto          ; --              ; --                                ;
+; ROUTER_TIMING_OPTIMIZATION_LEVEL                  ; MAXIMUM                            ; Normal        ; --              ; --                                ;
+; ROUTING_BACK_ANNOTATION_MODE                      ; Normal                             ; --            ; --              ; --                                ;
+; SAFE_STATE_MACHINE                                ; On                                 ; Off           ; --              ; --                                ;
+; SYNTH_PROTECT_SDC_CONSTRAINT                      ; On                                 ; Off           ; --              ; --                                ;
+; TAO_FILE                                          ; myresults.tao                      ; --            ; --              ; --                                ;
+; TIMEQUEST_DO_REPORT_TIMING                        ; On                                 ; Off           ; --              ; --                                ;
++---------------------------------------------------+------------------------------------+---------------+-----------------+-----------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -149,13 +148,13 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:43     ; 1.0                     ; 506 MB              ; 00:00:08                           ;
-; I/O Assignment Analysis   ; 00:00:45     ; 1.0                     ; 717 MB              ; 00:00:07                           ;
-; Fitter                    ; 00:01:31     ; 1.4                     ; 938 MB              ; 00:00:57                           ;
-; Assembler                 ; 00:00:36     ; 1.0                     ; 445 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:47     ; 1.2                     ; 528 MB              ; 00:00:15                           ;
-; EDA Netlist Writer        ; 00:01:10     ; 1.0                     ; 475 MB              ; 00:00:10                           ;
-; Total                     ; 00:05:32     ; --                      ; --                  ; 00:01:39                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 484 MB              ; 00:00:08                           ;
+; I/O Assignment Analysis   ; 00:00:10     ; 1.0                     ; 500 MB              ; 00:00:09                           ;
+; Fitter                    ; 00:00:51     ; 1.4                     ; 724 MB              ; 00:00:56                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 426 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:14     ; 1.0                     ; 486 MB              ; 00:00:14                           ;
+; EDA Netlist Writer        ; 00:00:11     ; 1.0                     ; 451 MB              ; 00:00:12                           ;
+; Total                     ; 00:01:41     ; --                      ; --                  ; 00:01:42                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -164,12 +163,12 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
-; I/O Assignment Analysis   ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; tstezelberg-S25  ; Windows 7 ; 6.1        ; x86_64         ;
+; I/O Assignment Analysis   ; tstezelberg-S25  ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; tstezelberg-S25  ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; tstezelberg-S25  ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; tstezelberg-S25  ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; tstezelberg-S25  ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

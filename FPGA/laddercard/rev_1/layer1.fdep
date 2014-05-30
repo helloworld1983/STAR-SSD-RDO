@@ -1,6 +1,6 @@
-#OPTIONS:"|-mixedhdl|-modhint|_verilog_hintfile|-top|work.altpll|-top|work.lpm_shiftreg|-top|work.dcfifo|-top|work.dcfifo|-top|work.cycloneiii_crcblock|-mpparams|_mh_params|-layerid|1|-prodtype|synplify_pro|-verification_mode|0|-infer_seqShift|-primux|-fixsmult|-dspmac|-nram|-divnmod|-I|U:\\work_lbnl\\SSD\\ladder_card\\v2b\\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\\ladder_fpga_v0d\\extra_input|-I|U:\\work_lbnl\\SSD\\ladder_card\\v2b\\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\\ladder_fpga_v0d\\extra_input|-I|U:\\work_lbnl\\SSD\\ladder_card\\v2b\\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\\ladder_fpga_v0d\\|-I|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib|-v2001|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\altera.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\cycloneiii.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_mf.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_lpm.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_primitives.v|-encrypt|-pro|-ll|2000|-ui|-fid2|-ram|-sharing|off|-autosm|-lib|work"
+#OPTIONS:"|-mixedhdl|-modhint|_verilog_hintfile|-top|work.altpll|-top|work.dcfifo|-top|work.cycloneiii_crcblock|-mpparams|_mh_params|-layerid|1|-prodtype|synplify_pro|-verification_mode|0|-infer_seqShift|-primux|-fixsmult|-dspmac|-nram|-divnmod|-I|C:\\work\\SSD\\laddercard\\fpga\\ladder_fpga_v0e\\extra_input|-I|C:\\work\\SSD\\laddercard\\fpga\\ladder_fpga_v0e\\extra_input|-I|C:\\work\\SSD\\laddercard\\fpga\\ladder_fpga_v0e\\|-I|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib|-v2001|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\altera.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\cycloneiii.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_mf.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_lpm.v|-devicelib|C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_primitives.v|-encrypt|-pro|-ll|2000|-ui|-fid2|-ram|-sharing|off|-autosm|-lib|work"
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\bin64\\c_ver.exe":1362124286
-#CUR:"_verilog_hintfile":1367620217
+#CUR:"_verilog_hintfile":1401372666
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\altera.v":1361864404
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\cycloneiii.v":1361864480
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\altera\\quartus_II101\\altera_mf.v":1361864480
@@ -10,10 +10,10 @@
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\vlog\\scemi_objects.v":1361864724
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\vlog\\scemi_pipes.svh":1361864724
 #CUR:"C:\\FPGAtools\\Synopsys\\fpga_H2013031\\lib\\vlog\\hypermods.v":1361864724
-#CUR:"U:\\work_lbnl\\SSD\\ladder_card\\v2b\\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\\ladder_fpga_v0d\\C__altera_10_0_quartus_eda_fv_lib_verilog\\cycloneiii_crcblock.v":1351716076
+#CUR:"C:\\work\\SSD\\laddercard\\fpga\\ladder_fpga_v0e\\C__altera_10_0_quartus_eda_fv_lib_verilog\\cycloneiii_crcblock.v":1395962211
 #numinternalfiles:9
 #defaultlanguage:verilog
-0			"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\C__altera_10_0_quartus_eda_fv_lib_verilog\cycloneiii_crcblock.v" verilog
+0			"C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\C__altera_10_0_quartus_eda_fv_lib_verilog\cycloneiii_crcblock.v" verilog
 #Dependency Lists(Uses List)
 0 -1
 #Dependency Lists(Users Of)

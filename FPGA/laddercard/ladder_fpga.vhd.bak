@@ -116,6 +116,11 @@
 -- ladder_fpga_v0c
 --     v0.a   | C.Renard | Modification  | 29 mar 2012| pin swap 
 -- ladder_fpga_v0d
+-- 	 v0.b	  | L. Ardila | Modification  | 12 april 2013| TokenIn aligned with first clock and 2 extra clock cycles - rewrite of proc_ladder_fpga_adc_cs process
+-- 	 v0.b	  | T.Stezelberger | Modification  | 15 may 2013| inverted ladder_fpga_rclk_16hybrides
+--     v0.b   | C.Renard | Modification  | 15 may 2013| added ladder_fpga_fifo21_wr_enable to avoid sending first ADC word to the readout card
+--     v0.b   | C.Renard | Modification  | 15 may 2013| b modified ladder_fpga_fifo21_wr_enable to avoid sending first ADC word to the readout card
+-- ladder_fpga_v0e
 -- ----------------------------------------------------------------------
 -- A_PREVOIR: Ce commentaire est place la ou il reste des modifications a faire
 library ieee;
@@ -124,9 +129,9 @@ Use     IEEE.std_logic_arith.all;
 use     ieee.std_logic_unsigned.all;
 use     work.all;
 use work.header_star_ssdU.all;
-Library synplify; -- 20090814 ajoute
+--Library synplify; -- 20090814 ajoute
 --Use     synplify.attributes.all; -- 20090814 ajoute
---use work.date_stamp.all; -- 20110126 ajoute
+use work.date_stamp.all; -- 20110126 ajoute
 
 entity ladder_fpga is
     port (    
@@ -226,17 +231,17 @@ ARCHITECTURE ladder_fpga_arch OF ladder_fpga IS
 
   TYPE state_event_controller IS (st_ev_ctrl_wait4hold, st_ev_ctrl_wait4token, st_ev_ctrl_tokenin_pulse, st_ev_ctrl_acquisition, st_ev_ctrl_event_end, st_ev_ctrl_abort); -- 20090826 modifie
   SIGNAL ladder_fpga_event_controller_state : state_event_controller;
---  attribute syn_encoding of ladder_fpga_event_controller_state : signal is "safe"; -- 20090814 ajoute
+  attribute syn_encoding of ladder_fpga_event_controller_state : signal is "safe"; -- 20090814 ajoute
 
   TYPE state_level_shifter_dac IS (st_lev_shft_pre_cs, st_lev_shft_load_a, st_lev_shft_pulse_cs_H, st_lev_shft_pulse_cs_L, st_lev_shft_load_b, st_lev_shft_end, st_lev_shft_wait);-- 20091130 ajoute
   SIGNAL ladder_fpga_level_shifter_dac_state : state_level_shifter_dac; -- 20091130 ajoute
---  attribute syn_encoding of ladder_fpga_level_shifter_dac_state : signal is "safe"; -- 20091130 ajoute
+  attribute syn_encoding of ladder_fpga_level_shifter_dac_state : signal is "safe"; -- 20091130 ajoute
 -- FSM to acquire one set of adc values:
   type acquire_state_type is (acq_idle,acq_cmd_0,acq_wt_usb_in, acq_wt_cmd,acq_command_0,acq_command_1,acq_hold,acq_token,
                               acq_convert_1,acq_convert_2,acq_convert,acq_send_preamble,
                               acq_send_adcs_0,acq_send_adcs_1,acq_send_adcs_2,acq_send_adcs, acq_loop_fifo21,acq_read_fifo_0,acq_read_fifo,acq_wt_fifo);
   signal acquire_state : acquire_state_type;
---  attribute syn_encoding of acquire_state : signal is "safe"; -- -jul-2011 mjl -- 20110920 ajoute
+  attribute syn_encoding of acquire_state : signal is "safe"; -- -jul-2011 mjl -- 20110920 ajoute
 
  -- local values for adc tests:
   signal tst_holdin_echelle, tst_tokenin_echelle : std_logic := '0'; 
@@ -547,6 +552,7 @@ signal ladder_fpga_nbr_rclk_echelle : integer range 0 to 16383; -- 20090817 ajou
 SIGNAL ladder_fpga_flux_compactor_status : std_logic_vector( 4 downto 0); -- 20090812 ajoute
 SIGNAL ladder_fpga_data_packer_temp      : std_logic_vector(15 downto 0); -- 04-aug-2011 mjl
 SIGNAL ladder_fpga_fifo21_wr             : std_logic; -- 20090812 ajoute
+SIGNAL ladder_fpga_fifo21_wr_enable      : std_logic; -- 20130516 ajoute
 SIGNAL ladder_fpga_usb_wr                : std_logic; -- 02-aug-2011 mjl added
 SIGNAL ladder_fpga_fifo21_input          : std_logic_vector(20 downto 0); -- 20090812 ajoute
 SIGNAL ladder_fpga_fifo_reset            : std_logic; -- 20090813 ajoute
@@ -639,7 +645,7 @@ BEGIN
 
   tst_tokenin_pulse_ok  <= '1';         -- for single ADC test only
 
---  ladder_fpga_sc_reg_version  <= revision_date; -- date derniere modif (jjmmaaaa) -- 20110126 modifie
+  ladder_fpga_sc_reg_version  <= revision_date; -- date derniere modif (jjmmaaaa) -- 20110126 modifie
 
 
   comp_mega_func_pll_40MHz_switchover_cycloneIII : mega_func_pll_40MHz_switchover_cycloneIII -- 20090812 ajoute
@@ -677,7 +683,7 @@ BEGIN
 
 
 
---ladder_fpga_sc_updateDR_null <= (OTHERS=>'L');
+ladder_fpga_sc_updateDR_null <= (OTHERS=>'L');
 ladder_fpga_sc_updateDR      <= (ladder_fpga_sc_updateDR_null( 0)) OR
                     (ladder_fpga_sc_updateDR_null( 1)) OR
                     (ladder_fpga_sc_updateDR_null( 2)) OR
@@ -1532,107 +1538,26 @@ begin
     ladder_fpga_adc_bit_count_cs_integer <= 15;
   ELSIF ((ladder_fpga_clock80MHz'EVENT) AND (ladder_fpga_clock80MHz='0')) THEN
     CASE ladder_fpga_adc_bit_count_cs_integer is
-      WHEN 0 => -- first leading zero
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
+      WHEN 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 => -- Luis Ardila April 10 2013
+		--Description: 
+		--0: first leading zero
+		--1: second leading zero
+		--2: msb
+		--3 to 12: No description
+		--4: lsb
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)) THEN	
           ladder_fpga_adc_select_n <= '0';
         ELSE
           ladder_fpga_adc_select_n <= '1';
         END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 1;
-      WHEN 1 => -- second leading zero
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 2;
-      WHEN 2 => -- msb
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 3;
-      WHEN 3 => -- 
-       IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-         ladder_fpga_adc_select_n <= '0';
-       ELSE
-         ladder_fpga_adc_select_n <= '1';
-       END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 4;
-      WHEN 4 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 5;
-      WHEN 5 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 6;
-      WHEN 6 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 7;
-      WHEN 7 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 8;
-      WHEN 8 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 9;
-      WHEN 9 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN ladder_fpga_adc_select_n <= '0'; ELSE ladder_fpga_adc_select_n <= '1'; END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 10;
-      WHEN 10 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 11;
-      WHEN 11 => -- 
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 12;
-      WHEN 12 => -- 
-       IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-         ladder_fpga_adc_select_n <= '0';
-       ELSE
-         ladder_fpga_adc_select_n <= '1';
-       END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 13;
-      WHEN 13 => -- lsb
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN
-          ladder_fpga_adc_select_n <= '0';
-        ELSE
-          ladder_fpga_adc_select_n <= '1';
-        END IF; -- 20090817 modifie -- 20090819 modifie
-        ladder_fpga_adc_bit_count_cs_integer <= 14;
+        ladder_fpga_adc_bit_count_cs_integer <= ladder_fpga_adc_bit_count_cs_integer + 1;	-- Luis Ardila April 10 2013
       WHEN 14 => -- High Z
         ladder_fpga_adc_select_n       <= '1';
         ladder_fpga_adc_bit_count_cs_integer <= 15;
       WHEN 15 => -- High Z
         ladder_fpga_adc_select_n       <= '1';
 --        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)OR(ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_abort)) THEN 
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN --A_PREVOIR: il faut peut-etre remettre la ligne precedente
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse)) THEN -- Luis Ardila April 10 2013
           ladder_fpga_adc_bit_count_cs_integer <= 0; 
         ELSE 
           ladder_fpga_adc_bit_count_cs_integer <= 15; 
@@ -1719,6 +1644,7 @@ begin
     ladder_fpga_fifo21_wr                  <= '0'; -- 20091201 ajoute
     ladder_fpga_usb_wr                     <= '0';																																	-- 20110920 ajoute
     shiftreg_clr <= '1';																																							-- 20110920 ajoute
+    ladder_fpga_fifo21_wr_enable           <= '0'; -- 20130516 ajoute
   ELSIF ((ladder_fpga_clock80MHz'EVENT) AND (ladder_fpga_clock80MHz='0')) THEN
 --  ELSIF ((ladder_fpga_clock80MHz'EVENT) AND (ladder_fpga_clock80MHz='1')) then -- changed 30-jul-2011 mjl
     CASE ladder_fpga_adc_bit_count_cs_integer is
@@ -1743,13 +1669,17 @@ begin
         ladder_fpga_flux_compactor_status      <= "00001"; -- 20090812 ajoute
         ladder_fpga_fifo21_wr                  <= '0'; -- 30-jul-2011 mjl changed
 --        ladder_fpga_usb_wr                     <= '1'; 																																		-- 20110920 enleve
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+			 ladder_fpga_usb_wr <= '1'; ELSE 
+			 ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
         ladder_fpga_fifo21_input(20)           <= '0'; -- first_word 
       WHEN 5 => -- 
         ladder_fpga_flux_compactor_status      <= "00011"; -- 20090812 ajoute
         ladder_fpga_data_packer_temp           <= data_serial_m; -- adc_wd_0
 --        ladder_fpga_usb_wr                     <= '1'; 																																		-- 20110920 enleve
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		  ladder_fpga_usb_wr <= '1'; ELSE 
+		  ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
         ladder_fpga_fifo21_input(20)           <= '0'; -- 20090812 ajoute
 		------------------------------------------------------------------------------------------------------------------
 		--     filling pipeline
@@ -1764,8 +1694,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		    ladder_fpga_fifo21_wr <= '1'; ELSE 
+		    ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		    ladder_fpga_usb_wr <= '1'; ELSE 
+		    ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[0] :     adc_wd_1(3 downto 0) & adc_wd_0(15 downto 0)
 		------------------------------------------------------------------------------------------------------------------
@@ -1782,8 +1717,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		    ladder_fpga_fifo21_wr <= '1'; ELSE 
+		    ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		    ladder_fpga_usb_wr <= '1'; ELSE 
+		    ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[1] :     adc_wd_2(7 downto 0) & adc_wd_1(15 downto 4) 
 		------------------------------------------------------------------------------------------------------------------
@@ -1800,8 +1740,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		    ladder_fpga_fifo21_wr <= '1'; ELSE 
+		    ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+	       ladder_fpga_usb_wr <= '1'; ELSE 
+		    ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[2] :     adc_wd_3(11 downto 0) & adc_wd_2(15 downto 8)
 		------------------------------------------------------------------------------------------------------------------
@@ -1818,8 +1763,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		  ladder_fpga_fifo21_wr <= '1'; ELSE 
+		  ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		  ladder_fpga_usb_wr <= '1'; ELSE 
+		  ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[3] :     adc_wd_4(15 downto 0) & adc_wd_3(15 downto 12)
 		------------------------------------------------------------------------------------------------------------------
@@ -1837,7 +1787,9 @@ begin
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
         ladder_fpga_fifo21_wr <= '0';																																						-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		  ladder_fpga_usb_wr <= '1'; ELSE 
+		  ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     pause to refill pipeline
 		------------------------------------------------------------------------------------------------------------------
@@ -1851,8 +1803,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		  ladder_fpga_fifo21_wr <= '1'; ELSE 
+		  ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		  ladder_fpga_usb_wr <= '1'; ELSE 
+		  ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[4] :     adc_wd_6(3 downto 0) & adc_wd_5(15 downto 0)
 		------------------------------------------------------------------------------------------------------------------
@@ -1869,8 +1826,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		  ladder_fpga_fifo21_wr <= '1'; ELSE 
+		  ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		  ladder_fpga_usb_wr <= '1'; ELSE 
+		  ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[5] :     adc_wd_7(7 downto 0) & adc_wd_6(15 downto 4) 
 		------------------------------------------------------------------------------------------------------------------
@@ -1887,8 +1849,13 @@ begin
 --          ladder_fpga_fifo21_wr <= '0';																																					-- 20110920 enleve
 --          ladder_fpga_usb_wr    <= '0';																																					-- 20110920 enleve
 --        END IF; -- 20090820 modifie																																						-- 20110920 enleve
-        IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
-        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN ladder_fpga_usb_wr <= '1'; ELSE ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+		  ladder_fpga_fifo21_wr <= '1'; ELSE 
+		  ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+        IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)AND(spare_switch='1')AND(usb_ready_n='0')) THEN 
+		  ladder_fpga_usb_wr <= '1'; ELSE 
+		  ladder_fpga_usb_wr <= '0'; END IF;	-- 20110920 modifie
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[6] :     adc_wd_8(11 downto 0) & adc_wd_7(15 downto 8)
 		------------------------------------------------------------------------------------------------------------------
@@ -1897,19 +1864,24 @@ begin
 
       WHEN 14 =>  -- put out the last FIFO payload
 --          ladder_fpga_fifo21_wr <= '1';																																					-- 20110920 enleve
-          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN ladder_fpga_fifo21_wr <= '1'; ELSE ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
+--          IF (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) THEN -- 20130516 enleve
+          IF ((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)and(ladder_fpga_fifo21_wr_enable='1')) THEN -- 20130516 modifie
+			 ladder_fpga_fifo21_wr <= '1'; ELSE 
+			 ladder_fpga_fifo21_wr <= '0'; END IF;										-- 20090920 modifie
           ladder_fpga_usb_wr    <= '0';
 		------------------------------------------------------------------------------------------------------------------
 		--     fifo[7] :     adc_wd_9(15 downto 0) & adc_wd_8(15 downto 12)
 		------------------------------------------------------------------------------------------------------------------
         ladder_fpga_fifo21_input(20)           <= '0'; -- first_word -- 20090812 ajoute
         ladder_fpga_fifo21_input(19 downto  0) <= data_serial_m(15 downto  0) & ladder_fpga_data_packer_temp(15 downto 12); -- 04-aug-2011
+        if (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) then ladder_fpga_fifo21_wr_enable <= '1'; else ladder_fpga_fifo21_wr_enable <= '0'; end if; -- 20130516 ajoute -- 20130516b modifie
 
       WHEN OTHERS => -- no usable bit
         ladder_fpga_flux_compactor_status       <= "00000"; -- 20090812 ajoute
         ladder_fpga_fifo21_wr                   <= '0'; -- 20090812 ajoute
 	ladder_fpga_usb_wr		        <= '0';
         ladder_fpga_fifo21_input(20)            <= '0'; -- first_word -- 20090812 ajoute
+--        if (ladder_fpga_event_controller_state=st_ev_ctrl_acquisition) then ladder_fpga_fifo21_wr_enable <= '1'; else ladder_fpga_fifo21_wr_enable <= '0'; end if; -- 20130516 ajoute -- 20130516b enleve
     END CASE;
   END IF;
 end process proc_ladder_fpga_data_packer;
@@ -1921,7 +1893,8 @@ data_serial_m <=  data_serial when hv_side = '0' else
                   not data_serial;
 
 
-ladder_fpga_rclk_16hybrides <= ladder_fpga_rclk_echelle; -- 20090814 ajoute
+--ladder_fpga_rclk_16hybrides <= ladder_fpga_rclk_echelle; -- 20090814 ajoute -- 20130515 enleve
+ladder_fpga_rclk_16hybrides <= not(ladder_fpga_rclk_echelle); -- 20090814 ajoute -- 20130515 modifie
 proc_ladder_fpga_rclk_echelle : process(reset_n, ladder_fpga_clock80MHz, ladder_fpga_adc_bit_count_cs_integer, ladder_fpga_event_controller_state) is -- 20090814 ajoute
 begin -- 20090814 ajoute
   IF (reset_n='0') then -- 20090814 ajoute
@@ -2101,8 +2074,8 @@ ladder_fpga_packer_dataready <= '1' WHEN (ladder_fpga_fifo21_empty='0') ELSE '0'
 
 ladder_to_rdo(21 downto  0) <= ladder_fpga_mux_dataout; -- 20090813 modifie -- 20090817 enleve
 
-hold_16hybrides        <= holdin_echelle; -- fige (hold) les donnees du front-end
-test_16hybrides        <= testin_echelle when hv_side='0' else -- pulse test (calibration electronique du front-end)
+hold_16hybrides        <= NOT holdin_echelle; -- fige (hold) les donnees du front-end
+test_16hybrides        <= testin_echelle when hv_side='1' else -- pulse test (calibration electronique du front-end)
                           not testin_echelle;  -- negation added 17-aug-2011 mjl
 
 
@@ -2123,18 +2096,18 @@ begin -- 20090817 ajoute
   ELSIF ((ladder_fpga_clock80MHz'EVENT) AND (ladder_fpga_clock80MHz='1')) THEN -- 20090817 ajoute -- 20090819 modifie
     IF (ladder_fpga_event_controller_state=st_ev_ctrl_wait4hold) then -- 20090817 ajoute -- 20090824 modifie
       ladder_fpga_nbr_rclk_echelle <= 0; -- 20090824 ajoute
-    ELSIF ((ladder_fpga_nbr_rclk_echelle<12288)AND((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse))) THEN -- 20090817 ajoute -- 20090818 modifie -- 20090819 modifie -- 20090820 modifie -- 20090824 modifie
+    ELSIF ((ladder_fpga_nbr_rclk_echelle<12320)AND((ladder_fpga_event_controller_state=st_ev_ctrl_acquisition)OR(ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse))) THEN -- 20090817 ajoute -- 20090818 modifie -- 20090819 modifie -- 20090820 modifie -- 20090824 modifie -- Luis Ardila April 12 2013
       ladder_fpga_nbr_rclk_echelle <= ladder_fpga_nbr_rclk_echelle + 1; -- 20090817 ajoute
-    ELSIF ((ladder_fpga_nbr_rclk_echelle<12288)AND(ladder_fpga_event_controller_state=st_ev_ctrl_abort)) THEN -- 20090817 ajoute -- 20090818 modifie -- 20090819 modifie -- 20090820 modifie
+    ELSIF ((ladder_fpga_nbr_rclk_echelle<12320)AND(ladder_fpga_event_controller_state=st_ev_ctrl_abort)) THEN -- 20090817 ajoute -- 20090818 modifie -- 20090819 modifie -- 20090820 modifie -- Luis Ardila April 12 2013
       ladder_fpga_nbr_rclk_echelle <= ladder_fpga_nbr_rclk_echelle + 2; -- 20090820 ajoute
     ELSIF (ladder_fpga_event_controller_state=st_ev_ctrl_event_end) THEN -- 20090819 ajoute
-      ladder_fpga_nbr_rclk_echelle <= 12304; -- 20090819 ajoute
+      ladder_fpga_nbr_rclk_echelle <= 12320; -- 20090819 ajoute -- Luis Ardila April 12 2013
     ELSE -- 20090820 ajoute
       ladder_fpga_nbr_rclk_echelle <= ladder_fpga_nbr_rclk_echelle + 0; -- 20090820 ajoute
     END IF; -- 20090817 ajoute
     IF (ladder_fpga_nbr_rclk_echelle=0) THEN
       ladder_fpga_busy <= '0';
-    ELSIF (ladder_fpga_nbr_rclk_echelle<12288) THEN -- 20090819 modifie
+    ELSIF (ladder_fpga_nbr_rclk_echelle<12320) THEN -- 20090819 modifie -- Luis Ardila April 12 2013
       ladder_fpga_busy <= '1';
     ELSE
       ladder_fpga_busy <= '0';
@@ -2181,22 +2154,22 @@ end process proc_ladder_fpga_nbr_rclk_echelle; -- 20090817 ajoute
   ladder_fpga_status_e_out(14)           <= testin_echelle; -- 20090817 ajoute -- 20090826 modifie												-- 20110921 modifie
   ladder_fpga_status_e_out(13)           <= holdin_echelle; -- 20090817 ajoute -- 20090826 modifie												-- 20110921 modifie
   ladder_fpga_status_e_out(12)           <= hv_side; -- 20090817 ajoute -- 20090826 modifie -- 20100108 modifie
-  ladder_fpga_status_e_out(11 DOWNTO  0) <= std_logic_vector(ladder_fpga_nbr_hold(11 DOWNTO  0)); -- 20090817 ajoute
+  ladder_fpga_status_e_out(11 DOWNTO  0) <= ladder_fpga_nbr_hold(11 DOWNTO  0); -- 20090817 ajoute
 
   ladder_fpga_status_f_out(17 DOWNTO 16) <= etat_alims_hybride(11 DOWNTO 10); -- 20090817 ajoute
   ladder_fpga_status_f_out(15)           <= ladder_fpga_busy; -- 20090817 ajoute
   ladder_fpga_status_f_out(14 DOWNTO 12) <= card_ser_num(5 DOWNTO 3); -- 20090817 ajoute
-  ladder_fpga_status_f_out(11 DOWNTO  0) <= std_logic_vector(ladder_fpga_nbr_test(11 DOWNTO  0)); -- 20090817 ajoute
+  ladder_fpga_status_f_out(11 DOWNTO  0) <= ladder_fpga_nbr_test(11 DOWNTO  0); -- 20090817 ajoute
 
   ladder_fpga_status_g_out(17 DOWNTO 16) <= etat_alims_hybride(13 DOWNTO 12); -- 20090817 ajoute
   ladder_fpga_status_g_out(15)           <= ladder_fpga_busy; -- 20090817 ajoute
   ladder_fpga_status_g_out(14 DOWNTO 12) <= card_ser_num(2 DOWNTO 0); -- 20090817 ajoute
-  ladder_fpga_status_g_out(11 DOWNTO  0) <= std_logic_vector(ladder_fpga_nbr_token(11 DOWNTO  0)); -- 20090817 ajoute
+  ladder_fpga_status_g_out(11 DOWNTO  0) <= ladder_fpga_nbr_token(11 DOWNTO  0); -- 20090817 ajoute
 
   ladder_fpga_status_h_out(17 DOWNTO 16) <= etat_alims_hybride(15 DOWNTO 14); -- 20090817 ajoute
   ladder_fpga_status_h_out(15)           <= ladder_fpga_busy; -- 20090817 ajoute
   ladder_fpga_status_h_out(14 DOWNTO 12) <= ladder_addr; -- 20090817 ajoute
-  ladder_fpga_status_h_out(11 DOWNTO  0) <= std_logic_vector(ladder_fpga_nbr_abort(11 DOWNTO  0)); -- 20090824 ajoute
+  ladder_fpga_status_h_out(11 DOWNTO  0) <= ladder_fpga_nbr_abort(11 DOWNTO  0); -- 20090824 ajoute
 
   tokenin_echelle_in <= '1' WHEN (ladder_fpga_event_controller_state=st_ev_ctrl_tokenin_pulse) ELSE '0'; -- 20090818 ajoute -- 20090821 modifie
 

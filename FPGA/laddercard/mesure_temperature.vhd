@@ -26,11 +26,14 @@ ARCHITECTURE structurel OF mesure_temperature IS
    SIGNAL temperature2 : UNSIGNED (11 DOWNTO 0) := (OTHERS => '1');
    SIGNAL temperature3 : UNSIGNED (11 DOWNTO 0) := (OTHERS => '1');
 
-   CONSTANT CNT_SIZE   : INTEGER                        := 18;  -- size of the temperture measurement counter
+   CONSTANT CNT_SIZE   : INTEGER                        := 22; --18;  -- size of the temperture measurement counter
    SIGNAL cnt          : UNSIGNED (CNT_SIZE-1 DOWNTO 0) := (others=>'0');
    CONSTANT RST_TIME   : INTEGER                        := (4 * 10000);  -- 10ms
-   CONSTANT START_TIME : INTEGER                        := (4 * 10);  -- 10us
-   CONSTANT DONE_TIME  : INTEGER                        := (4 * 60000);  -- 60ms
+--   CONSTANT START_TIME : INTEGER                        := (4 * 10);  -- 10us
+--   CONSTANT START_TIME : INTEGER                        := (4 * 100);  -- 100us
+   CONSTANT START_TIME : INTEGER                        := (4 * 500);  -- 500us
+--   CONSTANT DONE_TIME  : INTEGER                        := (4 * 60000);  -- 60ms
+   CONSTANT DONE_TIME  : INTEGER                        := (4 * 600000);  -- 600ms
    -- constants to ship a temperature sensor if it doen not respond
    -- 4 (MHz) * 400Kelvin * sensor scaling
    CONSTANT SKIP_T0    : INTEGER                        := (4 * 400 * 5);
@@ -55,7 +58,7 @@ BEGIN
          cnt <= cnt + 1;
          CASE state IS
             WHEN RST_MAX6575 =>
-               temperature_out <= '0';
+               temperature_out <= 'Z'; --'0';
                IF cnt >= RST_TIME THEN
                   cnt   <= (OTHERS => '0');
                   state <= SETUP;

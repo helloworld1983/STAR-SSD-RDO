@@ -3,43 +3,39 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 1.008
+Slack : 2.854
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 2.733
+Slack : 2.874
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 2.763
+Slack : 3.672
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 2.783
+Slack : 3.692
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'ladder_fpga_clock80MHz'
+Slack : 8.936
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 19.067
+Slack : 16.738
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'sc_tck'
-Slack : 42.607
+Slack : 44.500
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 47.556
+Slack : 50.631
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 119.863
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 496.860
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 496.880
+Slack : 121.041
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'ladder_fpga|testin_echelle'
@@ -47,27 +43,23 @@ Slack : 997.971
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'ladder_fpga|holdin_echelle'
-Slack : 997.991
+Slack : 997.989
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : -0.006
-TNS   : -0.054
+Slack : 0.008
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
 Slack : 0.009
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 0.011
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 0.011
+Slack : 0.009
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 0.014
+Slack : 0.028
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
@@ -75,11 +67,7 @@ Slack : 0.029
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 0.031
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 0.031
+Slack : 0.029
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'sc_tck'
@@ -87,71 +75,59 @@ Slack : 0.357
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ladder_fpga|testin_echelle'
-Slack : 0.378
+Slack : 0.390
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ladder_fpga|holdin_echelle'
 Slack : 0.413
 TNS   : 0.000
 
+Type  : Slow 1200mV 85C Model Hold 'ladder_fpga_clock80MHz'
+Slack : 2.643
+TNS   : 0.000
+
 Type  : Slow 1200mV 85C Model Hold 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 50.891
+Slack : 47.876
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 4.661
+Slack : 4.200
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 4.681
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 10.174
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 10.194
+Slack : 4.220
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'sc_tck'
-Slack : 47.384
+Slack : 47.777
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 122.878
+Slack : 123.100
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 122.898
+Slack : 123.120
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'sc_tck'
-Slack : 1.258
+Slack : 1.312
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 6.706
+Slack : 7.199
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 6.726
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 13.459
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 13.479
+Slack : 7.219
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 125.825
+Slack : 125.804
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 125.845
+Slack : 125.824
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
@@ -162,96 +138,84 @@ Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_swit
 Slack : 5.985
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 12.233
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 12.233
-TNS   : 0.000
-
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock40mhz_fpga'
-Slack : 12.324
+Slack : 12.239
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock40mhz_xtal'
-Slack : 12.324
+Slack : 12.239
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.239
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
+Slack : 12.239
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sc_tck'
-Slack : 49.632
+Slack : 49.538
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 49.779
+Slack : 49.780
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'temperature'
-Slack : 96.000
+Slack : 89.543
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 124.755
+Slack : 124.756
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 124.755
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ladder_fpga|testin_echelle'
-Slack : 499.686
+Slack : 124.756
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ladder_fpga|holdin_echelle'
-Slack : 499.692
+Slack : 499.576
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 499.734
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 499.734
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ladder_fpga|testin_echelle'
+Slack : 499.590
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 1.596
+Slack : 3.181
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 3.101
+Slack : 3.201
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 3.137
+Slack : 3.923
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.157
+Slack : 3.943
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'ladder_fpga_clock80MHz'
+Slack : 8.939
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 19.807
+Slack : 17.652
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'sc_tck'
-Slack : 43.367
+Slack : 45.086
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 47.728
+Slack : 50.572
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 120.418
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 497.165
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 497.185
+Slack : 121.466
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'ladder_fpga|testin_echelle'
@@ -259,111 +223,91 @@ Slack : 998.213
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'ladder_fpga|holdin_echelle'
-Slack : 998.230
+Slack : 998.229
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : -0.010
-TNS   : -0.106
-
-Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 0.002
+Slack : 0.004
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.004
+Slack : 0.005
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 0.004
+Slack : 0.005
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 0.010
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 0.022
+Slack : 0.024
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 0.024
+Slack : 0.025
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 0.024
+Slack : 0.025
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'sc_tck'
-Slack : 0.312
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ladder_fpga|testin_echelle'
-Slack : 0.335
+Slack : 0.347
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ladder_fpga|holdin_echelle'
 Slack : 0.367
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Hold 'ladder_fpga_clock80MHz'
+Slack : 2.692
+TNS   : 0.000
+
 Type  : Slow 1200mV 0C Model Hold 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 50.882
+Slack : 48.098
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 4.825
+Slack : 4.405
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 4.845
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 10.392
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 10.412
+Slack : 4.425
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'sc_tck'
-Slack : 47.668
+Slack : 48.024
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 123.126
+Slack : 123.325
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 123.146
+Slack : 123.345
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'sc_tck'
-Slack : 1.153
+Slack : 1.194
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 6.681
+Slack : 7.122
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 6.701
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 13.378
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 13.398
+Slack : 7.142
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 125.730
+Slack : 125.716
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 125.750
+Slack : 125.736
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
@@ -374,96 +318,84 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switc
 Slack : 5.992
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 12.241
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 12.241
-TNS   : 0.000
-
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock40mhz_fpga'
-Slack : 12.284
+Slack : 12.212
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock40mhz_xtal'
-Slack : 12.284
+Slack : 12.212
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.250
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
+Slack : 12.250
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sc_tck'
-Slack : 49.636
+Slack : 49.542
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 49.797
+Slack : 49.787
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'temperature'
-Slack : 96.000
+Slack : 89.543
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 124.749
+Slack : 124.751
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 124.749
+Slack : 124.751
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ladder_fpga|testin_echelle'
-Slack : 499.681
+Slack : 499.585
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ladder_fpga|holdin_echelle'
-Slack : 499.707
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 499.740
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 499.740
+Slack : 499.605
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 2.924
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 4.218
+Slack : 4.270
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 4.228
+Slack : 4.290
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
+Slack : 4.788
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 4.238
+Slack : 4.808
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ladder_fpga_clock80MHz'
+Slack : 10.324
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 21.606
+Slack : 19.843
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'sc_tck'
-Slack : 45.926
+Slack : 47.017
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 48.259
+Slack : 50.351
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 122.075
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 498.249
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 498.269
+Slack : 122.766
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'ladder_fpga|testin_echelle'
@@ -471,147 +403,127 @@ Slack : 998.861
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'ladder_fpga|holdin_echelle'
-Slack : 998.873
+Slack : 998.872
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : -0.039
-TNS   : -1.084
+Slack : -0.029
+TNS   : -1.242
 
 Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -0.030
-TNS   : -1.502
+Slack : -0.029
+TNS   : -0.242
 
 Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : -0.028
-TNS   : -1.105
-
-Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
 Slack : -0.027
-TNS   : -0.493
+TNS   : -0.450
 
 Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : -0.019
-TNS   : -0.404
+Slack : -0.009
+TNS   : -0.362
 
 Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : -0.010
-TNS   : -0.442
+Slack : -0.009
+TNS   : -0.062
 
 Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : -0.008
-TNS   : -0.305
-
-Type  : Fast 1200mV 0C Model Hold 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
 Slack : -0.007
-TNS   : -0.113
+TNS   : -0.110
 
 Type  : Fast 1200mV 0C Model Hold 'sc_tck'
-Slack : 0.184
+Slack : 0.185
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'ladder_fpga|testin_echelle'
-Slack : 0.198
+Slack : 0.205
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'ladder_fpga|holdin_echelle'
 Slack : 0.218
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'ladder_fpga_clock80MHz'
+Slack : 1.610
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Hold 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 50.803
+Slack : 48.747
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 5.364
+Slack : 5.094
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 5.384
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 11.164
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 11.184
+Slack : 5.114
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'sc_tck'
-Slack : 48.812
+Slack : 49.176
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 123.759
+Slack : 123.892
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 123.779
+Slack : 123.912
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'sc_tck'
-Slack : 0.678
+Slack : 0.706
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 6.435
+Slack : 6.716
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 6.455
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 12.972
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 12.992
+Slack : 6.736
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 125.445
+Slack : 125.435
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]~1'
-Slack : 125.465
+Slack : 125.455
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 5.993
+Slack : 5.999
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[1]~1'
-Slack : 5.993
+Slack : 5.999
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock40mhz_fpga'
-Slack : 12.084
+Slack : 11.924
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock40mhz_xtal'
-Slack : 12.084
+Slack : 11.924
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 12.248
+Slack : 12.247
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[0]~1'
-Slack : 12.248
+Slack : 12.247
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sc_tck'
-Slack : 49.397
+Slack : 49.221
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock'
-Slack : 49.779
+Slack : 49.758
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'temperature'
-Slack : 96.000
+Slack : 89.543
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[2]'
@@ -623,19 +535,11 @@ Slack : 124.770
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ladder_fpga|holdin_echelle'
-Slack : 499.403
+Slack : 499.215
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ladder_fpga|testin_echelle'
-Slack : 499.444
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 499.746
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll_component|auto_generated|pll1|clk[3]~1'
-Slack : 499.746
+Slack : 499.265
 TNS   : 0.000
 
 ------------------------------------------------------------

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <!-- 
   Synopsys, Inc.
-  Version F-2011.09-SP1 
-  Project file D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\syntmp\run_option.xml
+  Version H-2013.03-1 
+  Project file C:\work\SSD\laddercard\fpga\ladder_fpga_v0e\rev_1\syntmp\run_option.xml
 
 --> 
 <project_attribute_list name="Project Settings"> 
@@ -15,8 +15,7 @@
      <option name="maxfan" display_name="Fanout Guide">30</option>
      <option name="disable_io_insertion" display_name="Disable I/O Insertion">0</option>
      <option name="no_sequential_opt" display_name="Disable Sequential Optimizations">0</option>
-     <option name="fixgatedclocks" display_name="Fix Gated Clocks">3</option>
-     <option name="fixgeneratedclocks" display_name="Fix Generated Clocks">3</option>
+     <option name="fix_gated_and_generated_clocks" display_name="Clock Conversion">1</option>
      <option name="symbolic_fsm_compiler" display_name="FSM Compiler">1</option>
 </project_attribute_list>
 
