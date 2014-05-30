@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+The file contains the optimization information from mapper to be displayed as part of the summary report.
+*******************************************************************************************-->
+<report_table display_priority="3" name="Optimizations Summary">
+<parameter tooltip="Total instances that are optimized / not-optimized" name="Generated Clock Optimization">
+<data>182 / 0</data>
+<report_link name="more">
+<data>D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\synlog\report\ladder_fpga_fpga_mapper_generated_clk.rpt</data>
+</report_link>
+</parameter>
+<parameter tooltip="Total instances that are converted / not-converted" name="Gated Clock Conversion">
+<data>504 / 217</data>
+<report_link name="more">
+<data>D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\synlog\report\ladder_fpga_fpga_mapper_gated_clk.rpt</data>
+</report_link>
+</parameter>
+</report_table>

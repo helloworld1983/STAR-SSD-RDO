@@ -1,0 +1,6 @@
+source "/CAO/synplicity/fpga_902/lib/altera/quartus_cons.tcl"
+syn_create_and_open_prj complete_data_packer_altera
+source $::quartus(binpath)/prj_asd_import.tcl
+syn_create_and_open_csf complete_data_packer_altera
+syn_handle_cons complete_data_packer_altera
+syn_compile_quartus

@@ -1,0 +1,4 @@
+@N: MF249 |Running in 64-bit mode.
+@N: MF257 |Gated clock conversion enabled 
+@N: MF546 |Generated clock conversion enabled 
+@N: BN225 |Writing default property annotation file D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.sap.

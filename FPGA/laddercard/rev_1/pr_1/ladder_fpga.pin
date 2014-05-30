@@ -1,0 +1,554 @@
+ -- Copyright (C) 1991-2011 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --					Bank 1:		2.5V
+ --					Bank 2:		2.5V
+ --					Bank 3:		2.5V
+ --					Bank 4:		2.5V
+ --					Bank 5:		2.5V
+ --					Bank 6:		2.5V
+ --					Bank 7:		2.5V
+ --					Bank 8:		2.5V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --					It can also be used to report unused dedicated pins. The connection
+ --					on the board for unused dedicated pins depends on whether this will
+ --					be used in a future design. One example is device migration. When
+ --					using device migration, refer to the device pin-tables. If it is a
+ --					GND pin in the pin table or if it will not be used in a future design
+ --					for another purpose the it MUST be connected to GND. If it is an unused
+ --					dedicated pin, then it can be connected to a valid signal on the board
+ --					(low, high, or toggling) if that signal is required for a different
+ --					revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --					This pin should be connected to GND. It may also be connected  to a
+ --					valid signal  on the board  (low, high, or toggling)  if that signal
+ --					is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --           	    or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus II 64-Bit Version 11.1 Build 216 11/23/2011 Service Pack 1 SJ Full Version
+CHIP  "ladder_fpga"  ASSIGNED TO AN: EP3C16F484C6
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND                          : A1        : gnd    :                   :         :           :                
+VCCIO8                       : A2        : power  :                   : 2.5V    : 8         :                
+card_ser_num[0]              : A3        : input  : 2.5 V             :         : 8         : Y              
+card_ser_num[1]              : A4        : input  : 2.5 V             :         : 8         : Y              
+sc_tdo_hybride[0]            : A5        : input  : 2.5 V             :         : 8         : Y              
+usb_tx_full                  : A6        : input  : 2.5 V             :         : 8         : Y              
+usb_reset_n                  : A7        : bidir  : 2.5 V             :         : 8         : Y              
+sc_serdes_ou_connec          : A8        : input  : 2.5 V             :         : 8         : Y              
+data_serial[11]              : A9        : input  : 2.5 V             :         : 8         : Y              
+sc_tck_hybride[1]            : A10       : output : 2.5 V             :         : 8         : Y              
+reset_n                      : A11       : input  : 2.5 V             :         : 8         : Y              
+sc_tdo_hybride[3]            : A12       : input  : 2.5 V             :         : 7         : Y              
+sc_tck_hybride[3]            : A13       : output : 2.5 V             :         : 7         : Y              
+sc_tck_hybride[2]            : A14       : output : 2.5 V             :         : 7         : Y              
+ladder_fpga_rclk_16hybrides  : A15       : output : 2.5 V             :         : 7         : Y              
+tokenout_hybride[6]          : A16       : input  : 2.5 V             :         : 7         : Y              
+sc_tdi_hybride[9]            : A17       : output : 2.5 V             :         : 7         : Y              
+sc_tdo_hybride[2]            : A18       : input  : 2.5 V             :         : 7         : Y              
+sc_tms_hybride[7]            : A19       : output : 2.5 V             :         : 7         : Y              
+tokenin_hybride[8]           : A20       : output : 2.5 V             :         : 7         : Y              
+VCCIO7                       : A21       : power  :                   : 2.5V    : 7         :                
+GND                          : A22       : gnd    :                   :         :           :                
+ladder_fpga_sc_tdo           : AA1       : output : 2.5 V             :         : 2         : Y              
+pilotage_magnd_hybride[14]   : AA2       : output : 2.5 V             :         : 2         : Y              
+clock80mhz_adc               : AA3       : output : 2.5 V             :         : 3         : Y              
+pilotage_magnd_hybride[13]   : AA4       : output : 2.5 V             :         : 3         : Y              
+rdo_to_ladder[13]            : AA5       : input  : 2.5 V             :         : 3         : Y              
+VCCIO3                       : AA6       : power  :                   : 2.5V    : 3         :                
+pilotage_mvdd_hybride[15]    : AA7       : output : 2.5 V             :         : 3         : Y              
+data_serial[0]               : AA8       : input  : 2.5 V             :         : 3         : Y              
+data_serial[2]               : AA9       : input  : 2.5 V             :         : 3         : Y              
+ladder_to_rdo[16]            : AA10      : output : 2.5 V             :         : 3         : Y              
+testin_echelle               : AA11      : input  : 2.5 V             :         : 3         : Y              
+tokenout_hybride[15]         : AA12      : input  : 2.5 V             :         : 4         : Y              
+data_serial[14]              : AA13      : input  : 2.5 V             :         : 4         : Y              
+tokenin_hybride[15]          : AA14      : output : 2.5 V             :         : 4         : Y              
+tokenout_hybride[7]          : AA15      : input  : 2.5 V             :         : 4         : Y              
+pilotage_magnd_hybride[15]   : AA16      : output : 2.5 V             :         : 4         : Y              
+tokenout_hybride[9]          : AA17      : input  : 2.5 V             :         : 4         : Y              
+sc_tms_hybride[9]            : AA18      : output : 2.5 V             :         : 4         : Y              
+sc_tck_hybride[9]            : AA19      : output : 2.5 V             :         : 4         : Y              
+pilotage_magnd_hybride[11]   : AA20      : output : 2.5 V             :         : 4         : Y              
+usb_data[5]                  : AA21      : bidir  : 2.5 V             :         : 5         : Y              
+usb_write                    : AA22      : output : 2.5 V             :         : 5         : Y              
+GND                          : AB1       : gnd    :                   :         :           :                
+VCCIO3                       : AB2       : power  :                   : 2.5V    : 3         :                
+usb_data[1]                  : AB3       : bidir  : 2.5 V             :         : 3         : Y              
+pilotage_mvdd_hybride[11]    : AB4       : output : 2.5 V             :         : 3         : Y              
+rdo_to_ladder[15]            : AB5       : input  : 2.5 V             :         : 3         : Y              
+GND                          : AB6       : gnd    :                   :         :           :                
+sc_trstb_hybride[11]         : AB7       : output : 2.5 V             :         : 3         : Y              
+pilotage_mvdd_hybride[10]    : AB8       : output : 2.5 V             :         : 3         : Y              
+sc_tdi_hybride[5]            : AB9       : output : 2.5 V             :         : 3         : Y              
+data_serial[12]              : AB10      : input  : 2.5 V             :         : 3         : Y              
+ladder_fpga_sc_trstb         : AB11      : input  : 2.5 V             :         : 3         : Y              
+tokenin_echelle              : AB12      : input  : 2.5 V             :         : 4         : Y              
+data_serial[4]               : AB13      : input  : 2.5 V             :         : 4         : Y              
+usb_ready_n                  : AB14      : input  : 2.5 V             :         : 4         : Y              
+pilotage_mvdd_hybride[13]    : AB15      : output : 2.5 V             :         : 4         : Y              
+rdo_to_ladder[16]            : AB16      : input  : 2.5 V             :         : 4         : Y              
+sc_tdi_hybride[7]            : AB17      : output : 2.5 V             :         : 4         : Y              
+sc_tms_hybride[10]           : AB18      : output : 2.5 V             :         : 4         : Y              
+pilotage_magnd_hybride[10]   : AB19      : output : 2.5 V             :         : 4         : Y              
+pilotage_magnd_hybride[12]   : AB20      : output : 2.5 V             :         : 4         : Y              
+VCCIO4                       : AB21      : power  :                   : 2.5V    : 4         :                
+GND                          : AB22      : gnd    :                   :         :           :                
+roboclock_horloge40_phase[2] : B1        : output : 2.5 V             :         : 1         : Y              
+roboclock_horloge40_phase[3] : B2        : output : 2.5 V             :         : 1         : Y              
+debug_present_n              : B3        : input  : 2.5 V             :         : 8         : Y              
+adc_cs_n[0]                  : B4        : output : 2.5 V             :         : 8         : Y              
+adc_cs_n[4]                  : B5        : output : 2.5 V             :         : 8         : Y              
+tokenout_hybride[0]          : B6        : input  : 2.5 V             :         : 8         : Y              
+adc_cs_n[1]                  : B7        : output : 2.5 V             :         : 8         : Y              
+data_serial[10]              : B8        : input  : 2.5 V             :         : 8         : Y              
+ladder_to_rdo[0]             : B9        : output : 2.5 V             :         : 8         : Y              
+fibre_mod_sda                : B10       : input  : 2.5 V             :         : 8         : Y              
+sc_tdo_hybride[1]            : B11       : input  : 2.5 V             :         : 8         : Y              
+sc_tdo_hybride[5]            : B12       : input  : 2.5 V             :         : 7         : Y              
+pilotage_magnd_hybride[4]    : B13       : output : 2.5 V             :         : 7         : Y              
+pilotage_magnd_hybride[3]    : B14       : output : 2.5 V             :         : 7         : Y              
+pilotage_magnd_hybride[6]    : B15       : output : 2.5 V             :         : 7         : Y              
+sc_tms_hybride[8]            : B16       : output : 2.5 V             :         : 7         : Y              
+mux_ref_latchup[1]           : B17       : output : 2.5 V             :         : 7         : Y              
+latchup_hybride[6]           : B18       : input  : 2.5 V             :         : 7         : Y              
+tokenin_hybride[10]          : B19       : output : 2.5 V             :         : 7         : Y              
+sc_tdo_hybride[10]           : B20       : input  : 2.5 V             :         : 7         : Y              
+sc_tck_hybride[10]           : B21       : output : 2.5 V             :         : 6         : Y              
+sc_trstb_hybride[3]          : B22       : output : 2.5 V             :         : 6         : Y              
+roboclock_horloge40_phase[1] : C1        : output : 2.5 V             :         : 1         : Y              
+roboclock_horloge40_phase[0] : C2        : output : 2.5 V             :         : 1         : Y              
+usb_data[2]                  : C3        : bidir  : 2.5 V             :         : 8         : Y              
+ladder_to_rdo[21]            : C4        : output : 2.5 V             :         : 8         : Y              
+GND                          : C5        : gnd    :                   :         :           :                
+sc_tdi_hybride[14]           : C6        : output : 2.5 V             :         : 8         : Y              
+adc_cs_n[5]                  : C7        : output : 2.5 V             :         : 8         : Y              
+adc_cs_n[6]                  : C8        : output : 2.5 V             :         : 8         : Y              
+GND                          : C9        : gnd    :                   :         :           :                
+fpga_serdes_ou_connec        : C10       : input  : 2.5 V             :         : 8         : Y              
+GND                          : C11       : gnd    :                   :         :           :                
+GND                          : C12       : gnd    :                   :         :           :                
+sc_tck_hybride[6]            : C13       : output : 2.5 V             :         : 7         : Y              
+GND                          : C14       : gnd    :                   :         :           :                
+pilotage_magnd_hybride[2]    : C15       : output : 2.5 V             :         : 7         : Y              
+GND                          : C16       : gnd    :                   :         :           :                
+sc_tdi_hybride[11]           : C17       : output : 2.5 V             :         : 7         : Y              
+GND                          : C18       : gnd    :                   :         :           :                
+sc_trstb_hybride[1]          : C19       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C20       :        :                   :         : 6         :                
+pilotage_mvdd_hybride[12]    : C21       : output : 2.5 V             :         : 6         : Y              
+sc_tck_hybride[4]            : C22       : output : 2.5 V             :         : 6         : Y              
+~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D1        : input  : 2.5 V             :         : 1         : Y              
+ladder_to_rdo[20]            : D2        : output : 2.5 V             :         : 1         : Y              
+GND                          : D3        : gnd    :                   :         :           :                
+VCCIO1                       : D4        : power  :                   : 2.5V    : 1         :                
+VCCIO8                       : D5        : power  :                   : 2.5V    : 8         :                
+fibre_rx_loss                : D6        : input  : 2.5 V             :         : 8         : Y              
+GND                          : D7        : gnd    :                   :         :           :                
+GND                          : D8        : gnd    :                   :         :           :                
+VCCIO8                       : D9        : power  :                   : 2.5V    : 8         :                
+tokenin_hybride[0]           : D10       : output : 2.5 V             :         : 8         : Y              
+VCCIO8                       : D11       : power  :                   : 2.5V    : 8         :                
+VCCIO7                       : D12       : power  :                   : 2.5V    : 7         :                
+tokenin_hybride[1]           : D13       : output : 2.5 V             :         : 7         : Y              
+VCCIO7                       : D14       : power  :                   : 2.5V    : 7         :                
+pilotage_magnd_hybride[7]    : D15       : output : 2.5 V             :         : 7         : Y              
+VCCIO7                       : D16       : power  :                   : 2.5V    : 7         :                
+xtal_en                      : D17       : input  : 2.5 V             :         : 7         : Y              
+VCCIO7                       : D18       : power  :                   : 2.5V    : 7         :                
+sc_trstb_hybride[2]          : D19       : output : 2.5 V             :         : 7         : Y              
+sc_tdi_hybride[10]           : D20       : output : 2.5 V             :         : 6         : Y              
+sc_tdi_hybride[6]            : D21       : output : 2.5 V             :         : 6         : Y              
+sc_tck_hybride[0]            : D22       : output : 2.5 V             :         : 6         : Y              
+card_ser_num[2]              : E1        : input  : 2.5 V             :         : 1         : Y              
+~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : E2        : input  : 2.5 V             :         : 1         : Y              
+temperature                  : E3        : bidir  : 2.5 V             :         : 1         : Y              
+spare_switch                 : E4        : input  : 2.5 V             :         : 1         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E5        :        :                   :         : 8         :                
+ladder_to_rdo[6]             : E6        : output : 2.5 V             :         : 8         : Y              
+sc_tms_hybride[11]           : E7        : output : 2.5 V             :         : 8         : Y              
+VCCIO8                       : E8        : power  :                   : 2.5V    : 8         :                
+tokenout_hybride[5]          : E9        : input  : 2.5 V             :         : 8         : Y              
+sc_tms_hybride[15]           : E10       : output : 2.5 V             :         : 8         : Y              
+data_serial[3]               : E11       : input  : 2.5 V             :         : 7         : Y              
+tokenout_hybride[8]          : E12       : input  : 2.5 V             :         : 7         : Y              
+pilotage_mvdd_hybride[4]     : E13       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E14       :        :                   :         : 7         :                
+latchup_hybride[4]           : E15       : input  : 2.5 V             :         : 7         : Y              
+sc_tck_hybride[7]            : E16       : output : 2.5 V             :         : 7         : Y              
+VCCD_PLL2                    : E17       : power  :                   : 1.2V    :           :                
+GNDA2                        : E18       : gnd    :                   :         :           :                
+VCCIO6                       : E19       : power  :                   : 2.5V    : 6         :                
+GND                          : E20       : gnd    :                   :         :           :                
+tokenin_hybride[9]           : E21       : output : 2.5 V             :         : 6         : Y              
+tokenout_hybride[4]          : E22       : input  : 2.5 V             :         : 6         : Y              
+ladder_to_rdo[15]            : F1        : output : 2.5 V             :         : 1         : Y              
+ladder_to_rdo[3]             : F2        : output : 2.5 V             :         : 1         : Y              
+GND                          : F3        : gnd    :                   :         :           :                
+VCCIO1                       : F4        : power  :                   : 2.5V    : 1         :                
+GNDA3                        : F5        : gnd    :                   :         :           :                
+VCCD_PLL3                    : F6        : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F7        :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : F8        :        :                   :         : 8         :                
+tokenin_hybride[5]           : F9        : output : 2.5 V             :         : 8         : Y              
+tokenout_hybride[1]          : F10       : input  : 2.5 V             :         : 8         : Y              
+sc_tdi_hybride[1]            : F11       : output : 2.5 V             :         : 7         : Y              
+sc_trstb_hybride[0]          : F12       : output : 2.5 V             :         : 7         : Y              
+test_16hybrides              : F13       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F14       :        :                   :         : 7         :                
+latchup_hybride[9]           : F15       : input  : 2.5 V             :         : 7         : Y              
+sc_tms_hybride[2]            : F16       : output : 2.5 V             :         : 7         : Y              
+latchup_hybride[2]           : F17       : input  : 2.5 V             :         : 6         : Y              
+VCCA2                        : F18       : power  :                   : 2.5V    :           :                
+tokenin_hybride[12]          : F19       : output : 2.5 V             :         : 6         : Y              
+sc_tck_hybride[8]            : F20       : output : 2.5 V             :         : 6         : Y              
+pilotage_magnd_hybride[5]    : F21       : output : 2.5 V             :         : 6         : Y              
+tokenout_hybride[14]         : F22       : input  : 2.5 V             :         : 6         : Y              
+clock40mhz_xtal              : G1        : input  : 2.5 V             :         : 1         : Y              
+clock40mhz_fpga              : G2        : input  : 2.5 V             :         : 1         : Y              
+ladder_fpga_sc_tms           : G3        : input  : 2.5 V             :         : 1         : Y              
+fibre_mod_scl                : G4        : input  : 2.5 V             :         : 1         : Y              
+dbg_ladder_fpga_sc_bypass    : G5        : output : 2.5 V             :         : 1         : Y              
+VCCA3                        : G6        : power  :                   : 2.5V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G7        :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G8        :        :                   :         : 8         :                
+adc_cs_n[3]                  : G9        : output : 2.5 V             :         : 8         : Y              
+adc_cs_n[7]                  : G10       : output : 2.5 V             :         : 8         : Y              
+pilotage_mvdd_hybride[3]     : G11       : output : 2.5 V             :         : 8         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G12       :        :                   :         : 7         :                
+pilotage_magnd_hybride[1]    : G13       : output : 2.5 V             :         : 7         : Y              
+roboclock_adc_phase[1]       : G14       : output : 2.5 V             :         : 7         : Y              
+roboclock_adc_phase[0]       : G15       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G16       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G17       :        :                   :         : 6         :                
+sc_tdo_hybride[8]            : G18       : input  : 2.5 V             :         : 6         : Y              
+VCCIO6                       : G19       : power  :                   : 2.5V    : 6         :                
+GND                          : G20       : gnd    :                   :         :           :                
+sc_tdo_hybride[4]            : G21       : input  : 2.5 V             :         : 6         : Y              
+data_serial[7]               : G22       : input  : 2.5 V             :         : 6         : Y              
+card_ser_num[3]              : H1        : input  : 2.5 V             :         : 1         : Y              
+fibre_tx_fault               : H2        : input  : 2.5 V             :         : 1         : Y              
+GND                          : H3        : gnd    :                   :         :           :                
+VCCIO1                       : H4        : power  :                   : 2.5V    : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H5        :        :                   :         : 1         :                
+latchup_hybride[10]          : H6        : input  : 2.5 V             :         : 1         : Y              
+sc_tck_hybride[13]           : H7        : output : 2.5 V             :         : 1         : Y              
+GND                          : H8        : gnd    :                   :         :           :                
+adc_cs_n[2]                  : H9        : output : 2.5 V             :         : 8         : Y              
+ladder_to_rdo[14]            : H10       : output : 2.5 V             :         : 8         : Y              
+latchup_hybride[5]           : H11       : input  : 2.5 V             :         : 8         : Y              
+tokenin_hybride[2]           : H12       : output : 2.5 V             :         : 7         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H13       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H14       :        :                   :         : 7         :                
+sc_tdo_hybride[7]            : H15       : input  : 2.5 V             :         : 7         : Y              
+sc_tdi_hybride[2]            : H16       : output : 2.5 V             :         : 6         : Y              
+tokenin_hybride[6]           : H17       : output : 2.5 V             :         : 6         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H18       :        :                   :         : 6         :                
+sc_tms_hybride[6]            : H19       : output : 2.5 V             :         : 6         : Y              
+sc_trstb_hybride[12]         : H20       : output : 2.5 V             :         : 6         : Y              
+sc_tdo_hybride[9]            : H21       : input  : 2.5 V             :         : 6         : Y              
+sc_tck_hybride[5]            : H22       : output : 2.5 V             :         : 6         : Y              
+ladder_to_rdo[13]            : J1        : output : 2.5 V             :         : 1         : Y              
+rdo_to_ladder[10]            : J2        : input  : 2.5 V             :         : 1         : Y              
+ladder_to_rdo[11]            : J3        : output : 2.5 V             :         : 1         : Y              
+ladder_to_rdo[17]            : J4        : output : 2.5 V             :         : 1         : Y              
+GND                          : J5        : gnd    :                   :         :           :                
+sc_trstb_hybride[15]         : J6        : output : 2.5 V             :         : 1         : Y              
+pilotage_mvdd_hybride[1]     : J7        : output : 2.5 V             :         : 1         : Y              
+VCCINT                       : J8        : power  :                   : 1.2V    :           :                
+GND                          : J9        : gnd    :                   :         :           :                
+VCCINT                       : J10       : power  :                   : 1.2V    :           :                
+VCCINT                       : J11       : power  :                   : 1.2V    :           :                
+VCCINT                       : J12       : power  :                   : 1.2V    :           :                
+VCCINT                       : J13       : power  :                   : 1.2V    :           :                
+VCCINT                       : J14       : power  :                   : 1.2V    :           :                
+tokenin_hybride[3]           : J15       : output : 2.5 V             :         : 6         : Y              
+sc_tms_hybride[3]            : J16       : output : 2.5 V             :         : 6         : Y              
+tokenin_hybride[4]           : J17       : output : 2.5 V             :         : 6         : Y              
+tokenin_hybride[7]           : J18       : output : 2.5 V             :         : 6         : Y              
+GND                          : J19       : gnd    :                   :         :           :                
+VCCIO6                       : J20       : power  :                   : 2.5V    : 6         :                
+pilotage_mvdd_hybride[2]     : J21       : output : 2.5 V             :         : 6         : Y              
+pilotage_mvdd_hybride[5]     : J22       : output : 2.5 V             :         : 6         : Y              
+~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : K1        : input  : 2.5 V             :         : 1         : Y              
+~ALTERA_DCLK~                : K2        : output : 2.5 V             :         : 1         : Y              
+GND                          : K3        : gnd    :                   :         :           :                
+VCCIO1                       : K4        : power  :                   : 2.5V    : 1         :                
+nCONFIG                      : K5        :        :                   :         : 1         :                
+nSTATUS                      : K6        :        :                   :         : 1         :                
+pilotage_mvdd_hybride[0]     : K7        : output : 2.5 V             :         : 1         : Y              
+pilotage_magnd_hybride[0]    : K8        : output : 2.5 V             :         : 1         : Y              
+VCCINT                       : K9        : power  :                   : 1.2V    :           :                
+GND                          : K10       : gnd    :                   :         :           :                
+GND                          : K11       : gnd    :                   :         :           :                
+GND                          : K12       : gnd    :                   :         :           :                
+GND                          : K13       : gnd    :                   :         :           :                
+VCCINT                       : K14       : power  :                   : 1.2V    :           :                
+roboclock_adc_phase[3]       : K15       : output : 2.5 V             :         : 6         : Y              
+sc_tms_hybride[4]            : K16       : output : 2.5 V             :         : 6         : Y              
+sc_tdi_hybride[3]            : K17       : output : 2.5 V             :         : 6         : Y              
+hold_16hybrides              : K18       : output : 2.5 V             :         : 6         : Y              
+roboclock_adc_phase[2]       : K19       : output : 2.5 V             :         : 6         : Y              
+MSEL3                        : K20       :        :                   :         : 6         :                
+latchup_hybride[7]           : K21       : input  : 2.5 V             :         : 6         : Y              
+~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN : K22       : output : 2.5 V             :         : 6         : Y              
+TMS                          : L1        : input  :                   :         : 1         :                
+TCK                          : L2        : input  :                   :         : 1         :                
+nCE                          : L3        :        :                   :         : 1         :                
+TDO                          : L4        : output :                   :         : 1         :                
+TDI                          : L5        : input  :                   :         : 1         :                
+sc_trstb_hybride[14]         : L6        : output : 2.5 V             :         : 2         : Y              
+card_ser_num[4]              : L7        : input  : 2.5 V             :         : 2         : Y              
+tokenin_hybride[14]          : L8        : output : 2.5 V             :         : 1         : Y              
+VCCINT                       : L9        : power  :                   : 1.2V    :           :                
+GND                          : L10       : gnd    :                   :         :           :                
+GND                          : L11       : gnd    :                   :         :           :                
+GND                          : L12       : gnd    :                   :         :           :                
+GND                          : L13       : gnd    :                   :         :           :                
+VCCINT                       : L14       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L15       :        :                   :         : 6         :                
+pilotage_magnd_hybride[8]    : L16       : output : 2.5 V             :         : 6         : Y              
+MSEL2                        : L17       :        :                   :         : 6         :                
+MSEL1                        : L18       :        :                   :         : 6         :                
+VCCIO6                       : L19       : power  :                   : 2.5V    : 6         :                
+GND                          : L20       : gnd    :                   :         :           :                
+crc_error                    : L21       : bidir  : 2.5 V             :         : 6         : Y              
+pilotage_mvdd_hybride[7]     : L22       : output : 2.5 V             :         : 6         : Y              
+ladder_to_rdo[10]            : M1        : output : 2.5 V             :         : 2         : Y              
+data_serial[8]               : M2        : input  : 2.5 V             :         : 2         : Y              
+ladder_to_rdo[19]            : M3        : output : 2.5 V             :         : 2         : Y              
+sc_tdi_hybride[0]            : M4        : output : 2.5 V             :         : 2         : Y              
+ladder_to_rdo[18]            : M5        : output : 2.5 V             :         : 2         : Y              
+data_serial[1]               : M6        : input  : 2.5 V             :         : 2         : Y              
+usb_data[4]                  : M7        : bidir  : 2.5 V             :         : 2         : Y              
+ladder_to_rdo[9]             : M8        : output : 2.5 V             :         : 2         : Y              
+VCCINT                       : M9        : power  :                   : 1.2V    :           :                
+GND                          : M10       : gnd    :                   :         :           :                
+GND                          : M11       : gnd    :                   :         :           :                
+GND                          : M12       : gnd    :                   :         :           :                
+GND                          : M13       : gnd    :                   :         :           :                
+VCCINT                       : M14       : power  :                   : 1.2V    :           :                
+latchup_hybride[13]          : M15       : input  : 2.5 V             :         : 5         : Y              
+tokenin_hybride[11]          : M16       : output : 2.5 V             :         : 5         : Y              
+MSEL0                        : M17       :        :                   :         : 6         :                
+CONF_DONE                    : M18       :        :                   :         : 6         :                
+sc_trstb_hybride[6]          : M19       : output : 2.5 V             :         : 5         : Y              
+sc_tdi_hybride[4]            : M20       : output : 2.5 V             :         : 5         : Y              
+sc_trstb_hybride[9]          : M21       : output : 2.5 V             :         : 5         : Y              
+usb_rx_empty                 : M22       : input  : 2.5 V             :         : 5         : Y              
+ladder_to_rdo[8]             : N1        : output : 2.5 V             :         : 2         : Y              
+ladder_to_rdo[5]             : N2        : output : 2.5 V             :         : 2         : Y              
+GND                          : N3        : gnd    :                   :         :           :                
+VCCIO2                       : N4        : power  :                   : 2.5V    : 2         :                
+data_serial[9]               : N5        : input  : 2.5 V             :         : 2         : Y              
+tokenout_hybride[3]          : N6        : input  : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : N7        :        :                   :         : 2         :                
+usb_data[7]                  : N8        : bidir  : 2.5 V             :         : 2         : Y              
+VCCINT                       : N9        : power  :                   : 1.2V    :           :                
+GND                          : N10       : gnd    :                   :         :           :                
+GND                          : N11       : gnd    :                   :         :           :                
+GND                          : N12       : gnd    :                   :         :           :                
+GND                          : N13       : gnd    :                   :         :           :                
+tokenin_hybride[13]          : N14       : output : 2.5 V             :         : 5         : Y              
+sc_trstb_hybride[8]          : N15       : output : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : N16       :        :                   :         : 5         :                
+rdo_to_ladder[14]            : N17       : input  : 2.5 V             :         : 5         : Y              
+tokenout_hybride[10]         : N18       : input  : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : N19       :        :                   :         : 5         :                
+sc_tdi_hybride[8]            : N20       : output : 2.5 V             :         : 5         : Y              
+tokenout_hybride[2]          : N21       : input  : 2.5 V             :         : 5         : Y              
+sc_tdi_hybride[12]           : N22       : output : 2.5 V             :         : 5         : Y              
+usb_data[0]                  : P1        : bidir  : 2.5 V             :         : 2         : Y              
+ladder_addr[0]               : P2        : input  : 2.5 V             :         : 2         : Y              
+rdo_to_ladder[17]            : P3        : input  : 2.5 V             :         : 2         : Y              
+rdo_to_ladder[12]            : P4        : input  : 2.5 V             :         : 2         : Y              
+sc_tms_hybride[1]            : P5        : output : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P6        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P7        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P8        :        :                   :         : 2         :                
+VCCINT                       : P9        : power  :                   : 1.2V    :           :                
+VCCINT                       : P10       : power  :                   : 1.2V    :           :                
+VCCINT                       : P11       : power  :                   : 1.2V    :           :                
+VCCINT                       : P12       : power  :                   : 1.2V    :           :                
+VCCINT                       : P13       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P14       :        :                   :         : 5         :                
+sc_tdo_hybride[13]           : P15       : input  : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : P16       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : P17       :        :                   :         : 5         :                
+VCCIO5                       : P18       : power  :                   : 2.5V    : 5         :                
+GND                          : P19       : gnd    :                   :         :           :                
+data_serial[15]              : P20       : input  : 2.5 V             :         : 5         : Y              
+sc_trstb_hybride[13]         : P21       : output : 2.5 V             :         : 5         : Y              
+sc_tck_hybride[12]           : P22       : output : 2.5 V             :         : 5         : Y              
+ladder_addr[1]               : R1        : input  : 2.5 V             :         : 2         : Y              
+ladder_to_rdo[2]             : R2        : output : 2.5 V             :         : 2         : Y              
+GND                          : R3        : gnd    :                   :         :           :                
+VCCIO2                       : R4        : power  :                   : 2.5V    : 2         :                
+sc_tms_hybride[5]            : R5        : output : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R6        :        :                   :         : 2         :                
+ladder_to_rdo[4]             : R7        : output : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R8        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R9        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : R10       :        :                   :         : 3         :                
+sc_tdi_hybride[15]           : R11       : output : 2.5 V             :         : 3         : Y              
+sc_tdo_hybride[12]           : R12       : input  : 2.5 V             :         : 3         : Y              
+sc_tdo_hybride[14]           : R13       : input  : 2.5 V             :         : 4         : Y              
+sc_tck_hybride[11]           : R14       : output : 2.5 V             :         : 4         : Y              
+sc_trstb_hybride[10]         : R15       : output : 2.5 V             :         : 4         : Y              
+sc_trstb_hybride[7]          : R16       : output : 2.5 V             :         : 4         : Y              
+sc_tdi_hybride[13]           : R17       : output : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R18       :        :                   :         : 5         :                
+latchup_hybride[1]           : R19       : input  : 2.5 V             :         : 5         : Y              
+dbg_ladder_fpga_adc_bit_count_cs_integer[0] : R20       : output : 2.5 V             :         : 5         : Y              
+tokenout_hybride[13]         : R21       : input  : 2.5 V             :         : 5         : Y              
+data_serial[6]               : R22       : input  : 2.5 V             :         : 5         : Y              
+rdo_to_ladder[18]            : T1        : input  : 2.5 V             :         : 2         : Y              
+ladder_fpga_sc_tck           : T2        : input  : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T3        :        :                   :         : 2         :                
+usb_read_n                   : T4        : output : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T5        :        :                   :         : 2         :                
+VCCA1                        : T6        : power  :                   : 2.5V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T7        :        :                   :         : 2         :                
+usb_data[3]                  : T8        : bidir  : 2.5 V             :         : 3         : Y              
+sc_tms_hybride[0]            : T9        : output : 2.5 V             :         : 3         : Y              
+level_shifter_dac_sck        : T10       : output : 2.5 V             :         : 3         : Y              
+sc_tck_hybride[15]           : T11       : output : 2.5 V             :         : 3         : Y              
+sc_tms_hybride[14]           : T12       : output : 2.5 V             :         : 4         : Y              
+VCCINT                       : T13       : power  :                   : 1.2V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : T14       :        :                   :         : 4         :                
+latchup_hybride[0]           : T15       : input  : 2.5 V             :         : 4         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T16       :        :                   :         : 4         :                
+roboclock_adc_phase[6]       : T17       : output : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T18       :        :                   :         : 5         :                
+VCCIO5                       : T19       : power  :                   : 2.5V    : 5         :                
+GND                          : T20       : gnd    :                   :         :           :                
+sc_tdo_hybride[6]            : T21       : input  : 2.5 V             :         : 5         : Y              
+GND+                         : T22       :        :                   :         : 5         :                
+ladder_to_rdo[1]             : U1        : output : 2.5 V             :         : 2         : Y              
+ladder_addr[2]               : U2        : input  : 2.5 V             :         : 2         : Y              
+GND                          : U3        : gnd    :                   :         :           :                
+VCCIO2                       : U4        : power  :                   : 2.5V    : 2         :                
+GNDA1                        : U5        : gnd    :                   :         :           :                
+VCCD_PLL1                    : U6        : power  :                   : 1.2V    :           :                
+latchup_hybride[8]           : U7        : input  : 2.5 V             :         : 3         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : U8        :        :                   :         : 3         :                
+level_shifter_dac_ld_cs_n    : U9        : output : 2.5 V             :         : 3         : Y              
+dbg_ladder_fpga_adc_bit_count_cs_integer[3] : U10       : output : 2.5 V             :         : 3         : Y              
+mux_ref_latchup[0]           : U11       : output : 2.5 V             :         : 3         : Y              
+sc_tdo_hybride[15]           : U12       : input  : 2.5 V             :         : 4         : Y              
+sc_trstb_hybride[5]          : U13       : output : 2.5 V             :         : 4         : Y              
+rdo_to_ladder[20]            : U14       : input  : 2.5 V             :         : 4         : Y              
+roboclock_adc_phase[5]       : U15       : output : 2.5 V             :         : 4         : Y              
+VCCINT                       : U16       : power  :                   : 1.2V    :           :                
+VCCINT                       : U17       : power  :                   : 1.2V    :           :                
+VCCA4                        : U18       : power  :                   : 2.5V    :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : U19       :        :                   :         : 5         :                
+tokenout_hybride[11]         : U20       : input  : 2.5 V             :         : 5         : Y              
+pilotage_mvdd_hybride[8]     : U21       : output : 2.5 V             :         : 5         : Y              
+pilotage_mvdd_hybride[6]     : U22       : output : 2.5 V             :         : 5         : Y              
+card_ser_num[5]              : V1        : input  : 2.5 V             :         : 2         : Y              
+des_lock                     : V2        : input  : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V3        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V4        :        :                   :         : 2         :                
+rdo_to_ladder[19]            : V5        : input  : 2.5 V             :         : 3         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V6        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : V7        :        :                   :         : 3         :                
+holdin_echelle               : V8        : input  : 2.5 V             :         : 3         : Y              
+level_shifter_dac_sdi        : V9        : output : 2.5 V             :         : 3         : Y              
+dbg_ladder_fpga_adc_bit_count_cs_integer[1] : V10       : output : 2.5 V             :         : 3         : Y              
+data_serial[13]              : V11       : input  : 2.5 V             :         : 3         : Y              
+data_serial[5]               : V12       : input  : 2.5 V             :         : 4         : Y              
+latchup_hybride[11]          : V13       : input  : 2.5 V             :         : 4         : Y              
+sc_tdo_hybride[11]           : V14       : input  : 2.5 V             :         : 4         : Y              
+roboclock_adc_phase[7]       : V15       : output : 2.5 V             :         : 4         : Y              
+rdo_to_ladder[11]            : V16       : input  : 2.5 V             :         : 4         : Y              
+VCCD_PLL4                    : V17       : power  :                   : 1.2V    :           :                
+GNDA4                        : V18       : gnd    :                   :         :           :                
+VCCIO5                       : V19       : power  :                   : 2.5V    : 5         :                
+GND                          : V20       : gnd    :                   :         :           :                
+pilotage_mvdd_hybride[14]    : V21       : output : 2.5 V             :         : 5         : Y              
+pilotage_magnd_hybride[9]    : V22       : output : 2.5 V             :         : 5         : Y              
+fibre_mod_absent             : W1        : input  : 2.5 V             :         : 2         : Y              
+des_bist_pass                : W2        : input  : 2.5 V             :         : 2         : Y              
+GND                          : W3        : gnd    :                   :         :           :                
+VCCIO2                       : W4        : power  :                   : 2.5V    : 2         :                
+VCCIO3                       : W5        : power  :                   : 2.5V    : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W6        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W7        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : W8        :        :                   :         : 3         :                
+VCCIO3                       : W9        : power  :                   : 2.5V    : 3         :                
+sc_tms_hybride[12]           : W10       : output : 2.5 V             :         : 3         : Y              
+VCCIO3                       : W11       : power  :                   : 2.5V    : 3         :                
+VCCIO4                       : W12       : power  :                   : 2.5V    : 4         :                
+ladder_to_rdo[7]             : W13       : output : 2.5 V             :         : 4         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W14       :        :                   :         : 4         :                
+roboclock_adc_phase[4]       : W15       : output : 2.5 V             :         : 4         : Y              
+VCCIO4                       : W16       : power  :                   : 2.5V    : 4         :                
+sc_tms_hybride[13]           : W17       : output : 2.5 V             :         : 4         : Y              
+VCCIO4                       : W18       : power  :                   : 2.5V    : 4         :                
+latchup_hybride[3]           : W19       : input  : 2.5 V             :         : 5         : Y              
+sc_trstb_hybride[4]          : W20       : output : 2.5 V             :         : 5         : Y              
+latchup_hybride[15]          : W21       : input  : 2.5 V             :         : 5         : Y              
+latchup_hybride[12]          : W22       : input  : 2.5 V             :         : 5         : Y              
+fibre_tx_disable             : Y1        : output : 2.5 V             :         : 2         : Y              
+usb_present                  : Y2        : input  : 2.5 V             :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y3        :        :                   :         : 3         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y4        :        :                   :         : 3         :                
+GND                          : Y5        : gnd    :                   :         :           :                
+usb_data[6]                  : Y6        : bidir  : 2.5 V             :         : 3         : Y              
+ladder_fpga_sc_tdi           : Y7        : input  : 2.5 V             :         : 3         : Y              
+dbg_ladder_fpga_adc_bit_count_cs_integer[2] : Y8        : output : 2.5 V             :         : 3         : Y              
+GND                          : Y9        : gnd    :                   :         :           :                
+ladder_to_rdo[12]            : Y10       : output : 2.5 V             :         : 3         : Y              
+GND                          : Y11       : gnd    :                   :         :           :                
+GND                          : Y12       : gnd    :                   :         :           :                
+sc_tck_hybride[14]           : Y13       : output : 2.5 V             :         : 4         : Y              
+VCCIO4                       : Y14       : power  :                   : 2.5V    : 4         :                
+GND                          : Y15       : gnd    :                   :         :           :                
+GND                          : Y16       : gnd    :                   :         :           :                
+tokenout_hybride[12]         : Y17       : input  : 2.5 V             :         : 4         : Y              
+GND                          : Y18       : gnd    :                   :         :           :                
+VCCIO5                       : Y19       : power  :                   : 2.5V    : 5         :                
+GND                          : Y20       : gnd    :                   :         :           :                
+latchup_hybride[14]          : Y21       : input  : 2.5 V             :         : 5         : Y              
+pilotage_mvdd_hybride[9]     : Y22       : output : 2.5 V             :         : 5         : Y              

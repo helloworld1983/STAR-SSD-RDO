@@ -1,0 +1,192 @@
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":136:7:136:17|Synthesizing work.ladder_fpga.ladder_fpga_arch 
+@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":232:30:232:31|Using onehot encoding for type state_event_controller (st_ev_ctrl_wait4hold="100000")
+@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":236:31:236:32|Using onehot encoding for type state_level_shifter_dac (st_lev_shft_pre_cs="1000000")
+@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":240:26:240:27|Using onehot encoding for type acquire_state_type (acq_idle="10000000000000000000")
+@W: CD609 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1334:24:1334:41|Index value 0 to 16 could be out of prefix range 0 to 15 
+@W: CD604 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1565:6:1565:19|OTHERS clause is not synthesized 
+@W: CD604 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1629:6:1629:19|OTHERS clause is not synthesized 
+@W: CD604 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":2270:6:2270:19|OTHERS clause is not synthesized 
+@W: CD638 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":589:7:589:35|Signal ladder_fpga_fifo8_to_usb_wr_d is undriven 
+@W: CD638 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":590:7:590:36|Signal ladder_fpga_fifo8_to_usb_wr_dd is undriven 
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo8x256_cycloneIII.vhd":42:7:42:36|Synthesizing work.mega_func_fifo8x256_cycloneiii.syn 
+Post processing for work.mega_func_fifo8x256_cycloneiii.syn
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_fifo21x32_cycloneIII.vhd":42:7:42:36|Synthesizing work.mega_func_fifo21x32_cycloneiii.syn 
+Post processing for work.mega_func_fifo21x32_cycloneiii.syn
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":7:7:7:24|Synthesizing work.mesure_temperature.structurel 
+@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":21:19:21:20|Using onehot encoding for type state_type (rst_max6575="1000000000000")
+Post processing for work.mesure_temperature.structurel
+@W: CL169 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Pruning register temperature_out_cl  
+@A: CL282 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Feedback mux created for signal temperature3[11:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Feedback mux created for signal temperature2[11:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Feedback mux created for signal temperature1[11:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Feedback mux created for signal temperature0[11:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Feedback mux created for signal temperature_in_sync -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Feedback mux created for signal sTemp_in -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Optimizing register bit temperature_out to a constant 0
+@W: CL169 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Pruning register temperature_out  
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\shiftreg.vhd":42:7:42:14|Synthesizing work.shiftreg.syn 
+Post processing for work.shiftreg.syn
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\gestion_hybrides_v4.vhd":37:7:37:25|Synthesizing work.gestion_hybrides_v4.gestion_hybrides_v4_arch 
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\memoire_tokenout_echelle.vhd":22:7:22:30|Synthesizing work.memoire_tokenout_echelle.bascule_16_rs_asynchrone 
+Post processing for work.memoire_tokenout_echelle.bascule_16_rs_asynchrone
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\signaux_hybrides.vhd":54:7:54:22|Synthesizing work.signaux_hybrides.signaux_hybrides_arch 
+Post processing for work.signaux_hybrides.signaux_hybrides_arch
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\memoire_latchup_general.vhd":21:7:21:29|Synthesizing work.memoire_latchup_general.a 
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\memoire_latchup.vhd":39:7:39:21|Synthesizing work.memoire_latchup.pilotage_alim 
+Post processing for work.memoire_latchup.pilotage_alim
+Post processing for work.memoire_latchup_general.a
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\filtre_latchup.vhd":42:7:42:20|Synthesizing work.filtre_latchup.ignore_courant_de_demarrage 
+Post processing for work.filtre_latchup.ignore_courant_de_demarrage
+Post processing for work.gestion_hybrides_v4.gestion_hybrides_v4_arch
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_cell.vhd":26:7:26:13|Synthesizing work.dr_cell.behavioral 
+Post processing for work.dr_cell.behavioral
+Post processing for work.dr_x_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+Post processing for work.dr_x_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+Post processing for work.dr_x_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_avec_pulse.vhd":25:7:25:26|Synthesizing work.dr_x_bits_avec_pulse.structural 
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_cell_avec_pulse.vhd":23:7:23:24|Synthesizing work.dr_cell_avec_pulse.behavioral 
+Post processing for work.dr_cell_avec_pulse.behavioral
+Post processing for work.dr_x_bits_avec_pulse.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mux_2_1.vhd":16:7:16:13|Synthesizing work.mux_2_1.behavioral 
+Post processing for work.mux_2_1.behavioral
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mux_tdo.vhd":31:7:31:13|Synthesizing work.mux_tdo.behavioral 
+Post processing for work.mux_tdo.behavioral
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
+Post processing for work.dr_x_bits_init.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
+Post processing for work.dr_x_bits_init.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits_init.vhd":27:7:27:20|Synthesizing work.dr_x_bits_init.structural 
+Post processing for work.dr_x_bits_init.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+Post processing for work.dr_x_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+Post processing for work.dr_x_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\dr_x_bits.vhd":25:7:25:15|Synthesizing work.dr_x_bits.structural 
+Post processing for work.dr_x_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ir_5_bits.vhd":27:7:27:15|Synthesizing work.ir_5_bits.structural 
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ir_cell.vhd":24:7:24:13|Synthesizing work.ir_cell.behavioral 
+Post processing for work.ir_cell.behavioral
+Post processing for work.ir_5_bits.structural
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":38:7:38:17|Synthesizing work.tap_control.a 
+@N: CD231 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":61:13:61:14|Using onehot encoding for type state (test_logic_reset="1000000000000000")
+@W: CD604 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":200:1:200:14|OTHERS clause is not synthesized 
+Post processing for work.tap_control.a
+@N: CD630 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mega_func_pll_40MHz_switchover_cycloneIII.vhd":42:7:42:47|Synthesizing work.mega_func_pll_40mhz_switchover_cycloneiii.syn 
+Post processing for work.mega_func_pll_40mhz_switchover_cycloneiii.syn
+Post processing for work.ladder_fpga.ladder_fpga_arch
+@W: CL169 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1640:2:1640:3|Pruning register ladder_fpga_flux_compactor_status(4 downto 0)  
+@W: CL271 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Pruning bits 9 to 8 of acquire_adcs.data_to_send_1(9 downto 0) -- not in use ... 
+@W: CL271 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Pruning bits 7 to 4 of switch_val(7 downto 0) -- not in use ... 
+@W: CL111 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|All reachable assignments to ladder_fpga_sc_reg_debug(0) assign '0'; register removed by optimization
+@W: CL111 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|All reachable assignments to ladder_fpga_sc_reg_debug(1) assign '0'; register removed by optimization
+@W: CL111 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|All reachable assignments to ladder_fpga_sc_reg_debug(2) assign '0'; register removed by optimization
+@W: CL111 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|All reachable assignments to ladder_fpga_sc_reg_debug(3) assign '0'; register removed by optimization
+@W: CL111 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|All reachable assignments to ladder_fpga_sc_reg_debug(4) assign '0'; register removed by optimization
+@W: CL111 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|All reachable assignments to ladder_fpga_sc_reg_debug(5) assign '0'; register removed by optimization
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(6) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(7) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(8) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(9) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(10) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(11) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(12) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(13) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(14) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(15) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(16) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(17) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(18) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(19) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(20) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit ladder_fpga_sc_reg_debug(21) to a constant 0
+@W: CL169 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Pruning register ladder_fpga_sc_reg_debug(21 downto 6)  
+@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":75:4:75:5|Trying to extract state machine for register etat_present
+Extracted state machine for register etat_present
+State machine has 16 reachable states with original encodings of:
+   0000000000000001
+   0000000000000010
+   0000000000000100
+   0000000000001000
+   0000000000010000
+   0000000000100000
+   0000000001000000
+   0000000010000000
+   0000000100000000
+   0000001000000000
+   0000010000000000
+   0000100000000000
+   0001000000000000
+   0010000000000000
+   0100000000000000
+   1000000000000000
+@W: CL249 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\tap_control.vhd":75:4:75:5|Initial value is not supported on state machine etat_present
+@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 13 reachable states with original encodings of:
+   0000000000001
+   0000000000010
+   0000000000100
+   0000000001000
+   0000000010000
+   0000000100000
+   0000001000000
+   0000010000000
+   0000100000000
+   0001000000000
+   0010000000000
+   0100000000000
+   1000000000000
+@W: CL249 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Initial value is not supported on state machine state
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit acquire_adcs.n_bytes(2) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit acquire_adcs.n_convert(2) to a constant 0
+@W: CL190 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Optimizing register bit acquire_adcs.n_adc(4) to a constant 0
+@W: CL260 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Pruning register bit 4 of n_adc(4 downto 0)  
+@W: CL260 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Pruning register bit 2 of n_convert(2 downto 0)  
+@W: CL260 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Pruning register bit 2 of n_bytes(2 downto 0)  
+@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":2213:2:2213:3|Trying to extract state machine for register ladder_fpga_level_shifter_dac_state
+Extracted state machine for register ladder_fpga_level_shifter_dac_state
+State machine has 7 reachable states with original encodings of:
+   0000001
+   0000010
+   0000100
+   0001000
+   0010000
+   0100000
+   1000000
+@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1579:2:1579:3|Trying to extract state machine for register ladder_fpga_event_controller_state
+Extracted state machine for register ladder_fpga_event_controller_state
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N: CL201 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1204:2:1204:3|Trying to extract state machine for register acquire_state
+Extracted state machine for register acquire_state
+State machine has 16 reachable states with original encodings of:
+   00000000000000000001
+   00000000000000000010
+   00000000000000001000
+   00000000000000010000
+   00000000000000100000
+   00000000000001000000
+   00000000000010000000
+   00000000010000000000
+   00000000100000000000
+   00000001000000000000
+   00000010000000000000
+   00000100000000000000
+   00001000000000000000
+   00010000000000000000
+   01000000000000000000
+   10000000000000000000
+@W: CL159 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":160:1:160:13|Input rdo_to_ladder is unused
+@W: CL159 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":174:4:174:19|Input fibre_mod_absent is unused
+@W: CL158 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":175:4:175:16|Inout fibre_mod_scl is unused
+@W: CL158 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":176:4:176:16|Inout fibre_mod_sda is unused
+@W: CL159 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":177:4:177:16|Input fibre_rx_loss is unused
+@W: CL159 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":179:4:179:17|Input fibre_tx_fault is unused

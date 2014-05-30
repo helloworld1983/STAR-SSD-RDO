@@ -1,0 +1,375 @@
+
+
+#################### START OF GENERATED CLOCK OPTIMIZATION REPORT ####################[
+
+======================================================================================
+                                Instance:Pin        Generated Clock Optimization Status
+======================================================================================
+comp_gestion_hybrides_v4.control_alim.gen.15.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.14.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.13.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.12.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.11.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.10.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.9.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.8.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.7.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.6.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.5.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.4.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.3.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.2.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.1.latch_n.pilotage_n:CLK            Done
+comp_gestion_hybrides_v4.control_alim.gen.0.latch_n.pilotage_n:CLK            Done
+ COMP_ladder_fpga_SC_BYPASS_REG.scan_out:CLK            Not Done
+COM_LADDER_SC_INSTRUC_REG.a.4.b.c.scan_out:CLK            Not Done
+                ladder_fpga_nbr_token[9]:CLK            Done
+                ladder_fpga_nbr_token[8]:CLK            Done
+                ladder_fpga_nbr_token[7]:CLK            Done
+                ladder_fpga_nbr_token[6]:CLK            Done
+                ladder_fpga_nbr_token[5]:CLK            Done
+                ladder_fpga_nbr_token[4]:CLK            Done
+                ladder_fpga_nbr_token[3]:CLK            Done
+                ladder_fpga_nbr_token[2]:CLK            Done
+                ladder_fpga_nbr_token[1]:CLK            Done
+               ladder_fpga_nbr_token[11]:CLK            Done
+               ladder_fpga_nbr_token[10]:CLK            Done
+                ladder_fpga_nbr_token[0]:CLK            Done
+                     tst_tokenin_echelle:CLK            Not Done
+                ladder_fpga_nbr_abort[9]:CLK            Done
+                ladder_fpga_nbr_abort[8]:CLK            Done
+                ladder_fpga_nbr_abort[7]:CLK            Done
+                ladder_fpga_nbr_abort[6]:CLK            Done
+                ladder_fpga_nbr_abort[5]:CLK            Done
+                ladder_fpga_nbr_abort[4]:CLK            Done
+                ladder_fpga_nbr_abort[3]:CLK            Done
+                ladder_fpga_nbr_abort[2]:CLK            Done
+                ladder_fpga_nbr_abort[1]:CLK            Done
+               ladder_fpga_nbr_abort[11]:CLK            Done
+               ladder_fpga_nbr_abort[10]:CLK            Done
+                ladder_fpga_nbr_abort[0]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state_illegalpipe2:CLK            Done
+comp_mesure_temperature.compte3.compte[0]:CLK            Done
+comp_mesure_temperature.compte3.compte[1]:CLK            Done
+comp_mesure_temperature.compte3.compte[2]:CLK            Done
+comp_mesure_temperature.compte3.compte[3]:CLK            Done
+comp_mesure_temperature.compte3.compte[4]:CLK            Done
+comp_mesure_temperature.compte3.compte[5]:CLK            Done
+comp_mesure_temperature.compte3.compte[6]:CLK            Done
+comp_mesure_temperature.compte3.compte[7]:CLK            Done
+comp_mesure_temperature.compte3.compte[8]:CLK            Done
+comp_mesure_temperature.compte3.compte[9]:CLK            Done
+comp_mesure_temperature.compte3.compte[10]:CLK            Done
+comp_mesure_temperature.compte3.compte[11]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[0]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[1]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[2]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[3]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[4]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[5]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state[6]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state_i_0[7]:CLK            Done
+comp_mesure_temperature.next_temp_mesu_state_illegalpipe1:CLK            Done
+ comp_mesure_temperature.temperature_o_e:CLK            Done
+  comp_mesure_temperature.start_temp_i_0:CLK            Done
+      comp_mesure_temperature.reset_temp:CLK            Done
+COMP_ladder_fpga_SC_REF_LATCHUP.a.0.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_REF_LATCHUP.a.1.b.c.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.6.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.8.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.14.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.3.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.2.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.4.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.9.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.13.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.11.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.10.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.1.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.5.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.0.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.12.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.7.d.e.data_out:CLK            Done
+COMP_ladder_fpga_SC_BYPASS_HYBRIDE.a.15.b.c.data_out:CLK            Done
+           allumage_hybride.a.13.d.e.ff2:CLK            Done
+            allumage_hybride.a.3.d.e.ff2:CLK            Done
+            allumage_hybride.a.6.d.e.ff2:CLK            Done
+            allumage_hybride.a.9.d.e.ff2:CLK            Done
+           allumage_hybride.a.12.d.e.ff2:CLK            Done
+           allumage_hybride.a.10.d.e.ff2:CLK            Done
+            allumage_hybride.a.0.d.e.ff2:CLK            Done
+            allumage_hybride.a.5.d.e.ff2:CLK            Done
+            allumage_hybride.a.8.d.e.ff2:CLK            Done
+           allumage_hybride.a.11.d.e.ff2:CLK            Done
+            allumage_hybride.a.1.d.e.ff2:CLK            Done
+            allumage_hybride.a.4.d.e.ff2:CLK            Done
+            allumage_hybride.a.7.d.e.ff2:CLK            Done
+            allumage_hybride.a.2.d.e.ff2:CLK            Done
+           allumage_hybride.a.14.d.e.ff2:CLK            Done
+           allumage_hybride.a.15.b.c.ff2:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.16.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.11.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.2.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.0.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.0.d.e.data_out_1:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.3.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.9.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.18.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.6.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.13.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.4.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.8.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.14.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.10.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.15.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.1.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.5.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.7.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.17.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.12.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_LEVEL_SHIFTER_DAC.a.19.b.c.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.6.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.8.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.14.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.3.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.2.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.4.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.9.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.13.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.11.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.10.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.1.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.5.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.0.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.12.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.7.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_CONFIG.a.15.b.c.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.13.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.1.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.10.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.14.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.18.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.15.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.2.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.22.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.12.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.9.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.0.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.3.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.4.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.16.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.20.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.7.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.19.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.6.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.17.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.5.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.11.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.11.d.e.data_out_1:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.21.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.8.d.e.data_out:CLK            Done
+COMP_LADDER_FPGA_SC_ROBOCLOCK_PHASE.a.23.b.c.data_out:CLK            Done
+COM_LADDER_SC_INSTRUC_REG.a.2.d.e.data_out:CLK            Done
+COM_LADDER_SC_INSTRUC_REG.a.3.d.e.data_out:CLK            Done
+COM_LADDER_SC_INSTRUC_REG.a.0.d.e.data_out:CLK            Done
+COM_LADDER_SC_INSTRUC_REG.a.0.d.e.data_out_1:CLK            Done
+COM_LADDER_SC_INSTRUC_REG.a.1.d.e.data_out:CLK            Done
+COM_LADDER_SC_INSTRUC_REG.a.4.b.c.data_out:CLK            Done
+COMP_ladder_fpga_SC_TAP_CONTROL.reset_bar:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.updateIR:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x0b:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x09:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x08:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x04:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x03:CLK            Not Done
+COMP_ladder_fpga_SC_TAP_CONTROL.sc_updateDR_0x01:CLK            Not Done
+                       ladder_fpga_abort:CLK            Not Done
+                        tokenin_pulse_ok:CLK            Not Done
+             level_shifter_dac_ld_cs_n_i:CLK            Not Done
+                        usb_write_n_in_i:CLK            Not Done
+                   level_shifter_dac_sdi:CLK            Not Done
+comp_mesure_temperature.compter_temperature:CLK            Not Done
+          comp_mesure_temperature.eotc_i:CLK            Not Done
+comp_mesure_temperature.compte4.comptage:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[0]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[1]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[2]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[3]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[4]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[5]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[6]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[7]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[8]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[9]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[10]:CLK            Not Done
+comp_mesure_temperature.compte1.valeur_kelvin[11]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[0]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[1]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[2]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[3]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[4]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[5]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[6]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[7]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[8]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[9]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[10]:CLK            Not Done
+comp_mesure_temperature.compte2.valeur_kelvin[11]:CLK            Not Done
+comp_mesure_temperature.compte3.valeur_kelvin[0]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[1]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[2]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[3]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[4]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[5]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[6]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[7]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[8]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[9]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[10]:CLK            Done
+comp_mesure_temperature.compte3.valeur_kelvin[11]:CLK            Done
+comp_mesure_temperature.compte4.valeur_kelvin[0]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[1]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[2]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[3]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[4]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[5]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[6]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[7]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[8]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[9]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[10]:CLK            Not Done
+comp_mesure_temperature.compte4.valeur_kelvin[11]:CLK            Not Done
+ comp_mesure_temperature.en_cmpt_temp[0]:CLK            Not Done
+ comp_mesure_temperature.en_cmpt_temp[1]:CLK            Not Done
+ comp_mesure_temperature.en_cmpt_temp[2]:CLK            Not Done
+ comp_mesure_temperature.en_cmpt_temp[3]:CLK            Not Done
+      comp_mesure_temperature.cpt_clk[0]:CLK            Not Done
+      comp_mesure_temperature.cpt_clk[1]:CLK            Not Done
+      comp_mesure_temperature.cpt_clk[2]:CLK            Not Done
+      comp_mesure_temperature.cpt_clk[3]:CLK            Not Done
+      comp_mesure_temperature.cpt_clk[4]:CLK            Not Done
+comp_mesure_temperature.temperature_value[0]:CLK            Not Done
+comp_mesure_temperature.temperature_value[1]:CLK            Not Done
+comp_mesure_temperature.temperature_value[2]:CLK            Not Done
+comp_mesure_temperature.temperature_value[3]:CLK            Not Done
+comp_mesure_temperature.temperature_value[4]:CLK            Not Done
+comp_mesure_temperature.temperature_value[5]:CLK            Not Done
+comp_mesure_temperature.temperature_value[6]:CLK            Not Done
+comp_mesure_temperature.temperature_value[7]:CLK            Not Done
+comp_mesure_temperature.temperature_value[8]:CLK            Not Done
+comp_mesure_temperature.temperature_value[9]:CLK            Not Done
+comp_mesure_temperature.temperature_value[10]:CLK            Not Done
+comp_mesure_temperature.temperature_value[11]:CLK            Not Done
+comp_mesure_temperature.temperature_value[12]:CLK            Not Done
+comp_mesure_temperature.temperature_value[13]:CLK            Not Done
+comp_mesure_temperature.temperature_value[14]:CLK            Not Done
+comp_mesure_temperature.temperature_value[15]:CLK            Not Done
+comp_mesure_temperature.temperature_value[16]:CLK            Not Done
+comp_mesure_temperature.temperature_value[17]:CLK            Not Done
+comp_mesure_temperature.temperature_value[18]:CLK            Not Done
+comp_mesure_temperature.temperature_value[19]:CLK            Not Done
+comp_mesure_temperature.temperature_value[20]:CLK            Not Done
+comp_mesure_temperature.temperature_value[21]:CLK            Not Done
+comp_mesure_temperature.temperature_value[22]:CLK            Not Done
+comp_mesure_temperature.temperature_value[23]:CLK            Not Done
+comp_mesure_temperature.temperature_value[24]:CLK            Not Done
+comp_mesure_temperature.temperature_value[25]:CLK            Not Done
+comp_mesure_temperature.temperature_value[26]:CLK            Not Done
+comp_mesure_temperature.temperature_value[27]:CLK            Not Done
+comp_mesure_temperature.temperature_value[28]:CLK            Not Done
+comp_mesure_temperature.temperature_value[29]:CLK            Not Done
+comp_mesure_temperature.temperature_value[30]:CLK            Not Done
+comp_mesure_temperature.temperature_value[31]:CLK            Not Done
+comp_mesure_temperature.temperature_value[32]:CLK            Not Done
+comp_mesure_temperature.temperature_value[33]:CLK            Not Done
+comp_mesure_temperature.temperature_value[34]:CLK            Not Done
+comp_mesure_temperature.temperature_value[35]:CLK            Not Done
+comp_mesure_temperature.temperature_value[36]:CLK            Not Done
+comp_mesure_temperature.temperature_value[37]:CLK            Not Done
+comp_mesure_temperature.temperature_value[38]:CLK            Not Done
+comp_mesure_temperature.temperature_value[39]:CLK            Not Done
+comp_mesure_temperature.temperature_value[40]:CLK            Not Done
+comp_mesure_temperature.temperature_value[41]:CLK            Not Done
+comp_mesure_temperature.temperature_value[42]:CLK            Not Done
+comp_mesure_temperature.temperature_value[43]:CLK            Not Done
+comp_mesure_temperature.temperature_value[44]:CLK            Not Done
+comp_mesure_temperature.temperature_value[45]:CLK            Not Done
+comp_mesure_temperature.temperature_value[46]:CLK            Not Done
+comp_mesure_temperature.temperature_value[47]:CLK            Not Done
+             ladder_fpga_fifo8_to_usb_wr:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b[2]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b_i[3]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b[4]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b_i[5]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b[6]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b_i[7]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b[8]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b_i[9]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b[10]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_b_i[11]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a_i[2]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a[3]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a_i[4]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a[5]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a_i[6]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a[7]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a_i[8]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a[9]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a_i[10]:CLK            Not Done
+proc_ladder_fpga_level_shifter_dac_val.level_shifter_dac_a[11]:CLK            Not Done
+              acquire_state_illegalpipe2:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[14]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[13]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[12]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[11]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[10]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[9]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[8]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[7]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[6]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[5]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[4]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[3]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[2]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[1]:CLK            Not Done
+comp_mesure_temperature.count_value_mu_sec[0]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[11]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[10]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[9]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[8]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[7]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[6]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[5]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[4]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[3]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[2]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[1]:CLK            Not Done
+comp_mesure_temperature.compte4.compte[0]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[11]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[10]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[9]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[8]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[7]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[6]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[5]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[4]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[3]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[2]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[1]:CLK            Not Done
+comp_mesure_temperature.compte2.compte[0]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[11]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[10]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[9]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[8]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[7]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[6]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[5]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[4]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[3]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[2]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[1]:CLK            Not Done
+comp_mesure_temperature.compte1.compte[0]:CLK            Not Done
+
+
+##################### END OF GENERATED CLOCK OPTIMIZATION REPORT #####################]
+

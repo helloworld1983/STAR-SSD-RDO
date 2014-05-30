@@ -1,0 +1,657 @@
+
+BeginView ladder_fpga NoName
+Inst: ladder_fpga_adc_bit_count_cs_integer_i[0]   ladder_fpga_adc_bit_count_cs_integer_i_0__Z dffeas 
+Inst: ladder_fpga_adc_bit_count_cs_integer_i[1]   ladder_fpga_adc_bit_count_cs_integer_i_1__Z dffeas 
+Inst: ladder_fpga_adc_bit_count_cs_integer_i[2]   ladder_fpga_adc_bit_count_cs_integer_i_2__Z dffeas 
+Inst: ladder_fpga_adc_bit_count_cs_integer_i[3]   ladder_fpga_adc_bit_count_cs_integer_i_3__Z dffeas 
+Inst: ladder_fpga_adc_select_n_i   ladder_fpga_adc_select_n_i_Z dffeas 
+Inst: proc_ladder_fpga_adc_cs\.ladder_fpga_adc_select_n_3_rom   proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom_cZ cycloneii_lcell_comb 
+Inst: G_83   G_83_cZ cycloneii_lcell_comb 
+Inst: proc_ladder_fpga_adc_cs\.ladder_fpga_adc_select_n17   proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17 cycloneii_lcell_comb 
+Inst: clock80mhz_fpga_c_i   clock80mhz_fpga_c_i_cZ inv 
+Inst: tdo_module_in[15]   tdo_module_in_15_ stratixiii_io_ibuf 
+Inst: tdo_module_in[14]   tdo_module_in_14_ stratixiii_io_ibuf 
+Inst: tdo_module_in[13]   tdo_module_in_13_ stratixiii_io_ibuf 
+Inst: tdo_module_in[12]   tdo_module_in_12_ stratixiii_io_ibuf 
+Inst: tdo_module_in[11]   tdo_module_in_11_ stratixiii_io_ibuf 
+Inst: tdo_module_in[10]   tdo_module_in_10_ stratixiii_io_ibuf 
+Inst: tdo_module_in[9]   tdo_module_in_9_ stratixiii_io_ibuf 
+Inst: tdo_module_in[8]   tdo_module_in_8_ stratixiii_io_ibuf 
+Inst: tdo_module_in[7]   tdo_module_in_7_ stratixiii_io_ibuf 
+Inst: tdo_module_in[6]   tdo_module_in_6_ stratixiii_io_ibuf 
+Inst: tdo_module_in[5]   tdo_module_in_5_ stratixiii_io_ibuf 
+Inst: tdo_module_in[4]   tdo_module_in_4_ stratixiii_io_ibuf 
+Inst: tdo_module_in[3]   tdo_module_in_3_ stratixiii_io_ibuf 
+Inst: tdo_module_in[2]   tdo_module_in_2_ stratixiii_io_ibuf 
+Inst: tdo_module_in[1]   tdo_module_in_1_ stratixiii_io_ibuf 
+Inst: tdo_module_in[0]   tdo_module_in_0_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[12]   rdo_to_ladder_in_12_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[11]   rdo_to_ladder_in_11_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[10]   rdo_to_ladder_in_10_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[8]   rdo_to_ladder_in_8_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[7]   rdo_to_ladder_in_7_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[3]   rdo_to_ladder_in_3_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[2]   rdo_to_ladder_in_2_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[1]   rdo_to_ladder_in_1_ stratixiii_io_ibuf 
+Inst: rdo_to_ladder_in[0]   rdo_to_ladder_in_0_ stratixiii_io_ibuf 
+Inst: tdi_module_out[15]   tdi_module_out_15_ stratixiii_io_obuf 
+Inst: tdi_module_out[14]   tdi_module_out_14_ stratixiii_io_obuf 
+Inst: tdi_module_out[13]   tdi_module_out_13_ stratixiii_io_obuf 
+Inst: tdi_module_out[12]   tdi_module_out_12_ stratixiii_io_obuf 
+Inst: tdi_module_out[11]   tdi_module_out_11_ stratixiii_io_obuf 
+Inst: tdi_module_out[10]   tdi_module_out_10_ stratixiii_io_obuf 
+Inst: tdi_module_out[9]   tdi_module_out_9_ stratixiii_io_obuf 
+Inst: tdi_module_out[8]   tdi_module_out_8_ stratixiii_io_obuf 
+Inst: tdi_module_out[7]   tdi_module_out_7_ stratixiii_io_obuf 
+Inst: tdi_module_out[6]   tdi_module_out_6_ stratixiii_io_obuf 
+Inst: tdi_module_out[5]   tdi_module_out_5_ stratixiii_io_obuf 
+Inst: tdi_module_out[4]   tdi_module_out_4_ stratixiii_io_obuf 
+Inst: tdi_module_out[3]   tdi_module_out_3_ stratixiii_io_obuf 
+Inst: tdi_module_out[2]   tdi_module_out_2_ stratixiii_io_obuf 
+Inst: tdi_module_out[1]   tdi_module_out_1_ stratixiii_io_obuf 
+Inst: tdi_module_out[0]   tdi_module_out_0_ stratixiii_io_obuf 
+Inst: trstb_module_out[15]   trstb_module_out_15_ stratixiii_io_obuf 
+Inst: trstb_module_out[14]   trstb_module_out_14_ stratixiii_io_obuf 
+Inst: trstb_module_out[13]   trstb_module_out_13_ stratixiii_io_obuf 
+Inst: trstb_module_out[12]   trstb_module_out_12_ stratixiii_io_obuf 
+Inst: trstb_module_out[11]   trstb_module_out_11_ stratixiii_io_obuf 
+Inst: trstb_module_out[10]   trstb_module_out_10_ stratixiii_io_obuf 
+Inst: trstb_module_out[9]   trstb_module_out_9_ stratixiii_io_obuf 
+Inst: trstb_module_out[8]   trstb_module_out_8_ stratixiii_io_obuf 
+Inst: trstb_module_out[7]   trstb_module_out_7_ stratixiii_io_obuf 
+Inst: trstb_module_out[6]   trstb_module_out_6_ stratixiii_io_obuf 
+Inst: trstb_module_out[5]   trstb_module_out_5_ stratixiii_io_obuf 
+Inst: trstb_module_out[4]   trstb_module_out_4_ stratixiii_io_obuf 
+Inst: trstb_module_out[3]   trstb_module_out_3_ stratixiii_io_obuf 
+Inst: trstb_module_out[2]   trstb_module_out_2_ stratixiii_io_obuf 
+Inst: trstb_module_out[1]   trstb_module_out_1_ stratixiii_io_obuf 
+Inst: trstb_module_out[0]   trstb_module_out_0_ stratixiii_io_obuf 
+Inst: tms_module_out[15]   tms_module_out_15_ stratixiii_io_obuf 
+Inst: tms_module_out[14]   tms_module_out_14_ stratixiii_io_obuf 
+Inst: tms_module_out[13]   tms_module_out_13_ stratixiii_io_obuf 
+Inst: tms_module_out[12]   tms_module_out_12_ stratixiii_io_obuf 
+Inst: tms_module_out[11]   tms_module_out_11_ stratixiii_io_obuf 
+Inst: tms_module_out[10]   tms_module_out_10_ stratixiii_io_obuf 
+Inst: tms_module_out[9]   tms_module_out_9_ stratixiii_io_obuf 
+Inst: tms_module_out[8]   tms_module_out_8_ stratixiii_io_obuf 
+Inst: tms_module_out[7]   tms_module_out_7_ stratixiii_io_obuf 
+Inst: tms_module_out[6]   tms_module_out_6_ stratixiii_io_obuf 
+Inst: tms_module_out[5]   tms_module_out_5_ stratixiii_io_obuf 
+Inst: tms_module_out[4]   tms_module_out_4_ stratixiii_io_obuf 
+Inst: tms_module_out[3]   tms_module_out_3_ stratixiii_io_obuf 
+Inst: tms_module_out[2]   tms_module_out_2_ stratixiii_io_obuf 
+Inst: tms_module_out[1]   tms_module_out_1_ stratixiii_io_obuf 
+Inst: tms_module_out[0]   tms_module_out_0_ stratixiii_io_obuf 
+Inst: tck_module_out[15]   tck_module_out_15_ stratixiii_io_obuf 
+Inst: tck_module_out[14]   tck_module_out_14_ stratixiii_io_obuf 
+Inst: tck_module_out[13]   tck_module_out_13_ stratixiii_io_obuf 
+Inst: tck_module_out[12]   tck_module_out_12_ stratixiii_io_obuf 
+Inst: tck_module_out[11]   tck_module_out_11_ stratixiii_io_obuf 
+Inst: tck_module_out[10]   tck_module_out_10_ stratixiii_io_obuf 
+Inst: tck_module_out[9]   tck_module_out_9_ stratixiii_io_obuf 
+Inst: tck_module_out[8]   tck_module_out_8_ stratixiii_io_obuf 
+Inst: tck_module_out[7]   tck_module_out_7_ stratixiii_io_obuf 
+Inst: tck_module_out[6]   tck_module_out_6_ stratixiii_io_obuf 
+Inst: tck_module_out[5]   tck_module_out_5_ stratixiii_io_obuf 
+Inst: tck_module_out[4]   tck_module_out_4_ stratixiii_io_obuf 
+Inst: tck_module_out[3]   tck_module_out_3_ stratixiii_io_obuf 
+Inst: tck_module_out[2]   tck_module_out_2_ stratixiii_io_obuf 
+Inst: tck_module_out[1]   tck_module_out_1_ stratixiii_io_obuf 
+Inst: tck_module_out[0]   tck_module_out_0_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[23]   ladder_to_rdo_out_23_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[22]   ladder_to_rdo_out_22_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[21]   ladder_to_rdo_out_21_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[20]   ladder_to_rdo_out_20_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[19]   ladder_to_rdo_out_19_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[18]   ladder_to_rdo_out_18_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[17]   ladder_to_rdo_out_17_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[16]   ladder_to_rdo_out_16_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[15]   ladder_to_rdo_out_15_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[14]   ladder_to_rdo_out_14_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[13]   ladder_to_rdo_out_13_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[12]   ladder_to_rdo_out_12_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[11]   ladder_to_rdo_out_11_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[10]   ladder_to_rdo_out_10_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[9]   ladder_to_rdo_out_9_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[8]   ladder_to_rdo_out_8_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[7]   ladder_to_rdo_out_7_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[6]   ladder_to_rdo_out_6_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[5]   ladder_to_rdo_out_5_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[4]   ladder_to_rdo_out_4_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[3]   ladder_to_rdo_out_3_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[2]   ladder_to_rdo_out_2_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[1]   ladder_to_rdo_out_1_ stratixiii_io_obuf 
+Inst: ladder_to_rdo_out[0]   ladder_to_rdo_out_0_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[7]   adc_cs_n_out_7_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[6]   adc_cs_n_out_6_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[5]   adc_cs_n_out_5_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[4]   adc_cs_n_out_4_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[3]   adc_cs_n_out_3_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[2]   adc_cs_n_out_2_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[1]   adc_cs_n_out_1_ stratixiii_io_obuf 
+Inst: adc_cs_n_out[0]   adc_cs_n_out_0_ stratixiii_io_obuf 
+Inst: proc_ladder_fpga_adc_cs\.ladder_fpga_adc_select_n17_i_i   proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i_cZ inv 
+Inst: ladder_fpga_adc_select_n_i_i   ladder_fpga_adc_select_n_i_i_cZ inv 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.reset_bar   COMP_ladder_fpga_SC_TAP_CONTROL_reset_bar 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.shiftIR   COMP_ladder_fpga_SC_TAP_CONTROL_shiftIR 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.clockIR_x   COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.updateIR   COMP_ladder_fpga_SC_TAP_CONTROL_updateIR 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.clockDR_x   COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.etat_present[0]   COMP_ladder_fpga_SC_TAP_CONTROL_etat_present[0] 
+Net:  COM_ALICE128P_SC_INSTRUC_REG.a\.0\.d\.e.scan_out   COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_scan_out 
+Net:  COMP_ladder_fpga_SC_BYPASS_REG.scan_out   COMP_ladder_fpga_SC_BYPASS_REG_scan_out 
+Net:  COMP_ladder_fpga_SC_IDENT_REG.a\.0\.d\.e.scan_out   COMP_ladder_fpga_SC_IDENT_REG_a_0_d_e_scan_out 
+Net:  COMP_ladder_fpga_SC_VERSION_REG.a\.0\.d\.e.scan_out   COMP_ladder_fpga_SC_VERSION_REG_a_0_d_e_scan_out 
+Net:  COMP_ladder_fpga_SC_MUX_TDO.dr_scan_out_31_0_x   COMP_ladder_fpga_SC_MUX_TDO_dr_scan_out_31_0_x 
+Net:  COM_ALICE128P_SC_INSTRUC_REG.a\.2\.d\.e.data_out_i   COM_ALICE128P_SC_INSTRUC_REG_a_2_d_e_data_out_i 
+Net:  COM_ALICE128P_SC_INSTRUC_REG.a\.3\.d\.e.data_out_i   COM_ALICE128P_SC_INSTRUC_REG_a_3_d_e_data_out_i 
+Net:  COM_ALICE128P_SC_INSTRUC_REG.a\.0\.d\.e.data_out_i   COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_data_out_i 
+Net:  COM_ALICE128P_SC_INSTRUC_REG.a\.1\.d\.e.data_out_i   COM_ALICE128P_SC_INSTRUC_REG_a_1_d_e_data_out_i 
+Net:  COM_ALICE128P_SC_INSTRUC_REG.a\.4\.b\.c.data_out_i   COM_ALICE128P_SC_INSTRUC_REG_a_4_b_c_data_out_i 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.shiftDR   COMP_ladder_fpga_SC_TAP_CONTROL_shiftDR 
+Net:  G_21   G_20 
+Net:  G_22   G_20 
+Net:  G_23   G_20 
+Net:  G_24   G_20 
+Net:  G_25   G_20 
+Net:  G_26   G_20 
+Net:  G_27   G_20 
+Net:  G_28   G_20 
+Net:  G_29   G_20 
+Net:  G_30   G_20 
+Net:  G_31   G_20 
+Net:  G_32   G_20 
+Net:  G_33   G_20 
+Net:  G_34   G_20 
+Net:  G_35   G_20 
+Net:  G_37   G_36 
+Net:  G_38   G_36 
+Net:  G_39   G_36 
+Net:  G_40   G_36 
+Net:  G_41   G_36 
+Net:  G_42   G_36 
+Net:  G_43   G_36 
+Net:  G_44   G_36 
+Net:  G_45   G_36 
+Net:  G_46   G_36 
+Net:  G_47   G_36 
+Net:  G_48   G_36 
+Net:  G_49   G_36 
+Net:  G_50   G_36 
+Net:  G_51   G_36 
+Net:  G_53   G_52 
+Net:  G_54   G_52 
+Net:  G_55   G_52 
+Net:  G_56   G_52 
+Net:  G_57   G_52 
+Net:  G_58   G_52 
+Net:  G_59   G_52 
+Net:  G_60   G_52 
+Net:  G_61   G_52 
+Net:  G_62   G_52 
+Net:  G_63   G_52 
+Net:  G_64   G_52 
+Net:  G_65   G_52 
+Net:  G_66   G_52 
+Net:  G_67   G_52 
+Net:  COMP_ladder_fpga_SC_MUX_OUT.z_x   COMP_ladder_fpga_SC_MUX_OUT_z_x 
+Net:  rdo_to_ladder_c[1]   G_52 
+Net:  rdo_to_ladder_c[3]   G_20 
+Net:  rdo_to_ladder_c[7]   G_19 
+Net:  rdo_to_ladder_c[8]   G_18 
+Net:  tdo_module_c[0]   G_68 
+Net:  tdo_module_c[1]   G_69 
+Net:  tdo_module_c[2]   G_70 
+Net:  tdo_module_c[3]   G_71 
+Net:  tdo_module_c[4]   G_72 
+Net:  tdo_module_c[5]   G_73 
+Net:  tdo_module_c[6]   G_74 
+Net:  tdo_module_c[7]   G_75 
+Net:  tdo_module_c[8]   G_76 
+Net:  tdo_module_c[9]   G_77 
+Net:  tdo_module_c[10]   G_78 
+Net:  tdo_module_c[11]   G_79 
+Net:  tdo_module_c[12]   G_80 
+Net:  tdo_module_c[13]   G_81 
+Net:  tdo_module_c[14]   G_82 
+Net:  tdo_module_c[15]   G_17 
+Net:  rdo_to_ladder_c[2]   G_36 
+Net:  proc_ladder_fpga_adc_cs\.ladder_fpga_adc_select_n_3_rom   proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom 
+Net:  proc_ladder_fpga_adc_cs\.ladder_fpga_adc_select_n17_i   proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.clockIR_x_i   COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x_i 
+Net:  COMP_ladder_fpga_SC_TAP_CONTROL.clockDR_x_i   COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x_i 
+Net:  proc_ladder_fpga_adc_cs\.ladder_fpga_adc_select_n17_i_i   proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i 
+EndView ladder_fpga NoName
+
+BeginView tap_control NoName
+Inst: etat_present[0]   etat_present_0__Z dffeas 
+Inst: etat_present[1]   etat_present_1__Z dffeas 
+Inst: etat_present[2]   etat_present_2__Z dffeas 
+Inst: etat_present[3]   etat_present_3__Z dffeas 
+Inst: etat_present[4]   etat_present_4__Z dffeas 
+Inst: etat_present[5]   etat_present_5__Z dffeas 
+Inst: etat_present[6]   etat_present_6__Z dffeas 
+Inst: etat_present[7]   etat_present_7__Z dffeas 
+Inst: etat_present[8]   etat_present_8__Z dffeas 
+Inst: etat_present[9]   etat_present_9__Z dffeas 
+Inst: etat_present[10]   etat_present_10__Z dffeas 
+Inst: etat_present[11]   etat_present_11__Z dffeas 
+Inst: etat_present[12]   etat_present_12__Z dffeas 
+Inst: etat_present[13]   etat_present_13__Z dffeas 
+Inst: etat_present[14]   etat_present_14__Z dffeas 
+Inst: etat_present_i[15]   etat_present_i_15__Z dffeas 
+Inst: updateIR   updateIR_Z dffeas 
+Inst: shiftIR   shiftIR_Z dffeas 
+Inst: shiftDR   shiftDR_Z dffeas 
+Inst: reset_bar   reset_bar_Z dffeas 
+Inst: etat_present_ns_i_a2[11]   etat_present_ns_i_a2_11_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_a2[4]   etat_present_ns_i_a2_4_ cycloneii_lcell_comb 
+Inst: etat_present_ns_a2_2[1]   etat_present_ns_a2_2_1_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i[2]   etat_present_ns_i_2_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i[4]   etat_present_ns_i_4_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i[11]   etat_present_ns_i_11_ cycloneii_lcell_comb 
+Inst: etat_present_ns_a2[1]   etat_present_ns_a2_1_ cycloneii_lcell_comb 
+Inst: etat_present_ns_a2_1_x[1]   etat_present_ns_a2_1_x_1_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[15]   etat_present_ns_i_x_15_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[13]   etat_present_ns_i_x_13_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[12]   etat_present_ns_i_x_12_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[8]   etat_present_ns_i_x_8_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[6]   etat_present_ns_i_x_6_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[5]   etat_present_ns_i_x_5_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[0]   etat_present_ns_i_x_0_ cycloneii_lcell_comb 
+Inst: clockDR_x   clockDR_x_cZ cycloneii_lcell_comb 
+Inst: clockIR_x   clockIR_x_cZ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[14]   etat_present_ns_i_x_14_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[9]   etat_present_ns_i_x_9_ cycloneii_lcell_comb 
+Inst: etat_present_ns_i_x[7]   etat_present_ns_i_x_7_ cycloneii_lcell_comb 
+Inst: etat_present_ns_a2_x[10]   etat_present_ns_a2_x_10_ cycloneii_lcell_comb 
+Inst: etat_present_ns_a2_x[3]   etat_present_ns_a2_x_3_ cycloneii_lcell_comb 
+Inst: clockDR_x_i   clockDR_x_i_cZ inv 
+Inst: clockIR_x_i   clockIR_x_i_cZ inv 
+Inst: etat_present[0:15]   etat_present_0_15_ ghost 
+EndView tap_control NoName
+
+BeginView ir_5_bits NoName
+Inst: a\.4\.b\.c   a_4_b_c ir_cell 
+Inst: a\.1\.d\.e   a_1_d_e ir_cell_1 
+Inst: a\.0\.d\.e   a_0_d_e ir_cell_2 
+Inst: a\.3\.d\.e   a_3_d_e ir_cell_3 
+Inst: a\.2\.d\.e   a_2_d_e ir_cell_4 
+EndView ir_5_bits NoName
+
+BeginView ir_cell NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: data_out_i   data_out_i_Z dffeas 
+Inst: dff1\.ff1_3_x   dff1_ff1_3_x_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3_x   dff1_ff1_3_x 
+EndView ir_cell NoName
+
+BeginView ir_cell_1 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: data_out_i   data_out_i_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView ir_cell_1 NoName
+
+BeginView ir_cell_2 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: data_out_i   data_out_i_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView ir_cell_2 NoName
+
+BeginView ir_cell_3 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: data_out_i   data_out_i_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView ir_cell_3 NoName
+
+BeginView ir_cell_4 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: data_out_i   data_out_i_Z dffeas 
+Inst: ff1_i_i   ff1_i_i_cZ inv 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Inst: rdo_to_ladder_c_i[3]   rdo_to_ladder_c_i_3_ inv 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView ir_cell_4 NoName
+
+BeginView br_cell_1clk NoName
+Inst: scan_out   scan_out_Z dffeas 
+EndView br_cell_1clk NoName
+
+BeginView dr_8_BITS NoName
+Inst: a\.7\.b\.c   a_7_b_c dr_cell 
+Inst: a\.5\.d\.e   a_5_d_e dr_cell_1 
+Inst: a\.4\.d\.e   a_4_d_e dr_cell_2 
+Inst: a\.1\.d\.e   a_1_d_e dr_cell_3 
+Inst: a\.2\.d\.e   a_2_d_e dr_cell_4 
+Inst: a\.3\.d\.e   a_3_d_e dr_cell_5 
+Inst: a\.6\.d\.e   a_6_d_e dr_cell_6 
+Inst: a\.0\.d\.e   a_0_d_e dr_cell_7 
+EndView dr_8_BITS NoName
+
+BeginView dr_cell NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3_x   dff1_ff1_3_x_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3_x   dff1_ff1_3_x 
+EndView dr_cell NoName
+
+BeginView dr_cell_1 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_1 NoName
+
+BeginView dr_cell_2 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_2 NoName
+
+BeginView dr_cell_3 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3_x   dff1_ff1_3_x_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3_x   dff1_ff1_3_x 
+EndView dr_cell_3 NoName
+
+BeginView dr_cell_4 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3_x   dff1_ff1_3_x_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3_x   dff1_ff1_3_x 
+EndView dr_cell_4 NoName
+
+BeginView dr_cell_5 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_5 NoName
+
+BeginView dr_cell_6 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_6 NoName
+
+BeginView dr_cell_7 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3_x   dff1_ff1_3_x_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3_x   dff1_ff1_3_x 
+EndView dr_cell_7 NoName
+
+BeginView dr_32_BITS NoName
+Inst: a\.31\.b\.c   a_31_b_c dr_cell_8 
+Inst: a\.14\.d\.e   a_14_d_e dr_cell_9 
+Inst: a\.23\.d\.e   a_23_d_e dr_cell_10 
+Inst: a\.6\.d\.e   a_6_d_e dr_cell_11 
+Inst: a\.1\.d\.e   a_1_d_e dr_cell_12 
+Inst: a\.10\.d\.e   a_10_d_e dr_cell_13 
+Inst: a\.7\.d\.e   a_7_d_e dr_cell_14 
+Inst: a\.3\.d\.e   a_3_d_e dr_cell_15 
+Inst: a\.12\.d\.e   a_12_d_e dr_cell_16 
+Inst: a\.8\.d\.e   a_8_d_e dr_cell_17 
+Inst: a\.4\.d\.e   a_4_d_e dr_cell_18 
+Inst: a\.13\.d\.e   a_13_d_e dr_cell_19 
+Inst: a\.22\.d\.e   a_22_d_e dr_cell_20 
+Inst: a\.5\.d\.e   a_5_d_e dr_cell_21 
+Inst: a\.30\.d\.e   a_30_d_e dr_cell_22 
+Inst: a\.27\.d\.e   a_27_d_e dr_cell_23 
+Inst: a\.19\.d\.e   a_19_d_e dr_cell_24 
+Inst: a\.9\.d\.e   a_9_d_e dr_cell_25 
+Inst: a\.0\.d\.e   a_0_d_e dr_cell_26 
+Inst: a\.20\.d\.e   a_20_d_e dr_cell_27 
+Inst: a\.16\.d\.e   a_16_d_e dr_cell_28 
+Inst: a\.25\.d\.e   a_25_d_e dr_cell_29 
+Inst: a\.21\.d\.e   a_21_d_e dr_cell_30 
+Inst: a\.17\.d\.e   a_17_d_e dr_cell_31 
+Inst: a\.26\.d\.e   a_26_d_e dr_cell_32 
+Inst: a\.29\.d\.e   a_29_d_e dr_cell_33 
+Inst: a\.18\.d\.e   a_18_d_e dr_cell_34 
+Inst: a\.15\.d\.e   a_15_d_e dr_cell_35 
+Inst: a\.24\.d\.e   a_24_d_e dr_cell_36 
+Inst: a\.28\.d\.e   a_28_d_e dr_cell_37 
+Inst: a\.2\.d\.e   a_2_d_e dr_cell_38 
+Inst: a\.11\.d\.e   a_11_d_e dr_cell_39 
+EndView dr_32_BITS NoName
+
+BeginView dr_cell_8 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_8 NoName
+
+BeginView dr_cell_9 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_9 NoName
+
+BeginView dr_cell_10 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_10 NoName
+
+BeginView dr_cell_11 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_11 NoName
+
+BeginView dr_cell_12 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_12 NoName
+
+BeginView dr_cell_13 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_13 NoName
+
+BeginView dr_cell_14 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_14 NoName
+
+BeginView dr_cell_15 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_15 NoName
+
+BeginView dr_cell_16 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_16 NoName
+
+BeginView dr_cell_17 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_17 NoName
+
+BeginView dr_cell_18 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_18 NoName
+
+BeginView dr_cell_19 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_19 NoName
+
+BeginView dr_cell_20 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_20 NoName
+
+BeginView dr_cell_21 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_21 NoName
+
+BeginView dr_cell_22 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_22 NoName
+
+BeginView dr_cell_23 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_23 NoName
+
+BeginView dr_cell_24 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_24 NoName
+
+BeginView dr_cell_25 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_25 NoName
+
+BeginView dr_cell_26 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_26 NoName
+
+BeginView dr_cell_27 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_27 NoName
+
+BeginView dr_cell_28 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_28 NoName
+
+BeginView dr_cell_29 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_29 NoName
+
+BeginView dr_cell_30 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_30 NoName
+
+BeginView dr_cell_31 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_31 NoName
+
+BeginView dr_cell_32 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_32 NoName
+
+BeginView dr_cell_33 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_33 NoName
+
+BeginView dr_cell_34 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_34 NoName
+
+BeginView dr_cell_35 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_35 NoName
+
+BeginView dr_cell_36 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: dff1\.ff1_3   dff1_ff1_3_cZ cycloneii_lcell_comb 
+Net:  dff1\.ff1_3   dff1_ff1_3 
+EndView dr_cell_36 NoName
+
+BeginView dr_cell_37 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_37 NoName
+
+BeginView dr_cell_38 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_38 NoName
+
+BeginView dr_cell_39 NoName
+Inst: ff1   ff1_Z dffeas 
+Inst: scan_out   scan_out_Z dffeas 
+Inst: shiftDR_i   shiftDR_i_cZ inv 
+EndView dr_cell_39 NoName
+
+BeginView mux_tdo NoName
+Inst: dr_scan_out_30_0_a   dr_scan_out_30_0_a_cZ cycloneii_lcell_comb 
+Inst: dr_scan_out_30_0   dr_scan_out_30_0_cZ cycloneii_lcell_comb 
+Inst: dr_scan_out_31_0_x   dr_scan_out_31_0_x_cZ cycloneii_lcell_comb 
+Inst: dr_scan_out_22_0_0_x   dr_scan_out_22_0_0_x_cZ cycloneii_lcell_comb 
+Inst: dr_scan_out_29_0_0_x   dr_scan_out_29_0_0_x_cZ cycloneii_lcell_comb 
+EndView mux_tdo NoName
+
+BeginView mux_2_1 NoName
+Inst: z_x   z_x_cZ cycloneii_lcell_comb 
+EndView mux_2_1 NoName
+
+BeginView data_packer NoName
+Inst: un1_f21rdreq_x   un1_f21rdreq_x_cZ cycloneii_lcell_comb 
+Inst: reg1[0]   reg1_0_ ghost 
+Inst: reg1[1]   reg1_1_ ghost 
+Inst: reg1[2]   reg1_2_ ghost 
+Inst: reg1[3]   reg1_3_ ghost 
+Inst: reg1[4]   reg1_4_ ghost 
+Inst: reg1[5]   reg1_5_ ghost 
+Inst: reg1[6]   reg1_6_ ghost 
+Inst: reg1[7]   reg1_7_ ghost 
+Inst: reg1[8]   reg1_8_ ghost 
+Inst: reg1[9]   reg1_9_ ghost 
+Inst: reg1[10]   reg1_10_ ghost 
+Inst: reg1[11]   reg1_11_ ghost 
+Inst: reg1[12]   reg1_12_ ghost 
+Inst: reg1[13]   reg1_13_ ghost 
+Inst: reg1[14]   reg1_14_ ghost 
+Inst: reg1[15]   reg1_15_ ghost 
+Inst: state[0]   state_0_ ghost 
+EndView data_packer NoName

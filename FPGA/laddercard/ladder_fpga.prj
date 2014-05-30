@@ -1,0 +1,99 @@
+#--  Synopsys, Inc.
+#--  Version H-2013.03-1 
+#--  Project file U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.prj
+
+#project files
+add_file -vhdl -lib work "./header_star_ssdU.vhd"
+add_file -vhdl -lib work "./br_cell_1clk.vhd"
+add_file -vhdl -lib work "./dr_cell.vhd"
+add_file -vhdl -lib work "./mesure_temperature.vhd"
+add_file -vhdl -lib work "./comptage_temperature.vhd"
+add_file -vhdl -lib work "./dr_cell_avec_pulse.vhd"
+add_file -vhdl -lib work "./mega_func_pll_40MHz_switchover_cycloneIII.vhd"
+add_file -vhdl -lib work "./ir_5_bits.vhd"
+add_file -vhdl -lib work "./ir_cell.vhd"
+add_file -vhdl -lib work "./mux_2_1.vhd"
+add_file -vhdl -lib work "./mux_tdo.vhd"
+add_file -vhdl -lib work "./tap_control.vhd"
+add_file -vhdl -lib work "./dr_x_bits.vhd"
+add_file -vhdl -lib work "./dr_x_bits_init.vhd"
+add_file -vhdl -lib work "./dr_x_bits_avec_pulse.vhd"
+add_file -vhdl -lib work "./identificateur_8bits.vhd"
+add_file -vhdl -lib work "./filtre_latchup.vhd"
+add_file -vhdl -lib work "./memoire_latchup.vhd"
+add_file -vhdl -lib work "./memoire_latchup_general.vhd"
+add_file -vhdl -lib work "./memoire_tokenout_echelle.vhd"
+add_file -vhdl -lib work "./signaux_hybrides.vhd"
+add_file -vhdl -lib work "./gestion_hybrides_v4.vhd"
+add_file -vhdl -lib work "./mega_func_fifo8x256_cycloneIII.vhd"
+add_file -vhdl -lib work "./mega_func_fifo21x32_cycloneIII.vhd"
+add_file -vhdl -lib work "./date_stamp.vhd"
+add_file -verilog "./C__altera_10_0_quartus_eda_fv_lib_verilog/cycloneiii_crcblock.v"
+add_file -vhdl -lib work "./ladder_fpga.vhd"
+add_file -constraint "./ladder_fpga.sdc"
+add_file -vhdl -lib work "./shiftreg.vhd"
+add_file -constraint "./rev_1/pin_assign.sdc"
+
+
+#implementation: "rev_1"
+impl -add rev_1 -type fpga
+
+#
+#implementation attributes
+
+set_option -vlog_std v2001
+set_option -num_critical_paths 10
+set_option -num_startend_points 10
+set_option -project_relative_includes 1
+set_option -include_path {./extra_input/;./extra_input/}
+
+#pr_1 attributes
+set_option -job pr_1 -add par
+set_option -job pr_1 -option enable_run 1
+set_option -job pr_1 -option use_placement_constraints 0
+
+#device options
+set_option -technology CYCLONEIII
+set_option -part EP3C16
+set_option -package FC484
+set_option -speed_grade -6
+set_option -part_companion ""
+
+#compilation/mapping options
+set_option -use_fsm_explorer 1
+set_option -top_module "ladder_fpga"
+
+# altera_options
+set_option -RWCheckOnRam 1
+
+# mapper_options
+set_option -frequency auto
+set_option -write_verilog 0
+set_option -write_vhdl 1
+set_option -resolve_multiple_driver 1
+set_option -srs_instrumentation 1
+
+# Altera STRATIX
+set_option -run_prop_extract 1
+set_option -maxfan 30
+set_option -disable_io_insertion 0
+set_option -pipe 0
+set_option -update_models_cp 0
+set_option -retiming 0
+set_option -no_sequential_opt 0
+set_option -fix_gated_and_generated_clocks 1
+set_option -quartus_version 10.1
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 0
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+
+#set result format/file last
+project -result_file "./rev_1/ladder_fpga.vqm"
+impl -active "rev_1"

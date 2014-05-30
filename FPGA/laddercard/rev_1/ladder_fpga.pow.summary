@@ -1,0 +1,12 @@
+PowerPlay Power Analyzer Status : Successful - Fri Jan 21 13:58:11 2011
+Quartus II Version : 10.0 Build 262 08/18/2010 SP 1 SJ Full Version
+Revision Name : ladder_fpga
+Top-level Entity Name : ladder_fpga
+Family : Cyclone III
+Device : EP3C16F484C6
+Power Models : Final
+Total Thermal Power Dissipation : 138.36 mW
+Core Dynamic Thermal Power Dissipation : 21.01 mW
+Core Static Thermal Power Dissipation : 57.95 mW
+I/O Thermal Power Dissipation : 59.40 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

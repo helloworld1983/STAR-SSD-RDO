@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="ladder_fpga">
+		<CBX_INST_ENTRY INSTANCE_NAME="|ladder_fpga|mega_func_fifo21x32_cycloneIII:comp_mega_func_fifo21x32_cycloneIII|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_8jh1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ladder_fpga|mega_func_fifo8x256_cycloneIII_comp_mega_func_fifo8_from_usb:comp_mega_func_fifo8_from_usb|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_c8i1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ladder_fpga|mega_func_fifo8x256_cycloneIII_comp_mega_func_fifo8_to_usb:comp_mega_func_fifo8_to_usb|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_gih1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ladder_fpga|mega_func_pll_40MHz_switchover_cycloneIII:comp_mega_func_pll_40MHz_switchover_cycloneIII|altpll:altpll_component" CBX_FILE_NAME="mega_func_pll_40MHz_switchover_cycloneIII_altpll.v"/>
+	</PROJECT>
+</LOG_ROOT>

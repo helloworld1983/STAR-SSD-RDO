@@ -1,0 +1,46 @@
+fsm_options -device {ladder_fpga_event_controller_state[0:6]} -encoding {safe}
+
+define_state st_ev_ctrl_wait4hold 0000001 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1086 6 1086 33
+state_output st_ev_ctrl_wait4hold {ladder_fpga_event_controller_state[6]} 1
+
+define_state st_ev_ctrl_test 0000010 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1091 6 1091 28
+state_output st_ev_ctrl_test {ladder_fpga_event_controller_state[5]} 1
+
+define_state st_ev_ctrl_wait4token 0000100 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1093 6 1093 34
+state_output st_ev_ctrl_wait4token {ladder_fpga_event_controller_state[4]} 1
+
+define_state st_ev_ctrl_tokenin_pulse 0001000 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1068 13 1068 72
+state_output st_ev_ctrl_tokenin_pulse {ladder_fpga_event_controller_state[3]} 1
+
+define_state st_ev_ctrl_acquisition 0010000 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1006 12 1006 69
+state_output st_ev_ctrl_acquisition {ladder_fpga_event_controller_state[2]} 1
+
+define_state st_ev_ctrl_event_end 0100000 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1109 6 1109 33
+state_output st_ev_ctrl_event_end {ladder_fpga_event_controller_state[1]} 1
+
+define_state st_ev_ctrl_abort 1000000 {d:\renard\star_upgrade\ladder_fpga\ladder_fpga.vhd} 1068 137 1068 188
+state_output st_ev_ctrl_abort {ladder_fpga_event_controller_state[0]} 1
+
+fsm_options -resetState st_ev_ctrl_wait4hold
+
+define_transition st_ev_ctrl_abort st_ev_ctrl_abort {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = 1----}
+define_transition st_ev_ctrl_acquisition st_ev_ctrl_abort {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ---0-}
+define_transition st_ev_ctrl_wait4token st_ev_ctrl_abort {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ---0-}
+define_transition st_ev_ctrl_event_end st_ev_ctrl_event_end {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ---1-}
+define_transition st_ev_ctrl_acquisition st_ev_ctrl_event_end {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = 0--1-}
+define_transition st_ev_ctrl_acquisition st_ev_ctrl_acquisition {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = 1--1-}
+define_transition st_ev_ctrl_tokenin_pulse st_ev_ctrl_acquisition {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = -1---}
+define_transition st_ev_ctrl_tokenin_pulse st_ev_ctrl_tokenin_pulse {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = -0---}
+define_transition st_ev_ctrl_wait4token st_ev_ctrl_tokenin_pulse {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = --11-}
+define_transition st_ev_ctrl_wait4token st_ev_ctrl_wait4token {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = --01-}
+define_transition st_ev_ctrl_wait4hold st_ev_ctrl_wait4token {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ---10}
+define_transition st_ev_ctrl_wait4hold st_ev_ctrl_test {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ----1}
+define_transition st_ev_ctrl_abort st_ev_ctrl_wait4hold {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = 0----}
+define_transition st_ev_ctrl_event_end st_ev_ctrl_wait4hold {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ---0-}
+define_transition st_ev_ctrl_test st_ev_ctrl_wait4hold {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = -----}
+define_transition st_ev_ctrl_wait4hold st_ev_ctrl_wait4hold {ladder_fpga_busy,tokenin_pulse_ok,tokenin_echelle,holdin_echelle,testin_echelle = ---00}
+fsm_options -SRSPath {D:\renard\star_upgrade\ladder_fpga\rev_1\ladder_fpga.srs}
+fsm_options -SRSTime 1250665331
+fsm_options -FSMPath {ladder_fpga_event_controller_state[0:6]}
+fsm_options -view {ScratchLib.cell15.netlist|i:ladder_fpga_event_controller_state[0:6]}
+fsm_options -ID {341082210825}

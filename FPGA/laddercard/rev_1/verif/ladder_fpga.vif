@@ -1,0 +1,57 @@
+#
+# Synplicity Verification Interface File
+# Generated using Synplify-pro
+#
+# Copyright (C) 1994-2011, Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+
+# All rights reserved
+#
+
+# Set logfile options
+vif_set_result_file  ladder_fpga.vlf
+
+# Set technology for TCL script
+vif_set_technology -architecture FPGA -vendor Altera
+
+# RTL and technology files
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\altera\altera.v
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\altera\quartus_ii101\cycloneiii.v
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\altera\quartus_ii101\altera_mf.v
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\altera\quartus_ii101\altera_lpm.v
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\altera\quartus_ii101\altera_primitives.v
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\vlog\scemi_objects.v
+vif_add_file -original -verilog c:\synopsys\fpga_f201109sp1\lib\vlog\hypermods.v
+vif_add_file -original -verilog ../c__altera_10_0_quartus_eda_fv_lib_verilog/cycloneiii_crcblock.v
+ 
+vif_add_file -original -vhdl -lib work ../header_star_ssdU.vhd
+vif_add_file -original -vhdl -lib work ../br_cell_1clk.vhd
+vif_add_file -original -vhdl -lib work ../dr_cell.vhd
+vif_add_file -original -vhdl -lib work ../mesure_temperature.vhd
+vif_add_file -original -vhdl -lib work ../comptage_temperature.vhd
+vif_add_file -original -vhdl -lib work ../dr_cell_avec_pulse.vhd
+vif_add_file -original -vhdl -lib work ../mega_func_pll_40MHz_switchover_cycloneIII.vhd
+vif_add_file -original -vhdl -lib work ../ir_5_bits.vhd
+vif_add_file -original -vhdl -lib work ../ir_cell.vhd
+vif_add_file -original -vhdl -lib work ../mux_2_1.vhd
+vif_add_file -original -vhdl -lib work ../mux_tdo.vhd
+vif_add_file -original -vhdl -lib work ../tap_control.vhd
+vif_add_file -original -vhdl -lib work ../dr_x_bits.vhd
+vif_add_file -original -vhdl -lib work ../dr_x_bits_init.vhd
+vif_add_file -original -vhdl -lib work ../dr_x_bits_avec_pulse.vhd
+vif_add_file -original -vhdl -lib work ../identificateur_8bits.vhd
+vif_add_file -original -vhdl -lib work ../filtre_latchup.vhd
+vif_add_file -original -vhdl -lib work ../memoire_latchup.vhd
+vif_add_file -original -vhdl -lib work ../memoire_latchup_general.vhd
+vif_add_file -original -vhdl -lib work ../memoire_tokenout_echelle.vhd
+vif_add_file -original -vhdl -lib work ../signaux_hybrides.vhd
+vif_add_file -original -vhdl -lib work ../gestion_hybrides_v4.vhd
+vif_add_file -original -vhdl -lib work ../mega_func_fifo8x256_cycloneIII.vhd
+vif_add_file -original -vhdl -lib work ../mega_func_fifo21x32_cycloneIII.vhd
+vif_add_file -original -vhdl -lib work ../date_stamp.vhd
+vif_add_file -original -vhdl -lib work ../ladder_fpga.vhd
+vif_add_file -original -vhdl -lib work ../shiftreg.vhd
+vif_set_top_module -original -top ladder_fpga
+ 
+vif_add_library -translated $env(QUARTUS_ROOTDIR)/eda/fv_lib/verilog
+vif_add_file -translated -verilog ladder_fpga.vqm
+vif_set_top_module -translated -top ladder_fpga 

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue May 14 18:52:41 2013
+Quartus II 64-Bit Version : 11.1 Build 216 11/23/2011 SP 1 SJ Full Version
+Revision Name : ladder_fpga
+Top-level Entity Name : ladder_fpga
+Family : Cyclone III
+Device : EP3C16F484C6
+Timing Models : Final
+Total logic elements : 2,020 / 15,408 ( 13 % )
+    Total combinational functions : 1,422 / 15,408 ( 9 % )
+    Dedicated logic registers : 1,378 / 15,408 ( 9 % )
+Total registers : 1378
+Total pins : 293 / 347 ( 84 % )
+Total virtual pins : 0
+Total memory bits : 4,512 / 516,096 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

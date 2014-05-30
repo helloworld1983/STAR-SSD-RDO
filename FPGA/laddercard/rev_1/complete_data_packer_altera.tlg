@@ -1,0 +1,78 @@
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":33:7:33:17|Synthesizing work.ladder_fpga.ladder_fpga_arch 
+@W: CD604 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":525:6:525:19|OTHERS clause is not synthesized 
+@W: CD638 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":76:9:76:30|Signal ladder_fpga_clock50mhz is undriven 
+@W: CD638 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":217:7:217:34|Signal ladder_fpga_adc_bit_count_cs is undriven 
+@W: CD638 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":220:7:220:27|Signal ladder_fpga_packreset is undriven 
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":18:7:18:17|Synthesizing work.data_packer.real 
+@N: CD233 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":67:16:67:17|Using sequential encoding for type state_type
+@W: CD280 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":115:10:115:39|Unbound component mega_func_fifo21x32_cycloneIII mapped to black box
+@W: CD280 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":85:10:85:39|Unbound component mega_func_fifo16x32_cycloneIII mapped to black box
+@W: CD638 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":65:7:65:19|Signal dbg_nb_mot_in is undriven 
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":85:10:85:39|Synthesizing work.mega_func_fifo16x32_cycloneiii.syn_black_box 
+Post processing for work.mega_func_fifo16x32_cycloneiii.syn_black_box
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":115:10:115:39|Synthesizing work.mega_func_fifo21x32_cycloneiii.syn_black_box 
+Post processing for work.mega_func_fifo21x32_cycloneiii.syn_black_box
+Post processing for work.data_packer.real
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/mux_2_1.vhd":16:7:16:13|Synthesizing work.mux_2_1.behavioral 
+Post processing for work.mux_2_1.behavioral
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/mux_tdo.vhd":31:7:31:13|Synthesizing work.mux_tdo.behavioral 
+Post processing for work.mux_tdo.behavioral
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_32_bits.vhd":25:7:25:16|Synthesizing work.dr_32_bits.structural 
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_cell.vhd":26:7:26:13|Synthesizing work.dr_cell.behavioral 
+Post processing for work.dr_cell.behavioral
+Post processing for work.dr_32_bits.structural
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_8_bits.vhd":23:7:23:15|Synthesizing work.dr_8_bits.structural 
+Post processing for work.dr_8_bits.structural
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/br_cell_1clk.vhd":24:7:24:18|Synthesizing work.br_cell_1clk.behavioral 
+Post processing for work.br_cell_1clk.behavioral
+@W: CL117 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/br_cell_1clk.vhd":38:1:38:2|Latch generated from process for signal ff1, probably caused by a missing assignment in an if or case stmt
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ir_5_bits.vhd":27:7:27:15|Synthesizing work.ir_5_bits.structural 
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ir_cell.vhd":24:7:24:13|Synthesizing work.ir_cell.behavioral 
+Post processing for work.ir_cell.behavioral
+Post processing for work.ir_5_bits.structural
+@N: CD630 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/tap_control.vhd":38:7:38:17|Synthesizing work.tap_control.a 
+@N: CD231 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/tap_control.vhd":61:13:61:14|Using onehot encoding for type state (test_logic_reset="1000000000000000")
+@W: CD604 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/tap_control.vhd":168:1:168:14|OTHERS clause is not synthesized 
+Post processing for work.tap_control.a
+Post processing for work.ladder_fpga.ladder_fpga_arch
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":220:7:220:27|ladder_fpga_packreset is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":76:9:76:30|ladder_fpga_clock50MHz is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":61:1:61:7|tokenin is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":60:1:60:4|rclk is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":56:1:56:13|pilotage_mvdd is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":55:1:55:14|pilotage_magnd is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":54:1:54:15|mux_ref_latchup is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":46:1:46:14|addr_mux_l_neg is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":45:1:45:14|addr_mux_h_neg is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":40:1:40:19|roboclock_adc_phase is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL240 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":39:1:39:25|roboclock_horloge40_phase is not assigned a value (floating) - a simulation mismatch is possible 
+@W: CL167 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":456:0:456:15|Input clk50in of instance comp_data_packer is floating
+@W: CL167 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":456:0:456:15|Input packreset of instance comp_data_packer is floating
+@N: CL201 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/tap_control.vhd":75:4:75:5|Trying to extract state machine for register etat_present
+Extracted state machine for register etat_present
+State machine has 16 reachable states with original encodings of:
+   0000000000000001
+   0000000000000010
+   0000000000000100
+   0000000000001000
+   0000000000010000
+   0000000000100000
+   0000000001000000
+   0000000010000000
+   0000000100000000
+   0000001000000000
+   0000010000000000
+   0000100000000000
+   0001000000000000
+   0010000000000000
+   0100000000000000
+   1000000000000000
+@W: CL209 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd":35:3:35:26|Input port bit <0> of adc_bit_count_cs_integer(3 downto 0) is unused 
+@W: CL234 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":49:1:49:13|Input port bits <23 to 13> of rdo_to_ladder(23 downto 0) are unused 
+@W: CL209 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":49:1:49:13|Input port bit <9> of rdo_to_ladder(23 downto 0) is unused 
+@W: CL234 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":49:1:49:13|Input port bits <6 to 4> of rdo_to_ladder(23 downto 0) are unused 
+@W: CL157 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":51:1:51:13|Output ladder_to_rdo has undriven bits - a simulation mismatch is possible 
+@W: CL159 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":48:1:48:8|Input des_lock is unused
+@W: CL159 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":53:1:53:15|Input latch_up_module is unused
+@W: CL159 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":62:1:62:8|Input tokenout is unused
+@W: CL158 :"/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd":64:1:64:11|Inout temperature is unused

@@ -1,0 +1,59 @@
+# Synospys Constraint Checker(syntax only), version mapsbt, Build 785R, built Nov 16 2011
+# Copyright (C) 1994-2011, Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+
+# Written on Fri May 17 00:47:13 2013
+
+
+##### DESIGN INFO #######################################################
+
+Top View:                "ladder_fpga"
+Constraint File(s):      "D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga_fsm.sdc"
+                         "D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\pin_assign.sdc"
+                         "D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.sdc"
+
+#Run constraint checker to find more issues with constraints.
+#########################################################################
+
+
+
+No issues found in constraint syntax.
+
+
+
+Clock Summary
+**************
+
+Start                                                               Requested     Requested     Clock                              Clock              
+Clock                                                               Frequency     Period        Type                               Group              
+------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                                              1.0 MHz       1000.000      system                             system_clkgroup    
+sc_tck                                                              10.0 MHz      100.000       declared                           default_clkgroup_0 
+clockIR                                                             10.0 MHz      100.000       declared                           default_clkgroup_0 
+clockDR                                                             10.0 MHz      100.000       declared                           default_clkgroup_0 
+temperature                                                         10.0 MHz      100.000       declared                           default_clkgroup_1 
+switchover                                                          40.0 MHz      25.000        declared                           default_clkgroup_2 
+tempclk4M                                                           4.0 MHz       250.000       declared                           default_clkgroup_1 
+clock40mhz_fpga                                                     40.0 MHz      25.000        declared                           default_clkgroup_3 
+clock40mhz_xtal                                                     40.0 MHz      25.000        declared                           default_clkgroup_4 
+ladder_fpga_clock80MHz                                              80.0 MHz      12.500        declared                           default_clkgroup_2 
+updateIR                                                            10.0 MHz      100.000       declared                           default_clkgroup_0 
+updateDR                                                            10.0 MHz      100.000       declared                           default_clkgroup_0 
+mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock          40.0 MHz      25.000        derived (from clock40mhz_fpga)     default_clkgroup_3 
+mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock          80.0 MHz      12.500        derived (from clock40mhz_fpga)     default_clkgroup_3 
+mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock          4.0 MHz       250.000       derived (from clock40mhz_fpga)     default_clkgroup_3 
+mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock          1.0 MHz       1000.000      derived (from clock40mhz_fpga)     default_clkgroup_3 
+mega_func_pll_40MHz_switchover_cycloneIII|clkbad0_derived_clock     40.0 MHz      25.000        derived (from clock40mhz_fpga)     default_clkgroup_3 
+mega_func_pll_40MHz_switchover_cycloneIII|clkbad1_derived_clock     80.0 MHz      12.500        derived (from clock40mhz_fpga)     default_clkgroup_3 
+ladder_fpga|holdin_echelle                                          1.0 MHz       1000.000      inferred                           Inferred_clkgroup_0
+ladder_fpga|testin_echelle                                          1.0 MHz       1000.000      inferred                           Inferred_clkgroup_1
+dr_cell_a_10_d_e_0|scan_out_derived_clock                           10.0 MHz      100.000       derived (from clockDR)             default_clkgroup_0 
+dr_cell_a_9_d_e_0|scan_out_derived_clock                            10.0 MHz      100.000       derived (from clockDR)             default_clkgroup_0 
+ladder_fpga|tst_tokenin_echelle_derived_clock                       40.0 MHz      25.000        derived (from clock40mhz_fpga)     default_clkgroup_3 
+ladder_fpga|ladder_fpga_abort_derived_clock                         80.0 MHz      12.500        derived (from clock40mhz_fpga)     default_clkgroup_3 
+tap_control|sc_updateDR_0x01_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
+tap_control|sc_updateDR_0x03_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
+tap_control|sc_updateDR_0x04_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
+tap_control|sc_updateDR_0x08_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
+tap_control|sc_updateDR_0x09_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
+tap_control|sc_updateDR_0x0b_derived_clock                          10.0 MHz      100.000       derived (from sc_tck)              default_clkgroup_0 
+======================================================================================================================================================

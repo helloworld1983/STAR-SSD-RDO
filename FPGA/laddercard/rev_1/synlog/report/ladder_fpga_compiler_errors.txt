@@ -1,0 +1,4 @@
+@E: CD242 :"D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.vhd":1882:112:1882:115|Expecting ;
+@E|Parse errors encountered - exiting
+@E::VHDL compiler failed
+

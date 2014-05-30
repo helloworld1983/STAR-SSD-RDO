@@ -1,0 +1,144 @@
+Flow report for ladder_fpga
+Tue May 14 18:54:17 2013
+Quartus II 64-Bit Version 11.1 Build 216 11/23/2011 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Successful - Tue May 14 18:54:17 2013          ;
+; Quartus II 64-Bit Version          ; 11.1 Build 216 11/23/2011 SP 1 SJ Full Version ;
+; Revision Name                      ; ladder_fpga                                    ;
+; Top-level Entity Name              ; ladder_fpga                                    ;
+; Family                             ; Cyclone III                                    ;
+; Device                             ; EP3C16F484C6                                   ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 2,020 / 15,408 ( 13 % )                        ;
+;     Total combinational functions  ; 1,422 / 15,408 ( 9 % )                         ;
+;     Dedicated logic registers      ; 1,378 / 15,408 ( 9 % )                         ;
+; Total registers                    ; 1378                                           ;
+; Total pins                         ; 293 / 347 ( 84 % )                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 4,512 / 516,096 ( < 1 % )                      ;
+; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                                ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                                 ;
++------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 05/14/2013 18:51:31 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; ladder_fpga         ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                             ;
++---------------------------------------------+-----------------------------------------------------------+---------------+-------------+----------------------+
+; Assignment Name                             ; Value                                                     ; Default Value ; Entity Name ; Section Id           ;
++---------------------------------------------+-----------------------------------------------------------+---------------+-------------+----------------------+
+; COMPILER_SIGNATURE_ID                       ; 158232343200.136855028304800                              ; --            ; --          ; --                   ;
+; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL             ; SYNPLIFY                                                  ; <None>        ; --          ; --                   ;
+; EDA_INPUT_DATA_FORMAT                       ; Vqm                                                       ; --            ; --          ; eda_design_synthesis ;
+; EDA_LMF_FILE                                ; synplcty.lmf                                              ; --            ; --          ; eda_design_synthesis ;
+; EDA_OUTPUT_DATA_FORMAT                      ; Vhdl                                                      ; --            ; --          ; eda_simulation       ;
+; EDA_RESYNTHESIS_TOOL                        ; SYNPLIFY PREMIER                                          ; <None>        ; --          ; --                   ;
+; EDA_SIMULATION_TOOL                         ; ModelSim-Altera (VHDL)                                    ; <None>        ; --          ; --                   ;
+; ENABLE_CLOCK_LATENCY                        ; On                                                        ; Off           ; --          ; --                   ;
+; MAX_CORE_JUNCTION_TEMP                      ; 85                                                        ; --            ; --          ; --                   ;
+; MIN_CORE_JUNCTION_TEMP                      ; 0                                                         ; --            ; --          ; --                   ;
+; MISC_FILE                                   ; C:/SSD upgrade/ladder code v09/rev_1/pr_1/ladder_fpga.dpf ; --            ; --          ; --                   ;
+; MISC_FILE                                   ; C:/SSD upgrade/analog tests/rev_1/pr_1/ladder_fpga.dpf    ; --            ; --          ; --                   ;
+; NUMBER_OF_SOURCES_PER_DESTINATION_TO_REPORT ; 1000                                                      ; 10            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS              ; Half Signal Swing                                         ; --            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS              ; Half Signal Swing                                         ; --            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS             ; Half Vccio                                                ; --            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS             ; Half Vccio                                                ; --            ; --          ; --                   ;
+; PARTITION_COLOR                             ; 16764057                                                  ; --            ; --          ; Top                  ;
+; PARTITION_FITTER_PRESERVATION_LEVEL         ; PLACEMENT_AND_ROUTING                                     ; --            ; --          ; Top                  ;
+; PARTITION_NETLIST_TYPE                      ; SOURCE                                                    ; --            ; --          ; Top                  ;
+; POWER_BOARD_THERMAL_MODEL                   ; None (CONSERVATIVE)                                       ; --            ; --          ; --                   ;
+; POWER_PRESET_COOLING_SOLUTION               ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                     ; --            ; --          ; --                   ;
+; REMOVE_DUPLICATE_LOGIC                      ; Off                                                       ; On            ; --          ; --                   ;
+; REMOVE_DUPLICATE_REGISTERS                  ; Off                                                       ; On            ; --          ; --                   ;
+; ROUTER_REGISTER_DUPLICATION                 ; On                                                        ; Auto          ; --          ; --                   ;
+; ROUTING_BACK_ANNOTATION_MODE                ; Normal                                                    ; --            ; --          ; --                   ;
+; TAO_FILE                                    ; myresults.tao                                             ; --            ; --          ; --                   ;
+; TIMEQUEST_DO_REPORT_TIMING                  ; On                                                        ; Off           ; --          ; --                   ;
++---------------------------------------------+-----------------------------------------------------------+---------------+-------------+----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:45     ; 1.0                     ; 434 MB              ; 00:00:09                           ;
+; Fitter                    ; 00:00:58     ; 1.1                     ; 600 MB              ; 00:00:22                           ;
+; TimeQuest Timing Analyzer ; 00:00:51     ; 1.1                     ; 456 MB              ; 00:00:17                           ;
+; Assembler                 ; 00:00:37     ; 1.0                     ; 372 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:40     ; 1.0                     ; 372 MB              ; 00:00:05                           ;
+; Total                     ; 00:03:14     ; --                      ; --                  ; 00:00:53                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; nanpc472         ; Windows 7 ; 6.1        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off ladder_fpga -c ladder_fpga
+quartus_fit --read_settings_files=off --write_settings_files=off ladder_fpga -c ladder_fpga
+quartus_asm --read_settings_files=off --write_settings_files=off ladder_fpga -c ladder_fpga
+quartus_sta ladder_fpga -c ladder_fpga
+quartus_eda --read_settings_files=off --write_settings_files=off ladder_fpga -c ladder_fpga
+
+
+

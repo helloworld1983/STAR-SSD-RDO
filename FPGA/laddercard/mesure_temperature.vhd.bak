@@ -1,0 +1,518 @@
+---++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---
+-- +++    Romain et cyril le 12 fev 2001    +++    FPGA carte_connexion STAR        +++ --
+---++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---
+
+--===================================================================================
+-- fonction de mesure de la temperature avec 3 chips Maxim 6575L 
+-- adresse 00 : carte ADC
+-- adresses 01 et 10 : carte de connexion
+--===================================================================================
+-- Version No:| Author   | Changes Made: | Mod. Date:
+--     v2     | C.Renard | Modification  | 09 mar 2009| remplace type BIT par type STD_LOGIC
+--     v2     | C.Renard | Modification  | 10 mar 2009| integre multiple sous-fichiers
+--     v2     | C.Renard | Modification  | 26 aou 2009| replaced clock40mhz_fpga by clock4mhz_fpga
+------------------------------------------------------------------------------
+-- A_PREVOIR: Ce commentaire est place la ou il reste des modifications a faire
+Library IEEE;
+Use     IEEE.STD_Logic_1164.all; -- Reference the Std_logic_1164 system
+Use     IEEE.std_logic_arith.all;
+Library synplify; -- 20060810 ajoute
+Use     synplify.attributes.all; -- 20060810 ajoute
+
+ENTITY mesure_temperature IS
+
+	PORT
+    (
+	reset_sys			: IN    STD_LOGIC; -- reset (utilise le trstb)
+--	clock40mhz_fpga		: IN    STD_LOGIC; -- oscillateur a 40 MHz -- 20090826 enleve
+	clock4mhz_fpga		: IN    STD_LOGIC; -- oscillateur a 4 MHz -- 20090826 modifie
+--	en_ck_temperature	:   OUT STD_LOGIC; -- commande on/off de l'oscillateur 4MHz
+
+	temperature_in		: IN    STD_LOGIC; -- bus 1-wire en entree
+	temperature_out		:   OUT STD_LOGIC; -- bus 1-wire en sortie
+
+--	start				: IN    STD_LOGIC; -- registre JTAG en entree pour declenchement de la mesure
+	end_of_temp_conv	:   OUT STD_LOGIC; -- registre JTAG en sortie pour status
+	temperature_value	:   OUT STD_LOGIC_VECTOR(47 downto 0)); -- registre JTAG des valeurs de temperatures (3 valeurs codees sur 12 bits)
+	
+END mesure_temperature;
+
+
+
+architecture structurel of mesure_temperature is
+
+
+-------------------- diviseur d'horloge 
+--component horloge 
+--	PORT (
+--	reset		: IN    STD_LOGIC; -- remise a zero du compteur interne au repos
+--	ck_4M		: IN    STD_LOGIC; -- horloge d'entree 4 MHz
+--
+--	ck_2M		:   OUT STD_LOGIC; -- Horloges de sortie 2MHz, 1MHz, 500kHz, 250kHz, 125kHz
+--	ck_1M		:   OUT STD_LOGIC;
+--	ck_500K		:   OUT STD_LOGIC;
+--	ck_250K		:   OUT STD_LOGIC;
+--	ck_125K		:   OUT STD_LOGIC);
+--end component;
+
+-------------------- comptage du temps
+
+component comptage_temperature 
+	
+	PORT (
+	clk_degre    	: IN  STD_LOGIC; -- horloge 2MHz/500kHz/250kHz
+	reset			: IN  STD_LOGIC;
+	signal_temp		: IN  STD_LOGIC; -- signal 1-wire
+	enable			: IN  STD_LOGIC; -- entree de masquage du signal 1-wire
+
+	valeur		  	:   OUT integer RANGE 0 TO 3720 -- valeur en Kelvin en 1/10 de de degree
+	);
+
+end component;
+
+-------------------- Fonction de masquage du signal 1-wire
+--component en_cpt
+--	PORT ( 
+--	reset	 	: IN    STD_LOGIC;
+--	clk			: IN    STD_LOGIC; -- horloge 1 MHz
+--	start_temp	: IN    STD_LOGIC; -- impulsion de declenchement de l'acquisition
+--	eotc			:   OUT STD_LOGIC; -- flag fin de mesure
+--	en_compte_1	:   OUT STD_LOGIC; -- masque pour le chip 1
+--	en_compte_2	:   OUT STD_LOGIC; -- masque pour le chip 2
+--	en_compte_3	:   OUT STD_LOGIC; -- masque pour le chip 3
+--	en_compte_4	:   OUT STD_LOGIC  -- masque pour le chip 4
+--	);
+--end component;
+
+-------------------- Fonction de gestion
+--component gestion
+--	PORT (
+--		ck_temp	: IN    STD_LOGIC; -- horloge de mesure de la temperature
+--		start	: IN    STD_LOGIC; -- registre Jtag pour lancer une acquisition (0 : lancer - 1 : rien)
+--		status	:   OUT STD_LOGIC; -- registre Jtag d'etat de l'acquisition (0 : en cours - 1 : fini)
+--		start_temperature	:   OUT STD_LOGIC; -- lancement de la mesure
+--		signal_temperature	:   OUT STD_LOGIC; -- bus 1-Wire en sortie
+--		rst		:   OUT STD_LOGIC; -- reset du compteur pour l'enable du comptage
+--		eotc		: IN    STD_LOGIC); -- flag fin de comptage 
+--end component;
+
+--signal impuls : STD_LOGIC;
+-------------------- fonction gene de start
+--component gene_start
+--port(
+--	reset_sys	: IN    STD_LOGIC; -- reset du system via le trstb du jtag
+--	start_in	: IN    STD_LOGIC; -- signal start provenant du registre JTAG
+--	reset		: IN    STD_LOGIC; -- reset signalant que le comptage est fini
+--	start_out	:   OUT STD_LOGIC; -- signal start pour un declenchement monocoup de la mesure
+--	en_ck_temp	:   OUT STD_LOGIC); -- enable de l'oscillateur 4MHz
+--end component;
+
+-------------------- Signaux internes
+
+signal ck_4M, ck_2M, ck_1M, ck_500k, ck_250k, ck_125k : STD_LOGIC; -- signaux d'horloges pour le comptage
+signal reset_temp : STD_LOGIC; -- signal de reset des entites du bloc
+signal start_temp : STD_LOGIC; -- signal de synchro de lancement de mesure
+signal eotc : STD_LOGIC; -- signal de fin de mesure
+--signal en_ck_temp : STD_LOGIC; -- signal enable d'horloge pour la mesure
+signal enable_temp1, enable_temp2, enable_temp3, enable_temp4 : STD_LOGIC; -- signaux de masquage pour les fonctions de comptage
+signal valeur1, valeur2, valeur3, valeur4 : integer range 0 to 3720; -- valeurs des mesures 
+--signal temperature : STD_LOGIC; -- bus 1-wire -- 20090818 enleve
+signal temperature_o : STD_LOGIC; -- bus 1-wire -- 20090818 modifie
+--signal start_pulse : STD_LOGIC; --signal start de declenchement monocoup
+signal cpt_clk	:	UNSIGNED(4 downto 0); -- 20090310 ajoute
+signal compter_temperature : STD_LOGIC;
+signal count_value_mu_sec : UNSIGNED(14 downto 0);
+signal en_cmpt_temp : STD_LOGIC_VECTOR(3 downto 0):= "0000";
+--SIGNAL start : STD_LOGIC; -- declenchement de la mesure
+TYPE temp_mesu_state IS (st_temp_mesu_repos, st_temp_mesu_start_osc, st_temp_mesu_start_osc2, st_temp_mesu_start_temp, st_temp_mesu_start_temp2, st_temp_mesu_attente, st_temp_mesu_stop_osc1, st_temp_mesu_stop_osc2);
+signal next_temp_mesu_state : temp_mesu_state;
+attribute syn_encoding of next_temp_mesu_state	: signal is "safe,onehot"; -- 20090311 ajoute
+--  TYPE temp_clk_state is (st_temp_clk_0, st_temp_clk_1, st_temp_clk_2, st_temp_clk_3, st_temp_clk_4, st_temp_clk_5, st_temp_clk_6, st_temp_clk_7, st_temp_clk_8, st_temp_clk_9); -- 20090312 ajoute -- 20090826 enleve
+--  signal curr_temp_clk_state, next_temp_clk_state : temp_clk_state; -- 20090312 ajoute -- 20090826 enleve
+--  attribute syn_encoding of curr_temp_clk_state : signal is "safe,onehot"; -- 20090312 ajoute -- 20090826 enleve
+--TYPE temp_start_state IS (st_temp_start_repos, st_temp_start_on, st_temp_start_off);
+--signal curr_temp_start_state, next_temp_start_state : temp_start_state;
+--attribute syn_encoding of curr_temp_start_state	: signal is "safe,onehot"; -- 20090311 ajoute
+
+
+begin
+
+
+--  PROC_TEMP_START_CURR_STATE : process(ck_1M, reset_sys, next_temp_start_state)
+--  begin
+--    if (reset_sys='0') then
+--      curr_temp_start_state <= st_temp_start_repos;
+--    elsif ((ck_1M'event)And(ck_1M='1')) then
+--      curr_temp_start_state <= next_temp_start_state;
+--    end if;
+--  end process;
+--  PROC_TEMP_CLK_NEXT_STATE : process(curr_temp_start_state, eotc)
+--  begin
+--    case curr_temp_start_state is
+--    when st_temp_start_repos =>
+--      next_temp_start_state <= st_temp_start_on;
+--      start <= '0';
+--    when st_temp_start_on =>
+--	  IF (eotc='1') THEN
+--	      next_temp_start_state <= st_temp_start_off;
+--	  ELSE
+--	      next_temp_start_state <= st_temp_start_on;
+--	  END IF;
+--      start <= '1';
+--    when st_temp_start_off =>
+--      next_temp_start_state <= st_temp_start_repos;
+--      start <= '0';
+--    when others =>
+--      next_temp_start_state <= st_temp_start_repos;
+--      start <= '0';
+--    end case;
+--  end process;
+
+
+-------------------- Gestion de la mesure
+--gestion1 : gestion
+--	PORT MAP(
+--		ck_250k, -- horloge de 250 kHz utilise pour permettre de generer des pulses suffisament long pour les capteurs
+--		start_pulse,
+--		status,
+--		start_temp,
+--		temperature,
+--		reset_temp,
+--		eotc); 
+-- Cette entite permet de lancer et d'arreter une mesure
+-- on utilise l'horloge a 250 kHz (periode 4µs) pour que la duree
+-- des pulse sur le bus 1-wire soit suffisante ( 2,5µs minimum d'apres le datasheet)
+
+machine_etat : process(reset_sys, ck_250k)
+  begin
+	if(reset_sys='0') then
+		next_temp_mesu_state <= st_temp_mesu_repos;
+	elsif(ck_250k'EVENT and ck_250k='1') then
+	case next_temp_mesu_state is
+	when st_temp_mesu_repos => 
+		next_temp_mesu_state <= st_temp_mesu_start_osc ;
+	when st_temp_mesu_start_osc => 
+		next_temp_mesu_state <= st_temp_mesu_start_osc2;
+	when st_temp_mesu_start_osc2 => 
+		next_temp_mesu_state <= st_temp_mesu_start_temp;
+	when st_temp_mesu_start_temp =>
+		next_temp_mesu_state <= st_temp_mesu_start_temp2;
+	when st_temp_mesu_start_temp2 =>
+		next_temp_mesu_state <= st_temp_mesu_attente;
+	when st_temp_mesu_attente =>
+		if (eotc='1')	then	next_temp_mesu_state <= st_temp_mesu_stop_osc1;
+						else	next_temp_mesu_state <= st_temp_mesu_attente;
+		end if;
+	when st_temp_mesu_stop_osc1 =>
+		next_temp_mesu_state <= st_temp_mesu_stop_osc2;
+	when st_temp_mesu_stop_osc2 =>
+		next_temp_mesu_state <= st_temp_mesu_repos;
+	when OTHERS => -- 20090818 ajoute
+		next_temp_mesu_state <= st_temp_mesu_repos; -- 20090818 ajoute
+	end case;
+	end if;
+  end process;
+
+sortie : process(reset_sys, ck_250k)  -- lancement de la mesure
+	begin
+	if(reset_sys='0') then
+		start_temp <= '1';
+--		temperature <= '1' ; -- 20090818 enleve
+		temperature_o <= 'Z' ; -- 20090818 modifie
+		reset_temp <= '0';
+	elsif(ck_250k'EVENT and ck_250k='1') then
+		if ((next_temp_mesu_state = st_temp_mesu_start_temp) or (next_temp_mesu_state = st_temp_mesu_start_temp2)) then
+			start_temp <= '0';
+--			temperature <= '0'; -- 20090818 enleve
+			temperature_o <= '0'; -- 20090818 modifie
+		else
+			start_temp <= '1';
+--	    	temperature <= '1' ; -- 20090818 enleve
+    		temperature_o <= 'Z' ; -- 20090818 modifie
+		end if;
+		-- on genere un reset tant que l'on est au repos
+		-- permet de bloquer toutes les fonctions de comptage (en_cpt, horloge, comptage)
+		if next_temp_mesu_state = st_temp_mesu_repos then
+			reset_temp <= '0';
+		else
+			reset_temp <= '1';
+		end if;
+	end if;
+	end process;
+
+
+-------------------- Generateur horloges de comptage
+--horloge1 : horloge
+--	PORT MAP(
+--		en_ck_temp,
+--		ck_4M,
+--		ck_2M,
+--		ck_1M,
+--		ck_500k,
+--		ck_250k);
+-- Generation des horloges
+-- 
+-- A partir du 4 MHz, on genere 4 horloges pour les fonction de comptage
+-- et une horloge pour le calcul des fenêtres temporel
+-- cela permet d'appeler 4 fois la meme fonction de comptage,
+-- avec simplement une horloge differente
+--
+-- Pour le chip a l'adresse 00, (coefficient 5µs/°K)
+-- on envoi une horloge de 2 MHz (periode 500 ns) pour permettre une mesure au dixième de degree
+-- 
+-- Pour le chip a l'adresse 01, (coefficient 20µs/°K)
+-- on envoi une horloge de 500 kHz (periode 2 µs)
+-- 
+-- Pour le chip a l'adresse 10, (coefficient 40 µs/°K)
+-- on envoi une horloge de 250 kHz (periode de 4µs)
+-- 
+-- Pour le chip a l'adresse 11, (coefficient 80 µs/°K)
+-- on envoi une horloge de 125 kHz (periode de 8µs)
+-- 
+-- les horloges a generer etant des multiples de 2 de l'horloge en entree,
+-- on utilise directement les bits d'un compteurs 5 bits pour generer les 5 signaux d'horloge
+
+PROCESS(reset_sys, ck_4M, cpt_clk)
+	BEGIN
+	IF reset_sys = '0' THEN
+		cpt_clk <= "00000";
+	ELSIF (ck_4M'EVENT AND ck_4M = '1') THEN
+		IF (cpt_clk = 31) THEN
+			cpt_clk <= "00000";
+		ELSE
+			cpt_clk <= cpt_clk + 1;
+		END IF;
+	END IF;
+END PROCESS;
+
+ck_4M   <= clock4mhz_fpga; -- 20090826 modifie
+ck_2M	<= cpt_clk(0);
+ck_1M	<= cpt_clk(1);
+ck_500K	<= cpt_clk(2);
+ck_250K	<= cpt_clk(3);
+ck_125K	<= cpt_clk(4);
+
+--  PROC_TEMP_CLK_CURR_STATE : process(clock40mhz_fpga, reset_sys, next_temp_clk_state) -- 20090826 enleve
+--  begin -- 20090826 enleve
+--    if (reset_sys='0') then -- 20090826 enleve
+--      curr_temp_clk_state <= st_temp_clk_0; -- 20090826 enleve
+--    elsif ((clock40mhz_fpga'event)And(clock40mhz_fpga='1')) then -- 20090826 enleve
+--      curr_temp_clk_state <= next_temp_clk_state; -- 20090826 enleve
+--    end if; -- 20090826 enleve
+--  end process; -- 20090826 enleve
+--  PROC_TEMP_CLK_NEXT_STATE : process(curr_temp_clk_state) -- 20090826 enleve
+--  begin -- 20090826 enleve
+--    case curr_temp_clk_state is -- 20090826 enleve
+--    when st_temp_clk_0 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_1; -- 20090826 enleve
+--      ck_4M <= '0'; -- 20090826 enleve
+--    when st_temp_clk_1 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_2; -- 20090826 enleve
+--      ck_4M <= '0'; -- 20090826 enleve
+--    when st_temp_clk_2 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_3; -- 20090826 enleve
+--      ck_4M <= '0'; -- 20090826 enleve
+--    when st_temp_clk_3 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_4; -- 20090826 enleve
+--      ck_4M <= '0'; -- 20090826 enleve
+--    when st_temp_clk_4 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_5; -- 20090826 enleve
+--      ck_4M <= '0'; -- 20090826 enleve
+--    when st_temp_clk_5 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_6; -- 20090826 enleve
+--      ck_4M <= '1'; -- 20090826 enleve
+--    when st_temp_clk_6 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_7; -- 20090826 enleve
+--      ck_4M <= '1'; -- 20090826 enleve
+--    when st_temp_clk_7 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_8; -- 20090826 enleve
+--      ck_4M <= '1'; -- 20090826 enleve
+--    when st_temp_clk_8 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_9; -- 20090826 enleve
+--      ck_4M <= '1'; -- 20090826 enleve
+--    when st_temp_clk_9 => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_0; -- 20090826 enleve
+--      ck_4M <= '1'; -- 20090826 enleve
+--    when others => -- 20090826 enleve
+--      next_temp_clk_state <= st_temp_clk_0; -- 20090826 enleve
+--      ck_4M <= '0'; -- 20090826 enleve
+--    end case; -- 20090826 enleve
+--  end process; -- 20090826 enleve
+
+
+-------------------- Gestion des masques pour le comptage
+--en_cpt1 : en_cpt
+--	PORT MAP(
+--		reset_temp,
+--		ck_1M,
+--		start_temp,
+--		eotc,
+--		enable_temp1,
+--		enable_temp2,
+--		enable_temp3);
+-- Fonction de masquage du signal 1-wire
+-- les 4 impulsions de stop se trouvant sur le meme bus,
+-- il faut autoriser ou non en fonction de la fenêtre temporel 
+-- l'arrêt de la fonction comptage (appelee 4 fois, une par composant de mesure)
+-- on utilise une horloge de 1 MHz, pour avoir une reference de temps de 1 us
+-- 
+-- les 4 fenetres de mesure sont :
+--  1,1 ms --  2,5 ms soit 220°K -- 500°K
+--  4,6 ms --  8,5 ms soit 230°K -- 425°K
+--  9,3 ms -- 16,5 ms soit 232°K -- 412°K
+-- 18,4 ms -- 32,0 ms soit 400°K -- 412°K
+-- 
+-- la plage reel de mesure du capteur est -40°C -- +125°C (soit 233°K -- 398°K)
+--
+-- ces fenêtres sont approximative, le declenchement du comptage interne n'etant pas forcement 
+-- exactement en meme temps que le declenchement des capteurs de temperature
+PROCESS (reset_temp,start_temp)   -- fabrication du signal compter_temperature : compter_temperature = 1 : Il faudra mesurer le temps
+  BEGIN
+	IF reset_temp='0' THEN
+	  compter_temperature <= '0'; 	-- reset au demarrage
+	ELSIF (start_temp'EVENT AND start_temp='0') THEN
+	  compter_temperature <= not compter_temperature; -- declenchement/arret du compteur interne
+	END IF;
+  END PROCESS;	
+PROCESS(reset_temp,ck_1M)
+  BEGIN
+	IF reset_temp ='0' THEN 
+		count_value_mu_sec <= "000000000000000";
+		eotc<='1';
+	ELSIF (ck_1M'EVENT AND ck_1M='1') THEN
+		IF (compter_temperature = '1') THEN
+			IF (count_value_mu_sec=35000) THEN -- arret de la mesure a 35 ms 
+				eotc	<= '1';
+			ELSE
+				count_value_mu_sec <= count_value_mu_sec + 1;
+				eotc <= '0';
+			END IF;
+		ELSE
+			count_value_mu_sec <= "000000000000000";
+			eotc <= '1';
+		END IF;
+	END IF;
+  END PROCESS;
+
+PROCESS(ck_1M,count_value_mu_sec)
+  BEGIN  
+	IF (ck_1M'EVENT and ck_1M='1') THEN
+		if (count_value_mu_sec < 500) THEN en_cmpt_temp <= "1111";
+		ELSIF ((count_value_mu_sec >  1100) AND (count_value_mu_sec <  2500)) THEN en_cmpt_temp <= "0001";
+		ELSIF ((count_value_mu_sec >  4600) AND (count_value_mu_sec <  8500)) THEN en_cmpt_temp <= "0010";
+		ELSIF ((count_value_mu_sec >  9300) AND (count_value_mu_sec < 16500)) THEN en_cmpt_temp <= "0100";
+		ELSIF ((count_value_mu_sec > 18400) AND (count_value_mu_sec < 32000)) THEN en_cmpt_temp <= "1000";
+		ELSE en_cmpt_temp <= "0000";
+		END IF;
+	END IF;
+  END PROCESS;
+
+enable_temp1 <= en_cmpt_temp(0);
+enable_temp2 <= en_cmpt_temp(1);
+enable_temp3 <= en_cmpt_temp(2);
+enable_temp4 <= en_cmpt_temp(3);
+
+
+-------------------- Comptage premier chip
+compte1 : comptage_temperature
+	PORT MAP(
+		clk_degre	=>	ck_2M, -- coefficient temporel 5µs/°K (/10)
+		reset		=>	reset_temp,
+		signal_temp	=>	temperature_in,
+		enable		=>	enable_temp1,
+		valeur		=>	valeur1);
+
+-------------------- Comptage deuxieme chip
+compte2 : comptage_temperature
+	PORT MAP(
+		clk_degre	=>	ck_500k, -- coefficient temporel 20µs/°K (/10)
+		reset		=>	reset_temp,
+		signal_temp	=>	temperature_in,
+		enable		=>	enable_temp2,
+		valeur		=>	valeur2);
+
+-------------------- Comptage troisieme chip
+compte3 : comptage_temperature
+	PORT MAP(
+		clk_degre	=>	ck_250k, -- coefficient temporel 40µs/°K (/10)
+		reset		=>	reset_temp,
+		signal_temp	=>	temperature_in,
+		enable		=>	enable_temp3,
+		valeur		=>	valeur3);
+
+-------------------- Comptage quatrieme chip
+compte4 : comptage_temperature
+	PORT MAP(
+		clk_degre	=>	ck_125k, -- coefficient temporel 80µs/°K (/10)
+		reset		=>	reset_temp,
+		signal_temp	=>	temperature_in,
+		enable		=>	enable_temp4,
+		valeur		=>	valeur4);
+
+-------------------- Fonction Gene de start
+--start_generation : gene_start
+--	port map(
+--	reset_sys,
+--	start,	
+--	reset_temp,		
+--	start_pulse, -- pulse de start, revenant au repos quand la fonction gestion genere un pulse
+--	en_ck_temp);
+-- Fonction pour générer un start en moncoup
+--
+-- recoit le start du registre (actif a 0)
+-- renvoi un start aux autres entites (actif a 0) qui est remis au repos (etat logique 1)
+-- quand l'entite "gestion" renvoi un reset (actif a 0) equivalent a l'etat de repos
+-- de l'entite "gestion".
+-- 
+-- genere aussi l'enable de l'oscillateur, qui est une simple replique du start reçu par le jtag.
+--
+-- L'OSCILLATEUR ACTIF TANT QUE LE REGISTRE START EST A 0.
+--
+-- en ecrivant un 0 dans le registre start, lancement d'une seule mesure
+--
+-- pour relancer une mesure, l'utilisateur doit ecrire un 1, pour repasser le systeme
+-- au repos,  puis re-ecrire un 0.
+--
+-- un premier front descendant est genere quand un start arrive
+-- un second front descendant est genere quand le reset repasse a 0 (fin de mesure)
+--
+-- start       -----------|_______________________________________|----------------------
+-- reset       _______________|-----------------------|__________________________________
+-- impuls      -----------|___|-----------------------|____________|---------------------
+-- start_pulse -----------|___________________________|----------------------------------
+
+--impuls <= start or reset_temp; 
+
+--process(impuls,reset_sys)
+--begin
+--if reset_sys='0'
+--	then start_pulse <= '1';
+--	elsif impuls'EVENT and impuls ='0'
+--	then start_pulse <= not start_pulse;
+--end if;
+--end process;
+
+--en_ck_temp <= not start; -- inversion du signal start pour commander l'oscillateur
+
+
+--temperature_out <= temperature; -- 200908&8 enleve
+temperature_out <= temperature_o; -- 200908&8 modifie
+--en_ck_temperature <= en_ck_temp;
+
+-- affectation des resultats des mesures de temperatures
+
+PROCESS(reset_sys,eotc)
+  BEGIN
+	IF reset_sys ='0' THEN 
+		temperature_value <= (OTHERS=>'0');
+	ELSIF (eotc'EVENT AND eotc='1') THEN
+		temperature_value(11 downto  0)<= conv_std_logic_vector(valeur1,12);
+		temperature_value(23 downto 12)<= conv_std_logic_vector(valeur2,12);
+		temperature_value(35 downto 24)<= conv_std_logic_vector(valeur3,12);
+		temperature_value(47 downto 36)<= conv_std_logic_vector(valeur4,12);
+	END IF;
+  END PROCESS;
+
+end_of_temp_conv <= eotc;
+
+end structurel;

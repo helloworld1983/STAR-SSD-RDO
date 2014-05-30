@@ -1,0 +1,52 @@
+@W: CD609 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1329:24:1329:41|Index value 0 to 16 could be out of prefix range 0 to 15 
+@W: CD604 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1560:6:1560:19|OTHERS clause is not synthesized 
+@W: CD604 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1624:6:1624:19|OTHERS clause is not synthesized 
+@W: CD604 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":2253:6:2253:19|OTHERS clause is not synthesized 
+@W: CD638 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":584:7:584:35|Signal ladder_fpga_fifo8_to_usb_wr_d is undriven 
+@W: CD638 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":585:7:585:36|Signal ladder_fpga_fifo8_to_usb_wr_dd is undriven 
+@W: CL169 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Pruning register temperature_out_cl  
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Optimizing register bit temperature_out to a constant 0
+@W: CL169 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Pruning register temperature_out  
+@W: CD604 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\tap_control.vhd":200:1:200:14|OTHERS clause is not synthesized 
+@W: CL169 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1635:2:1635:3|Pruning register ladder_fpga_flux_compactor_status(4 downto 0)  
+@W: CL271 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Pruning bits 9 to 8 of acquire_adcs.data_to_send_1(9 downto 0) -- not in use ... 
+@W: CL271 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Pruning bits 7 to 4 of switch_val(7 downto 0) -- not in use ... 
+@W: CL111 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|All reachable assignments to ladder_fpga_sc_reg_debug(0) assign '0'; register removed by optimization
+@W: CL111 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|All reachable assignments to ladder_fpga_sc_reg_debug(1) assign '0'; register removed by optimization
+@W: CL111 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|All reachable assignments to ladder_fpga_sc_reg_debug(2) assign '0'; register removed by optimization
+@W: CL111 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|All reachable assignments to ladder_fpga_sc_reg_debug(3) assign '0'; register removed by optimization
+@W: CL111 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|All reachable assignments to ladder_fpga_sc_reg_debug(4) assign '0'; register removed by optimization
+@W: CL111 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|All reachable assignments to ladder_fpga_sc_reg_debug(5) assign '0'; register removed by optimization
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(6) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(7) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(8) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(9) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(10) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(11) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(12) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(13) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(14) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(15) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(16) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(17) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(18) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(19) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(20) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit ladder_fpga_sc_reg_debug(21) to a constant 0
+@W: CL169 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Pruning register ladder_fpga_sc_reg_debug(21 downto 6)  
+@W: CL249 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\tap_control.vhd":75:4:75:5|Initial value is not supported on state machine etat_present
+@W: CL249 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\mesure_temperature.vhd":50:6:50:7|Initial value is not supported on state machine state
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit acquire_adcs.n_bytes(2) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit acquire_adcs.n_convert(2) to a constant 0
+@W: CL190 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Optimizing register bit acquire_adcs.n_adc(4) to a constant 0
+@W: CL260 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Pruning register bit 4 of n_adc(4 downto 0)  
+@W: CL260 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Pruning register bit 2 of n_convert(2 downto 0)  
+@W: CL260 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":1199:2:1199:3|Pruning register bit 2 of n_bytes(2 downto 0)  
+@W: CL159 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":156:1:156:13|Input rdo_to_ladder is unused
+@W: CL159 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":170:4:170:19|Input fibre_mod_absent is unused
+@W: CL158 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":171:4:171:16|Inout fibre_mod_scl is unused
+@W: CL158 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":172:4:172:16|Inout fibre_mod_sda is unused
+@W: CL159 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":173:4:173:16|Input fibre_rx_loss is unused
+@W: CL159 :"U:\work_lbnl\SSD\ladder_card\v2b\ladder_fpga_v0d_luis_tokeninverted_rclk_temperture\ladder_fpga_v0d\ladder_fpga.vhd":175:4:175:17|Input fibre_tx_fault is unused
+@W:| Multiple cells (name:cycloneiii_crcblock) exist across languages, picking work.cycloneiii_crcblock, ignoring work.cycloneiii_crcblock@I::"C:\FPGAtools\Synopsys\fpga_H2013031\lib\altera\altera.v"
+

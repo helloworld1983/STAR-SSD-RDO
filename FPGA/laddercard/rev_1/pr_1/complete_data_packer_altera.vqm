@@ -1,0 +1,5559 @@
+//
+// Written by Synplify
+// Product Version "Version 9.0.2"
+// Program "Synplify Pro", Mapper "9.0.2, Build 136R"
+// Tue Feb  3 16:15:13 2009
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "noname"
+// file 1 "\/CAO/synplicity/fpga_902/lib/vhd/std.vhd "
+// file 2 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/header_star_ssdU.vhd "
+// file 3 "\/CAO/synplicity/fpga_902/lib/vhd/std1164.vhd "
+// file 4 "\/CAO/synplicity/fpga_902/lib/vhd/arith.vhd "
+// file 5 "\/CAO/synplicity/fpga_902/lib/vhd/unsigned.vhd "
+// file 6 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_cell.vhd "
+// file 7 "\/CAO/synplicity/fpga_902/lib/vhd/signed.vhd "
+// file 8 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ir_cell.vhd "
+// file 9 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/mux_2_1.vhd "
+// file 10 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/mux_tdo.vhd "
+// file 11 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/tap_control.vhd "
+// file 12 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/br_cell_1clk.vhd "
+// file 13 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/complete_data_packer_altera.vhd "
+// file 14 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_16_bits_init.vhd "
+// file 15 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_8_bits.vhd "
+// file 16 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_8_bits_init.vhd "
+// file 17 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ir_5_bits.vhd "
+// file 18 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_32_bits.vhd "
+// file 19 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/dr_32_bits_init.vhd "
+// file 20 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/identificateur_8bits.vhd "
+// file 21 "\/SPACE/users/renard/projets/star_upgrade/ladder_fpga/ladder_fpga.vhd "
+// file 22 "\ "
+
+// VQM4.1+ 
+module tap_control (
+  rdo_to_ladder_c_i_0,
+  rdo_to_ladder_c_1,
+  rdo_to_ladder_c_0,
+  rdo_to_ladder_c_2,
+  etat_present_0,
+  clockIR_x_i,
+  clockDR_x_i,
+  clockIR_x,
+  clockDR_x,
+  reset_bar,
+  shiftDR,
+  shiftIR,
+  updateIR
+)
+;
+input rdo_to_ladder_c_i_0 ;
+input rdo_to_ladder_c_1 ;
+input rdo_to_ladder_c_0 ;
+input rdo_to_ladder_c_2 ;
+output etat_present_0 ;
+output clockIR_x_i ;
+output clockDR_x_i ;
+output clockIR_x ;
+output clockDR_x ;
+output reset_bar ;
+output shiftDR ;
+output shiftIR ;
+output updateIR ;
+wire rdo_to_ladder_c_i_0 ;
+wire rdo_to_ladder_c_1 ;
+wire rdo_to_ladder_c_0 ;
+wire rdo_to_ladder_c_2 ;
+wire etat_present_0 ;
+wire clockIR_x_i ;
+wire clockDR_x_i ;
+wire clockIR_x ;
+wire clockDR_x ;
+wire reset_bar ;
+wire shiftDR ;
+wire shiftIR ;
+wire updateIR ;
+wire [15:0] etat_present_ns_i_x;
+wire [14:1] etat_present;
+wire [11:2] etat_present_ns_i;
+wire [10:3] etat_present_ns_a2_x;
+wire [1:1] etat_present_ns_a2;
+wire [15:15] etat_present_i;
+wire [11:4] etat_present_ns_i_a2;
+wire [1:1] etat_present_ns_a2_2;
+wire [1:1] etat_present_ns_a2_1_x;
+wire VCC ;
+wire N_138 ;
+wire N_137 ;
+wire N_136 ;
+wire N_135 ;
+wire N_134 ;
+wire N_133 ;
+wire N_132 ;
+wire N_131 ;
+wire N_130 ;
+wire N_129 ;
+wire N_128 ;
+wire N_127 ;
+wire N_126 ;
+wire N_125 ;
+wire N_124 ;
+wire N_123 ;
+wire N_122 ;
+wire N_121 ;
+wire N_120 ;
+wire N_119 ;
+wire N_118 ;
+wire N_117 ;
+wire N_116 ;
+wire N_115 ;
+wire N_114 ;
+wire N_113 ;
+wire N_112 ;
+wire N_111 ;
+wire N_110 ;
+wire N_109 ;
+wire N_108 ;
+wire N_107 ;
+wire N_106 ;
+wire N_48 ;
+wire N_47 ;
+wire N_46 ;
+wire N_45 ;
+wire N_44 ;
+wire N_43 ;
+wire N_42 ;
+wire N_41 ;
+wire N_40 ;
+wire N_39 ;
+wire N_38 ;
+wire N_37 ;
+wire N_36 ;
+wire N_35 ;
+wire N_34 ;
+wire N_33 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @11:163
+  dffeas etat_present_0__Z (
+	.q(etat_present_0),
+	.d(etat_present_ns_i_x[15]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:158
+  dffeas etat_present_1__Z (
+	.q(etat_present[1]),
+	.d(etat_present_ns_i_x[14]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:153
+  dffeas etat_present_2__Z (
+	.q(etat_present[2]),
+	.d(etat_present_ns_i_x[13]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:148
+  dffeas etat_present_3__Z (
+	.q(etat_present[3]),
+	.d(etat_present_ns_i_x[12]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:143
+  dffeas etat_present_4__Z (
+	.q(etat_present[4]),
+	.d(etat_present_ns_i[11]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:138
+  dffeas etat_present_5__Z (
+	.q(etat_present[5]),
+	.d(etat_present_ns_a2_x[10]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:133
+  dffeas etat_present_6__Z (
+	.q(etat_present[6]),
+	.d(etat_present_ns_i_x[9]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:128
+  dffeas etat_present_7__Z (
+	.q(etat_present[7]),
+	.d(etat_present_ns_i_x[8]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:123
+  dffeas etat_present_8__Z (
+	.q(etat_present[8]),
+	.d(etat_present_ns_i_x[7]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:118
+  dffeas etat_present_9__Z (
+	.q(etat_present[9]),
+	.d(etat_present_ns_i_x[6]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:113
+  dffeas etat_present_10__Z (
+	.q(etat_present[10]),
+	.d(etat_present_ns_i_x[5]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:108
+  dffeas etat_present_11__Z (
+	.q(etat_present[11]),
+	.d(etat_present_ns_i[4]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:103
+  dffeas etat_present_12__Z (
+	.q(etat_present[12]),
+	.d(etat_present_ns_a2_x[3]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:98
+  dffeas etat_present_13__Z (
+	.q(etat_present[13]),
+	.d(etat_present_ns_i[2]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:93
+  dffeas etat_present_14__Z (
+	.q(etat_present[14]),
+	.d(etat_present_ns_a2[1]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:88
+  dffeas etat_present_i_15__Z (
+	.q(etat_present_i[15]),
+	.d(etat_present_ns_i_x[0]),
+	.clk(rdo_to_ladder_c_2),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:182
+  dffeas updateIR_Z (
+	.q(updateIR),
+	.d(etat_present_0),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:182
+  dffeas shiftIR_Z (
+	.q(shiftIR),
+	.d(etat_present[4]),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:182
+  dffeas shiftDR_Z (
+	.q(shiftDR),
+	.d(etat_present[11]),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:309
+  dffeas reset_bar_Z (
+	.q(reset_bar),
+	.d(etat_present_i[15]),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(rdo_to_ladder_c_0),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_a2_11_ (
+	.combout(etat_present_ns_i_a2[11]),
+	.dataa(VCC),
+	.datab(etat_present[5]),
+	.datac(etat_present[4]),
+	.datad(etat_present[1])
+);
+defparam etat_present_ns_i_a2_11_.lut_mask=16'h0003;
+defparam etat_present_ns_i_a2_11_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_a2_4_ (
+	.combout(etat_present_ns_i_a2[4]),
+	.dataa(VCC),
+	.datab(etat_present[12]),
+	.datac(etat_present[11]),
+	.datad(etat_present[8])
+);
+defparam etat_present_ns_i_a2_4_.lut_mask=16'h0003;
+defparam etat_present_ns_i_a2_4_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_a2_2_1_ (
+	.combout(etat_present_ns_a2_2[1]),
+	.dataa(etat_present[10]),
+	.datab(etat_present[9]),
+	.datac(etat_present[3]),
+	.datad(etat_present[2])
+);
+defparam etat_present_ns_a2_2_1_.lut_mask=16'h0001;
+defparam etat_present_ns_a2_2_1_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_2_ (
+	.combout(etat_present_ns_i[2]),
+	.dataa(rdo_to_ladder_c_1),
+	.datab(etat_present[14]),
+	.datac(etat_present[7]),
+	.datad(etat_present_0)
+);
+defparam etat_present_ns_i_2_.lut_mask=16'haaa8;
+defparam etat_present_ns_i_2_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_4_ (
+	.combout(etat_present_ns_i[4]),
+	.dataa(rdo_to_ladder_c_1),
+	.datab(etat_present[12]),
+	.datac(etat_present[11]),
+	.datad(etat_present[8])
+);
+defparam etat_present_ns_i_4_.lut_mask=16'h5554;
+defparam etat_present_ns_i_4_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_11_ (
+	.combout(etat_present_ns_i[11]),
+	.dataa(rdo_to_ladder_c_1),
+	.datab(etat_present[5]),
+	.datac(etat_present[4]),
+	.datad(etat_present[1])
+);
+defparam etat_present_ns_i_11_.lut_mask=16'h5554;
+defparam etat_present_ns_i_11_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_a2_1_ (
+	.combout(etat_present_ns_a2[1]),
+	.dataa(etat_present_ns_a2_1_x[1]),
+	.datab(etat_present_ns_a2_2[1]),
+	.datac(etat_present_ns_i_a2[11]),
+	.datad(etat_present_ns_i_a2[4])
+);
+defparam etat_present_ns_a2_1_.lut_mask=16'h8000;
+defparam etat_present_ns_a2_1_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_a2_1_x_1_ (
+	.combout(etat_present_ns_a2_1_x[1]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[13]),
+	.datad(etat_present[6])
+);
+defparam etat_present_ns_a2_1_x_1_.lut_mask=16'h0003;
+defparam etat_present_ns_a2_1_x_1_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_15_ (
+	.combout(etat_present_ns_i_x[15]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[3]),
+	.datad(etat_present[1])
+);
+defparam etat_present_ns_i_x_15_.lut_mask=16'hccc0;
+defparam etat_present_ns_i_x_15_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_13_ (
+	.combout(etat_present_ns_i_x[13]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[3]),
+	.datad(etat_present[2])
+);
+defparam etat_present_ns_i_x_13_.lut_mask=16'h3330;
+defparam etat_present_ns_i_x_13_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_12_ (
+	.combout(etat_present_ns_i_x[12]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[5]),
+	.datad(etat_present[4])
+);
+defparam etat_present_ns_i_x_12_.lut_mask=16'hccc0;
+defparam etat_present_ns_i_x_12_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_8_ (
+	.combout(etat_present_ns_i_x[8]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[10]),
+	.datad(etat_present[8])
+);
+defparam etat_present_ns_i_x_8_.lut_mask=16'hccc0;
+defparam etat_present_ns_i_x_8_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_6_ (
+	.combout(etat_present_ns_i_x[6]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[10]),
+	.datad(etat_present[9])
+);
+defparam etat_present_ns_i_x_6_.lut_mask=16'h3330;
+defparam etat_present_ns_i_x_6_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_5_ (
+	.combout(etat_present_ns_i_x[5]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present[12]),
+	.datad(etat_present[11])
+);
+defparam etat_present_ns_i_x_5_.lut_mask=16'hccc0;
+defparam etat_present_ns_i_x_5_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_0_ (
+	.combout(etat_present_ns_i_x[0]),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_1),
+	.datac(etat_present_i[15]),
+	.datad(etat_present[6])
+);
+defparam etat_present_ns_i_x_0_.lut_mask=16'h33f3;
+defparam etat_present_ns_i_x_0_.sum_lutc_input="datac";
+// @11:300
+  cycloneiii_lcell_comb clockDR_x_cZ (
+	.combout(clockDR_x),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_2),
+	.datac(etat_present[12]),
+	.datad(etat_present[11])
+);
+defparam clockDR_x_cZ.lut_mask=16'hcccf;
+defparam clockDR_x_cZ.sum_lutc_input="datac";
+// @11:297
+  cycloneiii_lcell_comb clockIR_x_cZ (
+	.combout(clockIR_x),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_2),
+	.datac(etat_present[5]),
+	.datad(etat_present[4])
+);
+defparam clockIR_x_cZ.lut_mask=16'hcccf;
+defparam clockIR_x_cZ.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_14_ (
+	.combout(etat_present_ns_i_x[14]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_1),
+	.datad(etat_present[2])
+);
+defparam etat_present_ns_i_x_14_.lut_mask=16'hf000;
+defparam etat_present_ns_i_x_14_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_9_ (
+	.combout(etat_present_ns_i_x[9]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_1),
+	.datad(etat_present[13])
+);
+defparam etat_present_ns_i_x_9_.lut_mask=16'hf000;
+defparam etat_present_ns_i_x_9_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_i_x_7_ (
+	.combout(etat_present_ns_i_x[7]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_1),
+	.datad(etat_present[9])
+);
+defparam etat_present_ns_i_x_7_.lut_mask=16'hf000;
+defparam etat_present_ns_i_x_7_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_a2_x_10_ (
+	.combout(etat_present_ns_a2_x[10]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_1),
+	.datad(etat_present[6])
+);
+defparam etat_present_ns_a2_x_10_.lut_mask=16'h0f00;
+defparam etat_present_ns_a2_x_10_.sum_lutc_input="datac";
+// @11:75
+  cycloneiii_lcell_comb etat_present_ns_a2_x_3_ (
+	.combout(etat_present_ns_a2_x[3]),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_1),
+	.datad(etat_present[13])
+);
+defparam etat_present_ns_a2_x_3_.lut_mask=16'h0f00;
+defparam etat_present_ns_a2_x_3_.sum_lutc_input="datac";
+  assign  clockDR_x_i = ~ clockDR_x;
+  assign  clockIR_x_i = ~ clockIR_x;
+//@11:75
+endmodule /* tap_control */
+
+// VQM4.1+ 
+module ir_cell (
+  rdo_to_ladder_c_0,
+  rdo_to_ladder_c_i_0,
+  shiftIR,
+  G_83,
+  reset_bar,
+  data_out_i,
+  clockIR_x_i,
+  scan_out,
+  clockIR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+input rdo_to_ladder_c_i_0 ;
+input shiftIR ;
+input G_83 ;
+input reset_bar ;
+output data_out_i ;
+input clockIR_x_i ;
+output scan_out ;
+input clockIR_x ;
+wire rdo_to_ladder_c_0 ;
+wire rdo_to_ladder_c_i_0 ;
+wire shiftIR ;
+wire G_83 ;
+wire reset_bar ;
+wire data_out_i ;
+wire clockIR_x_i ;
+wire scan_out ;
+wire clockIR_x ;
+wire ff1 ;
+wire dff1_ff1_3_x ;
+wire VCC ;
+wire ff1_i_i_3 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @8:37
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3_x),
+	.clk(clockIR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:48
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockIR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:55
+  dffeas data_out_i_Z (
+	.q(data_out_i),
+	.d(ff1_i_i_3),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(reset_bar),
+	.prn(VCC),
+	.ena(G_83),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  ff1_i_i_3 = ~ ff1;
+// @8:38
+  cycloneiii_lcell_comb dff1_ff1_3_x_cZ (
+	.combout(dff1_ff1_3_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_0),
+	.datad(shiftIR)
+);
+defparam dff1_ff1_3_x_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_x_cZ.sum_lutc_input="datac";
+endmodule /* ir_cell */
+
+// VQM4.1+ 
+module ir_cell_1 (
+  rdo_to_ladder_c_i_0,
+  scan_out_0,
+  shiftIR,
+  G_83,
+  reset_bar,
+  data_out_i,
+  clockIR_x_i,
+  scan_out,
+  clockIR_x
+)
+;
+input rdo_to_ladder_c_i_0 ;
+input scan_out_0 ;
+input shiftIR ;
+input G_83 ;
+input reset_bar ;
+output data_out_i ;
+input clockIR_x_i ;
+output scan_out ;
+input clockIR_x ;
+wire rdo_to_ladder_c_i_0 ;
+wire scan_out_0 ;
+wire shiftIR ;
+wire G_83 ;
+wire reset_bar ;
+wire data_out_i ;
+wire clockIR_x_i ;
+wire scan_out ;
+wire clockIR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire ff1_i_i_2 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @8:37
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockIR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:48
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockIR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:55
+  dffeas data_out_i_Z (
+	.q(data_out_i),
+	.d(ff1_i_i_2),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(reset_bar),
+	.prn(VCC),
+	.ena(G_83),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  ff1_i_i_2 = ~ ff1;
+// @8:38
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(shiftIR),
+	.datad(scan_out_0)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hff0f;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* ir_cell_1 */
+
+// VQM4.1+ 
+module ir_cell_2 (
+  rdo_to_ladder_c_i_0,
+  scan_out_0,
+  shiftIR,
+  G_83,
+  reset_bar,
+  data_out_i,
+  clockIR_x_i,
+  scan_out,
+  clockIR_x
+)
+;
+input rdo_to_ladder_c_i_0 ;
+input scan_out_0 ;
+input shiftIR ;
+input G_83 ;
+input reset_bar ;
+output data_out_i ;
+input clockIR_x_i ;
+output scan_out ;
+input clockIR_x ;
+wire rdo_to_ladder_c_i_0 ;
+wire scan_out_0 ;
+wire shiftIR ;
+wire G_83 ;
+wire reset_bar ;
+wire data_out_i ;
+wire clockIR_x_i ;
+wire scan_out ;
+wire clockIR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire ff1_i_i_1 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @8:37
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockIR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:48
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockIR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:55
+  dffeas data_out_i_Z (
+	.q(data_out_i),
+	.d(ff1_i_i_1),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(reset_bar),
+	.prn(VCC),
+	.ena(G_83),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  ff1_i_i_1 = ~ ff1;
+// @8:38
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(shiftIR),
+	.datad(scan_out_0)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hff0f;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* ir_cell_2 */
+
+// VQM4.1+ 
+module ir_cell_3 (
+  rdo_to_ladder_c_i_0,
+  scan_out_0,
+  shiftIR,
+  G_83,
+  reset_bar,
+  data_out_i,
+  clockIR_x_i,
+  scan_out,
+  clockIR_x
+)
+;
+input rdo_to_ladder_c_i_0 ;
+input scan_out_0 ;
+input shiftIR ;
+input G_83 ;
+input reset_bar ;
+output data_out_i ;
+input clockIR_x_i ;
+output scan_out ;
+input clockIR_x ;
+wire rdo_to_ladder_c_i_0 ;
+wire scan_out_0 ;
+wire shiftIR ;
+wire G_83 ;
+wire reset_bar ;
+wire data_out_i ;
+wire clockIR_x_i ;
+wire scan_out ;
+wire clockIR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire ff1_i_i_0 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @8:37
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockIR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:48
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockIR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:55
+  dffeas data_out_i_Z (
+	.q(data_out_i),
+	.d(ff1_i_i_0),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(reset_bar),
+	.prn(VCC),
+	.ena(G_83),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  ff1_i_i_0 = ~ ff1;
+// @8:38
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(shiftIR),
+	.datad(scan_out_0)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hff0f;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* ir_cell_3 */
+
+// VQM4.1+ 
+module ir_cell_4 (
+  rdo_to_ladder_c_0,
+  rdo_to_ladder_c_i_0,
+  scan_out_0,
+  shiftIR,
+  G_83,
+  reset_bar,
+  data_out_i,
+  clockIR_x_i,
+  scan_out,
+  clockIR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+output rdo_to_ladder_c_i_0 ;
+input scan_out_0 ;
+input shiftIR ;
+input G_83 ;
+input reset_bar ;
+output data_out_i ;
+input clockIR_x_i ;
+output scan_out ;
+input clockIR_x ;
+wire rdo_to_ladder_c_0 ;
+wire rdo_to_ladder_c_i_0 ;
+wire scan_out_0 ;
+wire shiftIR ;
+wire G_83 ;
+wire reset_bar ;
+wire data_out_i ;
+wire clockIR_x_i ;
+wire scan_out ;
+wire clockIR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire ff1_i_i ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @8:37
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockIR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:48
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockIR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @8:55
+  dffeas data_out_i_Z (
+	.q(data_out_i),
+	.d(ff1_i_i),
+	.clk(rdo_to_ladder_c_i_0),
+	.clrn(reset_bar),
+	.prn(VCC),
+	.ena(G_83),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  ff1_i_i = ~ ff1;
+// @8:38
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(shiftIR),
+	.datad(scan_out_0)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hff0f;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+  assign  rdo_to_ladder_c_i_0 = ~ rdo_to_ladder_c_0;
+endmodule /* ir_cell_4 */
+
+// VQM4.1+ 
+module ir_5_bits (
+  rdo_to_ladder_c_i_0,
+  rdo_to_ladder_c_3,
+  rdo_to_ladder_c_0,
+  data_out_i_3,
+  data_out_i_2,
+  scan_out_2,
+  data_out_i_1,
+  data_out_i_0,
+  clockIR_x,
+  clockIR_x_i,
+  data_out_i,
+  reset_bar,
+  G_83,
+  shiftIR
+)
+;
+output rdo_to_ladder_c_i_0 ;
+input rdo_to_ladder_c_3 ;
+input rdo_to_ladder_c_0 ;
+output data_out_i_3 ;
+output data_out_i_2 ;
+output scan_out_2 ;
+output data_out_i_1 ;
+output data_out_i_0 ;
+input clockIR_x ;
+input clockIR_x_i ;
+output data_out_i ;
+input reset_bar ;
+input G_83 ;
+input shiftIR ;
+wire rdo_to_ladder_c_i_0 ;
+wire rdo_to_ladder_c_3 ;
+wire rdo_to_ladder_c_0 ;
+wire data_out_i_3 ;
+wire data_out_i_2 ;
+wire scan_out_2 ;
+wire data_out_i_1 ;
+wire data_out_i_0 ;
+wire clockIR_x ;
+wire clockIR_x_i ;
+wire data_out_i ;
+wire reset_bar ;
+wire G_83 ;
+wire shiftIR ;
+wire scan_out ;
+wire scan_out_0 ;
+wire scan_out_1 ;
+wire scan_out_3 ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @17:52
+  ir_cell a_4_b_c (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_0),
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i_0),
+	.shiftIR(shiftIR),
+	.G_83(G_83),
+	.reset_bar(reset_bar),
+	.data_out_i(data_out_i),
+	.clockIR_x_i(clockIR_x_i),
+	.scan_out(scan_out),
+	.clockIR_x(clockIR_x)
+);
+// @17:60
+  ir_cell_1 a_1_d_e (
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i_0),
+	.scan_out_0(scan_out_0),
+	.shiftIR(shiftIR),
+	.G_83(G_83),
+	.reset_bar(reset_bar),
+	.data_out_i(data_out_i_0),
+	.clockIR_x_i(clockIR_x_i),
+	.scan_out(scan_out_1),
+	.clockIR_x(clockIR_x)
+);
+// @17:60
+  ir_cell_2 a_0_d_e (
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i_0),
+	.scan_out_0(scan_out_1),
+	.shiftIR(shiftIR),
+	.G_83(G_83),
+	.reset_bar(reset_bar),
+	.data_out_i(data_out_i_1),
+	.clockIR_x_i(clockIR_x_i),
+	.scan_out(scan_out_2),
+	.clockIR_x(clockIR_x)
+);
+// @17:60
+  ir_cell_3 a_3_d_e (
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i_0),
+	.scan_out_0(scan_out),
+	.shiftIR(shiftIR),
+	.G_83(G_83),
+	.reset_bar(reset_bar),
+	.data_out_i(data_out_i_2),
+	.clockIR_x_i(clockIR_x_i),
+	.scan_out(scan_out_3),
+	.clockIR_x(clockIR_x)
+);
+// @17:60
+  ir_cell_4 a_2_d_e (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_3),
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i_0),
+	.scan_out_0(scan_out_3),
+	.shiftIR(shiftIR),
+	.G_83(G_83),
+	.reset_bar(reset_bar),
+	.data_out_i(data_out_i_3),
+	.clockIR_x_i(clockIR_x_i),
+	.scan_out(scan_out_0),
+	.clockIR_x(clockIR_x)
+);
+endmodule /* ir_5_bits */
+
+// VQM4.1+ 
+module br_cell_1clk (
+  rdo_to_ladder_c_0,
+  shiftDR,
+  reset_bar,
+  clockDR_x_i,
+  scan_out
+)
+;
+input rdo_to_ladder_c_0 ;
+input shiftDR ;
+input reset_bar ;
+input clockDR_x_i ;
+output scan_out ;
+wire rdo_to_ladder_c_0 ;
+wire shiftDR ;
+wire reset_bar ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire N_73 ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @12:45
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(rdo_to_ladder_c_0),
+	.clk(clockDR_x_i),
+	.clrn(reset_bar),
+	.prn(VCC),
+	.ena(shiftDR),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+endmodule /* br_cell_1clk */
+
+// VQM4.1+ 
+module dr_cell (
+  rdo_to_ladder_c_0,
+  shiftDR,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+input shiftDR ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire rdo_to_ladder_c_0 ;
+wire shiftDR ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3_x ;
+wire VCC ;
+wire N_72 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3_x),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_x_cZ (
+	.combout(dff1_ff1_3_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(rdo_to_ladder_c_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_x_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_x_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell */
+
+// VQM4.1+ 
+module dr_cell_1 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_71 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_1 */
+
+// VQM4.1+ 
+module dr_cell_2 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_70 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_2 */
+
+// VQM4.1+ 
+module dr_cell_3 (
+  rdo_to_ladder_c_0,
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire rdo_to_ladder_c_0 ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3_x ;
+wire VCC ;
+wire N_69 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3_x),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_x_cZ (
+	.combout(dff1_ff1_3_x),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_0),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_x_cZ.lut_mask=16'hf0cc;
+defparam dff1_ff1_3_x_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_3 */
+
+// VQM4.1+ 
+module dr_cell_4 (
+  rdo_to_ladder_c_0,
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire rdo_to_ladder_c_0 ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3_x ;
+wire VCC ;
+wire N_68 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3_x),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_x_cZ (
+	.combout(dff1_ff1_3_x),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_0),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_x_cZ.lut_mask=16'hf0cc;
+defparam dff1_ff1_3_x_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_4 */
+
+// VQM4.1+ 
+module dr_cell_5 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_67 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_5 */
+
+// VQM4.1+ 
+module dr_cell_6 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_66 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_6 */
+
+// VQM4.1+ 
+module dr_cell_7 (
+  rdo_to_ladder_c_0,
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire rdo_to_ladder_c_0 ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3_x ;
+wire VCC ;
+wire N_65 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3_x),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_x_cZ (
+	.combout(dff1_ff1_3_x),
+	.dataa(VCC),
+	.datab(rdo_to_ladder_c_0),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_x_cZ.lut_mask=16'hf0cc;
+defparam dff1_ff1_3_x_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_7 */
+
+// VQM4.1+ 
+module dr_8_BITS (
+  rdo_to_ladder_c_10,
+  rdo_to_ladder_c_12,
+  rdo_to_ladder_c_11,
+  rdo_to_ladder_c_0,
+  scan_out_6,
+  clockDR_x,
+  clockDR_x_i,
+  shiftDR
+)
+;
+input rdo_to_ladder_c_10 ;
+input rdo_to_ladder_c_12 ;
+input rdo_to_ladder_c_11 ;
+input rdo_to_ladder_c_0 ;
+output scan_out_6 ;
+input clockDR_x ;
+input clockDR_x_i ;
+input shiftDR ;
+wire rdo_to_ladder_c_10 ;
+wire rdo_to_ladder_c_12 ;
+wire rdo_to_ladder_c_11 ;
+wire rdo_to_ladder_c_0 ;
+wire scan_out_6 ;
+wire clockDR_x ;
+wire clockDR_x_i ;
+wire shiftDR ;
+wire scan_out ;
+wire scan_out_0 ;
+wire scan_out_1 ;
+wire scan_out_2 ;
+wire scan_out_3 ;
+wire scan_out_4 ;
+wire scan_out_5 ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @15:49
+  dr_cell a_7_b_c (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_0),
+	.shiftDR(shiftDR),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out),
+	.clockDR_x(clockDR_x)
+);
+// @15:62
+  dr_cell_1 a_5_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_0),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_1),
+	.clockDR_x(clockDR_x)
+);
+// @15:62
+  dr_cell_2 a_4_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_1),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_2),
+	.clockDR_x(clockDR_x)
+);
+// @15:62
+  dr_cell_3 a_1_d_e (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_11),
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_3),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_4),
+	.clockDR_x(clockDR_x)
+);
+// @15:62
+  dr_cell_4 a_2_d_e (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_12),
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_5),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_3),
+	.clockDR_x(clockDR_x)
+);
+// @15:62
+  dr_cell_5 a_3_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_5),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_2)
+);
+// @15:62
+  dr_cell_6 a_6_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_0),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out)
+);
+// @15:62
+  dr_cell_7 a_0_d_e (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_10),
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_4),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_6),
+	.clockDR_x(clockDR_x)
+);
+endmodule /* dr_8_BITS */
+
+// VQM4.1+ 
+module dr_cell_8 (
+  rdo_to_ladder_c_0,
+  clockDR_x_i,
+  scan_out,
+  shiftDR,
+  clockDR_x
+)
+;
+input rdo_to_ladder_c_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input shiftDR ;
+input clockDR_x ;
+wire rdo_to_ladder_c_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire shiftDR ;
+wire clockDR_x ;
+wire ff1 ;
+wire VCC ;
+wire N_64 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(rdo_to_ladder_c_0),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_8 */
+
+// VQM4.1+ 
+module dr_cell_9 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_63 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_9 */
+
+// VQM4.1+ 
+module dr_cell_10 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_62 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_10 */
+
+// VQM4.1+ 
+module dr_cell_11 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_61 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_11 */
+
+// VQM4.1+ 
+module dr_cell_12 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_60 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_12 */
+
+// VQM4.1+ 
+module dr_cell_13 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_59 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_13 */
+
+// VQM4.1+ 
+module dr_cell_14 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_58 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_14 */
+
+// VQM4.1+ 
+module dr_cell_15 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_57 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_15 */
+
+// VQM4.1+ 
+module dr_cell_16 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_56 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_16 */
+
+// VQM4.1+ 
+module dr_cell_17 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_55 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_17 */
+
+// VQM4.1+ 
+module dr_cell_18 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_54 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_18 */
+
+// VQM4.1+ 
+module dr_cell_19 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_53 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_19 */
+
+// VQM4.1+ 
+module dr_cell_20 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_52 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_20 */
+
+// VQM4.1+ 
+module dr_cell_21 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_51 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_21 */
+
+// VQM4.1+ 
+module dr_cell_22 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_50 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_22 */
+
+// VQM4.1+ 
+module dr_cell_23 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_49 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_23 */
+
+// VQM4.1+ 
+module dr_cell_24 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_48 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_24 */
+
+// VQM4.1+ 
+module dr_cell_25 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_47 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_25 */
+
+// VQM4.1+ 
+module dr_cell_26 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_46 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_26 */
+
+// VQM4.1+ 
+module dr_cell_27 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_45 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_27 */
+
+// VQM4.1+ 
+module dr_cell_28 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_44 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_28 */
+
+// VQM4.1+ 
+module dr_cell_29 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_43 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_29 */
+
+// VQM4.1+ 
+module dr_cell_30 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_42 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_30 */
+
+// VQM4.1+ 
+module dr_cell_31 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_41 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_31 */
+
+// VQM4.1+ 
+module dr_cell_32 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_40 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_32 */
+
+// VQM4.1+ 
+module dr_cell_33 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_39 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_33 */
+
+// VQM4.1+ 
+module dr_cell_34 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_38 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_34 */
+
+// VQM4.1+ 
+module dr_cell_35 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_37 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_35 */
+
+// VQM4.1+ 
+module dr_cell_36 (
+  shiftDR,
+  scan_out_0,
+  clockDR_x_i,
+  scan_out,
+  clockDR_x
+)
+;
+input shiftDR ;
+input scan_out_0 ;
+input clockDR_x_i ;
+output scan_out ;
+input clockDR_x ;
+wire shiftDR ;
+wire scan_out_0 ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire clockDR_x ;
+wire ff1 ;
+wire dff1_ff1_3 ;
+wire VCC ;
+wire N_36 ;
+wire GND ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(dff1_ff1_3),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @6:41
+  cycloneiii_lcell_comb dff1_ff1_3_cZ (
+	.combout(dff1_ff1_3),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(scan_out_0),
+	.datad(shiftDR)
+);
+defparam dff1_ff1_3_cZ.lut_mask=16'hf0ff;
+defparam dff1_ff1_3_cZ.sum_lutc_input="datac";
+endmodule /* dr_cell_36 */
+
+// VQM4.1+ 
+module dr_cell_37 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_35 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_37 */
+
+// VQM4.1+ 
+module dr_cell_38 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_34 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_38 */
+
+// VQM4.1+ 
+module dr_cell_39 (
+  clockDR_x_i,
+  scan_out_0,
+  shiftDR,
+  clockDR_x,
+  scan_out
+)
+;
+input clockDR_x_i ;
+output scan_out_0 ;
+input shiftDR ;
+input clockDR_x ;
+input scan_out ;
+wire clockDR_x_i ;
+wire scan_out_0 ;
+wire shiftDR ;
+wire clockDR_x ;
+wire scan_out ;
+wire ff1 ;
+wire VCC ;
+wire N_33 ;
+wire GND ;
+wire shiftDR_i ;
+//@1:1
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @6:40
+  dffeas ff1_Z (
+	.q(ff1),
+	.d(scan_out),
+	.clk(clockDR_x),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(shiftDR_i),
+	.sload(GND)
+);
+// @6:52
+  dffeas scan_out_Z (
+	.q(scan_out_0),
+	.d(ff1),
+	.clk(clockDR_x_i),
+	.clrn(VCC),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+  assign  shiftDR_i = ~ shiftDR;
+endmodule /* dr_cell_39 */
+
+// VQM4.1+ 
+module dr_32_BITS (
+  rdo_to_ladder_c_0,
+  scan_out_23,
+  clockDR_x,
+  shiftDR,
+  clockDR_x_i
+)
+;
+input rdo_to_ladder_c_0 ;
+output scan_out_23 ;
+input clockDR_x ;
+input shiftDR ;
+input clockDR_x_i ;
+wire rdo_to_ladder_c_0 ;
+wire scan_out_23 ;
+wire clockDR_x ;
+wire shiftDR ;
+wire clockDR_x_i ;
+wire scan_out ;
+wire scan_out_0 ;
+wire scan_out_1 ;
+wire scan_out_2 ;
+wire scan_out_3 ;
+wire scan_out_4 ;
+wire scan_out_5 ;
+wire scan_out_6 ;
+wire scan_out_7 ;
+wire scan_out_8 ;
+wire scan_out_9 ;
+wire scan_out_10 ;
+wire scan_out_11 ;
+wire scan_out_12 ;
+wire scan_out_13 ;
+wire scan_out_14 ;
+wire scan_out_15 ;
+wire scan_out_16 ;
+wire scan_out_17 ;
+wire scan_out_18 ;
+wire scan_out_19 ;
+wire scan_out_20 ;
+wire scan_out_21 ;
+wire scan_out_22 ;
+wire scan_out_24 ;
+wire scan_out_25 ;
+wire scan_out_26 ;
+wire scan_out_27 ;
+wire scan_out_28 ;
+wire scan_out_29 ;
+wire scan_out_30 ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @18:51
+  dr_cell_8 a_31_b_c (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c_0),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_9 a_14_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_0),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_1)
+);
+// @18:64
+  dr_cell_10 a_23_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_2),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_3)
+);
+// @18:64
+  dr_cell_11 a_6_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_4),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_5)
+);
+// @18:64
+  dr_cell_12 a_1_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_6),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_7)
+);
+// @18:64
+  dr_cell_13 a_10_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_8),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_9)
+);
+// @18:64
+  dr_cell_14 a_7_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_5),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_10)
+);
+// @18:64
+  dr_cell_15 a_3_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_11),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_12),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_16 a_12_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_13),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_14)
+);
+// @18:64
+  dr_cell_17 a_8_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_10),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_15)
+);
+// @18:64
+  dr_cell_18 a_4_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_11),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_16)
+);
+// @18:64
+  dr_cell_19 a_13_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_0),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_14),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_20 a_22_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_17),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_2)
+);
+// @18:64
+  dr_cell_21 a_5_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_16),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_4)
+);
+// @18:64
+  dr_cell_22 a_30_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_18),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out)
+);
+// @18:64
+  dr_cell_23 a_27_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_19),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_20)
+);
+// @18:64
+  dr_cell_24 a_19_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_21),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_22)
+);
+// @18:64
+  dr_cell_25 a_9_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_15),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_8)
+);
+// @18:64
+  dr_cell_26 a_0_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_6),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_23),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_27 a_20_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_22),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_24)
+);
+// @18:64
+  dr_cell_28 a_16_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_25),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_26)
+);
+// @18:64
+  dr_cell_29 a_25_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_27),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_28),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_30 a_21_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_24),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_17)
+);
+// @18:64
+  dr_cell_31 a_17_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_29),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_26),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_32 a_26_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_27),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_19)
+);
+// @18:64
+  dr_cell_33 a_29_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_30),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_18)
+);
+// @18:64
+  dr_cell_34 a_18_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_29),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_21)
+);
+// @18:64
+  dr_cell_35 a_15_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_1),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_25)
+);
+// @18:64
+  dr_cell_36 a_24_d_e (
+	.shiftDR(shiftDR),
+	.scan_out_0(scan_out_28),
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out(scan_out_3),
+	.clockDR_x(clockDR_x)
+);
+// @18:64
+  dr_cell_37 a_28_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_20),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_30)
+);
+// @18:64
+  dr_cell_38 a_2_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_7),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_12)
+);
+// @18:64
+  dr_cell_39 a_11_d_e (
+	.clockDR_x_i(clockDR_x_i),
+	.scan_out_0(scan_out_9),
+	.shiftDR(shiftDR),
+	.clockDR_x(clockDR_x),
+	.scan_out(scan_out_13)
+);
+endmodule /* dr_32_BITS */
+
+// VQM4.1+ 
+module mux_tdo (
+  data_out_i_3,
+  data_out_i_2,
+  data_out_i_1,
+  data_out_i_0,
+  dr_scan_out_31_0_x,
+  scan_out_1,
+  data_out_i,
+  scan_out_0,
+  scan_out
+)
+;
+input data_out_i_3 ;
+input data_out_i_2 ;
+input data_out_i_1 ;
+input data_out_i_0 ;
+output dr_scan_out_31_0_x ;
+input scan_out_1 ;
+input data_out_i ;
+input scan_out_0 ;
+input scan_out ;
+wire data_out_i_3 ;
+wire data_out_i_2 ;
+wire data_out_i_1 ;
+wire data_out_i_0 ;
+wire dr_scan_out_31_0_x ;
+wire scan_out_1 ;
+wire data_out_i ;
+wire scan_out_0 ;
+wire scan_out ;
+wire dr_scan_out_30_0_a ;
+wire dr_scan_out_22_0_0_x ;
+wire dr_scan_out_30_0 ;
+wire dr_scan_out_29_0_0_x ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @10:44
+  cycloneiii_lcell_comb dr_scan_out_30_0_a_cZ (
+	.combout(dr_scan_out_30_0_a),
+	.dataa(scan_out),
+	.datab(scan_out_0),
+	.datac(data_out_i),
+	.datad(dr_scan_out_22_0_0_x)
+);
+defparam dr_scan_out_30_0_a_cZ.lut_mask=16'h5333;
+defparam dr_scan_out_30_0_a_cZ.sum_lutc_input="datac";
+// @10:44
+  cycloneiii_lcell_comb dr_scan_out_30_0_cZ (
+	.combout(dr_scan_out_30_0),
+	.dataa(data_out_i),
+	.datab(scan_out_1),
+	.datac(dr_scan_out_29_0_0_x),
+	.datad(dr_scan_out_30_0_a)
+);
+defparam dr_scan_out_30_0_cZ.lut_mask=16'h40ef;
+defparam dr_scan_out_30_0_cZ.sum_lutc_input="datac";
+// @10:44
+  cycloneiii_lcell_comb dr_scan_out_31_0_x_cZ (
+	.combout(dr_scan_out_31_0_x),
+	.dataa(VCC),
+	.datab(data_out_i_0),
+	.datac(scan_out_0),
+	.datad(dr_scan_out_30_0)
+);
+defparam dr_scan_out_31_0_x_cZ.lut_mask=16'hf3c0;
+defparam dr_scan_out_31_0_x_cZ.sum_lutc_input="datac";
+// @10:44
+  cycloneiii_lcell_comb dr_scan_out_22_0_0_x_cZ (
+	.combout(dr_scan_out_22_0_0_x),
+	.dataa(VCC),
+	.datab(data_out_i_1),
+	.datac(data_out_i_2),
+	.datad(data_out_i_3)
+);
+defparam dr_scan_out_22_0_0_x_cZ.lut_mask=16'h00c0;
+defparam dr_scan_out_22_0_0_x_cZ.sum_lutc_input="datac";
+// @10:44
+  cycloneiii_lcell_comb dr_scan_out_29_0_0_x_cZ (
+	.combout(dr_scan_out_29_0_0_x),
+	.dataa(VCC),
+	.datab(data_out_i_3),
+	.datac(data_out_i_2),
+	.datad(data_out_i_1)
+);
+defparam dr_scan_out_29_0_0_x_cZ.lut_mask=16'h000c;
+defparam dr_scan_out_29_0_0_x_cZ.sum_lutc_input="datac";
+endmodule /* mux_tdo */
+
+// VQM4.1+ 
+module mux_2_1 (
+  shiftIR,
+  dr_scan_out_31_0_x,
+  scan_out,
+  z_x
+)
+;
+input shiftIR ;
+input dr_scan_out_31_0_x ;
+input scan_out ;
+output z_x ;
+wire shiftIR ;
+wire dr_scan_out_31_0_x ;
+wire scan_out ;
+wire z_x ;
+wire GND ;
+wire VCC ;
+  assign VCC = 1'b1;
+  assign GND = 1'b0;
+// @9:24
+  cycloneiii_lcell_comb z_x_cZ (
+	.combout(z_x),
+	.dataa(VCC),
+	.datab(scan_out),
+	.datac(dr_scan_out_31_0_x),
+	.datad(shiftIR)
+);
+defparam z_x_cZ.lut_mask=16'hccf0;
+defparam z_x_cZ.sum_lutc_input="datac";
+endmodule /* mux_2_1 */
+
+// VQM4.1+ 
+module data_packer (
+  ladder_fpga_packer_serdata_dataout_c_20,
+  ladder_fpga_packer_serdata_dataout_c_19,
+  ladder_fpga_packer_serdata_dataout_c_18,
+  ladder_fpga_packer_serdata_dataout_c_17,
+  ladder_fpga_packer_serdata_dataout_c_16,
+  ladder_fpga_packer_serdata_dataout_c_15,
+  ladder_fpga_packer_serdata_dataout_c_14,
+  ladder_fpga_packer_serdata_dataout_c_13,
+  ladder_fpga_packer_serdata_dataout_c_12,
+  ladder_fpga_packer_serdata_dataout_c_11,
+  ladder_fpga_packer_serdata_dataout_c_10,
+  ladder_fpga_packer_serdata_dataout_c_9,
+  ladder_fpga_packer_serdata_dataout_c_8,
+  ladder_fpga_packer_serdata_dataout_c_7,
+  ladder_fpga_packer_serdata_dataout_c_6,
+  ladder_fpga_packer_serdata_dataout_c_5,
+  ladder_fpga_packer_serdata_dataout_c_4,
+  ladder_fpga_packer_serdata_dataout_c_3,
+  ladder_fpga_packer_serdata_dataout_c_2,
+  ladder_fpga_packer_serdata_dataout_c_1,
+  ladder_fpga_packer_serdata_dataout_c_0,
+  clock40mhz_fpga_c
+)
+;
+output ladder_fpga_packer_serdata_dataout_c_20 ;
+output ladder_fpga_packer_serdata_dataout_c_19 ;
+output ladder_fpga_packer_serdata_dataout_c_18 ;
+output ladder_fpga_packer_serdata_dataout_c_17 ;
+output ladder_fpga_packer_serdata_dataout_c_16 ;
+output ladder_fpga_packer_serdata_dataout_c_15 ;
+output ladder_fpga_packer_serdata_dataout_c_14 ;
+output ladder_fpga_packer_serdata_dataout_c_13 ;
+output ladder_fpga_packer_serdata_dataout_c_12 ;
+output ladder_fpga_packer_serdata_dataout_c_11 ;
+output ladder_fpga_packer_serdata_dataout_c_10 ;
+output ladder_fpga_packer_serdata_dataout_c_9 ;
+output ladder_fpga_packer_serdata_dataout_c_8 ;
+output ladder_fpga_packer_serdata_dataout_c_7 ;
+output ladder_fpga_packer_serdata_dataout_c_6 ;
+output ladder_fpga_packer_serdata_dataout_c_5 ;
+output ladder_fpga_packer_serdata_dataout_c_4 ;
+output ladder_fpga_packer_serdata_dataout_c_3 ;
+output ladder_fpga_packer_serdata_dataout_c_2 ;
+output ladder_fpga_packer_serdata_dataout_c_1 ;
+output ladder_fpga_packer_serdata_dataout_c_0 ;
+input clock40mhz_fpga_c ;
+wire ladder_fpga_packer_serdata_dataout_c_20 ;
+wire ladder_fpga_packer_serdata_dataout_c_19 ;
+wire ladder_fpga_packer_serdata_dataout_c_18 ;
+wire ladder_fpga_packer_serdata_dataout_c_17 ;
+wire ladder_fpga_packer_serdata_dataout_c_16 ;
+wire ladder_fpga_packer_serdata_dataout_c_15 ;
+wire ladder_fpga_packer_serdata_dataout_c_14 ;
+wire ladder_fpga_packer_serdata_dataout_c_13 ;
+wire ladder_fpga_packer_serdata_dataout_c_12 ;
+wire ladder_fpga_packer_serdata_dataout_c_11 ;
+wire ladder_fpga_packer_serdata_dataout_c_10 ;
+wire ladder_fpga_packer_serdata_dataout_c_9 ;
+wire ladder_fpga_packer_serdata_dataout_c_8 ;
+wire ladder_fpga_packer_serdata_dataout_c_7 ;
+wire ladder_fpga_packer_serdata_dataout_c_6 ;
+wire ladder_fpga_packer_serdata_dataout_c_5 ;
+wire ladder_fpga_packer_serdata_dataout_c_4 ;
+wire ladder_fpga_packer_serdata_dataout_c_3 ;
+wire ladder_fpga_packer_serdata_dataout_c_2 ;
+wire ladder_fpga_packer_serdata_dataout_c_1 ;
+wire ladder_fpga_packer_serdata_dataout_c_0 ;
+wire clock40mhz_fpga_c ;
+wire un1_f21rdreq_x ;
+wire f21_empty ;
+wire N_49 ;
+wire N_48 ;
+wire N_47 ;
+wire N_46 ;
+wire N_45 ;
+wire N_44 ;
+wire N_43 ;
+wire N_42 ;
+wire N_41 ;
+wire N_40 ;
+wire N_39 ;
+wire N_38 ;
+wire N_37 ;
+wire N_36 ;
+wire N_35 ;
+wire N_34 ;
+wire N_33 ;
+wire N_4 ;
+wire GND ;
+wire f21_full ;
+wire VCC ;
+  assign VCC = 1'b1;
+//@1:1
+  assign GND = 1'b0;
+// @13:264
+  cycloneiii_lcell_comb un1_f21rdreq_x_cZ (
+	.combout(un1_f21rdreq_x),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(clock40mhz_fpga_c),
+	.datad(f21_empty)
+);
+defparam un1_f21rdreq_x_cZ.lut_mask=16'h000f;
+defparam un1_f21rdreq_x_cZ.sum_lutc_input="datac";
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+//@21:456
+// @13:157
+  mega_func_fifo21x32_cycloneIII f21 (
+	.aclr(GND),
+	.data({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, 
+   GND, GND, GND, GND, GND, GND, GND, GND}),
+	.rdclk(clock40mhz_fpga_c),
+	.rdreq(un1_f21rdreq_x),
+	.wrclk(GND),
+	.wrreq(GND),
+	.q({ladder_fpga_packer_serdata_dataout_c_20, ladder_fpga_packer_serdata_dataout_c_19, 
+   ladder_fpga_packer_serdata_dataout_c_18, ladder_fpga_packer_serdata_dataout_c_17, 
+   ladder_fpga_packer_serdata_dataout_c_16, ladder_fpga_packer_serdata_dataout_c_15, 
+   ladder_fpga_packer_serdata_dataout_c_14, ladder_fpga_packer_serdata_dataout_c_13, 
+   ladder_fpga_packer_serdata_dataout_c_12, ladder_fpga_packer_serdata_dataout_c_11, 
+   ladder_fpga_packer_serdata_dataout_c_10, ladder_fpga_packer_serdata_dataout_c_9, 
+   ladder_fpga_packer_serdata_dataout_c_8, ladder_fpga_packer_serdata_dataout_c_7, 
+   ladder_fpga_packer_serdata_dataout_c_6, ladder_fpga_packer_serdata_dataout_c_5, 
+   ladder_fpga_packer_serdata_dataout_c_4, ladder_fpga_packer_serdata_dataout_c_3, 
+   ladder_fpga_packer_serdata_dataout_c_2, ladder_fpga_packer_serdata_dataout_c_1, 
+   ladder_fpga_packer_serdata_dataout_c_0}),
+	.rdempty(f21_empty),
+	.wrfull(f21_full)
+);
+endmodule /* data_packer */
+
+// VQM4.1+ 
+module ladder_fpga (
+  reset_n,
+  clock40mhz_fpga,
+  clock80mhz_fpga,
+  roboclock_horloge40_phase,
+  roboclock_adc_phase,
+  adc_cs_n,
+  data_serial,
+  addr_mux_h_neg,
+  addr_mux_l_neg,
+  des_lock,
+  rdo_to_ladder,
+  ladder_to_rdo,
+  latch_up_module,
+  mux_ref_latchup,
+  pilotage_magnd,
+  pilotage_mvdd,
+  test,
+  hold,
+  rclk,
+  tokenin,
+  tokenout,
+  temperature,
+  tck_module,
+  tms_module,
+  trstb_module,
+  tdi_module,
+  tdo_module
+)
+;
+input reset_n ;
+input clock40mhz_fpga ;
+input clock80mhz_fpga ;
+output [3:0] roboclock_horloge40_phase ;
+output [7:0] roboclock_adc_phase ;
+output [7:0] adc_cs_n ;
+input [15:0] data_serial ;
+output addr_mux_h_neg ;
+output addr_mux_l_neg ;
+input des_lock ;
+input [23:0] rdo_to_ladder ;
+output [23:0] ladder_to_rdo ;
+input [15:0] latch_up_module ;
+output [1:0] mux_ref_latchup ;
+output [15:0] pilotage_magnd ;
+output [15:0] pilotage_mvdd ;
+output test ;
+output hold ;
+output rclk ;
+output [15:0] tokenin ;
+input [15:0] tokenout ;
+input temperature ;
+output [15:0] tck_module ;
+output [15:0] tms_module ;
+output [15:0] trstb_module ;
+output [15:0] tdi_module ;
+input [15:0] tdo_module ;
+wire reset_n ;
+wire clock40mhz_fpga ;
+wire clock80mhz_fpga ;
+wire addr_mux_h_neg ;
+wire addr_mux_l_neg ;
+wire des_lock ;
+wire test ;
+wire hold ;
+wire rclk ;
+wire temperature ;
+wire [0:0] COMP_ladder_fpga_SC_TAP_CONTROL_etat_present;
+wire [3:0] ladder_fpga_adc_bit_count_cs_integer_i;
+wire [20:0] ladder_fpga_packer_serdata_dataout_c;
+wire [12:0] rdo_to_ladder_c;
+wire [3:3] rdo_to_ladder_c_i;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_reset_bar ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_shiftIR ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_updateIR ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x ;
+wire VCC ;
+wire COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_scan_out ;
+wire COMP_ladder_fpga_SC_BYPASS_REG_scan_out ;
+wire COMP_ladder_fpga_SC_IDENT_REG_a_0_d_e_scan_out ;
+wire COMP_ladder_fpga_SC_VERSION_REG_a_0_d_e_scan_out ;
+wire ladder_fpga_adc_bit_count_cs_integer_c0_combout ;
+wire ladder_fpga_adc_bit_count_cs_integer_c0_cout ;
+wire ladder_fpga_adc_bit_count_cs_integer_c1_combout ;
+wire ladder_fpga_adc_bit_count_cs_integer_c1_cout ;
+wire ladder_fpga_adc_bit_count_cs_integer_c2_combout ;
+wire ladder_fpga_adc_bit_count_cs_integer_c2_cout ;
+wire ladder_fpga_adc_bit_count_cs_integer_c3_combout ;
+wire COMP_ladder_fpga_SC_MUX_TDO_dr_scan_out_31_0_x ;
+wire ladder_fpga_adc_select_n_i ;
+wire COM_ALICE128P_SC_INSTRUC_REG_a_2_d_e_data_out_i ;
+wire COM_ALICE128P_SC_INSTRUC_REG_a_3_d_e_data_out_i ;
+wire COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_data_out_i ;
+wire COM_ALICE128P_SC_INSTRUC_REG_a_1_d_e_data_out_i ;
+wire COM_ALICE128P_SC_INSTRUC_REG_a_4_b_c_data_out_i ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_shiftDR ;
+wire G_17 ;
+wire G_18 ;
+wire G_19 ;
+wire G_20 ;
+wire G_36 ;
+wire G_52 ;
+wire COMP_ladder_fpga_SC_MUX_OUT_z_x ;
+wire G_68 ;
+wire G_69 ;
+wire G_70 ;
+wire G_71 ;
+wire G_72 ;
+wire G_73 ;
+wire G_74 ;
+wire G_75 ;
+wire G_76 ;
+wire G_77 ;
+wire G_78 ;
+wire G_79 ;
+wire G_80 ;
+wire G_81 ;
+wire G_82 ;
+wire reset_n_c ;
+wire clock40mhz_fpga_c ;
+wire clock80mhz_fpga_c ;
+wire G_83 ;
+wire proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom ;
+wire proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x_i ;
+wire COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x_i ;
+wire clock80mhz_fpga_c_i ;
+wire GND ;
+wire proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i ;
+wire ladder_fpga_adc_select_n_i_i ;
+//@1:1
+  assign VCC = 1'b1;
+//@1:1
+  assign GND = 1'b0;
+// @21:471
+  dffeas ladder_fpga_adc_bit_count_cs_integer_i_0__Z (
+	.q(ladder_fpga_adc_bit_count_cs_integer_i[0]),
+	.d(ladder_fpga_adc_bit_count_cs_integer_c0_combout),
+	.clk(clock80mhz_fpga_c_i),
+	.clrn(reset_n_c),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(G_19),
+	.aload(GND),
+	.sclr(GND),
+	.sload(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i)
+);
+// @21:471
+  dffeas ladder_fpga_adc_bit_count_cs_integer_i_1__Z (
+	.q(ladder_fpga_adc_bit_count_cs_integer_i[1]),
+	.d(ladder_fpga_adc_bit_count_cs_integer_c1_combout),
+	.clk(clock80mhz_fpga_c_i),
+	.clrn(reset_n_c),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(G_19),
+	.aload(GND),
+	.sclr(GND),
+	.sload(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i)
+);
+// @21:471
+  dffeas ladder_fpga_adc_bit_count_cs_integer_i_2__Z (
+	.q(ladder_fpga_adc_bit_count_cs_integer_i[2]),
+	.d(ladder_fpga_adc_bit_count_cs_integer_c2_combout),
+	.clk(clock80mhz_fpga_c_i),
+	.clrn(reset_n_c),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(G_19),
+	.aload(GND),
+	.sclr(GND),
+	.sload(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i)
+);
+// @21:471
+  dffeas ladder_fpga_adc_bit_count_cs_integer_i_3__Z (
+	.q(ladder_fpga_adc_bit_count_cs_integer_i[3]),
+	.d(ladder_fpga_adc_bit_count_cs_integer_c3_combout),
+	.clk(clock80mhz_fpga_c_i),
+	.clrn(reset_n_c),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(G_19),
+	.aload(GND),
+	.sclr(GND),
+	.sload(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i)
+);
+// @21:471
+  dffeas ladder_fpga_adc_select_n_i_Z (
+	.q(ladder_fpga_adc_select_n_i),
+	.d(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom),
+	.clk(clock80mhz_fpga_c_i),
+	.clrn(reset_n_c),
+	.prn(VCC),
+	.ena(VCC),
+	.asdata(GND),
+	.aload(GND),
+	.sclr(GND),
+	.sload(GND)
+);
+// @21:476
+  cycloneiii_lcell_comb proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom_cZ (
+	.combout(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom),
+	.dataa(VCC),
+	.datab(ladder_fpga_adc_bit_count_cs_integer_i[3]),
+	.datac(ladder_fpga_adc_bit_count_cs_integer_i[2]),
+	.datad(ladder_fpga_adc_bit_count_cs_integer_i[1])
+);
+defparam proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom_cZ.lut_mask=16'hfffc;
+defparam proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n_3_rom_cZ.sum_lutc_input="datac";
+// @21:471
+  cycloneiii_lcell_comb ladder_fpga_adc_bit_count_cs_integer_c0 (
+	.combout(ladder_fpga_adc_bit_count_cs_integer_c0_combout),
+	.cout(ladder_fpga_adc_bit_count_cs_integer_c0_cout),
+	.dataa(ladder_fpga_adc_bit_count_cs_integer_i[0]),
+	.datab(VCC),
+	.datac(VCC),
+	.datad(VCC)
+);
+defparam ladder_fpga_adc_bit_count_cs_integer_c0.lut_mask=16'h6644;
+defparam ladder_fpga_adc_bit_count_cs_integer_c0.sum_lutc_input="cin";
+// @21:471
+  cycloneiii_lcell_comb ladder_fpga_adc_bit_count_cs_integer_c1 (
+	.combout(ladder_fpga_adc_bit_count_cs_integer_c1_combout),
+	.cout(ladder_fpga_adc_bit_count_cs_integer_c1_cout),
+	.dataa(ladder_fpga_adc_bit_count_cs_integer_i[1]),
+	.datab(VCC),
+	.datac(VCC),
+	.datad(VCC),
+	.cin(ladder_fpga_adc_bit_count_cs_integer_c0_cout)
+);
+defparam ladder_fpga_adc_bit_count_cs_integer_c1.lut_mask=16'h5a50;
+defparam ladder_fpga_adc_bit_count_cs_integer_c1.sum_lutc_input="cin";
+// @21:471
+  cycloneiii_lcell_comb ladder_fpga_adc_bit_count_cs_integer_c2 (
+	.combout(ladder_fpga_adc_bit_count_cs_integer_c2_combout),
+	.cout(ladder_fpga_adc_bit_count_cs_integer_c2_cout),
+	.dataa(ladder_fpga_adc_bit_count_cs_integer_i[2]),
+	.datab(VCC),
+	.datac(VCC),
+	.datad(VCC),
+	.cin(ladder_fpga_adc_bit_count_cs_integer_c1_cout)
+);
+defparam ladder_fpga_adc_bit_count_cs_integer_c2.lut_mask=16'h5a50;
+defparam ladder_fpga_adc_bit_count_cs_integer_c2.sum_lutc_input="cin";
+// @21:471
+  cycloneiii_lcell_comb ladder_fpga_adc_bit_count_cs_integer_c3 (
+	.combout(ladder_fpga_adc_bit_count_cs_integer_c3_combout),
+	.dataa(ladder_fpga_adc_bit_count_cs_integer_i[3]),
+	.datab(VCC),
+	.datac(VCC),
+	.datad(VCC),
+	.cin(ladder_fpga_adc_bit_count_cs_integer_c2_cout)
+);
+defparam ladder_fpga_adc_bit_count_cs_integer_c3.lut_mask=16'h5a5a;
+defparam ladder_fpga_adc_bit_count_cs_integer_c3.sum_lutc_input="cin";
+  cycloneiii_lcell_comb G_83_cZ (
+	.combout(G_83),
+	.dataa(VCC),
+	.datab(VCC),
+	.datac(COMP_ladder_fpga_SC_TAP_CONTROL_updateIR),
+	.datad(COMP_ladder_fpga_SC_TAP_CONTROL_etat_present[0])
+);
+defparam G_83_cZ.lut_mask=16'h0f00;
+defparam G_83_cZ.sum_lutc_input="datac";
+// @21:522
+  cycloneiii_lcell_comb proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17 (
+	.combout(proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i),
+	.dataa(ladder_fpga_adc_bit_count_cs_integer_i[2]),
+	.datab(ladder_fpga_adc_bit_count_cs_integer_i[3]),
+	.datac(ladder_fpga_adc_bit_count_cs_integer_i[0]),
+	.datad(ladder_fpga_adc_bit_count_cs_integer_i[1])
+);
+defparam proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17.lut_mask=16'hfffe;
+defparam proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17.sum_lutc_input="datac";
+  assign  clock80mhz_fpga_c_i = ~ clock80mhz_fpga_c;
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_15_ (
+	.o(G_17),
+	.i(tdo_module[15]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_14_ (
+	.o(G_82),
+	.i(tdo_module[14]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_13_ (
+	.o(G_81),
+	.i(tdo_module[13]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_12_ (
+	.o(G_80),
+	.i(tdo_module[12]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_11_ (
+	.o(G_79),
+	.i(tdo_module[11]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_10_ (
+	.o(G_78),
+	.i(tdo_module[10]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_9_ (
+	.o(G_77),
+	.i(tdo_module[9]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_8_ (
+	.o(G_76),
+	.i(tdo_module[8]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_7_ (
+	.o(G_75),
+	.i(tdo_module[7]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_6_ (
+	.o(G_74),
+	.i(tdo_module[6]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_5_ (
+	.o(G_73),
+	.i(tdo_module[5]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_4_ (
+	.o(G_72),
+	.i(tdo_module[4]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_3_ (
+	.o(G_71),
+	.i(tdo_module[3]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_2_ (
+	.o(G_70),
+	.i(tdo_module[2]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_1_ (
+	.o(G_69),
+	.i(tdo_module[1]),
+	.ibar(GND)
+);
+// @21:69
+  cycloneiii_io_ibuf tdo_module_in_0_ (
+	.o(G_68),
+	.i(tdo_module[0]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_12_ (
+	.o(rdo_to_ladder_c[12]),
+	.i(rdo_to_ladder[12]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_11_ (
+	.o(rdo_to_ladder_c[11]),
+	.i(rdo_to_ladder[11]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_10_ (
+	.o(rdo_to_ladder_c[10]),
+	.i(rdo_to_ladder[10]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_8_ (
+	.o(G_18),
+	.i(rdo_to_ladder[8]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_7_ (
+	.o(G_19),
+	.i(rdo_to_ladder[7]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_3_ (
+	.o(G_20),
+	.i(rdo_to_ladder[3]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_2_ (
+	.o(G_36),
+	.i(rdo_to_ladder[2]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_1_ (
+	.o(G_52),
+	.i(rdo_to_ladder[1]),
+	.ibar(GND)
+);
+// @21:49
+  cycloneiii_io_ibuf rdo_to_ladder_in_0_ (
+	.o(rdo_to_ladder_c[0]),
+	.i(rdo_to_ladder[0]),
+	.ibar(GND)
+);
+// @21:38
+  cycloneiii_io_ibuf clock80mhz_fpga_in (
+	.o(clock80mhz_fpga_c),
+	.i(clock80mhz_fpga),
+	.ibar(GND)
+);
+// @21:37
+  cycloneiii_io_ibuf clock40mhz_fpga_in (
+	.o(clock40mhz_fpga_c),
+	.i(clock40mhz_fpga),
+	.ibar(GND)
+);
+// @21:35
+  cycloneiii_io_ibuf reset_n_in (
+	.o(reset_n_c),
+	.i(reset_n),
+	.ibar(GND)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_15_ (
+	.o(tdi_module[15]),
+	.i(G_82),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_14_ (
+	.o(tdi_module[14]),
+	.i(G_81),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_13_ (
+	.o(tdi_module[13]),
+	.i(G_80),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_12_ (
+	.o(tdi_module[12]),
+	.i(G_79),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_11_ (
+	.o(tdi_module[11]),
+	.i(G_78),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_10_ (
+	.o(tdi_module[10]),
+	.i(G_77),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_9_ (
+	.o(tdi_module[9]),
+	.i(G_76),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_8_ (
+	.o(tdi_module[8]),
+	.i(G_75),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_7_ (
+	.o(tdi_module[7]),
+	.i(G_74),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_6_ (
+	.o(tdi_module[6]),
+	.i(G_73),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_5_ (
+	.o(tdi_module[5]),
+	.i(G_72),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_4_ (
+	.o(tdi_module[4]),
+	.i(G_71),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_3_ (
+	.o(tdi_module[3]),
+	.i(G_70),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_2_ (
+	.o(tdi_module[2]),
+	.i(G_69),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_1_ (
+	.o(tdi_module[1]),
+	.i(G_68),
+	.oe(VCC)
+);
+// @21:68
+  cycloneiii_io_obuf tdi_module_out_0_ (
+	.o(tdi_module[0]),
+	.i(COMP_ladder_fpga_SC_MUX_OUT_z_x),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_15_ (
+	.o(trstb_module[15]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_14_ (
+	.o(trstb_module[14]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_13_ (
+	.o(trstb_module[13]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_12_ (
+	.o(trstb_module[12]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_11_ (
+	.o(trstb_module[11]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_10_ (
+	.o(trstb_module[10]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_9_ (
+	.o(trstb_module[9]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_8_ (
+	.o(trstb_module[8]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_7_ (
+	.o(trstb_module[7]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_6_ (
+	.o(trstb_module[6]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_5_ (
+	.o(trstb_module[5]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_4_ (
+	.o(trstb_module[4]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_3_ (
+	.o(trstb_module[3]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_2_ (
+	.o(trstb_module[2]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_1_ (
+	.o(trstb_module[1]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:67
+  cycloneiii_io_obuf trstb_module_out_0_ (
+	.o(trstb_module[0]),
+	.i(G_52),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_15_ (
+	.o(tms_module[15]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_14_ (
+	.o(tms_module[14]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_13_ (
+	.o(tms_module[13]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_12_ (
+	.o(tms_module[12]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_11_ (
+	.o(tms_module[11]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_10_ (
+	.o(tms_module[10]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_9_ (
+	.o(tms_module[9]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_8_ (
+	.o(tms_module[8]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_7_ (
+	.o(tms_module[7]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_6_ (
+	.o(tms_module[6]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_5_ (
+	.o(tms_module[5]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_4_ (
+	.o(tms_module[4]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_3_ (
+	.o(tms_module[3]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_2_ (
+	.o(tms_module[2]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_1_ (
+	.o(tms_module[1]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:66
+  cycloneiii_io_obuf tms_module_out_0_ (
+	.o(tms_module[0]),
+	.i(G_36),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_15_ (
+	.o(tck_module[15]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_14_ (
+	.o(tck_module[14]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_13_ (
+	.o(tck_module[13]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_12_ (
+	.o(tck_module[12]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_11_ (
+	.o(tck_module[11]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_10_ (
+	.o(tck_module[10]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_9_ (
+	.o(tck_module[9]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_8_ (
+	.o(tck_module[8]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_7_ (
+	.o(tck_module[7]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_6_ (
+	.o(tck_module[6]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_5_ (
+	.o(tck_module[5]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_4_ (
+	.o(tck_module[4]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_3_ (
+	.o(tck_module[3]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_2_ (
+	.o(tck_module[2]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_1_ (
+	.o(tck_module[1]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:65
+  cycloneiii_io_obuf tck_module_out_0_ (
+	.o(tck_module[0]),
+	.i(G_20),
+	.oe(VCC)
+);
+// @21:59
+  cycloneiii_io_obuf hold_out (
+	.o(hold),
+	.i(G_19),
+	.oe(VCC)
+);
+// @21:58
+  cycloneiii_io_obuf test_out (
+	.o(test),
+	.i(G_18),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_23_ (
+	.o(ladder_to_rdo[23]),
+	.i(GND),
+	.oe(GND)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_22_ (
+	.o(ladder_to_rdo[22]),
+	.i(GND),
+	.oe(GND)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_21_ (
+	.o(ladder_to_rdo[21]),
+	.i(G_17),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_20_ (
+	.o(ladder_to_rdo[20]),
+	.i(ladder_fpga_packer_serdata_dataout_c[20]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_19_ (
+	.o(ladder_to_rdo[19]),
+	.i(ladder_fpga_packer_serdata_dataout_c[19]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_18_ (
+	.o(ladder_to_rdo[18]),
+	.i(ladder_fpga_packer_serdata_dataout_c[18]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_17_ (
+	.o(ladder_to_rdo[17]),
+	.i(ladder_fpga_packer_serdata_dataout_c[17]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_16_ (
+	.o(ladder_to_rdo[16]),
+	.i(ladder_fpga_packer_serdata_dataout_c[16]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_15_ (
+	.o(ladder_to_rdo[15]),
+	.i(ladder_fpga_packer_serdata_dataout_c[15]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_14_ (
+	.o(ladder_to_rdo[14]),
+	.i(ladder_fpga_packer_serdata_dataout_c[14]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_13_ (
+	.o(ladder_to_rdo[13]),
+	.i(ladder_fpga_packer_serdata_dataout_c[13]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_12_ (
+	.o(ladder_to_rdo[12]),
+	.i(ladder_fpga_packer_serdata_dataout_c[12]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_11_ (
+	.o(ladder_to_rdo[11]),
+	.i(ladder_fpga_packer_serdata_dataout_c[11]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_10_ (
+	.o(ladder_to_rdo[10]),
+	.i(ladder_fpga_packer_serdata_dataout_c[10]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_9_ (
+	.o(ladder_to_rdo[9]),
+	.i(ladder_fpga_packer_serdata_dataout_c[9]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_8_ (
+	.o(ladder_to_rdo[8]),
+	.i(ladder_fpga_packer_serdata_dataout_c[8]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_7_ (
+	.o(ladder_to_rdo[7]),
+	.i(ladder_fpga_packer_serdata_dataout_c[7]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_6_ (
+	.o(ladder_to_rdo[6]),
+	.i(ladder_fpga_packer_serdata_dataout_c[6]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_5_ (
+	.o(ladder_to_rdo[5]),
+	.i(ladder_fpga_packer_serdata_dataout_c[5]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_4_ (
+	.o(ladder_to_rdo[4]),
+	.i(ladder_fpga_packer_serdata_dataout_c[4]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_3_ (
+	.o(ladder_to_rdo[3]),
+	.i(ladder_fpga_packer_serdata_dataout_c[3]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_2_ (
+	.o(ladder_to_rdo[2]),
+	.i(ladder_fpga_packer_serdata_dataout_c[2]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_1_ (
+	.o(ladder_to_rdo[1]),
+	.i(ladder_fpga_packer_serdata_dataout_c[1]),
+	.oe(VCC)
+);
+// @21:51
+  cycloneiii_io_obuf ladder_to_rdo_out_0_ (
+	.o(ladder_to_rdo[0]),
+	.i(ladder_fpga_packer_serdata_dataout_c[0]),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_7_ (
+	.o(adc_cs_n[7]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_6_ (
+	.o(adc_cs_n[6]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_5_ (
+	.o(adc_cs_n[5]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_4_ (
+	.o(adc_cs_n[4]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_3_ (
+	.o(adc_cs_n[3]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_2_ (
+	.o(adc_cs_n[2]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_1_ (
+	.o(adc_cs_n[1]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+// @21:42
+  cycloneiii_io_obuf adc_cs_n_out_0_ (
+	.o(adc_cs_n[0]),
+	.i(ladder_fpga_adc_select_n_i_i),
+	.oe(VCC)
+);
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:69
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:49
+//@21:69
+// @21:277
+  tap_control COMP_ladder_fpga_SC_TAP_CONTROL (
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i[3]),
+	.rdo_to_ladder_c_1(G_36),
+	.rdo_to_ladder_c_0(G_52),
+	.rdo_to_ladder_c_2(G_20),
+	.etat_present_0(COMP_ladder_fpga_SC_TAP_CONTROL_etat_present[0]),
+	.clockIR_x_i(COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x_i),
+	.clockDR_x_i(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x_i),
+	.clockIR_x(COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x),
+	.clockDR_x(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x),
+	.reset_bar(COMP_ladder_fpga_SC_TAP_CONTROL_reset_bar),
+	.shiftDR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftDR),
+	.shiftIR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftIR),
+	.updateIR(COMP_ladder_fpga_SC_TAP_CONTROL_updateIR)
+);
+// @21:328
+  ir_5_bits COM_ALICE128P_SC_INSTRUC_REG (
+	.rdo_to_ladder_c_i_0(rdo_to_ladder_c_i[3]),
+	.rdo_to_ladder_c_3(G_20),
+	.rdo_to_ladder_c_0(rdo_to_ladder_c[0]),
+	.data_out_i_3(COM_ALICE128P_SC_INSTRUC_REG_a_2_d_e_data_out_i),
+	.data_out_i_2(COM_ALICE128P_SC_INSTRUC_REG_a_3_d_e_data_out_i),
+	.scan_out_2(COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_scan_out),
+	.data_out_i_1(COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_data_out_i),
+	.data_out_i_0(COM_ALICE128P_SC_INSTRUC_REG_a_1_d_e_data_out_i),
+	.clockIR_x(COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x),
+	.clockIR_x_i(COMP_ladder_fpga_SC_TAP_CONTROL_clockIR_x_i),
+	.data_out_i(COM_ALICE128P_SC_INSTRUC_REG_a_4_b_c_data_out_i),
+	.reset_bar(COMP_ladder_fpga_SC_TAP_CONTROL_reset_bar),
+	.G_83(G_83),
+	.shiftIR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftIR)
+);
+// @21:344
+  br_cell_1clk COMP_ladder_fpga_SC_BYPASS_REG (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c[0]),
+	.shiftDR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftDR),
+	.reset_bar(COMP_ladder_fpga_SC_TAP_CONTROL_reset_bar),
+	.clockDR_x_i(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x_i),
+	.scan_out(COMP_ladder_fpga_SC_BYPASS_REG_scan_out)
+);
+// @21:365
+  dr_8_BITS COMP_ladder_fpga_SC_IDENT_REG (
+	.rdo_to_ladder_c_10(rdo_to_ladder_c[10]),
+	.rdo_to_ladder_c_12(rdo_to_ladder_c[12]),
+	.rdo_to_ladder_c_11(rdo_to_ladder_c[11]),
+	.rdo_to_ladder_c_0(rdo_to_ladder_c[0]),
+	.scan_out_6(COMP_ladder_fpga_SC_IDENT_REG_a_0_d_e_scan_out),
+	.clockDR_x(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x),
+	.clockDR_x_i(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x_i),
+	.shiftDR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftDR)
+);
+// @21:382
+  dr_32_BITS COMP_ladder_fpga_SC_VERSION_REG (
+	.rdo_to_ladder_c_0(rdo_to_ladder_c[0]),
+	.scan_out_23(COMP_ladder_fpga_SC_VERSION_REG_a_0_d_e_scan_out),
+	.clockDR_x(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x),
+	.shiftDR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftDR),
+	.clockDR_x_i(COMP_ladder_fpga_SC_TAP_CONTROL_clockDR_x_i)
+);
+// @21:398
+  mux_tdo COMP_ladder_fpga_SC_MUX_TDO (
+	.data_out_i_3(COM_ALICE128P_SC_INSTRUC_REG_a_2_d_e_data_out_i),
+	.data_out_i_2(COM_ALICE128P_SC_INSTRUC_REG_a_1_d_e_data_out_i),
+	.data_out_i_1(COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_data_out_i),
+	.data_out_i_0(COM_ALICE128P_SC_INSTRUC_REG_a_3_d_e_data_out_i),
+	.dr_scan_out_31_0_x(COMP_ladder_fpga_SC_MUX_TDO_dr_scan_out_31_0_x),
+	.scan_out_1(COMP_ladder_fpga_SC_IDENT_REG_a_0_d_e_scan_out),
+	.data_out_i(COM_ALICE128P_SC_INSTRUC_REG_a_4_b_c_data_out_i),
+	.scan_out_0(COMP_ladder_fpga_SC_BYPASS_REG_scan_out),
+	.scan_out(COMP_ladder_fpga_SC_VERSION_REG_a_0_d_e_scan_out)
+);
+// @21:438
+  mux_2_1 COMP_ladder_fpga_SC_MUX_OUT (
+	.shiftIR(COMP_ladder_fpga_SC_TAP_CONTROL_shiftIR),
+	.dr_scan_out_31_0_x(COMP_ladder_fpga_SC_MUX_TDO_dr_scan_out_31_0_x),
+	.scan_out(COM_ALICE128P_SC_INSTRUC_REG_a_0_d_e_scan_out),
+	.z_x(COMP_ladder_fpga_SC_MUX_OUT_z_x)
+);
+// @21:456
+  data_packer comp_data_packer (
+	.ladder_fpga_packer_serdata_dataout_c_20(ladder_fpga_packer_serdata_dataout_c[20]),
+	.ladder_fpga_packer_serdata_dataout_c_19(ladder_fpga_packer_serdata_dataout_c[19]),
+	.ladder_fpga_packer_serdata_dataout_c_18(ladder_fpga_packer_serdata_dataout_c[18]),
+	.ladder_fpga_packer_serdata_dataout_c_17(ladder_fpga_packer_serdata_dataout_c[17]),
+	.ladder_fpga_packer_serdata_dataout_c_16(ladder_fpga_packer_serdata_dataout_c[16]),
+	.ladder_fpga_packer_serdata_dataout_c_15(ladder_fpga_packer_serdata_dataout_c[15]),
+	.ladder_fpga_packer_serdata_dataout_c_14(ladder_fpga_packer_serdata_dataout_c[14]),
+	.ladder_fpga_packer_serdata_dataout_c_13(ladder_fpga_packer_serdata_dataout_c[13]),
+	.ladder_fpga_packer_serdata_dataout_c_12(ladder_fpga_packer_serdata_dataout_c[12]),
+	.ladder_fpga_packer_serdata_dataout_c_11(ladder_fpga_packer_serdata_dataout_c[11]),
+	.ladder_fpga_packer_serdata_dataout_c_10(ladder_fpga_packer_serdata_dataout_c[10]),
+	.ladder_fpga_packer_serdata_dataout_c_9(ladder_fpga_packer_serdata_dataout_c[9]),
+	.ladder_fpga_packer_serdata_dataout_c_8(ladder_fpga_packer_serdata_dataout_c[8]),
+	.ladder_fpga_packer_serdata_dataout_c_7(ladder_fpga_packer_serdata_dataout_c[7]),
+	.ladder_fpga_packer_serdata_dataout_c_6(ladder_fpga_packer_serdata_dataout_c[6]),
+	.ladder_fpga_packer_serdata_dataout_c_5(ladder_fpga_packer_serdata_dataout_c[5]),
+	.ladder_fpga_packer_serdata_dataout_c_4(ladder_fpga_packer_serdata_dataout_c[4]),
+	.ladder_fpga_packer_serdata_dataout_c_3(ladder_fpga_packer_serdata_dataout_c[3]),
+	.ladder_fpga_packer_serdata_dataout_c_2(ladder_fpga_packer_serdata_dataout_c[2]),
+	.ladder_fpga_packer_serdata_dataout_c_1(ladder_fpga_packer_serdata_dataout_c[1]),
+	.ladder_fpga_packer_serdata_dataout_c_0(ladder_fpga_packer_serdata_dataout_c[0]),
+	.clock40mhz_fpga_c(clock40mhz_fpga_c)
+);
+  assign  proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i_i = ~ proc_ladder_fpga_adc_cs_ladder_fpga_adc_select_n17_i;
+  assign #(1)  ladder_fpga_adc_select_n_i_i = ~ ladder_fpga_adc_select_n_i;
+assign roboclock_horloge40_phase[0] = GND;
+assign roboclock_horloge40_phase[1] = GND;
+assign roboclock_horloge40_phase[2] = GND;
+assign roboclock_horloge40_phase[3] = GND;
+assign roboclock_adc_phase[0] = GND;
+assign roboclock_adc_phase[1] = GND;
+assign roboclock_adc_phase[2] = GND;
+assign roboclock_adc_phase[3] = GND;
+assign roboclock_adc_phase[4] = GND;
+assign roboclock_adc_phase[5] = GND;
+assign roboclock_adc_phase[6] = GND;
+assign roboclock_adc_phase[7] = GND;
+assign addr_mux_h_neg = GND;
+assign addr_mux_l_neg = GND;
+assign mux_ref_latchup[0] = GND;
+assign mux_ref_latchup[1] = GND;
+assign pilotage_magnd[0] = GND;
+assign pilotage_magnd[1] = GND;
+assign pilotage_magnd[2] = GND;
+assign pilotage_magnd[3] = GND;
+assign pilotage_magnd[4] = GND;
+assign pilotage_magnd[5] = GND;
+assign pilotage_magnd[6] = GND;
+assign pilotage_magnd[7] = GND;
+assign pilotage_magnd[8] = GND;
+assign pilotage_magnd[9] = GND;
+assign pilotage_magnd[10] = GND;
+assign pilotage_magnd[11] = GND;
+assign pilotage_magnd[12] = GND;
+assign pilotage_magnd[13] = GND;
+assign pilotage_magnd[14] = GND;
+assign pilotage_magnd[15] = GND;
+assign pilotage_mvdd[0] = GND;
+assign pilotage_mvdd[1] = GND;
+assign pilotage_mvdd[2] = GND;
+assign pilotage_mvdd[3] = GND;
+assign pilotage_mvdd[4] = GND;
+assign pilotage_mvdd[5] = GND;
+assign pilotage_mvdd[6] = GND;
+assign pilotage_mvdd[7] = GND;
+assign pilotage_mvdd[8] = GND;
+assign pilotage_mvdd[9] = GND;
+assign pilotage_mvdd[10] = GND;
+assign pilotage_mvdd[11] = GND;
+assign pilotage_mvdd[12] = GND;
+assign pilotage_mvdd[13] = GND;
+assign pilotage_mvdd[14] = GND;
+assign pilotage_mvdd[15] = GND;
+assign rclk = GND;
+assign tokenin[0] = GND;
+assign tokenin[1] = GND;
+assign tokenin[2] = GND;
+assign tokenin[3] = GND;
+assign tokenin[4] = GND;
+assign tokenin[5] = GND;
+assign tokenin[6] = GND;
+assign tokenin[7] = GND;
+assign tokenin[8] = GND;
+assign tokenin[9] = GND;
+assign tokenin[10] = GND;
+assign tokenin[11] = GND;
+assign tokenin[12] = GND;
+assign tokenin[13] = GND;
+assign tokenin[14] = GND;
+assign tokenin[15] = GND;
+endmodule /* ladder_fpga */
+

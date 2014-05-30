@@ -1,0 +1,169 @@
+===== Project Archive Summary ==============================
+
+Date         : Thu Sep 8 15:28:49 2011
+Project File : C:/SSD upgrade/analog tests/ladder_fpga.prj
+
+------------------------------------------------------------
+Total # of Files (completed) : 142 (142)
+  Local Files (completed)    : 121 (121)
+  Remote Files (completed)   : 15 (15)
+  Extra Files (completed)    : 6 (6)
+------------------------------------------------------------
+
+    header_star_ssdU.vhd
+    br_cell_1clk.vhd
+    dr_cell.vhd
+    mesure_temperature.vhd
+    comptage_temperature.vhd
+    dr_cell_avec_pulse.vhd
+    mega_func_pll_40MHz_switchover_cycloneIII.vhd
+    ir_5_bits.vhd
+    ir_cell.vhd
+    mux_2_1.vhd
+    mux_tdo.vhd
+    tap_control.vhd
+    dr_x_bits.vhd
+    dr_x_bits_init.vhd
+    dr_x_bits_avec_pulse.vhd
+    identificateur_8bits.vhd
+    filtre_latchup.vhd
+    memoire_latchup.vhd
+    memoire_latchup_general.vhd
+    memoire_tokenout_echelle.vhd
+    signaux_hybrides.vhd
+    gestion_hybrides_v4.vhd
+    mega_func_fifo8x256_cycloneIII.vhd
+    mega_func_fifo21x32_cycloneIII.vhd
+    date_stamp.vhd
+    C__altera_10_0_quartus_eda_fv_lib_verilog/cycloneiii_crcblock.v
+    ladder_fpga.vhd
+    ladder_fpga.sdc
+    shiftreg.vhd
+    rev_1/pin_assign.sdc
+    rev_1/_mh_info
+    rev_1/_verilog_hintfile
+    rev_1/Chain1.cdf
+    rev_1/complete_data_packer_altera.sxr
+    rev_1/complete_data_packer_altera.szr
+    rev_1/complete_data_packer_altera.tcl
+    rev_1/complete_data_packer_altera.tlg
+    rev_1/complete_data_packer_altera.vqm
+    rev_1/complete_data_packer_altera.xrf
+    rev_1/complete_data_packer_altera_cons.tcl
+    rev_1/complete_data_packer_altera_rm.tcl
+    rev_1/fsm_tmp.scf
+    rev_1/fsm_tmp.szr
+    rev_1/fsmviewer.fsm
+    rev_1/identify.log
+    rev_1/ladder_fpga.asm.rpt
+    rev_1/ladder_fpga.done
+    rev_1/ladder_fpga.dpf
+    rev_1/ladder_fpga.fse
+    rev_1/ladder_fpga.htm
+    rev_1/ladder_fpga.map
+    rev_1/ladder_fpga.map.rpt
+    rev_1/ladder_fpga.map.summary
+    rev_1/ladder_fpga.pin
+    rev_1/ladder_fpga.pow.summary
+    rev_1/ladder_fpga.qpf
+    rev_1/ladder_fpga.qsf
+    rev_1/ladder_fpga.qsf~
+    rev_1/ladder_fpga.qws
+    rev_1/ladder_fpga.rbf
+    rev_1/ladder_fpga.sap
+    rev_1/ladder_fpga.scf
+    rev_1/ladder_fpga.srd
+    rev_1/ladder_fpga.srl
+    rev_1/ladder_fpga.srm
+    rev_1/ladder_fpga.srr
+    rev_1/ladder_fpga.sta.summary
+    rev_1/ladder_fpga.tcl
+    rev_1/ladder_fpga_assignment_defaults.qdf
+    rev_1/ladder_fpga_cons.tcl
+    rev_1/ladder_fpga_rm.tcl
+    rev_1/ladder_fpga_scck.rpt
+    rev_1/layer0.tlg
+    rev_1/layer1.info
+    rev_1/layer1.sro
+    rev_1/layer1.tlg
+    rev_1/pin_assign.sdc~
+    rev_1/pr_1/complete_data_packer_altera.vqm
+    rev_1/pr_1/fifo8_copy.cmp
+    rev_1/pr_1/fifo8_copy.qip
+    rev_1/pr_1/fifo8_copy.vhd
+    rev_1/pr_1/fifo8_copy_syn.v
+    rev_1/pr_1/ladder_fpga.archive.rpt
+    rev_1/pr_1/ladder_fpga.asm.rpt
+    rev_1/pr_1/ladder_fpga.cdf
+    rev_1/pr_1/ladder_fpga.done
+    rev_1/pr_1/ladder_fpga.dpf
+    rev_1/pr_1/ladder_fpga.pin
+    rev_1/pr_1/ladder_fpga.qpf
+    rev_1/pr_1/ladder_fpga.qsf
+    rev_1/pr_1/ladder_fpga.scf
+    rev_1/pr_1/ladder_fpga.sta.summary
+    rev_1/pr_1/ladder_fpga.tcl
+    rev_1/pr_1/ladder_fpga_cons.tcl
+    rev_1/pr_1/ladder_fpga_rm.tcl
+    rev_1/pr_1/ladder_fpga_rm_prev.tcl
+    rev_1/pr_1/mega_func_fifo21x32_cycloneIII.qip
+    rev_1/pr_1/mega_func_fifo8x256_cycloneIII.qip
+    rev_1/pr_1/mega_func_pll_40MHz_switchover_cycloneIII.qip
+    rev_1/pr_1/negate.qip
+    rev_1/pr_1/pin_assign.sdc
+    rev_1/pr_1/shiftreg.qip
+    rev_1/quartus_nativelink_fpga_xchange.log
+    rev_1/rpt_ladder_fpga_event_controller_state_0_6cc.areasrr
+    rev_1/rpt_ladder_fpga_event_controller_state_0_6cc_areasrr.htm
+    rev_1/run_options.txt
+    rev_1/scratchproject.prs
+    rev_1/serv_req_info.txt
+    extra_input/altera.v
+        ==> extra_input/altera.v
+    extra_input/altera_lpm.v
+        ==> extra_input/altera_lpm.v
+    extra_input/altera_mf.v
+        ==> extra_input/altera_mf.v
+    extra_input/altera_primitives.v
+        ==> extra_input/altera_primitives.v
+    extra_input/cycloneiii.v
+        ==> extra_input/cycloneiii.v
+    ladder_fpga-02-aug-2011.vhd
+    ladder_fpga-03-aug-2011.vhd
+    ladder_fpga-23-jul-2011.vhd
+    ladder_fpga-25-july.vhd
+    ladder_fpga_almost_working-04-aug-2011.vhd
+    ladder_fpga_june_16.vhd
+    ladder_fpga_tested_working.vhd
+    ladder_fpga_usb_corrections.vhd
+    ladder_fpga_who_knows.vhd
+    ladder_fpga_working_with_comments.vhd
+    mega_func_pll_40MHz_switchover_cycloneIII_syn.v
+    rev_1/AutoConstraint_ladder_fpga.sdc
+        ==> rev_1/AutoConstraint_ladder_fpga.sdc
+    rev_1/complete_data_packer_altera.srs
+        ==> rev_1/complete_data_packer_altera.srs
+    rev_1/complete_data_packer_altera_fsm.sdc
+        ==> rev_1/complete_data_packer_altera_fsm.sdc
+    rev_1/ladder_fpga.srs
+        ==> rev_1/ladder_fpga.srs
+    rev_1/ladder_fpga_fsm.sdc
+        ==> rev_1/ladder_fpga_fsm.sdc
+    rev_1/ladder_fpga_synplify.sdc
+        ==> rev_1/ladder_fpga_synplify.sdc
+    rev_1/layer0.srs
+        ==> rev_1/layer0.srs
+    rev_1/layer1.srs
+        ==> rev_1/layer1.srs
+    rev_1/pr_1/db/mega_func_pll_40MHz_switchover_cycloneIII_altpll.v
+        ==> rev_1_pr_1_db/mega_func_pll_40MHz_switchover_cycloneIII_altpll.v
+    rev_1/synwork/ladder_fpga_compiler.srs
+        ==> rev_1_synwork/ladder_fpga_compiler.srs
+    shiftreg_inst.vhd
+    shiftreg_syn.v
+    C:/Synopsys/fpga_E201103/lib/altera/altera.v
+    C:/Synopsys/fpga_E201103/lib/altera/quartus_II101/cycloneiii.v
+    C:/Synopsys/fpga_E201103/lib/altera/quartus_II101/altera_mf.v
+    C:/Synopsys/fpga_E201103/lib/altera/quartus_II101/altera_lpm.v
+    C:/Synopsys/fpga_E201103/lib/altera/quartus_II101/altera_primitives.v
+    C:/Synopsys/fpga_E201103/lib/vlog/hypermods.v

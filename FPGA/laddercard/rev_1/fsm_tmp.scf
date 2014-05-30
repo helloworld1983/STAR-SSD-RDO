@@ -1,0 +1,111 @@
+# Written by Synplify Pro version 9.2, Build 082R. Synplicity Run ID: sid1251111477 
+# Top Level Design Parameters 
+derive_pll_clocks
+
+# Clocks 
+create_clock -period 12.500 -waveform {0.000 6.250} -name {clock80mhz_adc_i_1} [get_ports {clock80mhz_adc_i_1}] 
+
+
+# Virtual Clocks 
+
+# Paths Between Clocks 
+
+# Multicycle Constraints 
+
+# Point-to-point Delay Constraints 
+
+# False Path Constraints 
+
+# Output Load Constraints 
+
+# Driving Cell Constraints 
+
+# Input Delay Constraints 
+set_input_delay -max 8.216 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_19_3}] 
+set_input_delay -max -0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_mux_datain_3_8[15]}] 
+set_input_delay -max -0.314 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {reset_n_i_0}] 
+set_input_delay -max -0.258 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_packer_dataout[15]}] 
+set_input_delay -max -0.258 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_fifo21_empty}] 
+set_input_delay -max 7.055 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_busy_9}] 
+set_input_delay -max -0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_1_2}] 
+set_input_delay -max -0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_ladder_fpga_busy_1}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[0]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[1]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[2]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[3]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[4]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[5]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[6]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[7]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[8]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[9]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[10]}] 
+set_input_delay -max -26830.789 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[11]}] 
+set_input_delay -max -26830.778 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[12]}] 
+set_input_delay -max -26830.778 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[13]}] 
+set_input_delay -max -26830.778 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[14]}] 
+set_input_delay -max -26830.778 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {etat_alims_hybride[15]}] 
+set_input_delay -max 3.649 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_ladder_fpga_nbr_rclk_echelle_3[12]}] 
+set_input_delay -max 3.709 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_ladder_fpga_nbr_rclk_echelle_3[13]}] 
+set_input_delay -max 6.515 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_busy}] 
+set_input_delay -max 6.462 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_pulse_ok}] 
+set_input_delay -max -0.252 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_echelle_c}] 
+set_input_delay -max -0.280 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {holdin_echelle_c}] 
+set_input_delay -max -0.258 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {testin_echelle_c}] 
+set_input_delay -max 3.169 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_ladder_fpga_nbr_rclk_echelle_3_4_to_4[4]}] 
+
+# Output Delay Constraints 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_19_2}] 
+set_output_delay -max 0.020 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_19_4}] 
+set_output_delay -max 0.855 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_19}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_mux_datain_3_9[15]}] 
+set_output_delay -max 0.325 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_mux_datain_3_5[15]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_1_4_i}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {un1_reset_n_1_3tmp}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[0]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[1]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[2]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[3]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[4]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[5]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[6]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[7]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[8]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[9]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[10]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[11]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[12]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[13]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[14]}] 
+set_output_delay -max 0.246 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tokenin_hybride_c[15]}] 
+set_output_delay -max 9.685 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {tst_gestion_hybrides[0]}] 
+set_output_delay -max 6.575 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {proc_ladder_fpga_nbr_rclk_echelle\.ladder_fpga_nbr_rclk_echelle_5[12]}] 
+set_output_delay -max 6.575 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {proc_ladder_fpga_nbr_rclk_echelle\.ladder_fpga_nbr_rclk_echelle_5[13]}] 
+set_output_delay -max 7.655 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_event_controller_state[6]}] 
+set_output_delay -max 1.217 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_event_controller_state[5]}] 
+set_output_delay -max 1.087 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_event_controller_state[4]}] 
+set_output_delay -max 9.761 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_event_controller_state_0_to_2[2]}] 
+set_output_delay -max 6.785 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_event_controller_state_0_to_2[1]}] 
+set_output_delay -max 8.991 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {ladder_fpga_event_controller_state_0_to_2[0]}] 
+set_output_delay -max 6.575 -clock [get_clocks {clock80mhz_adc_i_1}] -clock_fall -add_delay [get_ports {proc_ladder_fpga_nbr_rclk_echelle.ladder_fpga_nbr_rclk_echelle_5_4_to_4[4]}] 
+
+# Wire Loads 
+
+# Other Constraints 
+
+# syn_hier Attributes 
+
+# set_case Attributes 
+
+# Clock Delay Constraints 
+
+# syn_mode Attributes 
+
+# Cells 
+
+# Port DRC Rules 
+
+# Input Transition Constraints 
+
+# Unused constraints (intentionally commented out) 
+

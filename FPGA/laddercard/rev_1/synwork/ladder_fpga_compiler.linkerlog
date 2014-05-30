@@ -1,0 +1,365 @@
+	Link Summary for source view work.cycloneiii_crcblock_1s_cycloneiii_crcblock.verilog of instance comp_cycloneiii_crcblock :
+	============================
+		No Target View Link Candidates for this view
+	Link Summary for source view altera_mf.altpll_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box of instance altpll_component :
+	============================
+		Target view link candidate 1: work.altpll_Z1_layer1.verilog
+		==========================
+			 	The following Generics/Parameters in the Target view work.altpll_Z1_layer1.verilog do NOT exist in the Source View altera_mf.altpll_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box
+			 	====================================================
+			 		Generic/Parameter bandwidth
+			 		Generic/Parameter c0_high
+			 		Generic/Parameter c0_initial
+			 		Generic/Parameter c0_low
+			 		Generic/Parameter c0_mode
+			 		Generic/Parameter c0_ph
+			 		Generic/Parameter c0_test_source
+			 		Generic/Parameter c1_high
+			 		Generic/Parameter c1_initial
+			 		Generic/Parameter c1_low
+			 		Generic/Parameter c1_mode
+			 		Generic/Parameter c1_ph
+			 		Generic/Parameter c1_test_source
+			 		Generic/Parameter c1_use_casc_in
+			 		Generic/Parameter c2_high
+			 		Generic/Parameter c2_initial
+			 		Generic/Parameter c2_low
+			 		Generic/Parameter c2_mode
+			 		Generic/Parameter c2_ph
+			 		Generic/Parameter c2_test_source
+			 		Generic/Parameter c2_use_casc_in
+			 		Generic/Parameter c3_high
+			 		Generic/Parameter c3_initial
+			 		Generic/Parameter c3_low
+			 		Generic/Parameter c3_mode
+			 		Generic/Parameter c3_ph
+			 		Generic/Parameter c3_test_source
+			 		Generic/Parameter c3_use_casc_in
+			 		Generic/Parameter c4_high
+			 		Generic/Parameter c4_initial
+			 		Generic/Parameter c4_low
+			 		Generic/Parameter c4_mode
+			 		Generic/Parameter c4_ph
+			 		Generic/Parameter c4_test_source
+			 		Generic/Parameter c4_use_casc_in
+			 		Generic/Parameter c5_high
+			 		Generic/Parameter c5_initial
+			 		Generic/Parameter c5_low
+			 		Generic/Parameter c5_mode
+			 		Generic/Parameter c5_ph
+			 		Generic/Parameter c5_test_source
+			 		Generic/Parameter c5_use_casc_in
+			 		Generic/Parameter c6_high
+			 		Generic/Parameter c6_initial
+			 		Generic/Parameter c6_low
+			 		Generic/Parameter c6_mode
+			 		Generic/Parameter c6_ph
+			 		Generic/Parameter c6_test_source
+			 		Generic/Parameter c6_use_casc_in
+			 		Generic/Parameter c7_high
+			 		Generic/Parameter c7_initial
+			 		Generic/Parameter c7_low
+			 		Generic/Parameter c7_mode
+			 		Generic/Parameter c7_ph
+			 		Generic/Parameter c7_test_source
+			 		Generic/Parameter c7_use_casc_in
+			 		Generic/Parameter c8_high
+			 		Generic/Parameter c8_initial
+			 		Generic/Parameter c8_low
+			 		Generic/Parameter c8_mode
+			 		Generic/Parameter c8_ph
+			 		Generic/Parameter c8_test_source
+			 		Generic/Parameter c8_use_casc_in
+			 		Generic/Parameter c9_high
+			 		Generic/Parameter c9_initial
+			 		Generic/Parameter c9_low
+			 		Generic/Parameter c9_mode
+			 		Generic/Parameter c9_ph
+			 		Generic/Parameter c9_test_source
+			 		Generic/Parameter c9_use_casc_in
+			 		Generic/Parameter charge_pump_current
+			 		Generic/Parameter charge_pump_current_bits
+			 		Generic/Parameter clk0_counter
+			 		Generic/Parameter clk0_output_frequency
+			 		Generic/Parameter clk0_time_delay
+			 		Generic/Parameter clk0_use_even_counter_mode
+			 		Generic/Parameter clk0_use_even_counter_value
+			 		Generic/Parameter clk1_counter
+			 		Generic/Parameter clk1_output_frequency
+			 		Generic/Parameter clk1_time_delay
+			 		Generic/Parameter clk1_use_even_counter_mode
+			 		Generic/Parameter clk1_use_even_counter_value
+			 		Generic/Parameter clk2_counter
+			 		Generic/Parameter clk2_output_frequency
+			 		Generic/Parameter clk2_time_delay
+			 		Generic/Parameter clk2_use_even_counter_mode
+			 		Generic/Parameter clk2_use_even_counter_value
+			 		Generic/Parameter clk3_counter
+			 		Generic/Parameter clk3_time_delay
+			 		Generic/Parameter clk3_use_even_counter_mode
+			 		Generic/Parameter clk3_use_even_counter_value
+			 		Generic/Parameter clk4_counter
+			 		Generic/Parameter clk4_divide_by
+			 		Generic/Parameter clk4_duty_cycle
+			 		Generic/Parameter clk4_multiply_by
+			 		Generic/Parameter clk4_phase_shift
+			 		Generic/Parameter clk4_time_delay
+			 		Generic/Parameter clk4_use_even_counter_mode
+			 		Generic/Parameter clk4_use_even_counter_value
+			 		Generic/Parameter clk5_counter
+			 		Generic/Parameter clk5_divide_by
+			 		Generic/Parameter clk5_duty_cycle
+			 		Generic/Parameter clk5_multiply_by
+			 		Generic/Parameter clk5_phase_shift
+			 		Generic/Parameter clk5_time_delay
+			 		Generic/Parameter clk5_use_even_counter_mode
+			 		Generic/Parameter clk5_use_even_counter_value
+			 		Generic/Parameter clk6_counter
+			 		Generic/Parameter clk6_divide_by
+			 		Generic/Parameter clk6_duty_cycle
+			 		Generic/Parameter clk6_multiply_by
+			 		Generic/Parameter clk6_phase_shift
+			 		Generic/Parameter clk6_use_even_counter_mode
+			 		Generic/Parameter clk6_use_even_counter_value
+			 		Generic/Parameter clk7_counter
+			 		Generic/Parameter clk7_divide_by
+			 		Generic/Parameter clk7_duty_cycle
+			 		Generic/Parameter clk7_multiply_by
+			 		Generic/Parameter clk7_phase_shift
+			 		Generic/Parameter clk7_use_even_counter_mode
+			 		Generic/Parameter clk7_use_even_counter_value
+			 		Generic/Parameter clk8_counter
+			 		Generic/Parameter clk8_divide_by
+			 		Generic/Parameter clk8_duty_cycle
+			 		Generic/Parameter clk8_multiply_by
+			 		Generic/Parameter clk8_phase_shift
+			 		Generic/Parameter clk8_use_even_counter_mode
+			 		Generic/Parameter clk8_use_even_counter_value
+			 		Generic/Parameter clk9_counter
+			 		Generic/Parameter clk9_divide_by
+			 		Generic/Parameter clk9_duty_cycle
+			 		Generic/Parameter clk9_multiply_by
+			 		Generic/Parameter clk9_phase_shift
+			 		Generic/Parameter clk9_use_even_counter_mode
+			 		Generic/Parameter clk9_use_even_counter_value
+			 		Generic/Parameter down_spread
+			 		Generic/Parameter dpa_divide_by
+			 		Generic/Parameter dpa_divider
+			 		Generic/Parameter dpa_multiply_by
+			 		Generic/Parameter e0_high
+			 		Generic/Parameter e0_initial
+			 		Generic/Parameter e0_low
+			 		Generic/Parameter e0_mode
+			 		Generic/Parameter e0_ph
+			 		Generic/Parameter e0_time_delay
+			 		Generic/Parameter e1_high
+			 		Generic/Parameter e1_initial
+			 		Generic/Parameter e1_low
+			 		Generic/Parameter e1_mode
+			 		Generic/Parameter e1_ph
+			 		Generic/Parameter e1_time_delay
+			 		Generic/Parameter e2_high
+			 		Generic/Parameter e2_initial
+			 		Generic/Parameter e2_low
+			 		Generic/Parameter e2_mode
+			 		Generic/Parameter e2_ph
+			 		Generic/Parameter e2_time_delay
+			 		Generic/Parameter e3_high
+			 		Generic/Parameter e3_initial
+			 		Generic/Parameter e3_low
+			 		Generic/Parameter e3_mode
+			 		Generic/Parameter e3_ph
+			 		Generic/Parameter e3_time_delay
+			 		Generic/Parameter enable0_counter
+			 		Generic/Parameter enable1_counter
+			 		Generic/Parameter enable_switch_over_counter
+			 		Generic/Parameter extclk0_counter
+			 		Generic/Parameter extclk0_divide_by
+			 		Generic/Parameter extclk0_duty_cycle
+			 		Generic/Parameter extclk0_multiply_by
+			 		Generic/Parameter extclk0_phase_shift
+			 		Generic/Parameter extclk0_time_delay
+			 		Generic/Parameter extclk1_counter
+			 		Generic/Parameter extclk1_divide_by
+			 		Generic/Parameter extclk1_duty_cycle
+			 		Generic/Parameter extclk1_multiply_by
+			 		Generic/Parameter extclk1_phase_shift
+			 		Generic/Parameter extclk1_time_delay
+			 		Generic/Parameter extclk2_counter
+			 		Generic/Parameter extclk2_divide_by
+			 		Generic/Parameter extclk2_duty_cycle
+			 		Generic/Parameter extclk2_multiply_by
+			 		Generic/Parameter extclk2_phase_shift
+			 		Generic/Parameter extclk2_time_delay
+			 		Generic/Parameter extclk3_counter
+			 		Generic/Parameter extclk3_divide_by
+			 		Generic/Parameter extclk3_duty_cycle
+			 		Generic/Parameter extclk3_multiply_by
+			 		Generic/Parameter extclk3_phase_shift
+			 		Generic/Parameter extclk3_time_delay
+			 		Generic/Parameter feedback_source
+			 		Generic/Parameter g0_high
+			 		Generic/Parameter g0_initial
+			 		Generic/Parameter g0_low
+			 		Generic/Parameter g0_mode
+			 		Generic/Parameter g0_ph
+			 		Generic/Parameter g0_time_delay
+			 		Generic/Parameter g1_high
+			 		Generic/Parameter g1_initial
+			 		Generic/Parameter g1_low
+			 		Generic/Parameter g1_mode
+			 		Generic/Parameter g1_ph
+			 		Generic/Parameter g1_time_delay
+			 		Generic/Parameter g2_high
+			 		Generic/Parameter g2_initial
+			 		Generic/Parameter g2_low
+			 		Generic/Parameter g2_mode
+			 		Generic/Parameter g2_ph
+			 		Generic/Parameter g2_time_delay
+			 		Generic/Parameter g3_high
+			 		Generic/Parameter g3_initial
+			 		Generic/Parameter g3_low
+			 		Generic/Parameter g3_mode
+			 		Generic/Parameter g3_ph
+			 		Generic/Parameter g3_time_delay
+			 		Generic/Parameter gate_lock_counter
+			 		Generic/Parameter gate_lock_signal
+			 		Generic/Parameter invalid_lock_multiplier
+			 		Generic/Parameter l0_high
+			 		Generic/Parameter l0_initial
+			 		Generic/Parameter l0_low
+			 		Generic/Parameter l0_mode
+			 		Generic/Parameter l0_ph
+			 		Generic/Parameter l0_time_delay
+			 		Generic/Parameter l1_high
+			 		Generic/Parameter l1_initial
+			 		Generic/Parameter l1_low
+			 		Generic/Parameter l1_mode
+			 		Generic/Parameter l1_ph
+			 		Generic/Parameter l1_time_delay
+			 		Generic/Parameter lock_high
+			 		Generic/Parameter lock_low
+			 		Generic/Parameter lock_window_ui
+			 		Generic/Parameter lock_window_ui_bits
+			 		Generic/Parameter loop_filter_c
+			 		Generic/Parameter loop_filter_c_bits
+			 		Generic/Parameter loop_filter_r
+			 		Generic/Parameter loop_filter_r_bits
+			 		Generic/Parameter m
+			 		Generic/Parameter m2
+			 		Generic/Parameter m_initial
+			 		Generic/Parameter m_ph
+			 		Generic/Parameter m_test_source
+			 		Generic/Parameter m_time_delay
+			 		Generic/Parameter n
+			 		Generic/Parameter n2
+			 		Generic/Parameter n_time_delay
+			 		Generic/Parameter pfd_max
+			 		Generic/Parameter pfd_min
+			 		Generic/Parameter port_clk6
+			 		Generic/Parameter port_clk7
+			 		Generic/Parameter port_clk8
+			 		Generic/Parameter port_clk9
+			 		Generic/Parameter port_enable0
+			 		Generic/Parameter port_enable1
+			 		Generic/Parameter port_extclkena0
+			 		Generic/Parameter port_extclkena1
+			 		Generic/Parameter port_extclkena2
+			 		Generic/Parameter port_extclkena3
+			 		Generic/Parameter port_fbout
+			 		Generic/Parameter port_sclkout0
+			 		Generic/Parameter port_sclkout1
+			 		Generic/Parameter port_vcooverrange
+			 		Generic/Parameter port_vcounderrange
+			 		Generic/Parameter qualify_conf_done
+			 		Generic/Parameter scan_chain
+			 		Generic/Parameter scan_chain_mif_file
+			 		Generic/Parameter sclkout0_phase_shift
+			 		Generic/Parameter sclkout1_phase_shift
+			 		Generic/Parameter self_reset_on_gated_loss_lock
+			 		Generic/Parameter sim_gate_lock_device_behavior
+			 		Generic/Parameter skip_vco
+			 		Generic/Parameter spread_frequency
+			 		Generic/Parameter ss
+			 		Generic/Parameter switch_over_counter
+			 		Generic/Parameter switch_over_on_gated_lock
+			 		Generic/Parameter switch_over_on_lossclk
+			 		Generic/Parameter using_fbmimicbidir_port
+			 		Generic/Parameter valid_lock_multiplier
+			 		Generic/Parameter vco_center
+			 		Generic/Parameter vco_divide_by
+			 		Generic/Parameter vco_frequency_control
+			 		Generic/Parameter vco_max
+			 		Generic/Parameter vco_min
+			 		Generic/Parameter vco_multiply_by
+			 		Generic/Parameter vco_phase_shift_step
+			 		Generic/Parameter vco_post_scale
+			 		Generic/Parameter vco_range_detector_high_bits
+			 		Generic/Parameter vco_range_detector_low_bits
+			 		Generic/Parameter width_phasecounterselect
+
+	Link Summary for source view lpm.lpm_shiftreg_work_ladder_fpga_ladder_fpga_arch_0.syn_black_box of instance LPM_SHIFTREG_component :
+	============================
+		Target view link candidate 1: work.lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1.verilog
+		==========================
+			 	The following Generics/Parameters in the Target view work.lpm_shiftreg_LPM_SHIFTREG_10s_UNUSED_UNUSED_UNUSED_LEFT_UNUSED_2_layer1.verilog do NOT exist in the Source View lpm.lpm_shiftreg_work_ladder_fpga_ladder_fpga_arch_0.syn_black_box
+			 	====================================================
+			 		Generic/Parameter lpm_avalue
+			 		Generic/Parameter lpm_svalue
+			 		Generic/Parameter lpm_pvalue
+			 		Generic/Parameter lpm_hint
+
+	Link Summary for source view altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box of instance dcfifo_component :
+	============================
+		Target view link candidate 1: work.dcfifo_Z4_layer1.verilog
+		==========================
+			 	The following Generics/Parameters in the Target view work.dcfifo_Z4_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box
+			 	====================================================
+			 		Generic/Parameter add_ram_output_register
+			 		Generic/Parameter add_usedw_msb_bit
+			 		Generic/Parameter clocks_are_synchronized
+			 		Generic/Parameter delay_rdusedw
+			 		Generic/Parameter delay_wrusedw
+			 		Generic/Parameter lpm_hint
+			 Generic/Parameter Value Mismatch between View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box and View work.dcfifo_Z4_layer1.verilog
+			 	Details:
+			 	========
+			 	Generic/Parameter lpm_widthu has value 5 in View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box and value 8 in View work.dcfifo_Z4_layer1.verilog
+		Target view link candidate 2: work.dcfifo_Z3_layer1.verilog
+		==========================
+			 	The following Generics/Parameters in the Target view work.dcfifo_Z3_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_3.syn_black_box
+			 	====================================================
+			 		Generic/Parameter add_ram_output_register
+			 		Generic/Parameter add_usedw_msb_bit
+			 		Generic/Parameter clocks_are_synchronized
+			 		Generic/Parameter delay_rdusedw
+			 		Generic/Parameter delay_wrusedw
+			 		Generic/Parameter lpm_hint
+
+	Link Summary for source view altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box of instance dcfifo_component :
+	============================
+		Target view link candidate 1: work.dcfifo_Z4_layer1.verilog
+		==========================
+			 	The following Generics/Parameters in the Target view work.dcfifo_Z4_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box
+			 	====================================================
+			 		Generic/Parameter add_ram_output_register
+			 		Generic/Parameter add_usedw_msb_bit
+			 		Generic/Parameter clocks_are_synchronized
+			 		Generic/Parameter delay_rdusedw
+			 		Generic/Parameter delay_wrusedw
+			 		Generic/Parameter lpm_hint
+		Target view link candidate 2: work.dcfifo_Z3_layer1.verilog
+		==========================
+			 	The following Generics/Parameters in the Target view work.dcfifo_Z3_layer1.verilog do NOT exist in the Source View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box
+			 	====================================================
+			 		Generic/Parameter add_ram_output_register
+			 		Generic/Parameter add_usedw_msb_bit
+			 		Generic/Parameter clocks_are_synchronized
+			 		Generic/Parameter delay_rdusedw
+			 		Generic/Parameter delay_wrusedw
+			 		Generic/Parameter lpm_hint
+			 Generic/Parameter Value Mismatch between View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box and View work.dcfifo_Z3_layer1.verilog
+			 	Details:
+			 	========
+			 	Generic/Parameter lpm_widthu has value 8 in View altera_mf.dcfifo_work_ladder_fpga_ladder_fpga_arch_1.syn_black_box and value 5 in View work.dcfifo_Z3_layer1.verilog
+

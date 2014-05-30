@@ -1,0 +1,199 @@
+@P:  Part : ep3c16fc484-6
+@P:  Worst Slack : 2.903
+@P:  clock40mhz_fpga - Estimated Frequency : NA
+@P:  clock40mhz_fpga - Requested Frequency : 40.0 MHz
+@P:  clock40mhz_fpga - Estimated Period : NA
+@P:  clock40mhz_fpga - Requested Period : 25.000
+@P:  clock40mhz_fpga - Slack : NA
+@P:  clock40mhz_xtal - Estimated Frequency : NA
+@P:  clock40mhz_xtal - Requested Frequency : 40.0 MHz
+@P:  clock40mhz_xtal - Estimated Period : NA
+@P:  clock40mhz_xtal - Requested Period : 25.000
+@P:  clock40mhz_xtal - Slack : NA
+@P:  clockDR - Estimated Frequency : NA
+@P:  clockDR - Requested Frequency : 10.0 MHz
+@P:  clockDR - Estimated Period : NA
+@P:  clockDR - Requested Period : 100.000
+@P:  clockDR - Slack : NA
+@P:  clockIR - Estimated Frequency : NA
+@P:  clockIR - Requested Frequency : 10.0 MHz
+@P:  clockIR - Estimated Period : NA
+@P:  clockIR - Requested Period : 100.000
+@P:  clockIR - Slack : NA
+@P:  ladder_fpga_clock80MHz - Estimated Frequency : NA
+@P:  ladder_fpga_clock80MHz - Requested Frequency : 80.0 MHz
+@P:  ladder_fpga_clock80MHz - Estimated Period : NA
+@P:  ladder_fpga_clock80MHz - Requested Period : 12.500
+@P:  ladder_fpga_clock80MHz - Slack : NA
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Estimated Frequency : 387.6 MHz
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Requested Frequency : 10.0 MHz
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Estimated Period : 2.580
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Requested Period : 100.000
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Slack : NA
+@P:  ladder_fpga|holdin_echelle - Estimated Frequency : 648.1 MHz
+@P:  ladder_fpga|holdin_echelle - Requested Frequency : 1.0 MHz
+@P:  ladder_fpga|holdin_echelle - Estimated Period : 1.543
+@P:  ladder_fpga|holdin_echelle - Requested Period : 1000.000
+@P:  ladder_fpga|holdin_echelle - Slack : 998.457
+@P:  ladder_fpga|testin_echelle - Estimated Frequency : 648.1 MHz
+@P:  ladder_fpga|testin_echelle - Requested Frequency : 1.0 MHz
+@P:  ladder_fpga|testin_echelle - Estimated Period : 1.543
+@P:  ladder_fpga|testin_echelle - Requested Period : 1000.000
+@P:  ladder_fpga|testin_echelle - Slack : 998.457
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Estimated Frequency : 130.9 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Requested Frequency : 40.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Estimated Period : 7.641
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Requested Period : 25.000
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Slack : 4.340
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Estimated Frequency : 149.4 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Requested Frequency : 80.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Estimated Period : 6.694
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Requested Period : 12.500
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Slack : 2.903
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Estimated Frequency : 32.4 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Requested Frequency : 4.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Estimated Period : 30.820
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Requested Period : 250.000
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Slack : 10.959
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Estimated Frequency : 723.5 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Requested Frequency : 1.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Estimated Period : 1.382
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Requested Period : 1000.000
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Slack : 998.618
+@P:  sc_tck - Estimated Frequency : 132.6 MHz
+@P:  sc_tck - Requested Frequency : 10.0 MHz
+@P:  sc_tck - Estimated Period : 7.540
+@P:  sc_tck - Requested Period : 100.000
+@P:  sc_tck - Slack : 46.230
+@P:  switchover - Estimated Frequency : NA
+@P:  switchover - Requested Frequency : 40.0 MHz
+@P:  switchover - Estimated Period : NA
+@P:  switchover - Requested Period : 25.000
+@P:  switchover - Slack : NA
+@P:  tempclk4M - Estimated Frequency : NA
+@P:  tempclk4M - Requested Frequency : 4.0 MHz
+@P:  tempclk4M - Estimated Period : NA
+@P:  tempclk4M - Requested Period : 250.000
+@P:  tempclk4M - Slack : NA
+@P:  temperature - Estimated Frequency : NA
+@P:  temperature - Requested Frequency : 10.0 MHz
+@P:  temperature - Estimated Period : NA
+@P:  temperature - Requested Period : 100.000
+@P:  temperature - Slack : NA
+@P:  updateDR - Estimated Frequency : NA
+@P:  updateDR - Requested Frequency : 10.0 MHz
+@P:  updateDR - Estimated Period : NA
+@P:  updateDR - Requested Period : 100.000
+@P:  updateDR - Slack : NA
+@P:  updateIR - Estimated Frequency : NA
+@P:  updateIR - Requested Frequency : 10.0 MHz
+@P:  updateIR - Estimated Period : NA
+@P:  updateIR - Requested Period : 100.000
+@P:  updateIR - Slack : NA
+@P:  System - Estimated Frequency : 1.0 MHz
+@P:  System - Requested Frequency : 1.0 MHz
+@P:  System - Estimated Period : 977.810
+@P:  System - Requested Period : 1000.000
+@P:  System - Slack : 22.190
+@P:  Worst Slack(min analysis) : -0.461
+@P:  clock40mhz_fpga - Estimated Frequency(min analysis) : NA
+@P:  clock40mhz_fpga - Requested Frequency(min analysis) : 40.0 MHz
+@P:  clock40mhz_fpga - Estimated Period(min analysis) : NA
+@P:  clock40mhz_fpga - Requested Period(min analysis) : 25.000
+@P:  clock40mhz_fpga - Slack(min analysis) : NA
+@P:  clock40mhz_xtal - Estimated Frequency(min analysis) : NA
+@P:  clock40mhz_xtal - Requested Frequency(min analysis) : 40.0 MHz
+@P:  clock40mhz_xtal - Estimated Period(min analysis) : NA
+@P:  clock40mhz_xtal - Requested Period(min analysis) : 25.000
+@P:  clock40mhz_xtal - Slack(min analysis) : NA
+@P:  clockDR - Estimated Frequency(min analysis) : NA
+@P:  clockDR - Requested Frequency(min analysis) : 10.0 MHz
+@P:  clockDR - Estimated Period(min analysis) : NA
+@P:  clockDR - Requested Period(min analysis) : 100.000
+@P:  clockDR - Slack(min analysis) : NA
+@P:  clockIR - Estimated Frequency(min analysis) : NA
+@P:  clockIR - Requested Frequency(min analysis) : 10.0 MHz
+@P:  clockIR - Estimated Period(min analysis) : NA
+@P:  clockIR - Requested Period(min analysis) : 100.000
+@P:  clockIR - Slack(min analysis) : NA
+@P:  ladder_fpga_clock80MHz - Estimated Frequency(min analysis) : NA
+@P:  ladder_fpga_clock80MHz - Requested Frequency(min analysis) : 80.0 MHz
+@P:  ladder_fpga_clock80MHz - Estimated Period(min analysis) : NA
+@P:  ladder_fpga_clock80MHz - Requested Period(min analysis) : 12.500
+@P:  ladder_fpga_clock80MHz - Slack(min analysis) : NA
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Estimated Frequency(min analysis) : 387.6 MHz
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Requested Frequency(min analysis) : 10.0 MHz
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Estimated Period(min analysis) : 2.580
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Requested Period(min analysis) : 100.000
+@P:  ladder_fpga|COMP_LADDER_FPGA_SC_CONFIG.a_6_d_e.level_shifter_dac_load_derived_clock - Slack(min analysis) : NA
+@P:  ladder_fpga|holdin_echelle - Estimated Frequency(min analysis) : 648.1 MHz
+@P:  ladder_fpga|holdin_echelle - Requested Frequency(min analysis) : 1.0 MHz
+@P:  ladder_fpga|holdin_echelle - Estimated Period(min analysis) : 1.543
+@P:  ladder_fpga|holdin_echelle - Requested Period(min analysis) : 1000.000
+@P:  ladder_fpga|holdin_echelle - Slack(min analysis) : 998.457
+@P:  ladder_fpga|testin_echelle - Estimated Frequency(min analysis) : 648.1 MHz
+@P:  ladder_fpga|testin_echelle - Requested Frequency(min analysis) : 1.0 MHz
+@P:  ladder_fpga|testin_echelle - Estimated Period(min analysis) : 1.543
+@P:  ladder_fpga|testin_echelle - Requested Period(min analysis) : 1000.000
+@P:  ladder_fpga|testin_echelle - Slack(min analysis) : 998.457
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Estimated Frequency(min analysis) : 130.9 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Requested Frequency(min analysis) : 40.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Estimated Period(min analysis) : 7.641
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Requested Period(min analysis) : 25.000
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c0_derived_clock - Slack(min analysis) : 4.340
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Estimated Frequency(min analysis) : 149.4 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Requested Frequency(min analysis) : 80.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Estimated Period(min analysis) : 6.694
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Requested Period(min analysis) : 12.500
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c1_derived_clock - Slack(min analysis) : 2.903
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Estimated Frequency(min analysis) : 32.4 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Requested Frequency(min analysis) : 4.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Estimated Period(min analysis) : 30.820
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Requested Period(min analysis) : 250.000
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c2_derived_clock - Slack(min analysis) : 10.959
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Estimated Frequency(min analysis) : 723.5 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Requested Frequency(min analysis) : 1.0 MHz
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Estimated Period(min analysis) : 1.382
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Requested Period(min analysis) : 1000.000
+@P:  mega_func_pll_40MHz_switchover_cycloneIII|c3_derived_clock - Slack(min analysis) : 998.618
+@P:  sc_tck - Estimated Frequency(min analysis) : 132.6 MHz
+@P:  sc_tck - Requested Frequency(min analysis) : 10.0 MHz
+@P:  sc_tck - Estimated Period(min analysis) : 7.540
+@P:  sc_tck - Requested Period(min analysis) : 100.000
+@P:  sc_tck - Slack(min analysis) : 46.230
+@P:  switchover - Estimated Frequency(min analysis) : NA
+@P:  switchover - Requested Frequency(min analysis) : 40.0 MHz
+@P:  switchover - Estimated Period(min analysis) : NA
+@P:  switchover - Requested Period(min analysis) : 25.000
+@P:  switchover - Slack(min analysis) : NA
+@P:  tempclk4M - Estimated Frequency(min analysis) : NA
+@P:  tempclk4M - Requested Frequency(min analysis) : 4.0 MHz
+@P:  tempclk4M - Estimated Period(min analysis) : NA
+@P:  tempclk4M - Requested Period(min analysis) : 250.000
+@P:  tempclk4M - Slack(min analysis) : NA
+@P:  temperature - Estimated Frequency(min analysis) : NA
+@P:  temperature - Requested Frequency(min analysis) : 10.0 MHz
+@P:  temperature - Estimated Period(min analysis) : NA
+@P:  temperature - Requested Period(min analysis) : 100.000
+@P:  temperature - Slack(min analysis) : NA
+@P:  updateDR - Estimated Frequency(min analysis) : NA
+@P:  updateDR - Requested Frequency(min analysis) : 10.0 MHz
+@P:  updateDR - Estimated Period(min analysis) : NA
+@P:  updateDR - Requested Period(min analysis) : 100.000
+@P:  updateDR - Slack(min analysis) : NA
+@P:  updateIR - Estimated Frequency(min analysis) : NA
+@P:  updateIR - Requested Frequency(min analysis) : 10.0 MHz
+@P:  updateIR - Estimated Period(min analysis) : NA
+@P:  updateIR - Requested Period(min analysis) : 100.000
+@P:  updateIR - Slack(min analysis) : NA
+@P:  System - Estimated Frequency(min analysis) : 1.0 MHz
+@P:  System - Requested Frequency(min analysis) : 1.0 MHz
+@P:  System - Estimated Period(min analysis) : 1000.461
+@P:  System - Requested Period(min analysis) : 1000.000
+@P:  System - Slack(min analysis) : -0.461
+@P: ladder_fpga Part : ep3c16fc484-6
+@P: ladder_fpga I/O ATOMs : 78
+@P: ladder_fpga Total LUTs : 1178 
+@P: ladder_fpga Register bits : 1006
+@P: ladder_fpga DSP Blocks : 0 (0 nine-bit DSP elements)
+@P:  CPU Time : 0h:00m:16s

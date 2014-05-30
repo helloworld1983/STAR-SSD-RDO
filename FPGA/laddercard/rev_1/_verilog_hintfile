@@ -1,0 +1,541 @@
+%%% protect protected_file
+#OPTIONS:"|-bldtbl|-infer_seqShift|-primux|-fixsmult|-dspmac|-nram|-divnmod|-encrypt|-pro|-lite|-ll|2000|-ui|-fid2|-ram|-sharing|off|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\bin64\\c_vhdl.exe":1321461720
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\location.map":1321533992
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\std.vhd":1321461356
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\header_star_ssdU.vhd":1351687264
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\std1164.vhd":1321461356
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\arith.vhd":1321461356
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\unsigned.vhd":1321461356
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\br_cell_1clk.vhd":1351687260
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\signed.vhd":1321461356
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\dr_cell.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\mesure_temperature.vhd":1368550178
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\numeric.vhd":1321461356
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\comptage_temperature.vhd":1351687260
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\dr_cell_avec_pulse.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\mega_func_pll_40MHz_switchover_cycloneIII.vhd":1351687268
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\altera\\quartus_II81\\altera_mf.vhd":1321466904
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhdl_sim\\synplify.vhd":1321461356
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\synattr.vhd":1321467036
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\ir_5_bits.vhd":1351687264
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\ir_cell.vhd":1351687264
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\mux_2_1.vhd":1351687268
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\mux_tdo.vhd":1351687268
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\tap_control.vhd":1351687270
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\dr_x_bits.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\dr_x_bits_init.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\dr_x_bits_avec_pulse.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\identificateur_8bits.vhd":1351687264
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\filtre_latchup.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\memoire_latchup.vhd":1351687268
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\memoire_latchup_general.vhd":1351687268
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\memoire_tokenout_echelle.vhd":1351687268
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\signaux_hybrides.vhd":1351687270
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\gestion_hybrides_v4.vhd":1351687262
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\mega_func_fifo8x256_cycloneIII.vhd":1351687268
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\mega_func_fifo21x32_cycloneIII.vhd":1351687266
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\date_stamp.vhd":1368744412
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\ladder_fpga.vhd":1368744351
+#CUR:"D:\\renard\\star_upgrade\\doc_www\\ts\\ladder_fpga_v0d_20130514_ts\\ladder_fpga_v0d\\shiftreg.vhd":1351687270
+#CUR:"C:\\Synopsys\\fpga_F201109SP1\\lib\\vhd\\lpm.vhd":1321461356
+@E8lFkRDC#VEH0osC
+LDHs$NsRsIF	M
+HbRk0OODF	
+R4HkMb0MRCNCLDRH4
+M0bkRD#Os
+R4HkMb0ER#HHV0M
+R4Fbk0kJ0RR
+4jClM8FD8kCF
+l8CkDR8DN8_CsVNbo
+LDHs$NsRsIF	M
+HbRk0sCC#0R_M4M
+HbRk0O8Ns_s#C_lMkRHn
+M0FkROOs_sCsF4sR
+bHMkO0RD	FOcEjlxb_Vo4NR
+bHMkO0RD	FOcEjlx0_GN4DR
+0FkbRk0OODF	lUjENx_84OR
+0FkbRk0sFFLOODF	F_EsoDFC_cjb#ENC
+RcFbk0ks0RFOLFD	FO_ON8_NbE#UCR
+0FkbRk0N_8OOM#_RHU
+M0bkR08NNC_#sDHNR
+4nFbk0kD0RCDPC_H#EVs0C_O8N__D8OM#_RF4
+kk0b0CRDP_CD#VEH0_Cs8_NO#R8H4k
+F00bkRPDCC#D_E0HVC8s_N#O_O4	R
+0FkbRk0bFHD0CNo_olNME8_$HLs84CRnk
+F00bkRDbHFo0NCP_l8E8_$HLs84CRnM
+HbRk08_C#D	FORH4
+M0bkRFs8__0FD8N8C4sR4M
+HbRk0D8N8CNs_8R8sdM
+HbRk00CF	M_HMCCOEDRDC4M
+HbRk000C#HCM_ODECD4CR
+bHMkE0RFHD8MO_CEDCDC
+R4HkMb0NRD8s8C_oVbNO_#_	0ORH4
+M0bkR8DN8_CsVNbo__#O0Rl#4M
+HbRk0D8N8CVs_b_oN#0O_sL#0RH4
+M0bkR8DN8_CsVNbo__#O0R8H4M
+HbRk08_C#L0H#_#bN#
+R4Fbk0kD0RNC88sF_0_Fs8R
+..Fbk0kD0RNC88sb_Vo#N_O8_0F
+R4HkMb0HRVL_sCl_F8NCL#M40R
+FHMkV0RHCLs_8lF_D#ORH4
+M0FkRLVHslC_F#8_84NR
+bHMkV0RHCLs__sGD#F#RF4
+kk0b0HRVL_sC08G_HL#ND4CR
+bHMkV0RHCLs__0GVDNk0
+R4HkMb0NRD0kOEb$_EL8sHCnR4
+0FkbRk0l_kGs_CVDON0ERkb.k
+F00bkR#0C0n_4Es$LH#8CRF4
+kk0b0FRED48_nLE$sCH8#
+R4Fbk0kD0RNC88sb_VosN_O_D	4$nEL8sHC4#R
+0FkbRk00CF	M_HMEs$LHR8C4Hn
+M0bkR	0FCkMF0$_EL8sHCnR4
+FHMk00RCClbskN0s4CR
+0FkbRk0#0O_OE	_$HLs84CRnk
+F00bkR_#O0_l#Es$LHR8C4Fn
+kk0b0OR#_#0s0EL_$HLs84CRnk
+F00bkR_#O0_8HEs$LHR8C4Hn
+M0bkR_#O0_8FEs$LHR8C4Hn
+M0FkRLk#_08NN
+RUHkMb0#RkLs_bCM#C0
+R4HkMb0#RkLC_sN_8$M
+R4Fbk0kk0R#sL_C_N8M
+R4HkMF0#RkLC_s#_C0M
+R4HkMb0#RkLG_s_bCl04$R
+bHMkk0R#0L_Gk_VD4DR
+0FkbRk0k_#LI0sHC
+R4HkMb0CR8L_kob#sCC_M0M
+R4HkMb00RGNCD_M
+R4HkMb0OR#_s#C8_C#FOk_FCMMO
+R4HkMb0bRVo#N_CCs8#k_F_MOFMRCO4M
+HbRk0#sbNCI_#HE0ORF4
+kk0b0LR8oN_D8s8C_oVbN8_NOH_L0F_Ok_M0OH#_Mo0CCcsR
+0FkbRk08_LoD8N8CVs_b_oN#LO_$#bN#
+R4ClM8FD8kCF
+l8CkDRolCNk_VMVO_H.VF4.Gd_OO$DCFMQ
+QQDsHLNRs$I	Fs
+bHMkN0RORDs4M
+HbRk08NN0R
+.4HkMb08RsORD	4M
+HbRk0sC8sJ
+R4HkMb0sRIORD	4M
+HbRk0ICssJ
+R4Fbk0kJ0RR
+.4Fbk0ks0R8bCl04$R
+0FkbRk0IksVD4DR
+8CMlkF8DlC
+FD8kCCRloVN_k_MOVFHVU6G.n$_OOMDFCQQQ
+LDHs$NsRsIF	M
+HbRk0NsODRH4
+M0bkR08NN
+RUHkMb08RsORD	4M
+HbRk0sC8sJ
+R4HkMb0sRIORD	4M
+HbRk0ICssJ
+R4Fbk0kJ0RRFU
+kk0b08RsC0lb$
+R4Fbk0kI0RsDVkD
+R4ClM8FD8kCF
+l8CkDR#oC0MHF_LE$sCH8#c_P
+LDHs$NsRsIF	M
+HbRk0#OksFNksM40Rnk
+F00bkR0DNObEk_llCFCHsRF4
+kk0b0NRD0kOEbk_bDR#C4k
+F00bkRDbHFo0NCnR4
+bHMk00RO4	R
+bHMkC0RGM0HOF0HMnR4
+bHMks0RNkDDlCNoR
+4nHkMb0$RLb#N#_LE$sCH8R
+4nHkMb0FR0	HCMMO_CEDCDC
+R4Fbk0k00RFM	CH4MRnM
+HbRk00CF	M0FkR
+4nFbk0k00RFM	CF_k0lFClHRsC4Hn
+M0bkRH08_ECOCCDDRF4
+kk0b08R0HnR4
+bHMk00R84FRnk
+F00bkRF08_ECOCCDDRH4
+M0bkRlMk_LE$sCH8_M8N#0_[NcoR
+bHMk[0R0_NoNOPC_LE$sCH8RH4
+M0bkR8DN8_CsVNbo__#O0Rl#4k
+F00bkR_#O0_O	Es$LHR8C4Fn
+kk0b0OR#_#0l_LE$sCH8R
+4nFbk0k00R#o0_CH#0FEM_$HLs8RC#4Cn
+MF8l8CkD
+8lFkRDC#MHoN_kGEs$LH#8C
+LDHs$NsRsIF	M
+HbRk0LN$b#E#_$4LR
+bHMkb0RH0DFN_oCER$L4M
+HbRk00_8FbOsCCM8C0
+R4Fbk0k#0RO8_0H$_EL
+R4HkMb0OR#_F08_LE$RF4
+kk0b08R0Hk_#HMPN0
+R4HkMb0FR0	HCMM
+R4Fbk0k00RFM	CFRk04M
+HbRk0Es$LH_8C8#NM_N[0o
+R4HkMb0NRD8s8C_oVbNO_#_	0ORH4
+M0bkR8DN8_CsVNbo__#O0Rl#4k
+F00bkR_#O0_O	ER$L4k
+F00bkR_#O0_l#ER$L4k
+F00bkR	0FCMMH_LE$RH4
+M0bkR	0FCkMF0$_EL
+R4ClM8FD8kCF
+l8CkDRllCFCHs_	0FCkMm0O_CEDCDCH
+DLssN$FRIsH	
+M0bkR	0FCMMQ_ECOCCDDRH4
+M0bkR	0FCkMF0O_CEDCDCnR4
+0FkbRk0lFClH_sC0CF	M0FkR
+4nClM8FD8kCF
+l8CkDRllCFCHs_0DNObEk_MoCCDsN
+LDHs$NsRsIF	M
+HbRk0DON0E_kbMnR4
+bHMkC0RGM0HOF0HMnR4
+bHMks0RNkDDlCNoR
+4nFbk0kb0RH0DFN_oCMnR4
+8CMlkF8DlC
+FD8kCCRllsFHCN_D0kOEbH
+DLssN$FRIsH	
+M0bkR0DNObEk_4MR
+bHMkC0RGM0HOF0HM
+R4HkMb0NRsDlDkNRoC4k
+F00bkRDbHFo0NCR_M4M
+C88lFk
+DClkF8DVCRHsD0CN_D0kOEbH
+DLssN$FRIsH	
+M0bkRs#kOsFkN_M0MnR4
+bHMkb0RH0DFN_oCMnR4
+bHMk00RO4	R
+0FkbRk0DON0E_kbMnR4
+8CMlkF8DlC
+FD8kC8RHCHM0VNHO0sCk_HUL0D#
+HNLssI$RF
+s	HkMb0CRs#_C0LRNs4M
+HbRk0sCC#0N_PDRkC4M
+HbRk08NN0_RHMUM
+HbRk0OODF	R7)4M
+HbRk0#VEH0R7)4M
+HbRk0kNb80)C7RH4
+M0bkRN#OMM_HRF4
+kk0b0OR#NFM_k40R
+0FkbRk08NN0_0FkRCU
+MF8l8CkD
+8lFkRDC8Gs__0LH#P_NCbO_kCD#
+LDHs$NsRsIF	N
+bsCNl0RCs0DNHDHCRMo0CCHs
+M0bkR#sCCL0_N-sR4M
+HbRk0sCC#0N_PDRkC-H4
+M0bkR08NNM_HR
+-4HkMb0DROF7O	)4R-
+bHMk#0RE0HV7-)R4M
+HbRk0kNb80)C7R
+-4HkMb0OR#NHM_M4R-
+0FkbRk0#MON_0FkR
+-4Fbk0k80RN_0NFRk0-F4
+kk0b0kRbD_#CFRk0-C4
+MF8l8CkD
+8lFkRDC8Gs__0LH#M_HHD0
+HNLssI$RF
+s	bNNslCC0sNR0HCDDR0HMCsoC
+bHMks0RC0#C_sLNR
+-4HkMb0CRs#_C0PkNDC-#R4M
+HbRk08NN0_RHM-H4
+M0bkRFODO)	7R
+-4HkMb0ER#H7V0)4R-
+bHMkk0Rb08NCR7)-H4
+M0bkRN#OMM_HR
+-4Fbk0k#0RO_NMFRk0-F4
+kk0b0NR80FN_k-0R4M
+C88lFk
+DClkF8D8CRs__GL#H0
+LDHs$NsRsIF	N
+bsCNl0RCs0DNHDHCRMo0CCHs
+M0bkR#sCCL0_N-sR4M
+HbRk0sCC#0N_PDRkC-H4
+M0bkR08NNM_HR
+-4HkMb0DROF7O	)4R-
+bHMk#0RE0HV7-)R4M
+HbRk0kNb80)C7R
+-4HkMb0OR#NHM_M4R-
+0FkbRk0#MON_0FkR
+-4Fbk0k80RN_0NFRk0-C4
+MF8l8CkD
+8lFkRDC0_NbO0FMs
+FDDsHLNRs$I	Fs
+bHMk00Rl4#R
+bHMk00RO4	R
+bHMk00RsL#0RF4
+kk0b0CRs#_C0LRNs4k
+F00bkRNCMLRDC4k
+F00bkRH#EV)0QRF4
+kk0b0DROFQO	)
+R4Fbk0kk0Rb08NCRQ)4k
+F00bkRH#EV)07RF4
+kk0b0DROF7O	)
+R4Fbk0k#0ROb_k8CN07j)_GRjj4k
+F00bkR_#OkNb80)C7_jjG4
+R4Fbk0k#0ROb_k8CN07j)_GRj.4k
+F00bkR_#OkNb80)C7_jjGd
+R4Fbk0k#0ROb_k8CN07j)_GRjc4k
+F00bkR_#OkNb80)C7_jjG6
+R4Fbk0k#0ROb_k8CN07j)_GRjn4k
+F00bkR_#OkNb80)C7_jjG(
+R4Fbk0k#0ROb_k8CN07j)_GRjU4k
+F00bkR_#OkNb80)C7_jjGg
+R4Fbk0k#0ROb_k8CN07j)_GRjN4k
+F00bkR_#OkNb80)C7_jjGL
+R4Fbk0k#0ROb_k8CN07j)_GRjO4k
+F00bkR_#OkNb80)C7_jjG8
+R4Fbk0k#0ROb_k8CN07j)_GRjC4k
+F00bkR_#OkNb80)C7_jjGV
+R4Fbk0k#0ROb_k8CN07j)_GR4j4k
+F00bkR_#OkNb80)C7_4jG4
+R4Fbk0k#0ROb_k8CN07j)_GR4.4k
+F00bkR_#OkNb80)C7_4jGd
+R4Fbk0k#0ROb_k8CN07j)_GR4c4k
+F00bkR_#OkNb80)C7_4jG6
+R4Fbk0k#0ROb_k8CN07j)_GR4n4k
+F00bkR_#OkNb80)C7_4jG(
+R4Fbk0k#0ROb_k8CN07j)_GR4U4k
+F00bkR_#OkNb80)C7_4jGg
+R4Fbk0k#0ROb_k8CN07j)_GR4N4k
+F00bkR_#OkNb80)C7_4jGL
+R4Fbk0k#0ROb_k8CN07j)_GR4O4k
+F00bkR_#OkNb80)C7_4jG8
+R4Fbk0k#0ROb_k8CN07j)_GR4C4k
+F00bkR_#OkNb80)C7_bL$NR##4k
+F00bkRo8L_NC00s_bCM#C0nR4
+bHMkQ0RMs#0kHO0F)M_C#oH0RCs6M
+C88lFk
+DClkF8DlCRk0G_8DF
+HNLssI$RF
+s	HkMb0MRC0CsC_jjGj
+R4HkMb0MRC0CsC_jjG4
+R4HkMb0MRC0CsC_jjG.
+R4HkMb0MRC0CsC_jjGd
+R4HkMb0MRC0CsC_jjGc
+R4HkMb0MRC0CsC_jjG6
+R4HkMb0MRC0CsC_jjGn
+R4HkMb0MRC0CsC_jjG(
+R4HkMb0MRC0CsC_jjGU
+R4HkMb0MRC0CsC_jjGg
+R4HkMb0MRC0CsC_jjGN
+R4HkMb0MRC0CsC_jjGL
+R4HkMb0MRC0CsC_jjGO
+R4HkMb0MRC0CsC_jjG8
+R4HkMb0MRC0CsC_jjGC
+R4HkMb0MRC0CsC_jjGV
+R4HkMb0MRC0CsC_4jGj
+R4HkMb0MRC0CsC_4jG4
+R4HkMb0MRC0CsC_4jG.
+R4HkMb0MRC0CsC_4jGd
+R4HkMb0MRC0CsC_4jGc
+R4HkMb0MRC0CsC_4jG6
+R4HkMb0MRC0CsC_4jGn
+R4HkMb0MRC0CsC_4jG(
+R4HkMb0MRC0CsC_4jGU
+R4HkMb0MRC0CsC_4jGg
+R4HkMb0MRC0CsC_4jGN
+R4HkMb0MRC0CsC_4jGL
+R4HkMb0MRC0CsC_4jGO
+R4HkMb0MRC0CsC_4jG8
+R4HkMb0MRC0CsC_4jGC
+R4HkMb0MRC0CsC_bL$NR##4M
+HbRk0H8s_N_0NFRk06k
+F00bkR_8s#MON_0FkRC4
+MF8l8CkD
+8lFkRDCl_kG.
+_4DsHLNRs$I	Fs
+bHMkN0RRH4
+M0bkR4LR
+bHMko0R4
+R4Fbk0kx0RRC4
+MF8l8CkD
+8lFkRDCHOs_C
+DDDsHLNRs$I	Fs
+bHMks0RC0#C_sLNRH4
+M0bkR#sCCP0_NCDkRH4
+M0bkR08NNM_HRH4
+M0bkRFODO)	QRH4
+M0bkRH#EV)0QRH4
+M0bkR8kbNQ0C)
+R4HkMb0OR#NHM_M
+R4Fbk0k#0RO_NMFRk04k
+F00bkR08NNk_F0
+R4ClM8FD8kCF
+l8CkDR_Hs6H_L0D#
+HNLssI$RF
+s	HkMb0CRs#_C0LRNs4M
+HbRk08NN0_RHM6M
+HbRk0OODF	RQ)4M
+HbRk0#VEH0RQ)4M
+HbRk0kNb80)CQRH4
+M0bkRN#OMM_HRF4
+kk0b0OR#NFM_k40R
+0FkbRk08NN0_0FkRC6
+MF8l8CkD
+8lFkRDClNCo_MVkOD_bDj_cv_]x#0IHOPEFCOs_$FODMQCQQH
+DLssN$FRIsH	
+M0bkRCNs#RC04M
+HbRk0O#D	IOH0E
+R4HkMb0MRHOjD	RH4
+M0bkROHMDR	44k
+F00bkR0NOHOPCD	FORF4
+kk0b0jRORF4
+kk0b04RORF4
+kk0b0.RORF4
+kk0b0dRORF4
+kk0b0DRO	8LNj
+R4Fbk0kO0RDN	L844R
+0FkbRk0D	FOC48R
+8CMlkF8DlC
+FD8kCsRbHsl_N
+l8DsHLNRs$#b$MD$HV
+sbNN0lCC8sRN_0NI0H8EMRH0CCosN
+bsCNl0RCsNs88_8IH0HERMo0CCFs
+kk0b0FR8k-0R4M
+HbRk0N0FkR
+-4HkMb0HR8M4R-
+bHMkN0RH-MR4M
+HbRk0I-CR4M
+HbRk0ORD	-C4
+MF8l8CkD
+8lFkRDC#b$MD$HV3HbslN_slb8
+NlsNCs0CR08NNH_I8R0EHCM0o
+CsbNNslCC0s8RN8Is_HE80R0HMCsoC
+0FkbRk080FkR
+-4HkMb0FRNk-0R4M
+HbRk08RHM-H4
+M0bkRMNHR
+-4HkMb0CRIR
+-4HkMb0DRO	4R-
+8CMlkF8DlC
+FD8kCCRZsEFmlD4
+HNLss#$R$DMbH
+V$HkMF0RRq4M
+HFRk0A
+R4ClM8FD8kCF
+l8CkDRM#$bVDH$C3ZsEFmlH4
+M0FkR4qR
+FHMkA0RRC4
+MF8l8CkD
+8lFkRDCblsH_0DNODE
+HNLss#$R$DMbH
+V$Fbk0kJ0RRH4
+M0bkR48R
+bHMkO0RD4	R
+bHMks0RRH4
+M0bkR4#R
+8CMlkF8DlC
+FD8kC$R#MHbDVb$3s_HlDON0Ek
+F00bkR4JR
+bHMk80RRH4
+M0bkR	ODRH4
+M0bkR4sR
+bHMk#0RRC4
+MF8l8CkD
+8lFkRDCblsH_V#8VH
+DLssN$$R#MHbDVF$
+kk0b0RRJ4M
+HbRk08
+R4HkMb0RRO4M
+HbRk0s
+R4HkMb0RR#4M
+C88lFk
+DClkF8D#CR$DMbH3V$blsH_V#8Vk
+F00bkR4JR
+bHMk80RRH4
+M0bkR4OR
+bHMks0RRH4
+M0bkR4#R
+8CMlkF8DlC
+FD8kCsRbH8l_VDV
+HNLss#$R$DMbH
+V$Fbk0kJ0RRH4
+M0bkR48R
+bHMkO0RD4	R
+bHMks0RRH4
+M0bkR4#R
+8CMlkF8DlC
+FD8kC$R#MHbDVb$3s_Hl8
+VVFbk0kJ0RRH4
+M0bkR48R
+bHMkO0RD4	R
+bHMks0RRH4
+M0bkR4#R
+8CMlkF8DlC
+FD8kCsRbHOl_F0kMCDs
+HNLss#$R$DMbH
+V$bNNslCC0sRRIHCM0o
+CsHkMF0RRJ-F4
+kk0b0FROk-0R4M
+HbRk084R-
+bHMkO0RH-MR4M
+HbRk0ORD	-H4
+M0bkR0s#R
+-4HkMb0FRDN-8R4M
+HbRk0C-MR4M
+HbRk0kMb8R
+-4ClM8FD8kCF
+l8CkDRM#$bVDH$s3bHOl_F0kMCbs
+NlsNCs0CRHIRMo0CCHs
+M0FkR-JR4k
+F00bkRkOF04R-
+bHMk80RR
+-4HkMb0HROM4R-
+bHMkO0RD-	R4M
+HbRk0sR#0-H4
+M0bkRNDF84R-
+bHMkC0RM4R-
+bHMkk0RbR8M-C4
+MF8l8CkD
+8lFkRDC8Os_C_DDNOPC_Dbk#DC
+HNLssI$RF
+s	HkMb0CRs#_C0LRNs4M
+HbRk0sCC#0N_PDRkC4M
+HbRk08NN0_RHM4M
+HbRk0OODF	R7)4M
+HbRk0#VEH0R7)4M
+HbRk0kNb80)C7RH4
+M0bkRN#OMM_HRF4
+kk0b0OR#NFM_k40R
+0FkbRk08NN0_0FkRF4
+kk0b0kRbD_#CFRk04M
+C88lFk
+DClkF8DOCRF0lbN_oC0bClC0sNk
+sCDsHLNRs$I	Fs
+bHMkO0RD8	_CCosRH4
+M0bkR#sCC40R
+bHMk#0RHNoMDC_0l4bR
+bHMkC0RMDNLC
+R4Fbk0kP0RNkDCs.R4
+8CMlkF8DlC
+FD8kCCRl#Cks_l0CbNCs0Cks
+LDHs$NsRsIF	M
+HbRk0sCC#0$_##
+R4HkMb0DROFcO	l_ExVNboRH4
+M0bkRl0CbNCs0Cks_RHM4k
+F00bkRl0CbNCs0Cks_0FkRF4
+kk0b0MRC8V_F_l0CbF_OM4PR
+0FkbRk00bClC0sNk_sCPkNDCURc
+8CMlkF8DlC
+FD8kCsR8_DOCDH
+DLssN$FRIsH	
+M0bkR#sCCL0_N4sR
+bHMks0RC0#C_DPNk4CR
+bHMk80RN_0NH4MR
+bHMkO0RD	FO74)R
+bHMk#0RE0HV74)R
+bHMkk0Rb08NCR7)4M
+HbRk0#MON_RHM4k
+F00bkRN#OMk_F0
+R4Fbk0k80RN_0NFRk04M
+C88lFk
+DClkF8DLCRsC_OD4D_O
+D	DsHLNRs$I	Fs
+bHMks0RC0#C_sLNRH4
+M0bkRFODO)	7RH4
+M0bkRH#EV)07RH4
+M0bkRN#OMM_HRF4
+kk0b0LR8oV_V4
+R4Fbk0k#0RO_NMFRk04M
+C88lFk
+DC

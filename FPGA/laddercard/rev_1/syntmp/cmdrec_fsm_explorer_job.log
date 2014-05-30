@@ -1,0 +1,18 @@
+C:\Synopsys\fpga_F201109SP1\bin64\m_altera.exe  -prodtype synplify_pro -encrypt  -pro  -rundir  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1  -part EP3C16FC484-6   -maxfan 30       -fixgatedclocks 3 -fixgeneratedclocks 3 -syn_altera_model on   -reporting_ctd 0   -ovhdl "ladder_fpga.vhm" -resolveMultipleDriver -summaryfile D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\synlog\report\ladder_fpga_fsm_explorer_job.xml -top_level_module  ladder_fpga  -map -ta_num_paths 10  -ta_num_points 10  -vqm41  -ovqm  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.vqm  -autoconstraint  -freq 1.000  -tcl  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.sdc  -tcl  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\pin_assign.sdc  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.srs  -fsm_explorer  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga_fsm.sdc  -devicelib  C:\Synopsys\fpga_F201109SP1\lib\altera\altera.v  -devicelib  C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\cycloneiii.v  -devicelib  C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_mf.v  -devicelib  C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_lpm.v  -devicelib  C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_primitives.v  -ena_vif  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\verif\ladder_fpga.vif  -ologparam  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\syntmp\ladder_fpga.plg  -osyn  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.srm  -prjdir  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\  -prjname  ladder_fpga  -loga  D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.srr 
+rc:0 success:1
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.vqm|o|1368744377|1312690
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\ladder_fpga.sdc|i|1351687264|9957
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\pin_assign.sdc|i|1351687296|21122
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.srs|i|1368744421|488185
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga_fsm.sdc|o|1368744433|0
+C:\Synopsys\fpga_F201109SP1\lib\altera\altera.v|i|1321466846|799
+C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\cycloneiii.v|i|1321466902|30740
+C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_mf.v|i|1321466902|196730
+C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_lpm.v|i|1321466902|14912
+C:\Synopsys\fpga_F201109SP1\lib\altera\quartus_II101\altera_primitives.v|i|1321466902|8315
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\verif\ladder_fpga.vif|o|1368744433|2639
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\syntmp\ladder_fpga.plg|o|1368744433|27
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.srm|o|1368744375|2824809
+D:\renard\star_upgrade\doc_www\ts\ladder_fpga_v0d_20130514_ts\ladder_fpga_v0d\rev_1\ladder_fpga.srr|o|1368744433|265133
+C:\Synopsys\fpga_F201109SP1\bin64\m_altera.exe|i|1321469864|19840512
+C:\Synopsys\fpga_F201109SP1\bin\m_altera.exe|i|1321468812|14123008

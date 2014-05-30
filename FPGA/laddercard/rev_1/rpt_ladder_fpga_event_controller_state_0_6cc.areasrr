@@ -1,0 +1,62 @@
+#### START OF AREA REPORT #####[
+
+Part:			EP3C16FC484-6 (Altera)
+
+--------------------------------------------------------------------------------------------------------
+########   Utilization report for  Top level view:   ladder_fpga_event_controller_state_0_6cc   ########
+========================================================================================================
+
+SEQUENTIAL ATOMS
+****************
+
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     7                  100 %                
+======================================================
+Total SEQUENTIAL ATOMS in the block ladder_fpga_event_controller_state_0_6cc:	7 (12.50 % Utilization)
+
+
+COMBINATIONAL ATOMS
+*******************
+
+Name                Total elements     Utilization     Notes
+------------------------------------------------------------
+ATOMS               48                 100 %                
+ARITHMETIC MODE     0                  0.0 %                
+============================================================
+Total COMBINATIONAL ATOMS in the block ladder_fpga_event_controller_state_0_6cc:	48 (85.71 % Utilization)
+
+
+RAMS
+****
+
+Name          Total elements     Number of bits     Utilization     Notes
+-------------------------------------------------------------------------
+SYNC RAMS     0                  0                  0.0 %                
+LPMs          0                  0                  0.0 %                
+=========================================================================
+Total RAMS in the block ladder_fpga_event_controller_state_0_6cc:	0 (0.00 % Utilization)
+
+
+DSPs
+****
+
+Name     Total elements     Utilization     Notes
+-------------------------------------------------
+MACs     0                  0.0 %                
+=================================================
+Total DSPs in the block ladder_fpga_event_controller_state_0_6cc:	0 (0.00 % Utilization)
+
+
+Black Boxes
+***********
+
+Name            Total elements     Utilization     Notes
+--------------------------------------------------------
+BLACK BOXES     0                  0.0 %                
+========================================================
+Total Black Boxes in the block ladder_fpga_event_controller_state_0_6cc:	0 (0.00 % Utilization)
+
+
+##### END OF AREA REPORT #####]
+

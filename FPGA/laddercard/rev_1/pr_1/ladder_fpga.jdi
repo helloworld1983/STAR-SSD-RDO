@@ -1,0 +1,7 @@
+<sld_project_info>
+  <file_info>
+    <file checksum="0x002045E9" device="EP3C16F484C6" path="ladder_fpga.sof" usercode="0x25072011"/>
+  </file_info>
+  <hub_info ir_width="0" node_count="0"/>
+  <node_info/>
+</sld_project_info>

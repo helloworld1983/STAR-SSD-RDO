@@ -1,0 +1,104 @@
+Archive Project report for ladder_fpga
+Wed Aug 10 13:06:43 2011
+Quartus II Version 10.1 Build 197 01/19/2011 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Wed Aug 10 13:06:43 2011 ;
+; Revision Name          ; ladder_fpga                           ;
+; Top-level Entity Name  ; ladder_fpga                           ;
+; Family                 ; Cyclone III                           ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Source control' contains:
+    Info: Project source and settings files
+    Info: Automatically detected source files
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive 'C:/SSD upgrade/analog tests/rev_1/pr_1/ladder_fpga.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'ladder_fpga.archive.rpt'
+Info: Evaluation of Tcl script c:/altera/10.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus II Shell was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 158 megabytes
+    Info: Processing ended: Wed Aug 10 13:06:43 2011
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++-------------------------------------------------------------------+
+; Files Archived                                                    ;
++-------------------------------------------------------------------+
+; File Name                                                         ;
++-------------------------------------------------------------------+
+; ../../../QRDO slave fpga/negate.cmp                               ;
+; ../../../QRDO slave fpga/negate.qip                               ;
+; ../../../QRDO slave fpga/negate.vhd                               ;
+; ../../../QRDO slave fpga/negate_inst.vhd                          ;
+; ../../../QRDO slave fpga/negate_syn.v                             ;
+; c:/altera/10.1/quartus/bin/assignment_defaults.qdf                ;
+; C:/SSD upgrade/analog tests/ladder_fpga.sdc                       ;
+; C:/SSD upgrade/analog tests/rev_1/pr_1/ladder_fpga.dpf            ;
+; C:/SSD upgrade/ladder code v09/rev_1/pr_1/ladder_fpga.dpf         ;
+; C:/SSD upgrade/ladder code v09/rev_1/pr_1/ladder_fpga.tcl         ;
+; C:/SSD upgrade/ladder code v09/rev_1/pr_1/ladder_fpga_cons.tcl    ;
+; C:/SSD upgrade/ladder code v09/rev_1/pr_1/ladder_fpga_rm.tcl      ;
+; C:/SSD upgrade/ladder code v09/rev_1/pr_1/ladder_fpga_rm_prev.tcl ;
+; C:/SSD upgrade/ladder code v09/rev_1/pr_1/pin_assign.sdc          ;
+; C:/SSD upgrade/QRDO slave fpga/altera_options_file.tcl            ;
+; C:/SSD upgrade/QRDO slave fpga/altera_simulations_par.tcl         ;
+; C:/SSD upgrade/QRDO slave fpga/date_stamp_gen.tcl                 ;
+; C:/SSD upgrade/QRDO slave fpga/slave_rdo_fpga.tcl                 ;
+; fifo8_copy.cmp                                                    ;
+; fifo8_copy.qip                                                    ;
+; fifo8_copy.vhd                                                    ;
+; fifo8_copy_syn.v                                                  ;
+; incremental_db/compiled_partitions/ladder_fpga.db_info            ;
+; ladder_fpga.qpf                                                   ;
+; ladder_fpga.qsf                                                   ;
+; ladder_fpga.scf                                                   ;
+; ladder_fpga.tcl                                                   ;
+; ladder_fpga.vqm                                                   ;
+; ladder_fpga_cons.tcl                                              ;
+; ladder_fpga_rm.tcl                                                ;
+; ladder_fpga_rm_prev.tcl                                           ;
+; pin_assign.sdc                                                    ;
++-------------------------------------------------------------------+
+
+
